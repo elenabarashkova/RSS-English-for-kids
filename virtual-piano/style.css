@@ -147,6 +147,15 @@ body {
   display: none;
   content: attr(data-letter);
 }
+
+.show-letters .piano-key::after {
+  display: block;
+}
+.show-letters .piano-key::before {
+  display: none;
+}
+
+
 .piano-key:hover::before,
 .piano-key:hover::after {
   color: #CBD5DE;

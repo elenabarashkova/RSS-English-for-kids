@@ -33,3 +33,21 @@ document.addEventListener('keyup', function(event) {
 
 });
 
+
+let tabBtnWrap = document.querySelector('.btn-container');
+
+tabBtnWrap.onclick = function(event) {
+    let btnActive = document.querySelector('.btn.btn-active');
+    if(!event.target.classList.contains("btn-active")) {
+        btnActive.classList.remove("btn-active");
+        event.target.classList.add("btn-active");
+    }
+    if(document.querySelector('.btn-notes.btn-active') !== null) {
+        document.querySelector('.piano').classList.add("show-notes");
+        document.querySelector('.piano').classList.remove("show-letters");
+    } else if(document.querySelector('.btn-letters.btn-active') !== null) {
+        document.querySelector('.piano').classList.add("show-letters");
+        document.querySelector('.piano').classList.remove("show-notes");
+    }
+};
+
