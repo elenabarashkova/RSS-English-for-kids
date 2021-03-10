@@ -1,35 +1,56 @@
+//снять active класс на mouse up не только над target
 
 function playAudio(audio) {
     audio.currentTime = 0;
     audio.play();
 }
 
-document.getElementById('piano').addEventListener( 'mousedown', function (event) {
+function addActive(pianoKey) {
+    pianoKey.classList.add("piano-key-active");
+}
+
+function removeActive(pianoKey) {
+    pianoKey.classList.remove("piano-key-active");
+}
+
+function playNote(note) {
+    playAudio(document.querySelector(`audio[data-note="${note}"]`));
+}
+
+function mouseEventsAdd(event) {
     let note = event.target.dataset.note;
-    if (note) {
-        event.target.classList.add("piano-key-active");
-        playAudio(document.querySelector(`audio[data-note="${note}"]`));
+    if (note !== null) {
+        addActive(event.target);
+        playNote(note);
     }
-});
+}
+
+document.getElementById('piano').addEventListener('mousedown', mouseEventsAdd);
+
 
 document.getElementById('piano').addEventListener( 'mouseup', function (event) {
+    removeActive(event.target);
+});
 
-        event.target.classList.remove("piano-key-active");
+document.getElementById('piano').addEventListener('mousedown', mouseEventsAdd);
 
+
+document.getElementById('piano').addEventListener( 'mouseup', function (event) {
+    removeActive(event.target);
 });
 
 document.addEventListener('keydown', function(event) {
     let pushCode = event.code[3];
     let pushPianoKey = document.querySelector(`.piano-key[data-letter="${pushCode}"]`);
     if(pushPianoKey) {
-        pushPianoKey.classList.add("piano-key-active");
+        addActive(pushPianoKey);
         let note = pushPianoKey.dataset.note;
-        playAudio(document.querySelector(`audio[data-note="${note}"]`));
+        playNote(note);
     }
 });
 
 document.addEventListener('keyup', function(event) {
-    document.querySelector(`.piano-key[data-letter="${event.code[3]}"]`).classList.remove("piano-key-active");
+    removeActive(document.querySelector(`.piano-key[data-letter="${event.code[3]}"]`));
 
 });
 
@@ -37,17 +58,17 @@ document.addEventListener('keyup', function(event) {
 let tabBtnWrap = document.querySelector('.btn-container');
 
 tabBtnWrap.onclick = function(event) {
-    let btnActive = document.querySelector('.btn.btn-active');
     if(!event.target.classList.contains("btn-active")) {
-        btnActive.classList.remove("btn-active");
+        document.querySelector('.btn.btn-active').classList.remove("btn-active");
         event.target.classList.add("btn-active");
     }
+    const pianoClassList = document.querySelector('.piano').classList;
     if(document.querySelector('.btn-notes.btn-active') !== null) {
-        document.querySelector('.piano').classList.add("show-notes");
-        document.querySelector('.piano').classList.remove("show-letters");
+        pianoClassList.add("show-notes");
+        pianoClassList.remove("show-letters");
     } else if(document.querySelector('.btn-letters.btn-active') !== null) {
-        document.querySelector('.piano').classList.add("show-letters");
-        document.querySelector('.piano').classList.remove("show-notes");
+        pianoClassList.add("show-letters");
+        pianoClassList.remove("show-notes");
     }
 };
 
