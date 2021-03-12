@@ -1,5 +1,7 @@
 //снять active класс на mouse up не только над target
 
+let isMousedown;
+
 function playAudio(audio) {
     audio.currentTime = 0;
     audio.play();
@@ -10,7 +12,9 @@ function addActive(pianoKey) {
 }
 
 function removeActive(pianoKey) {
-    pianoKey.classList.remove("piano-key-active");
+    if(pianoKey) {
+        pianoKey.classList.remove("piano-key-active");
+    }
 }
 
 function playNote(note) {
@@ -18,8 +22,9 @@ function playNote(note) {
 }
 
 function mouseEventsAdd(event) {
+    isMousedown = true;
     let note = event.target.dataset.note;
-    if (note !== null) {
+    if (note) {
         addActive(event.target);
         playNote(note);
     }
@@ -28,24 +33,31 @@ function mouseEventsAdd(event) {
 document.getElementById('piano').addEventListener('mousedown', mouseEventsAdd);
 
 
-document.getElementById('piano').addEventListener( 'mouseup', function (event) {
-    removeActive(event.target);
+document.addEventListener( 'mouseup', function (event) {
+    if(isMousedown) {
+        isMousedown = false;
+        removeActive(document.querySelector(".piano-key-active"));
+    }
 });
 
-document.getElementById('piano').addEventListener('mousedown', mouseEventsAdd);
+document.getElementById('piano').addEventListener('mouseover', function (event) {
+    if(isMousedown) {
+        mouseEventsAdd(event);
+    }
+});
 
-
-document.getElementById('piano').addEventListener( 'mouseup', function (event) {
+document.addEventListener( 'mouseout', function (event) {
     removeActive(event.target);
 });
 
 document.addEventListener('keydown', function(event) {
     let pushCode = event.code[3];
     let pushPianoKey = document.querySelector(`.piano-key[data-letter="${pushCode}"]`);
-    if(pushPianoKey) {
+    if(pushPianoKey && !event.repeat) {
         addActive(pushPianoKey);
         let note = pushPianoKey.dataset.note;
         playNote(note);
+
     }
 });
 
