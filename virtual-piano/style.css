@@ -12,7 +12,7 @@ html {
 }
 body {
   min-height: 100vh;
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
   background: #313940;
   overflow-x: hidden;
 }
@@ -29,15 +29,15 @@ body {
   color: #fff;
 }
 .main {
-  min-height: calc(100vh - 110px);
-  padding: 60px 10px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  max-width: 1140px;
-  margin: 0 auto;
+	min-height: calc(100vh - 110px);
+	padding: 60px 10px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	max-width: 1140px;
+	margin: 0 auto;
 }
 .btn-container {
   display: flex;
@@ -48,19 +48,19 @@ body {
   margin-bottom: 80px;
 }
 .btn {
-  width: 150px;
-  height: 40px;
-  padding: 0 10px;
-  background-color: #454c53;
-  border: 0;
-  border-radius: 2px;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  color: #fff;
-  outline: 0;
-  cursor: pointer;
-  transition: 0.3s;
+	width: 150px;
+	height: 40px;
+	padding: 0 10px;
+	background-color: #454c53;
+	border: 0;
+	border-radius: 2px;
+	font-family: "Open Sans", sans-serif;
+	font-size: 16px;
+	font-weight: 300;
+	color: #fff;
+	outline: 0;
+	cursor: pointer;
+	transition: 0.3s;
 }
 .btn:not(.btn-active):hover {
   background-color: #515961; 
@@ -108,14 +108,15 @@ body {
   pointer-events: none;
 }
 .piano-key.sharp {
-  width: 54px;
-  height: 170px;
-  background-color: #313940;
-  border: 0;
-  border-radius: 0 0 9px 9px;
-  top: 1px;
-  z-index: 3;
-  pointer-events: auto;
+	width: 54px;
+	height: 170px;
+	background-color: #313940;
+	border: 0;
+	border-radius: 0px 0px 9px 9px;
+	top: 0;
+	z-index: 3;
+	pointer-events: auto;
+	transform-origin: center top;
 }
 .piano-key.sharp:hover {
   background-color: #4c555d;
@@ -160,11 +161,14 @@ body {
 
 .piano-key:hover::before,
 .piano-key:hover::after {
-  color: #CBD5DE;
+	color: #d7dfe6;
 }
 .piano-key:active::before,
 .piano-key:active::after {
   color: #fff;
+}
+.sharp:active {
+    border-top: 0;
 }
 .piano-key.sharp::before,
 .piano-key.sharp::after {
@@ -177,19 +181,34 @@ body {
 .piano-key.letter::after {
   display: block;
 }
+.piano-key-letter::before {
+	content: attr(data-letter);
+}
+
+.piano-key-remove-mouse:active::before {
+	color: #a2abb3;
+}
+
+.piano-key-active-pseudo:hover::after,
+.piano-key-active-pseudo:hover::before,
+.piano-key-active::after,
+.piano-key-active::before {
+	color: #00b4a4;
+}
+
 .fullscreen {
-  position: fixed;
-  top: 120px;
-  right: 40px;
-  width: 40px;
-  height: 40px;
-  background-color: rgba(255, 255, 255, 0.3);
-  border: 0;
-  outline: 0;
-  background-size: contain;
-  transition: 0.3s;
-  cursor: pointer;
-  background-image: url('assets/svg/fullscreen-open.svg');
+	position: fixed;
+	top: 120px;
+	right: 40px;
+	width: 40px;
+	height: 40px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border: 0;
+	outline: 0;
+	background-size: contain;
+	transition: 0.3s;
+	cursor: pointer;
+	background-image: url("assets/svg/fullscreen-open.svg");
 }
 .fullscreen:hover {
   background-color: rgba(255, 255, 255, 0.5);
@@ -212,34 +231,34 @@ body {
   margin: 0 auto;
 }
 .github {
-  display: block;
-  width: 120px;
-  height: 45px;
-  padding-left: 45px;
-  background-image: url('assets/svg/github.svg');
-  background-size: 35px;
-  background-repeat: no-repeat;
-  background-position: left center;
-  line-height: 45px;
-  color: #cbd5de;
-  font-size: 16px;
-  font-family: 'Open Sans', sans-serif;
-  transition: 0.3s;
+	display: block;
+	width: 120px;
+	height: 45px;
+	padding-left: 45px;
+	background-image: url("assets/svg/github.svg");
+	background-size: 35px;
+	background-repeat: no-repeat;
+	background-position: left center;
+	line-height: 45px;
+	color: #cbd5de;
+	font-size: 16px;
+	font-family: "Open Sans", sans-serif;
+	transition: 0.3s;
 }
 .github:hover {
   color: #fff;
 }
 .rss {
-  display: block;
-  position: relative;
-  font-family: 'Open Sans', sans-serif;
-  width: 120px;
-  height: 35px;
-  background-image: url('assets/svg/rss.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: left center;
-  padding-right: 25px;
+	display: block;
+	position: relative;
+	font-family: "Open Sans", sans-serif;
+	width: 86px;
+	height: 32px;
+	background-image: url("assets/svg/rss.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-right: 111px;
 }
 .rss-year {
   position: absolute;
