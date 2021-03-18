@@ -92,6 +92,7 @@ body {
   border-radius: 0 0 12px 12px;
   transition: 0.3s;
   cursor: pointer;
+  margin: 0 1px;
 }
 .piano-key:hover {
   background-color: #fff;
@@ -142,6 +143,7 @@ body {
   bottom: -45px;
   left: 20px;
   transition: 0.3s;
+  pointer-events: none;
 }
 .piano-key::after {
   display: none;

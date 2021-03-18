@@ -22,6 +22,7 @@ function playNote(note) {
 }
 
 function mouseEventsAdd(event) {
+    //debugger;
     isMousedown = true;
     let note = event.target.dataset.note;
     if (note) {
