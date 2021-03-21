@@ -1,5 +1,3 @@
-//снять active класс на mouse up не только над target
-
 let isMousedown;
 
 function playAudio(audio) {
@@ -22,7 +20,6 @@ function playNote(note) {
 }
 
 function mouseEventsAdd(event) {
-    //debugger;
     isMousedown = true;
     let note = event.target.dataset.note;
     if (note) {
@@ -32,7 +29,6 @@ function mouseEventsAdd(event) {
 }
 
 document.getElementById('piano').addEventListener('mousedown', mouseEventsAdd);
-
 
 document.addEventListener( 'mouseup', function (event) {
     if(isMousedown) {
@@ -100,7 +96,7 @@ function activateFullscreen(element) {
     else if(element.msRequestFullscreen) {
         element.msRequestFullscreen();      // IE/Edge
     }
-};
+}
 function deactivateFullscreen() {
     if(document.exitFullscreen) {
         document.exitFullscreen();
@@ -109,8 +105,7 @@ function deactivateFullscreen() {
     } else if (document.webkitExitFullscreen) {
         document.webkitExitFullscreen();
     }
-};
-
+}
 
 document.querySelector('.openfullscreen').onclick = function() {
     if(document.fullscreenElement === null) {
@@ -119,4 +114,3 @@ document.querySelector('.openfullscreen').onclick = function() {
         deactivateFullscreen();
     }
 };
-
