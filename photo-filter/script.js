@@ -8,4 +8,4 @@ filtersWrap.addEventListener('input', (event) => {
 
 
 
-//todo: на клик и mouseover визуальные эффекты у range и output
+//todo:

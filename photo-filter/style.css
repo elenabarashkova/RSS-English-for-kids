@@ -65,6 +65,9 @@ input[type='range'] {
   cursor: pointer;
   width: 100%;
 }
+input[type='range']::-webkit-slider-runnable-track {
+  transition: 0.3s;
+}
 input[type='range']::-webkit-slider-thumb {
   appearance: none;
   width: 25px;
@@ -78,6 +81,18 @@ input[type='range']::-webkit-slider-thumb {
 label:hover input[type='range']::-webkit-slider-thumb {
   background-color: #00c9b7;
 }
+
+label:active input[type='range']::-webkit-slider-thumb {
+  background-color: #00756a;
+  border-radius: 4px;
+  height: 30px;
+}
+
+label:active input[type='range'] {
+  background-color: #ffffff;
+  box-shadow: 0px 0px 5px 3px rgba(255, 255, 255, 0.7);
+}
+
 output {
   position: absolute;
   width: 60px;
@@ -92,6 +107,13 @@ output {
   border-radius: 2px;
   transition: 0.3s;
 }
+
+label:active output {
+  background-color: #fff;
+  border-color: #00c9b7;
+  color: #454c53;
+}
+
 .btn-container {
   margin-bottom: 20px;
   padding: 2px;
