@@ -92,18 +92,31 @@ document.querySelector('.btn-save').addEventListener('click', function (event) {
   let context = canvas.getContext('2d');
   canvas.width = imagePlace.naturalWidth;
   canvas.height = imagePlace.naturalHeight;
-
+  //find filter's values
   let root = document.querySelector(':root');
   let rootStyles = getComputedStyle(root);
-  let blur = rootStyles.getPropertyValue('--blur');
+  let blurVariable = rootStyles.getPropertyValue('--blur');
+  console.log('blurVariable '+blurVariable);
   let invert = rootStyles.getPropertyValue('--invert');
   let sepia = rootStyles.getPropertyValue('--sepia');
   let saturate = rootStyles.getPropertyValue('--saturate');
   let hue = rootStyles.getPropertyValue('--hue');
+  //for blur
+  function findBlurMultiplier() {
+    if(imagePlace.naturalWidth > imagePlace.naturalHeight) {
+      return imagePlace.naturalWidth/imagePlace.width;
+    } else {
+      return imagePlace.naturalHeight/imagePlace.height;
+    }
+  }
+  let blurMultiplier = findBlurMultiplier();
+  console.log('blurMultiplier '+blurMultiplier);
+  let blur = (parseInt(blurVariable) * blurMultiplier) + 'px';
+  //apply filters
   context.filter = `blur(${blur}) invert(${invert}) sepia(${sepia}) saturate(${saturate}) hue-rotate(${hue})`;
-
+  //draw
   context.drawImage(imagePlace, 0, 0);
-
+  //create link
   canvas.toBlob(function(blob) {
     let linkElement = document.createElement('a');
     linkElement.download = 'photo-filter.png';
