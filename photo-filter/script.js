@@ -54,7 +54,6 @@ loadBtn.addEventListener('change', (event) => {
 let today = new Date();
 let hours = today.getHours();
 function detectDayTime (hours) {
-  //debugger;
   switch (true) {
     case hours >= 6 && hours < 12:
       return 'morning';
@@ -79,16 +78,45 @@ function pictureNumGenerator(num) {
 }
 let num = 1;
 document.querySelector('.btn-next').addEventListener('click', function (event) {
-  //debugger;
   let timeOfDay = detectDayTime (hours);
   let pictureNum = pictureNumGenerator(num);
   imagePlace.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${pictureNum}.jpg`;
   num === 20 ? num = 1 : num += 1;
 });
 
-//todo:
-//https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/evening/18.jpg
-//с 6:00 до 11:59 - morning
-//с 12:00 до 17:59 - day
-//с 18:00 до 23:59 - evening
-//с 00:00 до 5:59 - night
+
+// Save picture
+
+document.querySelector('.btn-save').addEventListener('click', function (event) {
+  let canvas = document.createElement('canvas');
+  let context = canvas.getContext('2d');
+  canvas.width = imagePlace.naturalWidth;
+  canvas.height = imagePlace.naturalHeight;
+
+  let root = document.querySelector(':root');
+  let rootStyles = getComputedStyle(root);
+  let blur = rootStyles.getPropertyValue('--blur');
+  let invert = rootStyles.getPropertyValue('--invert');
+  let sepia = rootStyles.getPropertyValue('--sepia');
+  let saturate = rootStyles.getPropertyValue('--saturate');
+  let hue = rootStyles.getPropertyValue('--hue');
+  context.filter = `blur(${blur}) invert(${invert}) sepia(${sepia}) saturate(${saturate}) hue-rotate(${hue})`;
+
+  context.drawImage(imagePlace, 0, 0);
+
+  canvas.toBlob(function(blob) {
+    let linkElement = document.createElement('a');
+    linkElement.download = 'photo-filter.png';
+    linkElement.href = URL.createObjectURL(blob);
+    linkElement.click();
+    URL.revokeObjectURL(linkElement.href);
+  });
+});
+
+
+
+
+
+
+//todo: show picture only after it's fully loaded
+
