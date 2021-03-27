@@ -253,6 +253,18 @@ img {
 .github:hover {
   color: #fff;
 }
+.youtube {
+  display: block;
+  background-image: url("assets/svg/youtube.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 90px;
+  height: 46px;
+}
+
+.youtube:hover {
+  transform: scale(1.1);
+}
 .rss {
   display: block;
   position: relative;
