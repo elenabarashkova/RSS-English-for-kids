@@ -39,7 +39,8 @@ document.querySelector('.btn-reset').onclick = function() {
 
 // Load picture
 
-document.addEventListener('change', (event) => {
+let loadBtn = document.querySelector('.btn-load');
+loadBtn.addEventListener('change', (event) => {
   let loadImage = document.getElementById('btnInput').files[0];
   let imagePlace = document.querySelector('img');
   imagePlace.src = URL.createObjectURL(loadImage);
