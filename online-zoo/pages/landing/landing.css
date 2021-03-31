@@ -481,6 +481,7 @@ nav {
 .how-it-works {
   background: #fbfbfb;
   padding-top: 100px;
+  padding-bottom: 70px;
 }
 
 .section-inner {
@@ -559,8 +560,42 @@ nav {
 
 .inspiration {
   background: #F2F2F2;
+  padding-top: 102px;
+  padding-bottom: 132px;
 }
 
+.inspiration-blocks {
+  display: flex;
+  justify-content: space-between;
+}
+
+.block-item {
+  text-align: center;
+  width: 31.5%;
+}
+
+.block-pic {
+  margin-bottom: 10px;
+  height: 85px;
+}
+
+.block-title h4 {
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  color: #333333;
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+.block-descr {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4F4F4F;
+  text-align: left;
+}
 
 
 

@@ -32,8 +32,8 @@
           <file leaf-file-name="landing.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/online-zoo/pages/landing/landing.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="870">
-                  <caret line="229" column="19" lean-forward="false" selection-start-line="229" selection-start-column="19" selection-end-line="229" selection-end-column="19" />
+                <state relative-caret-position="583">
+                  <caret line="234" column="35" lean-forward="false" selection-start-line="234" selection-start-column="26" selection-end-line="234" selection-end-column="35" />
                   <folding>
                     <element signature="n#div#0;n#div#0;n#div#2;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                   </folding>
@@ -48,8 +48,8 @@
           <file leaf-file-name="landing.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/online-zoo/pages/landing/landing.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="736">
-                  <caret line="561" column="1" lean-forward="true" selection-start-line="561" selection-start-column="1" selection-end-line="561" selection-end-column="1" />
+                <state relative-caret-position="436">
+                  <caret line="575" column="0" lean-forward="true" selection-start-line="575" selection-start-column="0" selection-end-line="575" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -79,8 +79,8 @@
         <option value="$PROJECT_DIR$/online-zoo/assets/icons/donate.svg" />
         <option value="$PROJECT_DIR$/online-zoo/assets/icons/DESKTOP/picture_hovering/Ellipse 20.svg" />
         <option value="$PROJECT_DIR$/online-zoo/assets/icons/DESKTOP/picture_hovering/watch-online-icon-gradient.svg" />
-        <option value="$PROJECT_DIR$/online-zoo/pages/landing/landing.css" />
         <option value="$PROJECT_DIR$/online-zoo/pages/landing/landing.html" />
+        <option value="$PROJECT_DIR$/online-zoo/pages/landing/landing.css" />
       </list>
     </option>
   </component>
@@ -247,74 +247,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DESKTOP" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="card" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mission" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="elenabarashkova-JSFE2021Q1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="elenabarashkova-JSFE2021Q1" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="online-zoo" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DESKTOP" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="card" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="inspire" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="elenabarashkova-JSFE2021Q1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="elenabarashkova-JSFE2021Q1" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="online-zoo" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="icons" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -357,6 +289,7 @@
       <recent name="$PROJECT_DIR$/online-zoo/assets/icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/online-zoo/assets/images" />
       <recent name="$PROJECT_DIR$/online-zoo/assets/icons" />
       <recent name="$PROJECT_DIR$/online-zoo/assets/images/watch-animal-slider" />
     </key>
@@ -443,9 +376,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1517572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1517572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -540,21 +474,37 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/online-zoo/pages/landing/landing.css">
+    <entry file="file://$PROJECT_DIR$/online-zoo/assets/images/inspire.svg">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="561" column="1" lean-forward="true" selection-start-line="561" selection-start-column="1" selection-end-line="561" selection-end-column="1" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/online-zoo/assets/images/believe.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/online-zoo/pages/landing/landing.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="229" column="19" lean-forward="false" selection-start-line="229" selection-start-column="19" selection-end-line="229" selection-end-column="19" />
+        <state relative-caret-position="583">
+          <caret line="234" column="35" lean-forward="false" selection-start-line="234" selection-start-column="26" selection-end-line="234" selection-end-column="35" />
           <folding>
             <element signature="n#div#0;n#div#0;n#div#2;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/online-zoo/pages/landing/landing.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="575" column="0" lean-forward="true" selection-start-line="575" selection-start-column="0" selection-end-line="575" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
