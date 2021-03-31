@@ -279,6 +279,10 @@ nav {
 
 /*Slider*/
 
+.slider {
+  position: relative;
+}
+
 .watch-aminal-slider.slider {
   position: absolute;
   right: 0;
@@ -315,6 +319,8 @@ nav {
   position: relative;
   display: inline-block;
   vertical-align: middle;
+  cursor: pointer;
+  overflow: hidden;
 }
 
 .watch-aminal-slider .slide {
@@ -360,6 +366,7 @@ nav {
   width: 100%;
   text-align: left;
   color: #fff;
+  z-index: 10;
 }
 
 .slide.active .slide-caption {
@@ -413,6 +420,7 @@ nav {
   transform: translateY(-50%);
   width: 24px;
   height: 24px;
+  box-sizing: border-box;
 }
 
 .watch-online-link:before {
@@ -447,6 +455,10 @@ nav {
   display: inline;
   color: #BDBDBD;
   font-size: 14px;
+}
+
+.slider-range {
+  height: 10px;
 }
 
 .slider-range input[type='range'] {
@@ -495,14 +507,24 @@ nav {
   color: #333;
   margin: 0;
   margin-bottom: 30px;
+  text-align: center;
 }
 
-.text-decription {
+.title.left h3 {
+  text-align: left;
+}
+
+.text-description {
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
   color: #4F4F4F;
   margin-bottom: 30px;
+  text-align: center;
+}
+
+.text-description.left {
+  text-align: left;
 }
 
 .how-it-works-slider {
@@ -532,13 +554,13 @@ nav {
   height: auto;
 }
 
-.how-it-works-slider .slider-pagination {
+.slider .slider-pagination.dark-pagination {
   position: static;
   width: 245px;
   margin: 0 auto;
 }
 
-.how-it-works-slider .slider-range input[type='range']::-webkit-slider-thumb {
+.dark-pagination .slider-range input[type='range']::-webkit-slider-thumb {
   width: 62px;
   height: 10px;
   background-color: #333;
@@ -546,7 +568,7 @@ nav {
   transition: 0.3s;
 }
 
-.slider-output .slide-current {
+.dark-pagination .slider-output .slide-current {
   color: #333;
 }
 
@@ -597,6 +619,130 @@ nav {
   text-align: left;
 }
 
+/*SECTION pets-in-zoo*/
 
+.pets-in-zoo {
+  padding-top: 100px;
+  padding-bottom: 70px;
+}
 
+.pets-in-zoo .title {
+  margin-bottom: 35px;
+}
 
+.pets-in-zoo-slider {
+  margin-bottom: 33px;
+}
+
+.pets-in-zoo-slider .slider-wrap {
+  height: auto;
+}
+
+.pets-in-zoo-slider .slider-inner {
+  position: static;
+  margin-bottom: 30px;
+}
+
+.pets-in-zoo-slider .slide {
+  width: 278px;
+  height: 399px;
+  margin-right: 26px;
+  transition: all 0.3s ease-out;
+}
+
+.pets-in-zoo-slider .slide-pic:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: linear-gradient(348.75deg, #000000 10.15%, rgba(0, 0, 0, 0) 59%);
+  z-index: 1;
+  transition: all 0.3s ease-out;
+}
+
+.pets-in-zoo-slider .slide:hover .slide-pic:before {
+  display: block;
+}
+
+.pets-in-zoo-slider .slide-pic {
+  border-radius: 5px;
+}
+
+.pets-in-zoo-slider .slide-pic > img {
+  width: auto;
+  height: 100%;
+}
+
+.pets-in-zoo-slider .slide-caption {
+  bottom: -50px;
+  transition: all 0.3s ease-out;
+  opacity: 0;
+  display: block;
+}
+
+.pets-in-zoo-slider .slide:hover .slide-caption {
+  opacity: 1;
+  bottom: 46px;
+  transition: bottom 0.3s ease;
+}
+
+.pets-in-zoo-slider .slide-description {
+  width: 75%;
+  margin-bottom: 17px;
+  padding-left: 22px;
+  line-height: 16px;
+}
+
+.pets-in-zoo-slider .dark-pagination .slider-range input[type='range']::-webkit-slider-thumb {
+  width: 30px;
+}
+
+.slider-nav {
+  position: absolute;
+  top: 38%;
+  cursor: pointer;
+}
+
+.slider-nav.disabled {
+  cursor: default;
+}
+
+.slider-nav.slider-prev {
+  left: -45px;
+}
+
+.slider-nav.slider-next {
+  right: -45px;
+}
+
+.slider-nav > svg > path {
+  fill: #3C3C3C;
+}
+
+.slider-nav.disabled > svg > path {
+  fill: #828282;
+}
+
+.slider-nav:hover > svg > path {
+  fill: #4BD8B5;
+}
+
+.slider-nav.disabled:hover > svg > path {
+  fill: #828282;
+}
+
+.pets-in-zoo .watch-online-btn {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  padding: 0;
+  text-decoration: none;
+  line-height: 55px;
+  font-weight: 900;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/*SECTION Pay and feed*/
