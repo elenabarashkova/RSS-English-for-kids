@@ -21,10 +21,9 @@ li {
 body {
   font-family: 'Roboto', sans-serif;
   color: #333;
-  width: 1920px;
 }
 
-@media (min-width: 1250px) {
+@media (min-width: 1620px){
   .container {
     max-width: 1620px;
     margin: 0 auto;
@@ -163,6 +162,12 @@ nav {
 .toggle-button:checked {
   background-color: #4f4f4f;
 }
+
+.toggle-button:hover:after,
+.toggle-button:checked:hover:after {
+  background-color: #4BD8B5;
+}
+
 /*Section watch animal*/
 
 .watch-animal {
@@ -176,11 +181,28 @@ nav {
 .watch-animal .background {
   position: absolute;
   top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.watch-animal .background > img {
+  position: absolute;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
-  height: 100%;
-  width: auto;
   z-index: -1;
+  width: auto;
+  height: 100%;
+}
+
+@media (min-width: 1920px) {
+
+  .watch-animal .background > img {
+    width: 100%;
+    height: auto;
+  }
+
 }
 
 .wrapper {
@@ -407,6 +429,7 @@ nav {
   color: #fff;
   display: inline-block;
   margin-right: 7px;
+  cursor: pointer;
 }
 
 .slide-btn:last-child {
@@ -418,6 +441,13 @@ nav {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: #4BD8B5;
+}
+
+.watch-online-link:hover > span {
+  background: linear-gradient(106.89deg, #39a68a -14.32%, #40a4ac 100.68%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #39a68a;
 }
 
 .slide-btn:before {
@@ -435,15 +465,102 @@ nav {
   background-image: url('../../assets/icons/watch-online-gradient.svg');
 }
 
+.watch-online-link:hover:before {
+  filter: brightness(0.8);
+}
+
 .donate-btn:before {
   background-image: url('../../assets/icons/donate.svg');
 }
+
+.donate-btn:hover,
+.donate-btn:hover:before {
+  filter: brightness(0.5) sepia(1) saturate(156%) hue-rotate(120deg);
+}
+
+/*TEMP*/
+
+.watch-aminal-slider .slide-pic:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: linear-gradient(348.75deg, #000000 10.15%, rgba(0, 0, 0, 0) 59%);
+  z-index: 1;
+  transition: all 0.3s ease-out;
+}
+
+.watch-aminal-slider .slide:hover .slide-pic:before {
+  display: block;
+}
+
+.watch-aminal-slider .slide-pic {
+  border-radius: 5px;
+}
+
+.watch-aminal-slider .slide-pic > img {
+  width: auto;
+  height: 100%;
+}
+
+.watch-aminal-slider .slide-caption {
+  bottom: -50px;
+  transition: all 0.3s ease-out;
+  opacity: 0;
+  display: block;
+}
+
+.watch-aminal-slider .slide:hover .slide-caption {
+  opacity: 1;
+  bottom: 10px;
+  transition: bottom 0.3s ease;
+}
+
+.watch-aminal-slider .slide.active .slide-caption {
+  opacity: 1;
+  bottom: 38px;
+}
+
+.watch-aminal-slider .slide:not(.active) .slide-description {
+  width: 100%;
+  padding: 0 5px 0 10px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.watch-aminal-slider .slide:not(.active) .slide-btns {
+  padding-left: 5px;
+  display: flex;
+}
+
+.watch-aminal-slider .slide:not(.active) .slide-btn {
+  font-size: 10px;
+  padding-left: 20px;
+  margin-right: 4px;
+}
+
+.watch-aminal-slider .slide:not(.active) .slide-btn:before {
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+}
+
+.watch-aminal-slider .slide:not(.active) .watch-online-link > span {
+  display: inline-block;
+  width: 36px;
+}
+/*****************************************/
+
+/*Hovers for slider-caption buttons*/
+
+
 
 /*slider pagination*/
 
 .slider-pagination {
   position: absolute;
-  bottom: 75px;
+  bottom: 70px;
   width: 245px;
   left: 30%;
 }
@@ -536,7 +653,7 @@ nav {
 }
 
 .how-it-works-slider {
-  margin-bottom: 33px;
+  margin-bottom: 29px;
 }
 
 .how-it-works-slider .slider-wrap {
@@ -590,7 +707,7 @@ nav {
 
 .inspiration {
   background: #F2F2F2;
-  padding-top: 102px;
+  padding-top: 100px;
   padding-bottom: 132px;
 }
 
@@ -632,7 +749,7 @@ nav {
 .pets-in-zoo {
   background: #fbfbfb;
   padding-top: 100px;
-  padding-bottom: 60px;
+  padding-bottom: 70px;
 }
 
 .pets-in-zoo .title {
@@ -640,7 +757,7 @@ nav {
 }
 
 .pets-in-zoo-slider {
-  margin-bottom: 33px;
+  margin-bottom: 30px;
 }
 
 .pets-in-zoo-slider .slider-wrap {
@@ -709,7 +826,7 @@ nav {
 
 .slider-nav {
   position: absolute;
-  top: 38%;
+  top: 39%;
   cursor: pointer;
 }
 
@@ -776,9 +893,12 @@ a.watch-online-btn {
 }
 
 .pay-and-feed .block-pic {
-  padding-top: 70px;
-  margin-bottom: 14px;
+  padding-top: 60px;
+  margin-bottom: 13px;
   height: 127px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pay-and-feed .block-title {
@@ -827,7 +947,7 @@ a.watch-online-btn {
 
 .testimonials-slider {
   padding-top: 32px;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 
 .testimonials-slider .slider-wrap {
@@ -943,6 +1063,11 @@ a.watch-online-btn {
   background-repeat: no-repeat;
   background-size: 100%;
   padding-top: 13px;
+  cursor: pointer;
+}
+
+.map-animal-icon-inner:hover {
+  background-image: url('../../assets/icons/map-animal-icon-active.svg');
 }
 
 .animal-icon-pic {
@@ -970,8 +1095,8 @@ a.watch-online-btn {
 
 .tooltip {
   position: absolute;
-  top: 77px;
-  right: 33px;
+  top: 96px;
+  right: -50px;
   display: none;
   background: #FEFEFE;
   box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.15);
@@ -1040,7 +1165,7 @@ a.watch-online-btn {
 
 footer {
   background: #333;
-  padding: 96px 0 65px;
+  padding: 97px 0 65px;
 }
 
 footer * {
@@ -1105,6 +1230,10 @@ footer .block-title h4 {
 }
 
 /*Form*/
+
+:-moz-ui-invalid {
+  box-shadow:none;
+}
 
 .form-wrap {
   width: 50%;
@@ -1307,23 +1436,24 @@ footer .block-title h4 {
   line-height: 16px;
 }
 
-footer adress {
+footer address {
   font-size: 14px;
   line-height: 19px;
   display: block;
   margin-bottom: 19px;
+  font-style: normal;
 }
 
-footer adress a {
+footer address a {
   display: inline-block;
   text-decoration: none;
 }
 
-footer adress a:last-child {
+footer address a:last-child {
   display: block;
 }
 
-footer adress a:hover {
+footer address a:hover {
   text-decoration: none;
   color: #4BD8B5;
 }
@@ -1348,6 +1478,7 @@ footer .social-item:last-child {
   width: 17%;
   order: 2;
   text-align: right;
+  padding-top: 2px;
 }
 
 .footer-aside .watch-online-btn.no-icon-btn.btn {
