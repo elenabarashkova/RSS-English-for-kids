@@ -47,14 +47,18 @@ header > .container {
 }
 
 /*logo*/
+
 .logo {
-  display: block;
-  color: #333;
-  text-decoration: none;
   width: 32.5%;
 }
 
-.logo:hover {
+.logo-inner {
+  display: inline-block;
+  color: #333;
+  text-decoration: none;
+}
+
+.logo-inner:hover {
   color: #4bd8b5;
 }
 
@@ -62,6 +66,7 @@ header > .container {
   font-weight: 900;
   margin: 0;
   text-align: left;
+  display: inline-block;
 }
 
 .logo .h1 > span {
@@ -1241,12 +1246,15 @@ footer * {
 }
 
 footer .logo {
-  color: #fefefe;
   width: 41.5%;
 }
 
-footer .logo:hover,
-footer .logo:hover > .h1 * {
+footer .logo-inner {
+  color: #fefefe;
+}
+
+footer .logo-inner:hover,
+footer .logo-inner:hover > .h1 * {
   color: #4bd8b5;
 }
 
