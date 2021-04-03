@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c33c7e00-77ed-4993-808e-ccd4ee00389f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/online-zoo/pages/map/map.html" afterPath="$PROJECT_DIR$/online-zoo/pages/map/map.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/online-zoo/pages/zoos/alligator.html" afterPath="$PROJECT_DIR$/online-zoo/pages/zoos/alligator.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/online-zoo/pages/zoos/eagle.html" afterPath="$PROJECT_DIR$/online-zoo/pages/zoos/eagle.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/online-zoo/pages/zoos/elephant.html" afterPath="$PROJECT_DIR$/online-zoo/pages/zoos/elephant.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/online-zoo/pages/zoos/fox.html" afterPath="$PROJECT_DIR$/online-zoo/pages/zoos/fox.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/online-zoo/pages/zoos/gorilla.html" afterPath="$PROJECT_DIR$/online-zoo/pages/zoos/gorilla.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/online-zoo/pages/zoos/leopard.html" afterPath="$PROJECT_DIR$/online-zoo/pages/zoos/leopard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/online-zoo/pages/zoos/panda.html" afterPath="$PROJECT_DIR$/online-zoo/pages/zoos/panda.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/online-zoo/pages/zoos/sloth.html" afterPath="$PROJECT_DIR$/online-zoo/pages/zoos/sloth.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/online-zoo/pages/map/map.css" afterPath="$PROJECT_DIR$/online-zoo/pages/map/map.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,11 +26,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="map.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="map.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/online-zoo/pages/map/map.html">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" column="66" lean-forward="false" selection-start-line="27" selection-start-column="66" selection-end-line="27" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="map.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/online-zoo/pages/map/map.css">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+              <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -100,7 +102,6 @@
         <option value="$PROJECT_DIR$/online-zoo/pages/landing/landing.html" />
         <option value="$PROJECT_DIR$/online-zoo/pages/zoos/zoos.css" />
         <option value="$PROJECT_DIR$/online-zoo/pages/landing/landing.css" />
-        <option value="$PROJECT_DIR$/online-zoo/pages/map/map.css" />
         <option value="$PROJECT_DIR$/online-zoo/pages/zoos/alligator.html" />
         <option value="$PROJECT_DIR$/online-zoo/pages/zoos/eagle.html" />
         <option value="$PROJECT_DIR$/online-zoo/pages/zoos/elephant.html" />
@@ -110,6 +111,7 @@
         <option value="$PROJECT_DIR$/online-zoo/pages/zoos/panda.html" />
         <option value="$PROJECT_DIR$/online-zoo/pages/zoos/sloth.html" />
         <option value="$PROJECT_DIR$/online-zoo/pages/map/map.html" />
+        <option value="$PROJECT_DIR$/online-zoo/pages/map/map.css" />
       </list>
     </option>
   </component>
@@ -672,14 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/online-zoo/pages/map/map.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/online-zoo/pages/landing/landing.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
@@ -768,8 +762,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/online-zoo/pages/map/map.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="66" lean-forward="false" selection-start-line="27" selection-start-column="66" selection-end-line="27" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/online-zoo/pages/map/map.css">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
