@@ -235,6 +235,10 @@ nav {
   margin: 0;
 }
 
+.watch-animal .watch-online-btn {
+  margin: 0;
+}
+
 .watch-online-btn {
   position: relative;
   border: none;
@@ -920,6 +924,7 @@ a.watch-online-btn {
   font-size: 18px;
   text-transform: uppercase;
   color: #fff;
+  padding-left: 35px;
 }
 
 /*SECTION Pay and feed*/
