@@ -1,0 +1,21 @@
+@import "../../pages/landing/landing.css";
+
+.mistake-page main {
+  background: #F2F2F2;
+  height: 500px;
+  padding-top: 60px;
+  text-align: center;
+}
+
+.mistake-page .title h2 {
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.mistake-page .title a {
+  color: #4bd8b5;
+}
+
+.mistake-page .title a:hover {
+  color: #39a68a;
+}
