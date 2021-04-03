@@ -103,6 +103,10 @@ main {
   width: 30px;
 }
 
+.map-slider  .dark-pagination .slider-range input[type='range']::-moz-range-thumb {
+  width: 30px;
+}
+
 /*Map*/
 
 .main-map .map-inner {
