@@ -97,6 +97,11 @@ aside {
   width: auto;
 }
 
+.aside-slide-pic.narrow > img {
+  width: 100%;
+  height: auto;
+}
+
 .aside-slide.active .aside-slide-pic {
   width: 139px;
   height: 139px;

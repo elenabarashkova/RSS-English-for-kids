@@ -1127,7 +1127,12 @@ a.watch-online-btn {
   cursor: pointer;
 }
 
-.map-animal-icon-inner:hover {
+.map-animal-icon.active .map-animal-icon-inner {
+  cursor: default;
+}
+
+.map-animal-icon-inner:hover,
+.map-animal-icon.active .map-animal-icon-inner {
   background-image: url('../../assets/icons/map-animal-icon-active.svg');
 }
 
