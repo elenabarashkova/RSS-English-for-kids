@@ -1,19 +1,31 @@
 @import "../../pages/landing/normalize.css";
 @import "../../pages/landing/landing.css";
 
-html {width:1920px;}
-
 main {
-  position: relative;
-  padding-top: 63px;
+  padding-top: 61px;
   background-color: #FBFBFB;
 }
 
+main > .container {
+  position: relative;
+  display: flex;
+}
+
+/*ASIDE*/
+
 aside {
+  position: absolute;
+  top: 0;
+  left: -7.7%;
+  width: 157px;
+  height: 100%;
+  padding-top: 2px;
+}
+
+.aside-inner {
   position: -webkit-sticky;
   position: sticky;
-  top: 94px;
-  left: 26px;
+  top: 61px;
   width: 157px;
 }
 
@@ -110,4 +122,141 @@ aside {
   width: 14px;
 }
 
+/*SECTION The zoo*/
 
+.the-zoo {
+  width: 100%;
+  padding-bottom: 88px;
+}
+
+.the-zoo .title h3 {
+  margin-bottom: 40px;
+}
+
+.broadcast-wrap {
+  display: flex;
+}
+
+.broadcast-inner {
+  width: 66%;
+}
+
+.broadcast-main {
+  width: 100%;
+  height: 442px;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.broadcast-slider-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.broadcast-slide-inner {
+  width: 246px;
+  height: 141px;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.broadcast-slide-plug {
+  position: absolute;
+  background: transparent;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.broadcast-main > iframe,
+.broadcast-slide-inner > iframe {
+  position: absolute;
+  left: 0;
+  top:0;
+  width: 100%;
+  height: 100%;
+}
+
+/*radio-pagination*/
+
+.radio-pagination-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 40px;
+  margin: 0 auto;
+}
+
+.radio-pagination label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin: 12px 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.radio-pagination input {
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.radio-pagination span {
+  width: 8px;
+  height: 8px;
+  background: #C4C4C4;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.radio-pagination input:checked+span,
+.radio-pagination input:checked:hover+span {
+  width: 11px;
+  height: 11px;
+  background: linear-gradient(106.89deg, #4BD8B5 -14.32%, #49D6DF 100.68%);
+  cursor: default;
+}
+
+input:hover+span {
+  background: linear-gradient(106.89deg, #39a68a -14.32%, #40a4ac 100.68%);
+}
+
+
+/*broadcast description*/
+.broadcast-description {
+  width: 34%;
+  padding-left: 28px;
+}
+
+.broadcast-description-wrap {
+  margin-bottom: 35px;
+}
+
+.broadcast-description .block-info * {
+  text-align: left;
+}
+
+.broadcast-description .block-info {
+  margin-bottom: 13px;
+}
+
+.broadcast-description .block-title h4 {
+  margin-bottom: 6px;
+}
+
+.broadcast-description .watch-online-btn {
+  width: 194px;
+}
