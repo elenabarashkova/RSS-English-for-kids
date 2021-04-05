@@ -23,6 +23,7 @@ li {
 body {
   font-family: 'Roboto', sans-serif;
   color: #333;
+  position: relative;
 }
 
 @media (min-width: 1620px){
@@ -1585,4 +1586,276 @@ footer .social-item:last-child {
 .footer-copyright a:hover {
   text-decoration: none;
   color: #4BD8B5;
+}
+
+/*POPUP*/
+
+.popup {
+  display: none;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 795px;
+  background: #f9f9f9;
+  z-index: 100;
+}
+
+.popup-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.popup-bg {
+  width: 197px;
+  height: 100%;
+  background-image: url('../../assets/images/popup-bg.jpeg');
+  background-size: cover;
+  background-position: 81%;
+  background-repeat: no-repeat;
+}
+
+.popup-main {
+  width: 61%;
+  margin: 0 auto;
+  padding: 68px 4px;
+}
+
+.popup-title h4 {
+  font-weight: bold;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #313131;
+  text-align: center;
+  margin-bottom: 49px;
+}
+
+.popup-form {
+  text-align: center;
+}
+
+.popup form {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.popup-section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.popup-animal {
+  width: 100%;
+}
+
+.popup-section {
+  margin-bottom: 41px;
+}
+
+.popup-section > label {
+  width: 100%;
+  position: relative;
+  margin-bottom: 29px;
+}
+
+.popup-section > label:last-child {
+  margin-bottom: 0;
+}
+
+.popup-animal > label {
+  margin-bottom: 0;
+}
+
+.popup-animal > label,
+.popup-about-u,
+.popup-checkout {
+  width: 335px;
+}
+
+.popup label > span {
+  position: absolute;
+  top: -8px;
+  left: 9px;
+  display: inline-block;
+  font-weight: 500;
+  font-size: 14px;
+  color: #828282;
+  background: #f9f9f9;
+  padding: 0 16px;
+}
+
+.popup .select-label select,
+.popup input {
+  width: 100%;
+  height: 56px;
+  border: 1px solid #828282;
+  border-radius: 5px;
+  background: transparent;
+  font-size: 16px;
+  color: #313131;
+  padding: 0 10px;
+}
+
+.popup .select-label select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-right: 35px;
+}
+
+.select-label:after,
+.complex-label .select-btn,
+.expiry-date .select-btn {
+  content: '';
+  position: absolute;
+  background-image: url('../../assets/icons/select-btn.svg');
+  background-repeat: no-repeat;
+  top: 25px;
+  right: 7px;
+  width: 8px;
+  height: 7px;
+  pointer-events: none;
+  display: inline-block;
+  padding: 7px;
+}
+
+.popup .select-label select:focus,
+.popup input:focus,
+.popup .select-label select:active,
+.popup input:active {
+  outline: none;
+  border-color: #4BD8B5;
+}
+
+.popup-section-title h4 {
+  font-weight: 700;
+  color: #4F4F4F;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 29px;
+}
+
+.popup-section-title.grey h4 {
+  color: #828282;
+}
+
+.complex-label .tel-code {
+  position: absolute;
+  left: 0;
+  top: 3px;
+  border: none;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-weight: 500;
+  font-size: 16px;
+  color: #313131;
+  width: 83px;
+  height: 48px;
+  padding-left: 26px;
+}
+
+.complex-label .tel-code:focus,
+.complex-label .tel-code:active {
+  outline: none;
+}
+
+.popup .complex-label .tel-input {
+  padding-left: 95px;
+}
+
+.complex-label .select-btn {
+  right: auto;
+  left: 55px;
+}
+
+.complex-label .select-btn:after,
+.popup .expiry-date > .select-btn:after {
+  content: '';
+  width: 1px;
+  height: 32px;
+  background-color: #828282;
+  position: absolute;
+  left: 28px;
+  top: -13px;
+}
+
+.popup input::-webkit-outer-spin-button,
+.popup input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.popup input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.popup .expiry-date {
+  height: 56px;
+  border: 1px solid #828282;
+  border-radius: 5px;
+  background: transparent;
+  font-size: 16px;
+  color: #313131;
+}
+
+.popup .expiry-date > select {
+  border: none;
+  background: transparent;
+  width: 45%;
+  display: inline-block;
+  height: 100%;
+  padding-left: 15px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.popup .expiry-date > select:last-child:after {
+  display: none;
+}
+
+.popup .expiry-date > select:focus,
+.popup .expiry-date > select:active {
+  outline: none;
+}
+
+.expiry-date .select-btn {
+  left: 138px;
+}
+
+.expiry-date .select-btn:last-child {
+  left: auto;
+  right: 13px;
+}
+
+.expiry-date .select-btn:last-child:after {
+  display: none;
+}
+
+.popup-description {
+  margin: 0 auto 41px;
+  width: 100%;
+}
+
+.popup-description-inner {
+  font-size: 14px;
+  font-weight: 500;
+  width: 66%;
+  color: #828282;
+  letter-spacing: -0.4px;
+  padding-left: 3px;
+  line-height: 15px;
+  margin: 0 auto;
+}
+
+.popup button[type="submit"] {
+  display: block;
+  margin: 0 auto;
 }
