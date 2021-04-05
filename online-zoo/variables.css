@@ -1,0 +1,26 @@
+/*VARIABLES*/
+
+:root {
+  --color-primary: #333;
+  --header-bg: #fff;
+  --main-hover-color: #4bd8b5;
+  --extra-hover-color: #39a68a;
+  --light-page-bg: #f2f2f2;
+  --lighter-page-bg: #fbfbfb;
+  --absolute-color: #fff;
+  --text-light-color: #fefefe;
+  --text-light-gray-color: #bdbdbd;
+  --middle-gray-color: #828282;
+  --dark-gray-color: #4f4f4f;
+  --darker-gray-color: #1b1b1b;
+  --the-darkest-color: #313131;
+  --gradient: linear-gradient(106.89deg, #4BD8B5 -14.32%, #49D6DF 100.68%);
+  --gradient-hover: linear-gradient(106.89deg, #45c4a3 -14.32%, #48c2cb 100.68%);
+  --gradient-focus: linear-gradient(106.89deg, #39a68a -14.32%, #40a4ac 100.68%);
+  --filter-white-into-blue: brightness(0.5) sepia(1) saturate(156%) hue-rotate(120deg);
+  --darken-the-block-gradient: linear-gradient(348.75deg, #000000 10.15%, rgba(0, 0, 0, 0) 59%);
+}
+
+.dark-theme {
+  --color-primary: red;
+}
