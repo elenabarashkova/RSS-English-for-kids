@@ -177,6 +177,44 @@
   width: 36px;
 }
 
+/* -- Responsive for Section watch animal  -- */
+
+@media (min-width: 1200px) and (max-width: 1919px){
+
+  .watch-animal {
+    padding-top: 128px;
+    height: 926px;
+  }
+
+  .social {
+    bottom: 66px;
+  }
+
+  .watch-animal-slider.slider {
+    bottom: -5px;
+  }
+
+  .watch-animal-slider .slider-wrap {
+    width: 721px;
+  }
+
+  .watch-animal-slider .slider-inner {
+    top: 0;
+  }
+
+  .watch-animal-slider .slide {
+    width: 180px;
+    height: 261px;
+    margin-right: 27px;
+    margin-top: 0px;
+  }
+
+  .slider-pagination {
+    left: 49%;
+  }
+
+}
+
 /*SECTION how it works*/
 
 .how-it-works {
@@ -199,6 +237,16 @@
   height: 323px;
 }
 
+/* -- Responsive for Section how it works  -- */
+
+@media (min-width: 1200px) and (max-width: 1919px){
+
+  .how-it-works-slider {
+    margin-bottom: 27px;
+  }
+
+}
+
 /*SECTION inspiration*/
 
 .inspiration {
@@ -210,6 +258,17 @@
 .inspiration-blocks {
   display: flex;
   justify-content: space-between;
+}
+
+
+/* -- Responsive for Section inspiration  -- */
+
+@media (min-width: 1200px) and (max-width: 1919px){
+
+  .inspiration {
+    padding-bottom: 117px;
+  }
+
 }
 
 /*SECTION pets-in-zoo*/
@@ -253,6 +312,43 @@
   margin-bottom: 17px;
   padding-left: 22px;
   line-height: 16px;
+}
+
+/* -- Responsive for Section pets-in-zoo  -- */
+
+@media (min-width: 1200px) and (max-width: 1919px){
+
+  .pets-in-zoo {
+    padding-bottom: 67px;
+  }
+
+  .pets-in-zoo .title {
+    margin-bottom: 32px;
+  }
+
+  .pets-in-zoo-slider .slide {
+    width: 210px;
+    height: 301px;
+    margin-right: 16px;
+  }
+
+  .pets-in-zoo-slider .slide:hover .slide-caption {
+    bottom: 36px;
+  }
+
+  .pets-in-zoo-slider .slide-btns {
+    padding-left: 7px;
+  }
+
+  .pets-in-zoo-slider .slide-btn:not(:last-child) {
+    margin-right: 5px;
+  }
+
+  .pets-in-zoo-slider .slide-description {
+    width: 94%;
+    padding-left: 9px;
+  }
+
 }
 
 /*SECTION Pay and feed*/
@@ -313,6 +409,18 @@
   display: none;
 }
 
+
+/* -- Responsive for Section Pay and feed  -- */
+
+@media (min-width: 1200px) and (max-width: 1919px){
+
+  .pay-and-feed .inspiration-blocks {
+    padding-top: 36px;
+    margin-bottom: 50px;
+  }
+
+}
+
 /*SECTION testimonials*/
 
 .testimonials {
@@ -370,4 +478,25 @@
 
 .testimonials-slider .block-title h4 {
   margin-bottom: 16px;
+}
+
+/* -- Responsive for Section testimonials  -- */
+
+@media (min-width: 1200px) and (max-width: 1919px){
+
+  .testimonials {
+    padding-bottom: 102px;
+  }
+
+  .testimonials-slider .slide {
+    width: 440px;
+    height: 310px;
+    padding: 48px 57px 0;
+    margin-right: 15px;
+  }
+
+  .testimonials-slider .slider-nav {
+    top: 39%;
+  }
+
 }
