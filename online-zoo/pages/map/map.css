@@ -116,3 +116,73 @@ main {
   top: 127px;
   right: 229px;
 }
+
+@media (min-width: 1200px) and (max-width: 1919px){
+
+  .map-page .text-description {
+    width: 88%;
+    margin-bottom: 34px;
+  }
+
+  .map-slider .aside-slider {
+    padding: 0 118px;
+    margin-bottom: 27px;
+  }
+
+  .map-slider .aside-slider .slider-nav.slider-prev {
+    left: 56px;
+  }
+
+  .map-slider .aside-slider .slider-nav.slider-next {
+    right: 56px;
+  }
+
+  .map-slider .slider-pagination {
+    width: 245px;
+    padding-right: 0;
+  }
+
+  .map-slider {
+    margin-bottom: 16px;
+  }
+
+  .main-map .map-image {
+    width: 89%;
+    margin: 0 auto;
+    height: 390px;
+  }
+
+  .main-map .map-inner {
+    margin-bottom: 34px;
+  }
+
+  .map-animal-icon {
+    width: 59px;
+    height: 85px;
+  }
+
+  .main-map .map-animal-icon.map-animal-icon-eagle {
+    top: 79px;
+    left: 126px;
+  }
+
+  .main-map .map-animal-icon.map-animal-icon-alligator {
+    top: 90px;
+    left: 206px;
+  }
+
+  .main-map .map-animal-icon.map-animal-icon-gorilla {
+    top: 168px;
+    left: 423px;
+  }
+
+  .main-map .map-animal-icon.map-animal-icon-panda {
+    top: 92px;
+    right: 207px;
+  }
+
+  .main-map .animal-icon-pic {
+    width: 35px;
+    height: 35px;
+  }
+}

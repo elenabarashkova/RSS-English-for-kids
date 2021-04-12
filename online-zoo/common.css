@@ -27,18 +27,6 @@ body {
   position: relative;
 }
 
-@media (min-width: 1620px){
-  .container {
-    max-width: 1620px;
-    margin: 0 auto;
-  }
-
-  .wrapper {
-    width: 1200px;
-    margin: 0 auto;
-  }
-}
-
 @media (min-width: 1200px) and (max-width: 1919px){
   .container {
     max-width: 900px;
@@ -47,6 +35,19 @@ body {
 
   .wrapper {
     width: 900px;
+    margin: 0 auto;
+  }
+}
+
+
+@media (min-width: 1920px){
+  .container {
+    max-width: 1620px;
+    margin: 0 auto;
+  }
+
+  .wrapper {
+    width: 1200px;
     margin: 0 auto;
   }
 }
@@ -299,6 +300,56 @@ a.watch-online-btn {
 
 .watch-online-btn.no-icon-btn > span:before {
   display: none;
+}
+
+/* -- Social --*/
+
+.social {
+  position: absolute;
+  bottom: 106px;
+}
+
+.social-item {
+  margin-bottom: 11px;
+}
+
+.social-item:last-child {
+  margin-bottom: 0;
+}
+
+.social-item > a {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.social-item.instagram > a {
+  background-image: url('assets/icons/instagram-icon.svg');
+}
+
+.social-item.twitter > a {
+  background-image: url('assets/icons/twitter-icon.svg');
+}
+
+.social-item.youtube > a {
+  background-image: url('assets/icons/youtube-icon.svg');
+}
+
+.social-item.vk > a {
+  background-image: url('assets/icons/vk-icon.svg');
+}
+
+.social-item:hover > a {
+  filter: var(--filter-white-into-blue);
+}
+
+@media (min-width: 1200px) and (max-width: 1919px){
+
+  .social {
+    bottom: 66px;
+  }
 }
 
 /*Slider*/
@@ -679,11 +730,11 @@ input[type='range']::-moz-range-thumb {
 }
 
 .map-image {
-  width: 1200px;
+  width: 100%;
   height: 498px;
   background-image: url('assets/images/landing-map.svg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 
 .map-animal-icon {
@@ -745,7 +796,6 @@ input[type='range']::-moz-range-thumb {
 @media (min-width: 1200px) and (max-width: 1919px){
 
   .map-image {
-    width: 900px;
     height: 436px;
     background-image: url('assets/images/landing-map-1200-2.svg');
   }
@@ -1496,6 +1546,17 @@ footer .social-item:last-child {
 .popup button[type="submit"] {
   display: block;
   margin: 0 auto;
+}
+
+@media (min-width: 1200px) and (max-width: 1919px){
+
+  .popup {
+    width: 90%;
+  }
+
+  .popup-main {
+    width: 67%;
+  }
 }
 
 /* Aside slider */

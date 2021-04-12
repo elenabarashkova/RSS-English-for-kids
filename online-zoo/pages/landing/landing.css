@@ -37,49 +37,6 @@
   margin: 0;
 }
 
-/* -- Social --*/
-
-.social {
-  position: absolute;
-  bottom: 106px;
-}
-
-.social-item {
-  margin-bottom: 11px;
-}
-
-.social-item:last-child {
-  margin-bottom: 0;
-}
-
-.social-item > a {
-  display: block;
-  width: 20px;
-  height: 20px;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.social-item.instagram > a {
-  background-image: url('../../assets/icons/instagram-icon.svg');
-}
-
-.social-item.twitter > a {
-  background-image: url('../../assets/icons/twitter-icon.svg');
-}
-
-.social-item.youtube > a {
-  background-image: url('../../assets/icons/youtube-icon.svg');
-}
-
-.social-item.vk > a {
-  background-image: url('../../assets/icons/vk-icon.svg');
-}
-
-.social-item:hover > a {
-  filter: var(--filter-white-into-blue);
-}
-
 /* -- Slider -- */
 
 .watch-animal-slider.slider {
@@ -184,10 +141,6 @@
   .watch-animal {
     padding-top: 128px;
     height: 926px;
-  }
-
-  .social {
-    bottom: 66px;
   }
 
   .watch-animal-slider.slider {
