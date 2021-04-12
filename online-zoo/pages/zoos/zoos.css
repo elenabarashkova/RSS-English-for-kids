@@ -184,3 +184,87 @@ input:hover+span {
 .broadcast-description .watch-online-btn {
   width: 194px;
 }
+
+@media (min-width: 1200px) and (max-width: 1919px){
+
+  aside {
+    left: -15%;
+    width: 119px;
+  }
+
+  .aside-inner,
+  .aside-slider {
+    width: auto;
+  }
+
+  .aside-slider {
+    height: 518px;
+  }
+
+  .aside-slider-wrap {
+    height: 445px;
+  }
+
+  .aside-slide {
+    margin-bottom: 10px;
+  }
+
+  .aside-slide-pic {
+    width: 96px;
+    height: 96px;
+  }
+
+  .aside-slide.active {
+    width: 120px;
+    height: 120px;
+  }
+
+  .aside-slide.active .aside-slide-pic {
+    width: 107px;
+    height: 105px;
+  }
+
+  .the-zoo {
+    padding-left: 50px;
+  }
+
+  .broadcast-inner {
+    width: 59%;
+  }
+
+  .broadcast-main {
+    height: 297px;
+    margin-bottom: 27px;
+  }
+
+  .broadcast-slide-inner {
+    width: auto;
+    height: 94px;
+  }
+
+  .broadcast-slide:not(:last-child) {
+    margin-right: 17px;
+  }
+
+  .radio-pagination-inner {
+    width: 60px;
+    padding-right: 20px;
+  }
+
+  .broadcast-description {
+    width: 30%;
+    padding-left: 17px;
+  }
+
+  .broadcast-description .block-info {
+    margin-bottom: 16px;
+  }
+
+  .broadcast-description-wrap {
+    margin-bottom: 20px;
+  }
+
+  .broadcast-description .watch-online-btn {
+    width: 185px;
+  }
+}
