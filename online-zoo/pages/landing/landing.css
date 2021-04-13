@@ -136,6 +136,66 @@
 
 /* -- Responsive for Section watch animal  -- */
 
+@media (min-width: 640px) and (max-width: 1199px){
+
+  .watch-animal {
+    height: 934px;
+    padding-top: 122px;
+  }
+
+  .title h2 {
+    font-size: 64px;
+    line-height: 75px;
+  }
+
+  .watch-animal .title {
+    width: auto;
+    margin-bottom: 30px;
+  }
+
+  .watch-animal-slider.slider {
+    bottom: 32px;
+  }
+
+  .watch-animal-slider .slider-wrap {
+    width: 588px;
+  }
+
+  .watch-animal-slider .slider-inner {
+    top: 5px;
+    padding-left: 71px;
+  }
+
+  .watch-animal-slider .slide {
+    width: 180px;
+    height: 261px;
+    margin-right: 26px;
+    margin-top: 0;
+  }
+
+  .animal-slider .slide:hover .slide-caption {
+    bottom: 20px;
+  }
+
+  .watch-animal-slider .slide:not(.active) .slide-description {
+    font-size: 13px;
+  }
+
+  .watch-animal-slider .slide:not(.active) .slide-btn:before {
+    width: 20px;
+    height: 20px;
+  }
+
+  .watch-animal-slider .slide:not(.active) .slide-btn {
+    font-size: 12px;
+    padding-left: 26px;
+  }
+
+  .watch-animal-slider .slide:not(.active) .watch-online-link > span {
+    width: 57px;
+  }
+}
+
 @media (min-width: 1200px) and (max-width: 1919px){
 
   .watch-animal {
@@ -192,6 +252,13 @@
 
 /* -- Responsive for Section how it works  -- */
 
+@media (min-width: 640px) and (max-width: 1199px){
+
+  .how-it-works {
+    padding-bottom: 38px;
+  }
+}
+
 @media (min-width: 1200px) and (max-width: 1919px){
 
   .how-it-works-slider {
@@ -215,6 +282,26 @@
 
 
 /* -- Responsive for Section inspiration  -- */
+
+@media (min-width: 640px) and (max-width: 1199px){
+
+  .inspiration {
+    padding-bottom: 50px;
+  }
+
+  .inspiration-blocks {
+    justify-content: normal;
+    flex-wrap: wrap;
+  }
+
+  .block-item {
+    text-align: center;
+    width: 51%;
+    margin: 0 auto;
+    padding: 0 10px;
+    margin-bottom: 51px;
+  }
+}
 
 @media (min-width: 1200px) and (max-width: 1919px){
 
@@ -268,6 +355,37 @@
 }
 
 /* -- Responsive for Section pets-in-zoo  -- */
+
+@media (min-width: 640px) and (max-width: 1199px){
+
+  .pets-in-zoo-slider .slide {
+    width: 210px;
+    height: 301px;
+    margin-right: 16px;
+    transition: all 0.3s ease-out;
+  }
+
+  .pets-in-zoo-slider .slider-inner {
+    margin-bottom: 38px;
+  }
+
+  .pets-in-zoo-slider .slide:hover .slide-caption {
+    bottom: 35px;
+  }
+
+  .pets-in-zoo-slider .slide-btns {
+    padding-left: 8px;
+  }
+
+  .pets-in-zoo-slider .slide-btn:not(:last-child) {
+    margin-right: 3px;
+  }
+
+  .pets-in-zoo-slider .slide-description {
+    width: 93%;
+    padding-left: 9px;
+  }
+}
 
 @media (min-width: 1200px) and (max-width: 1919px){
 
@@ -365,6 +483,42 @@
 
 /* -- Responsive for Section Pay and feed  -- */
 
+@media (min-width: 640px) and (max-width: 1199px){
+
+  .pay-and-feed .title h3 {
+    margin-bottom: 20px;
+  }
+
+  .pay-and-feed .text-description {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .pay-and-feed .inspiration-blocks {
+    padding-top: 47px;
+    flex-direction: column;
+    margin-bottom: 0px;
+  }
+
+  .pay-and-feed .block-item:not(:last-child) {
+    margin-bottom: 100px;
+  }
+
+  .pay-and-feed .block-item:before {
+    left: 50%;
+    top: -66px;
+    height: 27px;
+    width: 46px;
+    background-size: auto;
+    background-position: right;
+    transform: translateX(-50%) rotate(90deg);
+  }
+
+  .pay-and-feed .block-title {
+    width: 60%;
+  }
+}
+
 @media (min-width: 1200px) and (max-width: 1919px){
 
   .pay-and-feed .inspiration-blocks {
@@ -434,6 +588,18 @@
 }
 
 /* -- Responsive for Section testimonials  -- */
+
+@media (min-width: 640px) and (max-width: 1199px){
+
+  .testimonials-slider {
+    padding-top: 16px;
+  }
+
+  .testimonials-slider .slide {
+    width: 590px;
+    padding: 46px 79px 0;
+  }
+}
 
 @media (min-width: 1200px) and (max-width: 1919px){
 

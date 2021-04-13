@@ -18,6 +18,8 @@
   --gradient-hover: linear-gradient(106.89deg, #45c4a3 -14.32%, #48c2cb 100.68%);
   --gradient-focus: linear-gradient(106.89deg, #39a68a -14.32%, #40a4ac 100.68%);
   --filter-white-into-blue: brightness(0.5) sepia(1) saturate(156%) hue-rotate(120deg);
+  --filter-black-into-blue-hover: sepia(1) brightness(2) hue-rotate(134deg) saturate(806%);
+  --filter-black-into-blue-focus: sepia(1) brightness(2) hue-rotate(134deg) saturate(206%);
   --darken-the-block-gradient: linear-gradient(348.75deg, #000000 10.15%, rgba(0, 0, 0, 0) 59%);
 }
 
