@@ -136,6 +136,109 @@
 
 /* -- Responsive for Section watch animal  -- */
 
+@media (max-width: 639px){
+
+  .watch-animal {
+    height: 667px;
+    padding-top: 89px;
+  }
+
+  .watch-animal .background > img {
+    object-fit: cover;
+  }
+
+  .watch-animal .title {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .title h2 {
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  .watch-animal .social {
+    display: none;
+  }
+
+  .watch-animal-slider.slider {
+    bottom: 11px;
+    right: -2px;
+  }
+
+  .watch-animal-slider .slider-wrap {
+    width: 320px;
+    height: 300px;
+  }
+
+  .watch-animal-slider .slider-inner {
+    padding-left: 19px;
+    background-position-y: 50%;
+  }
+
+  .watch-animal-slider .slide {
+    width: 113px;
+    height: 164px;
+    margin-right: 9px;
+    margin-top: 0;
+  }
+
+  .watch-animal-slider .slide.active {
+    width: 140px;
+    height: 202px;
+  }
+
+  .watch-animal-slider .slide-description {
+    font-size: 13px;
+    width: 100%;
+    padding-left: 5px;
+    margin-bottom: 12px;
+  }
+
+  .watch-animal-slider .slide-btns {
+    padding-left: 5px;
+  }
+
+  .watch-animal-slider .slide:not(.active) .slide-btns {
+    display: block;
+  }
+
+  .watch-animal-slider .slide-btn {
+    font-size: 10px;
+    display: block;
+    margin-bottom: 19px;
+  }
+
+  .watch-animal-slider .slide:not(.active) .slide-btn {
+    font-size: 10px;
+    padding-left: 20px;
+    margin-right: 0;
+    margin-bottom: 4px;
+  }
+
+  .watch-animal-slider .slide-btn:last-child {
+    margin-bottom: 0;
+  }
+
+  .watch-animal-slider .slide-caption,
+  .watch-animal-slider .slide.active .slide-caption {
+    bottom: 15px;
+  }
+
+  .watch-animal-slider .slide:not(.active) .watch-online-link > span {
+    width: auto;
+  }
+
+  .watch-animal-slider input[type='range']::-webkit-slider-thumb {
+    width: 17px;
+  }
+
+  .watch-animal-slider input[type='range']::-moz-range-thumb {
+    width: 17px;
+  }
+
+}
+
 @media (min-width: 640px) and (max-width: 1199px){
 
   .watch-animal {
@@ -252,6 +355,35 @@
 
 /* -- Responsive for Section how it works  -- */
 
+@media (max-width: 639px){
+
+  .how-it-works {
+    padding-top: 50px;
+    padding-bottom: 20px;
+  }
+
+  .how-it-works-slider {
+    margin-bottom: 17px;
+  }
+
+  .how-it-works-slider .slider-inner {
+    margin-bottom: 21px;
+  }
+
+  .how-it-works-slider .slider-range input[type='range'] {
+    margin-top: 15px;
+  }
+
+  .how-it-works-slider .slider-output {
+    padding-left: 6px;
+  }
+
+  .how-it-works-slider .slider-pagination {
+    width: 245px;
+    padding-left: 5px;
+  }
+}
+
 @media (min-width: 640px) and (max-width: 1199px){
 
   .how-it-works {
@@ -283,10 +415,11 @@
 
 /* -- Responsive for Section inspiration  -- */
 
-@media (min-width: 640px) and (max-width: 1199px){
+@media (max-width: 1199px){
 
   .inspiration {
-    padding-bottom: 50px;
+    padding-top: 50px;
+    padding-bottom: 17px;
   }
 
   .inspiration-blocks {
@@ -300,6 +433,19 @@
     margin: 0 auto;
     padding: 0 10px;
     margin-bottom: 51px;
+  }
+}
+
+@media (max-width: 639px){
+
+  .inspiration {
+    padding-top: 50px;
+  }
+
+  .block-item {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 32px;
   }
 }
 
@@ -356,7 +502,8 @@
 
 /* -- Responsive for Section pets-in-zoo  -- */
 
-@media (min-width: 640px) and (max-width: 1199px){
+
+@media (max-width: 1199px){
 
   .pets-in-zoo-slider .slide {
     width: 210px;
@@ -390,6 +537,38 @@
     display: none;
   }
 }
+
+@media (max-width: 639px){
+
+  .pets-in-zoo {
+    padding-bottom: 20px;
+  }
+
+  .pets-in-zoo .title {
+    margin-bottom: 30px;
+  }
+
+  .pets-in-zoo-slider .slider-inner {
+    margin-bottom: 33px;
+  }
+
+  .pets-in-zoo-slider .slide {
+    margin-right: 12px;
+  }
+
+  .pets-in-zoo-slider .slider-pagination {
+    width: 245px;
+  }
+
+  .slider-range input[type='range'] {
+    margin-top: 13px;
+  }
+
+  .pets-in-zoo-slider {
+    margin-bottom: 22px;
+  }
+}
+
 
 @media (min-width: 1200px) and (max-width: 1919px){
 
@@ -487,7 +666,7 @@
 
 /* -- Responsive for Section Pay and feed  -- */
 
-@media (min-width: 640px) and (max-width: 1199px){
+@media (max-width: 1199px){
 
   .pay-and-feed .title h3 {
     margin-bottom: 20px;
@@ -520,6 +699,30 @@
 
   .pay-and-feed .block-title {
     width: 60%;
+  }
+}
+
+@media (max-width: 639px){
+
+  .pay-and-feed {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .pay-and-feed .text-description {
+    display: none;
+  }
+
+  .pay-and-feed .inspiration-blocks {
+    padding-top: 10px;
+  }
+
+  .pay-and-feed .block-item:last-child {
+    margin-bottom: 40px;
+  }
+
+  .pay-and-feed .block-title {
+    width: 55%;
   }
 }
 
@@ -593,7 +796,7 @@
 
 /* -- Responsive for Section testimonials  -- */
 
-@media (min-width: 640px) and (max-width: 1199px){
+@media (max-width: 1199px){
 
   .testimonials-slider {
     padding-top: 16px;
@@ -602,6 +805,45 @@
   .testimonials-slider .slide {
     width: 590px;
     padding: 46px 79px 0;
+  }
+}
+
+@media (max-width: 639px){
+
+  .testimonials {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .testimonials-slider {
+    margin-bottom: 18px;
+  }
+
+  .testimonials-slider .slider-wrap {
+    height: auto;
+  }
+
+  .testimonials-slider .slider-inner {
+    height: auto;
+    margin-bottom: 40px;
+  }
+
+  .testimonials-slider .slide {
+    width: 300px;
+    height: 364px;
+    padding: 50px 14px 0;
+  }
+
+  .testimonials-slider .block-pic {
+    margin-bottom: 45px;
+  }
+
+  .testimonials-slider .block-title h4 {
+    font-size: 16px;
+  }
+
+  .testimonials .slider-pagination {
+    width: 245px;
   }
 }
 
