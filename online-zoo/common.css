@@ -34,17 +34,23 @@ body {
 
 @media (min-width: 640px) and (max-width: 1199px){
 
-  .container,
-  .wrapper {
+  .container {
     width: 600px;
+  }
+
+  .wrapper {
+    width: 100%;
   }
 }
 
 @media (min-width: 1200px) and (max-width: 1919px){
 
-  .container,
-  .wrapper {
+  .container {
     width: 900px;
+  }
+
+  .wrapper {
+    width: 100%;
   }
 }
 
