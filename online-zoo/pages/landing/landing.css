@@ -385,6 +385,10 @@
     width: 93%;
     padding-left: 9px;
   }
+
+  .slider-nav {
+    display: none;
+  }
 }
 
 @media (min-width: 1200px) and (max-width: 1919px){

@@ -65,6 +65,7 @@ body {
 header {
   background: var(--header-bg);
   box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
+  overflow: hidden;
 }
 
 header > .container {
@@ -736,13 +737,6 @@ input[type='range']::-moz-range-thumb {
 
 .slider-nav.disabled:hover > svg > path {
   fill: var(--middle-gray-color);
-}
-
-@media (min-width: 640px) and (max-width: 1199px){
-
-  .slider-nav {
-    display: none;
-  }
 }
 
 @media (min-width: 1200px) and (max-width: 1919px){

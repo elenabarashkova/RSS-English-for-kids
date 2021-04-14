@@ -117,6 +117,54 @@ main {
   right: 229px;
 }
 
+@media (min-width: 640px) and (max-width: 1199px){
+
+  main {
+    padding-bottom: 50px;
+  }
+
+  .map-page .text-description {
+    width: 100%;
+    margin-bottom: 36px;
+  }
+
+  .map-slider .aside-slide {
+    padding: 0;
+    margin-right: 16px;
+  }
+
+  .map-slider .aside-slide:last-child {
+    margin-right: 0;
+  }
+
+  .map-slider .aside-slider {
+    margin-bottom: 25px;
+  }
+
+  .map-slider .slider-pagination {
+    width: 245px;
+    padding: 0;
+  }
+
+  .map-slider {
+    margin-bottom: 9px;
+  }
+
+  .main-map .map-animal-icon.map-animal-icon-eagle {
+    top: 29px;
+    left: 53px;
+  }
+
+  .main-map .map-animal-icon.map-animal-icon-panda {
+    top: 35px;
+    right: 106px;
+  }
+
+  .main-map .map-inner {
+    margin-bottom: 25px;
+  }
+}
+
 @media (min-width: 1200px) and (max-width: 1919px){
 
   .map-page .text-description {
