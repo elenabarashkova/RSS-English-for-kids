@@ -970,6 +970,7 @@ input[type='range']::-moz-range-thumb {
 
   .map-image {
     height: 146px;
+    background-image: url(assets/images/landing-map-640.svg);
   }
 
   .map-animal-icon {
