@@ -185,7 +185,7 @@ input:hover+span {
   width: 194px;
 }
 
-@media (min-width: 640px) and (max-width: 1199px){
+@media (max-width: 1199px){
 
   aside {
     left: -13px;
@@ -265,6 +265,101 @@ input:hover+span {
 
   .broadcast-description .watch-online-btn {
     width: 186px;
+  }
+}
+
+@media (max-width: 639px) {
+
+  main {
+    padding-top: 25px;
+  }
+
+  aside {
+    width: 74px;
+    padding-top: 10px;
+    left: -5px;
+  }
+
+  .aside-slider {
+    padding-top: 31px;
+    height: 260px;
+  }
+
+  .aside-slider-wrap {
+    height: 200px;
+  }
+
+  .aside-slide {
+    margin-bottom: 5px;
+  }
+
+  .aside-slide-pic {
+    width: 40px;
+    height: 40px;
+  }
+
+  .aside-slide.active {
+    width: 65px;
+    height: 65px;
+  }
+
+  .aside-slide.active .aside-slide-pic {
+    width: 57px;
+    height: 57px;
+    margin-top: 4px;
+  }
+
+  .aside-slider .slider-nav {
+    top: auto;
+    left: 42%;
+  }
+
+  .the-zoo {
+    padding-left: 85px;
+    padding-right: 10px;
+    padding-bottom: 58px;
+  }
+
+  .the-zoo .title h3 {
+    margin-bottom: 14px;
+    padding-left: 7px;
+    font-size: 24px;
+  }
+
+  .broadcast-main {
+    height: 116px;
+    margin-bottom: 10px;
+  }
+
+  .broadcast-inner {
+    margin-bottom: 17px;
+  }
+
+  .broadcast-slide-inner {
+    width: 98px;
+    height: 56px;
+  }
+
+  .broadcast-slide:last-child {
+    display: none;
+  }
+
+  .broadcast-slider-wrap {
+    margin-bottom: 9px;
+  }
+
+  .broadcast-description .block-title h4 {
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .broadcast-description .block-info {
+    margin-bottom: 15px;
+  }
+
+  .broadcast-description-wrap {
+    margin-bottom: 17px;
   }
 }
 
