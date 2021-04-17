@@ -3,7 +3,7 @@
 
 main {
   padding-top: 61px;
-  padding-bottom: 70px;
+  padding-bottom: 74px;
 }
 
 .map-page .title h3 {
@@ -125,7 +125,8 @@ main {
 
   .map-page .text-description {
     width: 100%;
-    margin-bottom: 36px;
+    max-width: 800px;
+    margin: 0 auto 36px;
   }
 
   .map-slider .aside-slide {
@@ -139,6 +140,7 @@ main {
 
   .map-slider .aside-slider {
     margin-bottom: 25px;
+    padding: 0 39px;
   }
 
   .map-slider .slider-pagination {
@@ -147,7 +149,8 @@ main {
   }
 
   .map-slider {
-    margin-bottom: 9px;
+    max-width: 600px;
+    margin: 0 auto 9px;
   }
 
   .main-map .map-animal-icon.map-animal-icon-eagle {
@@ -267,6 +270,10 @@ main {
 
 @media (min-width: 1200px) and (max-width: 1919px){
 
+  main {
+    padding-bottom: 70px;
+  }
+
   .map-page .text-description {
     width: 88%;
     margin-bottom: 34px;
@@ -291,7 +298,8 @@ main {
   }
 
   .map-slider {
-    margin-bottom: 16px;
+    max-width: 900px;
+    margin: 0 auto 16px;
   }
 
   .main-map .map-image {
