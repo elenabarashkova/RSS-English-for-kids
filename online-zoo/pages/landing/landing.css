@@ -179,7 +179,7 @@
   .watch-animal-slider .slide {
     width: 113px;
     height: 164px;
-    margin-right: 9px;
+    margin-right: 7px;
     margin-top: 0;
   }
 
@@ -191,12 +191,12 @@
   .watch-animal-slider .slide-description {
     font-size: 13px;
     width: 100%;
-    padding-left: 5px;
+    padding-left: 8px;
     margin-bottom: 12px;
   }
 
   .watch-animal-slider .slide-btns {
-    padding-left: 5px;
+    padding-left: 8px;
   }
 
   .watch-animal-slider .slide:not(.active) .slide-btns {
@@ -213,7 +213,7 @@
     font-size: 10px;
     padding-left: 20px;
     margin-right: 0;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
 
   .watch-animal-slider .slide-btn:last-child {
@@ -235,6 +235,10 @@
 
   .watch-animal-slider input[type='range']::-moz-range-thumb {
     width: 17px;
+  }
+
+  .watch-animal-slider .slider-range input[type='range'] {
+    margin-top: 3px;
   }
 
 }
@@ -276,7 +280,7 @@
     margin-top: 0;
   }
 
-  .animal-slider .slide:hover .slide-caption {
+  .watch-animal-slider .slide:not(.active):hover .slide-caption {
     bottom: 20px;
   }
 
@@ -418,8 +422,8 @@
 @media (max-width: 1199px){
 
   .inspiration {
-    padding-top: 50px;
-    padding-bottom: 17px;
+    padding-top: 100px;
+    padding-bottom: 50px;
   }
 
   .inspiration-blocks {
@@ -440,12 +444,18 @@
 
   .inspiration {
     padding-top: 50px;
+    padding-bottom: 17px;
   }
 
   .block-item {
     width: 100%;
     padding: 0;
     margin-bottom: 32px;
+  }
+
+  .inspiration .block-descr {
+    max-width: 300px;
+    margin: 0 auto;
   }
 }
 
@@ -816,7 +826,8 @@
   }
 
   .testimonials-slider {
-    margin-bottom: 18px;
+    max-width: 300px;
+    margin: 0 auto 18px;
   }
 
   .testimonials-slider .slider-wrap {
@@ -844,6 +855,14 @@
 
   .testimonials .slider-pagination {
     width: 245px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1199px){
+
+  .testimonials-slider .slider-wrap {
+    max-width: 600px;
+    margin: 0 auto;
   }
 }
 

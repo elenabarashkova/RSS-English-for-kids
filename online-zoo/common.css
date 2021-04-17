@@ -35,7 +35,7 @@ body {
 @media (max-width: 639px){
 
   .container {
-    width: 300px;
+    padding: 0 10px;
   }
 
   .wrapper {
@@ -46,7 +46,7 @@ body {
 @media (min-width: 640px) and (max-width: 1199px){
 
   .container {
-    width: 600px;
+    padding: 0 20px;
   }
 
   .wrapper {
@@ -57,7 +57,7 @@ body {
 @media (min-width: 1200px) and (max-width: 1919px){
 
   .container {
-    width: 900px;
+    padding: 0 150px;
   }
 
   .wrapper {
@@ -719,7 +719,7 @@ input[type='range']::-moz-range-thumb {
   .slider-pagination {
     bottom: 36px;
     width: 140px;
-    left: 48%;
+    left: 45%;
   }
 }
 
@@ -833,6 +833,13 @@ input[type='range']::-moz-range-thumb {
   }
 }
 
+@media (min-width: 640px) and (max-width: 1199px){
+
+  .section-inner {
+    max-width: 600px;
+  }
+}
+
 @media (min-width: 1200px) and (max-width: 1919px){
 
   .section-inner {
@@ -885,8 +892,9 @@ input[type='range']::-moz-range-thumb {
 
 .map-inner {
   padding-top: 30px;
-  margin-bottom: 35px;
   position: relative;
+  width: 1640px;
+  margin: 0 auto 35px;
 }
 
 .map-image {
@@ -965,7 +973,8 @@ input[type='range']::-moz-range-thumb {
 
   .map-inner {
     padding-top: 32px;
-    margin-bottom: 29px;
+    width: 300px;
+    margin: 0 auto 29px;
   }
 
   .map-image {
@@ -1017,7 +1026,8 @@ input[type='range']::-moz-range-thumb {
 
   .map-inner {
     padding-top: 23px;
-    margin-bottom: 23px;
+    width: 600px;
+    margin: 0 auto 23px;
   }
 
   .map-image {
@@ -1047,6 +1057,11 @@ input[type='range']::-moz-range-thumb {
 }
 
 @media (min-width: 1200px) and (max-width: 1919px){
+
+  .map-inner {
+    width: 900px;
+    margin: 0 auto 35px;
+  }
 
   .map-image {
     height: 436px;
@@ -1641,6 +1656,7 @@ footer .social-item:last-child {
   .form-wrap input,
   .form-wrap fieldset {
     width: 100%;
+    max-width: 300px;
   }
 
   .form-wrap fieldset {
@@ -1684,6 +1700,7 @@ footer .social-item:last-child {
 
   .footer-info-wrap > .footer-head {
     width: 100%;
+    margin-bottom: 38px;
   }
 
   .footer-btn {
