@@ -188,7 +188,7 @@ input:hover+span {
 @media (max-width: 1199px){
 
   aside {
-    left: -13px;
+    left: 7px;
     width: 90px;
   }
 
@@ -228,6 +228,11 @@ input:hover+span {
   .the-zoo {
     padding-left: 102px;
     padding-bottom: 79px;
+  }
+
+  .the-zoo .wrapper {
+    max-width: 500px;
+    margin: 0 auto;
   }
 
   .the-zoo .title h3 {
@@ -277,7 +282,7 @@ input:hover+span {
   aside {
     width: 74px;
     padding-top: 10px;
-    left: -5px;
+    left: 5px;
   }
 
   .aside-slider {
@@ -318,6 +323,11 @@ input:hover+span {
     padding-left: 85px;
     padding-right: 10px;
     padding-bottom: 58px;
+  }
+
+  .the-zoo .wrapper {
+    max-width: 240px;
+    margin: 0 auto;
   }
 
   .the-zoo .title h3 {
@@ -361,12 +371,17 @@ input:hover+span {
   .broadcast-description-wrap {
     margin-bottom: 17px;
   }
+
+  .broadcast-description .block-descr {
+    font-size: 12px;
+    line-height: 14px;
+  }
 }
 
 @media (min-width: 1200px) and (max-width: 1919px){
 
   aside {
-    left: -15%;
+    left: 16px;
     width: 119px;
   }
 
@@ -407,7 +422,7 @@ input:hover+span {
   }
 
   .broadcast-inner {
-    width: 59%;
+    width: 62%;
   }
 
   .broadcast-main {
@@ -431,7 +446,7 @@ input:hover+span {
 
   .broadcast-description {
     width: 30%;
-    padding-left: 17px;
+    padding-left: 19px;
   }
 
   .broadcast-description .block-info {
