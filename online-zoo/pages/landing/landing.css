@@ -1,6 +1,13 @@
 @import "normalize.css";
 @import "../../common.css";
 
+@media (max-width: 1199px) {
+
+  main {
+    padding-top: 94px;
+  }
+}
+
 /*SECTION watch animal*/
 
 .watch-animal {

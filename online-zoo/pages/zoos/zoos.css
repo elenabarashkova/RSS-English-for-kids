@@ -187,6 +187,10 @@ input:hover+span {
 
 @media (max-width: 1199px){
 
+  main {
+    padding-top: 155px;
+  }
+
   aside {
     left: 7px;
     width: 90px;
@@ -276,7 +280,7 @@ input:hover+span {
 @media (max-width: 639px) {
 
   main {
-    padding-top: 25px;
+    padding-top: 119px;
   }
 
   aside {

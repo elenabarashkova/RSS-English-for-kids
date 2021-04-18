@@ -120,6 +120,7 @@ main {
 @media (max-width: 1199px){
 
   main {
+    padding-top: 155px;
     padding-bottom: 50px;
   }
 
@@ -171,7 +172,7 @@ main {
 @media (max-width: 639px){
 
   main {
-    padding-top: 26px;
+    padding-top: 120px;
     padding-bottom: 29px;
   }
 
