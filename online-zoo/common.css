@@ -494,7 +494,8 @@ a.watch-online-btn {
 }
 
 .slider-inner {
-  width: 4000px;
+  display: flex;
+  flex-wrap: nowrap;
   position: absolute;
   left: 0;
   top: 0;
@@ -506,6 +507,9 @@ a.watch-online-btn {
   vertical-align: middle;
   cursor: pointer;
   overflow: hidden;
+  width: 100%;
+  flex-basis: 100%;
+  flex-shrink: 0;
 }
 
 .slide-pic {

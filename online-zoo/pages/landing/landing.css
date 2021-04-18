@@ -68,8 +68,9 @@
 .watch-animal-slider .slide {
   width: 140px;
   height: 203px;
-  margin-right: 42px;
-  margin-top: 26px;
+  margin-right: 46px;
+  margin-top: 88px;
+  flex-basis: auto;
 }
 
 .watch-animal-slider .slide.active {
@@ -179,15 +180,15 @@
   }
 
   .watch-animal-slider .slider-inner {
-    padding-left: 19px;
+    padding-left: 22px;
     background-position-y: 50%;
   }
 
   .watch-animal-slider .slide {
     width: 113px;
     height: 164px;
-    margin-right: 7px;
-    margin-top: 0;
+    margin-right: 9px;
+    margin-top: 19px;
   }
 
   .watch-animal-slider .slide.active {
@@ -283,8 +284,8 @@
   .watch-animal-slider .slide {
     width: 180px;
     height: 261px;
-    margin-right: 26px;
-    margin-top: 0;
+    margin-right: 30px;
+    margin-top: 45px;
   }
 
   .watch-animal-slider .slide:not(.active):hover .slide-caption {
@@ -332,14 +333,13 @@
   .watch-animal-slider .slide {
     width: 180px;
     height: 261px;
-    margin-right: 27px;
-    margin-top: 0px;
+    margin-right: 30px;
+    margin-top: 46px;
   }
 
   .slider-pagination {
     left: 49%;
   }
-
 }
 
 /*SECTION how it works*/
@@ -360,7 +360,6 @@
 }
 
 .how-it-works-slider .slide {
-  width: 790px;
   height: 323px;
 }
 
@@ -502,8 +501,9 @@
 .pets-in-zoo-slider .slide {
   width: 278px;
   height: 399px;
-  margin-right: 26px;
+  margin-right: 32px;
   transition: all 0.3s ease-out;
+  flex-basis: 23%;
 }
 
 .pets-in-zoo-slider .slide:hover .slide-caption {
@@ -522,11 +522,17 @@
 
 @media (max-width: 1199px){
 
+  .pets-in-zoo-slider {
+    width: 600px;
+    margin: 0 auto 30px;
+  }
+
   .pets-in-zoo-slider .slide {
-    width: 210px;
+    width: auto;
     height: 301px;
-    margin-right: 16px;
+    margin-right: 20px;
     transition: all 0.3s ease-out;
+    flex-basis: 35%;
   }
 
   .pets-in-zoo-slider .slider-inner {
@@ -565,12 +571,19 @@
     margin-bottom: 30px;
   }
 
+  .pets-in-zoo-slider {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 70px;
+  }
+
   .pets-in-zoo-slider .slider-inner {
     margin-bottom: 33px;
   }
 
   .pets-in-zoo-slider .slide {
-    margin-right: 12px;
+    flex-basis: 70%;
+    margin-right: 16px;
   }
 
   .pets-in-zoo-slider .slider-pagination {
@@ -594,13 +607,18 @@
   }
 
   .pets-in-zoo .title {
-    margin-bottom: 32px;
+    margin-bottom: 34px;
+  }
+
+  .pets-in-zoo-slider {
+    width: 900px;
+    margin: 0 auto 30px;
   }
 
   .pets-in-zoo-slider .slide {
-    width: 210px;
+    width: auto;
     height: 301px;
-    margin-right: 16px;
+    margin-right: 23px;
   }
 
   .pets-in-zoo-slider .slide:hover .slide-caption {
@@ -620,6 +638,9 @@
     padding-left: 9px;
   }
 
+  .pets-in-zoo-slider .slider-pagination {
+    padding-left: 6px;
+  }
 }
 
 /*SECTION Pay and feed*/
@@ -786,6 +807,7 @@
   text-align: center;
   padding: 46px 74px 0;
   margin-right: 27px;
+  flex-basis: 49%;
 }
 
 .testimonials-slider .slide:last-child {
@@ -820,8 +842,9 @@
   }
 
   .testimonials-slider .slide {
-    width: 590px;
+    width: auto;
     padding: 46px 79px 0;
+    flex-basis: 100%;
   }
 }
 
@@ -883,7 +906,7 @@
     width: 440px;
     height: 310px;
     padding: 48px 57px 0;
-    margin-right: 15px;
+    margin-right: 19px;
   }
 
   .testimonials-slider .slider-nav {
