@@ -258,6 +258,10 @@
     padding-top: 122px;
   }
 
+  .watch-animal .background img {
+    object-fit: cover;
+  }
+
   .title h2 {
     font-size: 64px;
     line-height: 75px;
@@ -318,6 +322,10 @@
     height: 926px;
   }
 
+  .watch-animal .background img {
+    object-fit: cover;
+  }
+
   .watch-animal-slider.slider {
     bottom: -5px;
   }
@@ -363,6 +371,10 @@
   height: 323px;
 }
 
+.how-it-works-slider .slide:first-child img {
+  object-position: 0 71%;
+}
+
 /* -- Responsive for Section how it works  -- */
 
 @media (max-width: 639px){
@@ -392,6 +404,10 @@
     width: 245px;
     padding-left: 5px;
   }
+
+  .how-it-works-slider .slide:first-child img {
+    object-position: 8% 50%;
+  }
 }
 
 @media (min-width: 640px) and (max-width: 1199px){
@@ -405,6 +421,10 @@
 
   .how-it-works-slider {
     margin-bottom: 27px;
+  }
+
+  .how-it-works-slider .slide:first-child img {
+    object-position: center;
   }
 
 }
