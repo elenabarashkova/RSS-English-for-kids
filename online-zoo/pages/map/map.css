@@ -140,8 +140,9 @@ main {
   }
 
   .map-slider .aside-slider {
-    margin-bottom: 25px;
     padding: 0 39px;
+    margin: 0 auto 25px;
+    max-width: 600px;
   }
 
   .map-slider .slider-pagination {
@@ -189,10 +190,10 @@ main {
   }
 
   .map-slider .aside-slider {
-    padding: 0 36px;
+    padding: 16px 36px 0;
     height: 142px;
-    margin-bottom: 0;
-    padding-top: 16px;
+    margin: 0 auto;
+    max-width: 300px;
   }
 
   .map-slider .aside-slide {
@@ -282,7 +283,8 @@ main {
 
   .map-slider .aside-slider {
     padding: 0 118px;
-    margin-bottom: 27px;
+    margin: 0 auto 27px;
+    max-width: 900px;
   }
 
   .map-slider .aside-slider .slider-nav.slider-prev {
