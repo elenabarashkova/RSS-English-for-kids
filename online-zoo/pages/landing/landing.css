@@ -415,6 +415,10 @@
   .how-it-works {
     padding-bottom: 38px;
   }
+
+  .how-it-works-slider .slide:first-child img {
+    object-position: 0 49%;
+  }
 }
 
 @media (min-width: 1200px) and (max-width: 1919px){
@@ -785,6 +789,14 @@
 }
 
 @media (min-width: 1200px) and (max-width: 1919px){
+
+  .block-item:before {
+    left: -27%;
+    height: 27px;
+    width: 50px;
+    background-size: auto;
+    background-position: right;
+  }
 
   .pay-and-feed .inspiration-blocks {
     padding-top: 36px;
