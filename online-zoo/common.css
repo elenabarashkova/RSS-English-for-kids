@@ -147,6 +147,10 @@ nav:before {
   background-position-y: center;
 }
 
+.dark-theme nav:before {
+  filter: invert(1) brightness(2);
+}
+
 nav:hover:before {
   filter: var(--filter-black-into-blue-hover);
 }
@@ -773,7 +777,7 @@ input[type='range']::-moz-range-thumb {
 }
 
 .slider-nav > svg > path {
-  fill: #3C3C3C;
+  fill: var(--slider-nav-color);
 }
 
 .slider-nav.disabled > svg > path {
@@ -913,6 +917,10 @@ input[type='range']::-moz-range-thumb {
   background-image: url('assets/images/landing-map.svg');
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.dark-theme .map-image {
+  filter: invert(100%) brightness(1.1);
 }
 
 .map-animal-icon {
@@ -1230,12 +1238,12 @@ input[type='range']::-moz-range-thumb {
 /*FOOTER*/
 
 footer {
-  background: var(--color-primary);
+  background: var(--footer-color);
   padding: 97px 0 65px;
 }
 
 footer * {
-  color: var(--text-light-color);
+  color: var(--always-light-color);
 }
 
 .footer-inner {
@@ -1265,7 +1273,7 @@ footer .logo {
 }
 
 footer .logo-inner {
-  color: var(--text-light-color);
+  color: var(--always-light-color);
 }
 
 footer .logo-inner:hover,
@@ -1274,7 +1282,7 @@ footer .logo-inner:hover > .h1 * {
 }
 
 footer .block-title h4 {
-  color: var(--text-light-color);
+  color: var(--always-light-color);
   text-align: left;
   margin-bottom: 33px;
 }
@@ -1500,7 +1508,7 @@ footer .menu {
 }
 
 footer .menu-item > .menu-item-inner {
-  color: var(--text-light-color);
+  color: var(--always-light-color);
 }
 
 .footer-btn .watch-online-btn.no-icon-btn.btn {
@@ -1569,6 +1577,10 @@ footer .social-item:last-child {
   padding: 28px 0;
   order: 4;
   width: 100%;
+}
+
+.dark-theme .footer-copyright {
+  border-top-color: var(--text-light-gray-color);
 }
 
 .footer-copyright a {
