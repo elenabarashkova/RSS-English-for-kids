@@ -64,7 +64,7 @@ function detectDayTime (hours) {
     case hours >= 18 && hours < 24:
       return 'evening';
       break;
-    case hours >= 24 && hours < 6:
+    default:
       return 'night';
       break;
   }
@@ -78,6 +78,7 @@ function pictureNumGenerator(num) {
 }
 let num = 1;
 document.querySelector('.btn-next').addEventListener('click', function (event) {
+  document.querySelector('input[type=file]').value = '';
   let timeOfDay = detectDayTime (hours);
   let pictureNum = pictureNumGenerator(num);
   imagePlace.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${pictureNum}.jpg`;
