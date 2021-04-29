@@ -3,7 +3,7 @@
 
 main {
   padding-top: 61px;
-  background-color: var(--lighter-page-bg);
+  background-color: var(--bg-4);
 }
 
 main > .container {

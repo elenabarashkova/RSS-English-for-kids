@@ -1,19 +1,33 @@
 /*VARIABLES*/
 
 :root {
+  /*For change in dark theme*/
   --color-primary: #333;
-  --header-bg: #fff;
+  --color-primary-2: #333;
+  --bg-1: #fff;
+  --bg-2: #f2f2f2;
+  --bg-3: #fbfbfb;
+  --bg-4: #fbfbfb;
+  --theme-color: #fefefe;
+  --contrast-color-1: #4f4f4f;
+  --contrast-color-2: #1b1b1b;
+  --gray-color: #828282;
+
+  /*Only for change*/
+  --toggle-bg: #f2f2f2;
+  --toggle-color: #fff;
+
+  /*Absolute colors*/
+  --absolute-light-color-1: #fff;
+  --absolute-light-color-2: #fefefe;
+  --absolute-dark-color-1: #333;
+  --absolute-dark-color-2: #313131;
+  --absolute-gray-color-1: #bdbdbd;
+  --absolute-gray-color-2: #828282;
+
+  /*Hovers, actives, filters. etc.*/
   --main-hover-color: #4bd8b5;
   --extra-hover-color: #39a68a;
-  --light-page-bg: #f2f2f2;
-  --lighter-page-bg: #fbfbfb;
-  --absolute-color: #fff;
-  --text-light-color: #fefefe;
-  --text-light-gray-color: #bdbdbd;
-  --middle-gray-color: #828282;
-  --dark-gray-color: #4f4f4f;
-  --darker-gray-color: #1b1b1b;
-  --the-darkest-color: #313131;
   --gradient: linear-gradient(106.89deg, #4BD8B5 -14.32%, #49D6DF 100.68%);
   --gradient-hover: linear-gradient(106.89deg, #45c4a3 -14.32%, #48c2cb 100.68%);
   --gradient-focus: linear-gradient(106.89deg, #39a68a -14.32%, #40a4ac 100.68%);
@@ -21,17 +35,23 @@
   --filter-black-into-blue-hover: sepia(1) brightness(2) hue-rotate(134deg) saturate(806%);
   --filter-black-into-blue-focus: sepia(1) brightness(2) hue-rotate(134deg) saturate(206%);
   --darken-the-block-gradient: linear-gradient(348.75deg, #000000 10.15%, rgba(0, 0, 0, 0) 59%);
-  --slider-nav-color: #3C3C3C;
-  --footer-color: #333;
-  --always-light-color: #fefefe;
+
 }
 
 .dark-theme {
+  /*For change in dark theme*/
   --color-primary: #fff;
-  --header-bg: #333333;
-  --lighter-page-bg: #333333;
-  --light-page-bg: #4F4F4F;
-  --dark-gray-color: #fff;
-  --text-light-color: #3C3C3C;
-  --slider-nav-color: #fff;
+  --color-primary-2: #fefefe;
+  --bg-1: #333333;
+  --bg-2: #4F4F4F;
+  --bg-3: #333333;
+  --bg-4: #4F4F4F;
+  --theme-color: #3C3C3C;
+  --contrast-color-1: #f2f2f2;
+  --contrast-color-2: #fefefe;
+  --gray-color: #E0E0E0;
+
+  /*Only for change*/
+  --toggle-bg: #3c3c3c;
+  --toggle-color: #1b1b1b;
 }

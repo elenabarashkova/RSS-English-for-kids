@@ -4,6 +4,7 @@
 main {
   padding-top: 61px;
   padding-bottom: 74px;
+  background: var(--bg-4);
 }
 
 .map-page .title h3 {

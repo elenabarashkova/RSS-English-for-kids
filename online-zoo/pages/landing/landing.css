@@ -36,7 +36,7 @@
   font-weight: 900;
   font-size: 89px;
   line-height: 104px;
-  color: var(--always-light-color);
+  color: var(--absolute-light-color-2);
   margin: 0;
 }
 
@@ -84,15 +84,15 @@
 }
 
 .watch-animal .slider-output .slide-current {
-  color: var(--always-light-color);
+  color: var(--absolute-light-color-2);
 }
 
 .watch-animal  input[type='range']::-webkit-slider-thumb {
-  background-color: var(--always-light-color);
+  background-color: var(--absolute-light-color-2);
 }
 
 .watch-animal  input[type='range']::-moz-range-thumb {
-  background-color: var(--always-light-color);
+  background-color: var(--absolute-light-color-2);
 }
 
 /* -- On hover effects for slide - for animal-sliders -- */
@@ -365,7 +365,7 @@
 /*SECTION how it works*/
 
 .how-it-works {
-  background: var(--lighter-page-bg);
+  background: var(--bg-3);
   padding-top: 100px;
   padding-bottom: 70px;
 }
@@ -448,7 +448,7 @@
 /*SECTION inspiration*/
 
 .inspiration {
-  background: var(--light-page-bg);
+  background: var(--bg-2);
   padding-top: 100px;
   padding-bottom: 132px;
 }
@@ -512,7 +512,7 @@
 /*SECTION pets-in-zoo*/
 
 .pets-in-zoo {
-  background: var(--lighter-page-bg);
+  background: var(--bg-3);
   padding-top: 100px;
   padding-bottom: 70px;
 }
@@ -682,7 +682,7 @@
 /*SECTION Pay and feed*/
 
 .pay-and-feed {
-  background: var(--light-page-bg);
+  background: var(--bg-2);
   padding-top: 100px;
   padding-bottom: 100px;
   text-align: center;
@@ -716,7 +716,7 @@
 }
 
 .pay-and-feed .block-info h4 {
-  color: var(--dark-gray-color);
+  color: var(--contrast-color-1);
 }
 
 .block-item:before {
@@ -823,7 +823,7 @@
   padding-top: 100px;
   padding-bottom: 100px;
   text-align: center;
-  background: var(--lighter-page-bg);
+  background: var(--bg-3);
 }
 
 .testimonials-slider {
@@ -845,7 +845,7 @@
 .testimonials-slider .slide {
   width: 585px;
   height: 310px;
-  background: var(--text-light-color);
+  background: var(--theme-color);
   box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.1);
   border-radius: 5px;
   text-align: center;
@@ -864,7 +864,7 @@
   width: 68px;
   margin: 0 auto;
   overflow: hidden;
-  border: 1px solid var(--text-light-gray-color);
+  border: 1px solid var(--absolute-gray-color-1);
   border-radius: 50%;
   margin-bottom: 18px;
 }
