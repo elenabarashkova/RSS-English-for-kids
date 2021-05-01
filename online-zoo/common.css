@@ -135,8 +135,7 @@ nav {
   position: relative;
 }
 
-nav:before {
-  content: '';
+.mob-btn {
   width: 40px;
   height: 100%;
   display: none;
@@ -147,17 +146,17 @@ nav:before {
   background-position-y: center;
 }
 
-.dark-theme nav:before {
+.dark-theme .mob-btn {
   filter: invert(1) brightness(2);
 }
 
-nav:hover:before {
+nav:hover .mob-btn {
   filter: var(--filter-black-into-blue-hover);
 }
 
-nav:focus:before,
-nav:active:before,
-nav.active:before {
+nav:focus .mob-btn,
+nav:active .mob-btn,
+nav.active .mob-btn {
   filter: var(--filter-black-into-blue-focus);
 }
 
@@ -285,7 +284,7 @@ nav.active:before {
     margin-left: 35px;
   }
 
-  header nav:before {
+  header .mob-btn {
     display: block;
   }
 
