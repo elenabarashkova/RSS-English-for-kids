@@ -27,11 +27,11 @@ window.addEventListener('resize', function() {
 //Sliders
 window.addEventListener('load', function() {
   class Slider {
-    constructor(element) {
+    constructor(element, activeIndex, slidersShownNum, firstSlideOffset = 0) {
       this.element = element;
       this.slides = element.getElementsByClassName('slide');
-      this.activeIndex = 0;
-      this.slidersShownNum = 4;
+      this.activeIndex = activeIndex;
+      this.slidersShownNum = slidersShownNum;
       //Navigation
       this.nextBtn = element.querySelector('.slider-next');
       this.prevBtn = element.querySelector('.slider-prev');
@@ -40,14 +40,20 @@ window.addEventListener('load', function() {
       this.output = element.querySelector('output');
       this.pagination.setAttribute('min', 0);
       this.pagination.setAttribute('max', this.slides.length - 1);
-      this.pagination.value = 0;
+      this.pagination.value = activeIndex;
       //Shifting slider container info
+      this.firstSlideOffset = firstSlideOffset;
       this.sliderInner = element.querySelector('.slider-inner');
       this.slideWidth = this.slides[0].offsetWidth + parseInt(window.getComputedStyle(this.slides[0]).marginRight);
-      this.shownSlideIndex = this.activeIndex;
+      console.log(this.slideWidth);
+      this.shownSlideIndex = 0;
       //Calls
-      this.nextBtn.addEventListener('click', this.onNext);
-      this.prevBtn.addEventListener('click', this.onPrev);
+      if(this.nextBtn) {
+        this.nextBtn.addEventListener('click', this.onNext);
+      }
+      if(this.prevBtn) {
+        this.prevBtn.addEventListener('click', this.onPrev);
+      }
       this.pagination.addEventListener('input', this.onPaginationChange);
       this.setSlidesAmount();
     }
@@ -61,19 +67,24 @@ window.addEventListener('load', function() {
       this.slides[this.activeIndex].classList.remove('active');
       if(index < this.activeIndex && this.shownSlideIndex !== 0) {
         this.shownSlideIndex = this.shownSlideIndex - 1;
+        console.log(this.shownSlideIndex);
       }
       else if(index === (this.slides.length - 1) && this.shownSlideIndex === 0) {
         this.shownSlideIndex = this.slidersShownNum - 1;
+        console.log(this.shownSlideIndex);
+
       }
       else if(index > this.activeIndex && this.shownSlideIndex < (this.slidersShownNum - 1)) {
         this.shownSlideIndex = this.shownSlideIndex + 1;
+        console.log(this.shownSlideIndex);
+
       }
 
       this.activeIndex = index;
       this.slides[this.activeIndex].classList.add('active');
       this.output.innerHTML = `${this.activeIndex < 9 ? '0' : ''}${this.activeIndex + 1}`;
       this.pagination.value = this.activeIndex;
-      this.sliderInner.setAttribute('style', `left: -${this.slideWidth * (this.activeIndex - this.shownSlideIndex)}px`);
+      this.sliderInner.setAttribute('style', `left: ${-this.slideWidth * (this.activeIndex - this.shownSlideIndex - this.firstSlideOffset)}px`);
     }
 
     onNext = () => {
@@ -86,9 +97,11 @@ window.addEventListener('load', function() {
 
     onPaginationChange = () => {
       this.addActive(+this.pagination.value);
+      console.log(this.slideWidth);
     };
   }
-  const petsInZooSlider = new Slider(document.querySelector('.pets-in-zoo-slider'));
+  const petsInZooSlider = new Slider(document.querySelector('.pets-in-zoo-slider'), 0, 4);
+  const watchAnimalSlider = new Slider(document.querySelector('.watch-animal-slider'), 1, 1, 1);
 
 });
 
