@@ -108,11 +108,13 @@
   transition: all 0.3s ease-out;
 }
 
-.animal-slider .slide:hover .slide-pic:before {
+.animal-slider .slide:hover .slide-pic:before,
+.animal-slider .slide.active .slide-pic:before {
   display: block;
 }
 
-.animal-slider .slide:hover .slide-caption {
+.animal-slider .slide:hover .slide-caption,
+.animal-slider .slide.active .slide-caption {
   opacity: 1;
   bottom: 10px;
   transition: bottom 0.3s ease;
@@ -530,7 +532,7 @@
 }
 
 .pets-in-zoo-slider .slider-inner {
-  position: static;
+  position: relative;
   margin-bottom: 30px;
 }
 
@@ -542,7 +544,8 @@
   flex-basis: 23%;
 }
 
-.pets-in-zoo-slider .slide:hover .slide-caption {
+.pets-in-zoo-slider .slide:hover .slide-caption,
+.pets-in-zoo-slider .slide.active .slide-caption {
   bottom: 46px;
 }
 
@@ -575,7 +578,8 @@
     margin-bottom: 38px;
   }
 
-  .pets-in-zoo-slider .slide:hover .slide-caption {
+  .pets-in-zoo-slider .slide:hover .slide-caption,
+  .pets-in-zoo-slider .slider.active .slide-caption {
     bottom: 35px;
   }
 
@@ -657,7 +661,8 @@
     margin-right: 23px;
   }
 
-  .pets-in-zoo-slider .slide:hover .slide-caption {
+  .pets-in-zoo-slider .slide:hover .slide-caption,
+  .pets-in-zoo-slider .slide.active .slide-caption {
     bottom: 36px;
   }
 
@@ -666,7 +671,7 @@
   }
 
   .pets-in-zoo-slider .slide-btn:not(:last-child) {
-    margin-right: 5px;
+    margin-right: 3px;
   }
 
   .pets-in-zoo-slider .slide-description {
