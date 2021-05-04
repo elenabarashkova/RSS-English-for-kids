@@ -72,23 +72,27 @@
 }
 
 .dot:nth-child(1) {
-  left: 79px;
+  left: 65px;
 }
 
 .dot:nth-child(2) {
-  left: 322px;
+  left: 303px;
 }
 
 .dot:nth-child(3) {
-  left: 568px;
+  left: 546px;
 }
 
 .dot:nth-child(4) {
-  left: 700px;
+  left: 726px;
 }
 
 .dot:nth-child(5) {
-  left: 800px;
+  left: 726px;
+}
+
+.dot:nth-child(5) {
+  left: 912px;
 }
 
 .watch-animal-slider .slider-wrap {
