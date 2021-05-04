@@ -31,7 +31,6 @@ window.addEventListener('load', function() {
       this.element = element;
       this.slides = element.getElementsByClassName('slide');
       this.slide = element.querySelector('.slide');
-      console.log(this.slide);
       this.activeIndex = activeIndex;
       this.slidersShownNum = slidersShownNum;
       //Navigation
