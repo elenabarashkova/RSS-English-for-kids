@@ -428,7 +428,7 @@
 }
 
 .how-it-works-slider .slider-inner {
-  position: static;
+  position: relative;
   margin-bottom: 30px;
 }
 
@@ -893,7 +893,7 @@
 
 .testimonials-slider .slider-inner {
   height: 310px;
-  position: static;
+  position: relative;
   margin-bottom: 50px;
   text-align: left;
 }

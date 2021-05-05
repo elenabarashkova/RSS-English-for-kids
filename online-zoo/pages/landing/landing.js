@@ -18,4 +18,22 @@ window.addEventListener('load', function() {
     sliderInner: '.slider-inner',
   };
   const watchAnimalSlider = window.watchAnimalSlider = new Slider(watchAnimalParams);
+
+  const howItWorksParams = {
+    element: document.querySelector('.how-it-works-slider'),
+    activeIndex: 0,
+    slidersShownNum: 1,
+    slides: 'slide',
+    sliderInner: '.slider-inner',
+  };
+  const howItWorksSlider = window.watchAnimalSlider = new Slider(howItWorksParams);
+
+  const testimonialsParams = {
+    element: document.querySelector('.testimonials-slider'),
+    activeIndex: 0,
+    slidersShownNum: 2,
+    slides: 'slide',
+    sliderInner: '.slider-inner',
+  };
+  const testimonialsSlider = window.watchAnimalSlider = new Slider(testimonialsParams);
 });

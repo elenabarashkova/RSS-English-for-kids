@@ -104,6 +104,7 @@ class Slider {
   };
 
   onPaginationChange = () => {
+    console.log('test');
     this.addActive(+this.pagination.value);
   };
 
