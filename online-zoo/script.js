@@ -70,7 +70,10 @@ window.addEventListener('load', function() {
 
     addActive(index) {
       this.slides[this.activeIndex].classList.remove('active');
-      if(index < this.activeIndex && this.shownSlideIndex !== 0) {
+      if(index === 0 && this.activeIndex === (this.slides.length - 1)) {
+        this.shownSlideIndex = 0;
+      }
+      else if(index < this.activeIndex && this.shownSlideIndex !== 0) {
         this.shownSlideIndex = this.shownSlideIndex - 1;
       }
       else if(index === (this.slides.length - 1) && this.shownSlideIndex === 0) {
