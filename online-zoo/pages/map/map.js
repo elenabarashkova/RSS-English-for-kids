@@ -29,7 +29,6 @@ window.addEventListener('load', function() {
       }
       //btn watch link edit
       document.querySelector('.main-map .watch-online-btn').href = `../../pages/zoos/${this.activeItemData}.html`;
-      console.log(document.querySelector('.main-map .watch-online-btn').href = `../../pages/zoos/${this.activeItemData}.html`);
     };
     onMapItemClick= () => {
       let matchingToMapItemIndex;

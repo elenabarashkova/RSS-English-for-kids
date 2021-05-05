@@ -38,9 +38,6 @@ class Slider {
     this.pagination = this.element.querySelector('[name="slider-num"]');
     //Pagination info
     this.output = this.element.querySelector('output');
-    this.pagination.setAttribute('min', 0);
-    this.pagination.setAttribute('max', this.slides.length - 1);
-    this.pagination.value = this.activeIndex;
     //Shifting slider container info
     this.firstSlideOffset = params.firstSlideOffset || 0;
     this.sliderInner = this.element.querySelector(params.sliderInner);
@@ -53,12 +50,21 @@ class Slider {
     if(this.prevBtn) {
       this.prevBtn.addEventListener('click', this.onPrev);
     }
-    this.pagination.addEventListener('input', this.onPaginationChange);
     this.setSlidesAmount();
     if(params.activeOnClick) {
       for(let i = 0; i < this.slides.length; i ++) {
         this.slides[i].addEventListener('click', this.onSlideClick);
       }
+    }
+    this.initPagination();
+  }
+
+  initPagination() {
+    this.pagination.setAttribute('min', 0);
+    this.pagination.setAttribute('max', this.slides.length - 1);
+    this.pagination.value = this.activeIndex;
+    if(this.pagination) {
+      this.pagination.addEventListener('input', this.onPaginationChange);
     }
   }
 
@@ -87,13 +93,21 @@ class Slider {
         this.shownSlideIndex = this.slidersShownNum - 1;
       }
     }
-
+    this.setOutputAndPaginationValue();
     this.activeIndex = index;
     this.slides[this.activeIndex].classList.add('active');
+
+    this.applySliderInnerStyles();
+  }
+
+  setOutputAndPaginationValue() {
     this.output.innerHTML = `${this.activeIndex < 9 ? '0' : ''}${this.activeIndex + 1}`;
     this.pagination.value = this.activeIndex;
-    this.sliderInner.setAttribute('style', `left: ${-this.slideWidth * (this.activeIndex - this.shownSlideIndex - this.firstSlideOffset)}px`);
   }
+
+  applySliderInnerStyles() {
+    this.sliderInner.setAttribute('style', `left: ${-this.slideWidth * (this.activeIndex - this.shownSlideIndex - this.firstSlideOffset)}px`);
+  };
 
   onNext = () => {
     this.addActive((this.activeIndex + 1) % this.slides.length);
@@ -104,7 +118,6 @@ class Slider {
   };
 
   onPaginationChange = () => {
-    console.log('test');
     this.addActive(+this.pagination.value);
   };
 
