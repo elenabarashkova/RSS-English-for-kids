@@ -419,6 +419,7 @@ input:hover+span {
   .aside-slide.active .aside-slide-pic {
     width: 107px;
     height: 105px;
+    margin-top: 8px;
   }
 
   .the-zoo {
