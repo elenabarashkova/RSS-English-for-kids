@@ -93,8 +93,8 @@ class Slider {
         this.shownSlideIndex = this.slidersShownNum - 1;
       }
     }
-    this.setOutputAndPaginationValue();
     this.activeIndex = index;
+    this.setOutputAndPaginationValue();
     this.slides[this.activeIndex].classList.add('active');
 
     this.applySliderInnerStyles();
