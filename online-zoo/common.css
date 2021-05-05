@@ -1121,11 +1121,7 @@ input[type='range']::-moz-range-thumb {
   z-index: 1;
 }
 
-.landing .map-animal-icon:hover .tooltip {
-  display: block;
-}
-
-.map-animal-icon.active .tooltip {
+.map-animal-icon:hover .tooltip {
   display: block;
 }
 
