@@ -34,7 +34,7 @@ window.addEventListener('load', function() {
 
   const asideParams = {
     element: document.querySelector('.aside-slider'),
-    activeIndex: 0,
+    activeIndex: window.activeAnimalAside || 0,
     slidersShownNum: 4,
     activeOnClick: true,
     slides: 'aside-slide',
