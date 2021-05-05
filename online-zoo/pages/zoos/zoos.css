@@ -81,6 +81,12 @@ aside {
   display: flex;
   justify-content: space-between;
   margin-bottom: 18px;
+  overflow: hidden;
+}
+
+.broadcast-slide {
+  flex-basis: 31%;
+  flex-shrink: 0;
 }
 
 .broadcast-slide-inner {
