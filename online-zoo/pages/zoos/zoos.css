@@ -85,8 +85,9 @@ aside {
 }
 
 .broadcast-slide {
-  flex-basis: 31%;
+  flex-basis: 33.33%;
   flex-shrink: 0;
+  flex-grow: 0;
 }
 
 .broadcast-slide-inner {
@@ -447,7 +448,12 @@ input:hover+span {
   }
 
   .broadcast-slide:not(:last-child) {
-    margin-right: 17px;
+    padding-right: 17px;
+  }
+
+  .broadcast-slide:nth-child(3),
+  .broadcast-slide:nth-child(6) {
+    padding-right: 0;
   }
 
   .radio-pagination-inner {
