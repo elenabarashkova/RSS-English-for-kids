@@ -7,6 +7,9 @@ window.addEventListener('load', function() {
       for(let i = 0; i < this.slides.length; i ++) {
         this.slides[i].addEventListener('click', this.onSlideClickMap);
       }
+      for(let i = 0; i < this.mapElems.length; i ++) {
+        this.mapElems[i].addEventListener('click', this.onMapItemClick);
+      }
     };
     addActive(index) {
       for(let i = 0; i < this.mapElems.length; i++) {
@@ -24,7 +27,17 @@ window.addEventListener('load', function() {
       if(mapPin) {
         mapPin.classList.add('active');
       }
-    }
+    };
+    onMapItemClick= () => {
+      let matchingToMapItemIndex;
+      let mapItemDataName = event.currentTarget.dataset.name;
+      for(let i = 0; i < this.slides.length; i++) {
+        if(this.slides[i].dataset.name ===  mapItemDataName) {
+          matchingToMapItemIndex = i;
+        }
+      }
+      this.addActive(matchingToMapItemIndex);
+    };
   }
 
   const mapParams = {
