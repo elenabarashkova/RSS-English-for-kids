@@ -36,7 +36,7 @@
   font-weight: 900;
   font-size: 89px;
   line-height: 104px;
-  color: var(--text-light-color);
+  color: var(--absolute-light-color-2);
   margin: 0;
 }
 
@@ -50,19 +50,58 @@
   position: absolute;
   right: 0;
   bottom: 40px;
+  background-image: url('../../assets/icons/slider-line.svg');
+  background-repeat: no-repeat;
+  background-position-y: 38%;
+  padding-left: 135px;
+}
+
+.watch-animal-slider-dots {
+  top: 37%;
+  position: absolute;
+}
+
+.dot {
+  position: absolute;
+  background-image: url('../../assets/icons/watch-animal-slider-dot.svg');
+  background-repeat: no-repeat;
+  background-position-y: 38%;
+  height: 13px;
+  width: 13px;
+  z-index: -1;
+}
+
+.dot:nth-child(1) {
+  left: 65px;
+}
+
+.dot:nth-child(2) {
+  left: 303px;
+}
+
+.dot:nth-child(3) {
+  left: 546px;
+}
+
+.dot:nth-child(4) {
+  left: 726px;
+}
+
+.dot:nth-child(5) {
+  left: 726px;
+}
+
+.dot:nth-child(5) {
+  left: 912px;
 }
 
 .watch-animal-slider .slider-wrap {
-  width: 1080px;
+  width: 945px;
   height: 500px;
 }
 
 .watch-animal-slider .slider-inner {
   top: 6px;
-  padding-left: 135px;
-  background-image: url('../../assets/icons/slider-line.svg');
-  background-repeat: no-repeat;
-  background-position-y: 54%;
 }
 
 .watch-animal-slider .slide {
@@ -83,6 +122,18 @@
   filter: drop-shadow(5px 4px 50px rgba(152, 157, 198, 0.25));
 }
 
+.watch-animal .slider-output .slide-current {
+  color: var(--absolute-light-color-2);
+}
+
+.watch-animal  input[type='range']::-webkit-slider-thumb {
+  background-color: var(--absolute-light-color-2);
+}
+
+.watch-animal  input[type='range']::-moz-range-thumb {
+  background-color: var(--absolute-light-color-2);
+}
+
 /* -- On hover effects for slide - for animal-sliders -- */
 
 .animal-slider .slide-pic:before {
@@ -96,11 +147,13 @@
   transition: all 0.3s ease-out;
 }
 
-.animal-slider .slide:hover .slide-pic:before {
+.animal-slider .slide:hover .slide-pic:before,
+.animal-slider .slide.active .slide-pic:before {
   display: block;
 }
 
-.animal-slider .slide:hover .slide-caption {
+.animal-slider .slide:hover .slide-caption,
+.animal-slider .slide.active .slide-caption {
   opacity: 1;
   bottom: 10px;
   transition: bottom 0.3s ease;
@@ -330,8 +383,20 @@
     bottom: -5px;
   }
 
+  .dot:nth-child(1) {
+    left: 79px;
+  }
+
+  .dot:nth-child(2) {
+    left: 322px;
+  }
+
+  .dot:nth-child(3) {
+    left: 568px;
+  }
+
   .watch-animal-slider .slider-wrap {
-    width: 721px;
+    width: 586px;
   }
 
   .watch-animal-slider .slider-inner {
@@ -346,14 +411,14 @@
   }
 
   .slider-pagination {
-    left: 49%;
+    left: 37%;
   }
 }
 
 /*SECTION how it works*/
 
 .how-it-works {
-  background: var(--lighter-page-bg);
+  background: var(--bg-3);
   padding-top: 100px;
   padding-bottom: 70px;
 }
@@ -363,7 +428,7 @@
 }
 
 .how-it-works-slider .slider-inner {
-  position: static;
+  position: relative;
   margin-bottom: 30px;
 }
 
@@ -436,7 +501,7 @@
 /*SECTION inspiration*/
 
 .inspiration {
-  background: var(--light-page-bg);
+  background: var(--bg-2);
   padding-top: 100px;
   padding-bottom: 132px;
 }
@@ -500,7 +565,7 @@
 /*SECTION pets-in-zoo*/
 
 .pets-in-zoo {
-  background: var(--lighter-page-bg);
+  background: var(--bg-3);
   padding-top: 100px;
   padding-bottom: 70px;
 }
@@ -518,7 +583,7 @@
 }
 
 .pets-in-zoo-slider .slider-inner {
-  position: static;
+  position: relative;
   margin-bottom: 30px;
 }
 
@@ -530,7 +595,8 @@
   flex-basis: 23%;
 }
 
-.pets-in-zoo-slider .slide:hover .slide-caption {
+.pets-in-zoo-slider .slide:hover .slide-caption,
+.pets-in-zoo-slider .slide.active .slide-caption {
   bottom: 46px;
 }
 
@@ -563,7 +629,8 @@
     margin-bottom: 38px;
   }
 
-  .pets-in-zoo-slider .slide:hover .slide-caption {
+  .pets-in-zoo-slider .slide:hover .slide-caption,
+  .pets-in-zoo-slider .slider.active .slide-caption {
     bottom: 35px;
   }
 
@@ -645,7 +712,8 @@
     margin-right: 23px;
   }
 
-  .pets-in-zoo-slider .slide:hover .slide-caption {
+  .pets-in-zoo-slider .slide:hover .slide-caption,
+  .pets-in-zoo-slider .slide.active .slide-caption {
     bottom: 36px;
   }
 
@@ -654,7 +722,7 @@
   }
 
   .pets-in-zoo-slider .slide-btn:not(:last-child) {
-    margin-right: 5px;
+    margin-right: 3px;
   }
 
   .pets-in-zoo-slider .slide-description {
@@ -670,7 +738,7 @@
 /*SECTION Pay and feed*/
 
 .pay-and-feed {
-  background: var(--light-page-bg);
+  background: var(--bg-2);
   padding-top: 100px;
   padding-bottom: 100px;
   text-align: center;
@@ -704,7 +772,7 @@
 }
 
 .pay-and-feed .block-info h4 {
-  color: var(--dark-gray-color);
+  color: var(--contrast-color-1);
 }
 
 .block-item:before {
@@ -811,7 +879,7 @@
   padding-top: 100px;
   padding-bottom: 100px;
   text-align: center;
-  background: var(--lighter-page-bg);
+  background: var(--bg-3);
 }
 
 .testimonials-slider {
@@ -825,7 +893,7 @@
 
 .testimonials-slider .slider-inner {
   height: 310px;
-  position: static;
+  position: relative;
   margin-bottom: 50px;
   text-align: left;
 }
@@ -833,7 +901,7 @@
 .testimonials-slider .slide {
   width: 585px;
   height: 310px;
-  background: var(--text-light-color);
+  background: var(--theme-color);
   box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.1);
   border-radius: 5px;
   text-align: center;
@@ -852,7 +920,7 @@
   width: 68px;
   margin: 0 auto;
   overflow: hidden;
-  border: 1px solid var(--text-light-gray-color);
+  border: 1px solid var(--absolute-gray-color-1);
   border-radius: 50%;
   margin-bottom: 18px;
 }

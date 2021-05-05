@@ -3,7 +3,7 @@
 
 main {
   padding-top: 61px;
-  background-color: var(--lighter-page-bg);
+  background-color: var(--bg-4);
 }
 
 main > .container {
@@ -81,6 +81,12 @@ aside {
   display: flex;
   justify-content: space-between;
   margin-bottom: 18px;
+  overflow: hidden;
+}
+
+.broadcast-slide {
+  flex-basis: 31%;
+  flex-shrink: 0;
 }
 
 .broadcast-slide-inner {
@@ -403,7 +409,7 @@ input:hover+span {
   }
 
   .aside-slide {
-    margin-bottom: 10px;
+    margin: 5px 0;
   }
 
   .aside-slide-pic {
@@ -419,6 +425,7 @@ input:hover+span {
   .aside-slide.active .aside-slide-pic {
     width: 107px;
     height: 105px;
+    margin-top: 8px;
   }
 
   .the-zoo {
