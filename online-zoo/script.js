@@ -42,7 +42,7 @@ class Slider {
     this.firstSlideOffset = params.firstSlideOffset || 0;
     this.sliderInner = this.element.querySelector(params.sliderInner);
     this.slideWidth = this.slides[0].offsetWidth + parseInt(window.getComputedStyle(this.slides[0]).marginRight) + parseInt(window.getComputedStyle(this.slides[0]).marginLeft);
-    this.shownSlideIndex = this.activeIndex;
+    this.shownSlideIndex = this.slidersShownNum === 1 ? 0 : this.activeIndex;
     //Calls
     if(this.nextBtn) {
       this.nextBtn.addEventListener('click', this.onNext);
