@@ -2,37 +2,54 @@ const mainHtml = document.getElementById('main');
 const aboutGameHtml = '<div>About game</div>';
 const bestScoreHtml = '<div>Best score</div>';
 const settingsHtml = '<div>Settings</div>';
-
 const menuItems: HTMLCollection = document.getElementsByClassName('menu-item');
 
-function getPageName(id: string) {
-    switch (id) {
-        case 'aboutGameBtn':
-            return aboutGameHtml;
-        case 'bestScoreBtn':
-            return bestScoreHtml;
-        case 'settingsBtn':
-            return settingsHtml;
-        default:
-            return aboutGameHtml;
-    }
+function setActiveMenuItem(itemId: string) {
+  for(let i = 0; i < menuItems.length; i++) {
+    menuItems[i].classList.remove('active');
+  }
+  const current = document.getElementById(itemId);
+  current?.classList.add('active');
+}
+function startAboutGamePage() {
+  setActiveMenuItem('aboutGameBtn');
+  window.location.hash = 'aboutGameBtn';
+  if(mainHtml) {
+    mainHtml.innerHTML = aboutGameHtml;
+  }
 }
 
-function onMenuClick() {
-    for(let i = 0; i < menuItems.length; i++) {
-        menuItems[i].classList.remove('active');
-    }
-    const currentId = (window.location.hash).slice(1);
-    const current = document.getElementById(currentId);
-    current?.classList.add('active');
-    if(mainHtml) {
-        mainHtml.innerHTML = getPageName(currentId);
-    }
+function startBestScorePage() {
+  setActiveMenuItem('bestScoreBtn');
+  if(mainHtml) {
+    mainHtml.innerHTML = bestScoreHtml;
+  }
 }
 
-// for(let i = 0; i < menuItems.length; i++) {
-//     menuItems[i].addEventListener('click', onMenuClick);
-// }
-window.addEventListener("hashchange", onMenuClick, false);
+function startSettingsPage() {
+  setActiveMenuItem('settingsBtn');
+  if(mainHtml) {
+    mainHtml.innerHTML = settingsHtml;
+  }
+}
+function onHashChange() {
+  const currentId = window.location.hash.slice(1);
+  switch (currentId) {
+    case 'aboutGameBtn':
+      startAboutGamePage();
+      break;
+    case 'bestScoreBtn':
+      startBestScorePage();
+      break;
+    case 'settingsBtn':
+      startSettingsPage();
+      break;
+    default:
+      startAboutGamePage();
+      break;
+  }
+}
 
+window.addEventListener("hashchange", onHashChange);
+onHashChange();
 
