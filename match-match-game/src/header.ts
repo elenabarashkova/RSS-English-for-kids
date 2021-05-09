@@ -2,12 +2,14 @@ const mainHtml = document.getElementById('main');
 const aboutGameHtml = '<div>About game</div>';
 const bestScoreHtml = '<div>Best score</div>';
 const settingsHtml = '<div>Settings</div>';
+const gameHtml = '<div>Game field</div>';
 const menuItems: HTMLCollection = document.getElementsByClassName('menu-item');
 
 function setActiveMenuItem(itemId: string) {
   for(let i = 0; i < menuItems.length; i++) {
     menuItems[i].classList.remove('active');
   }
+
   const current = document.getElementById(itemId);
   current?.classList.add('active');
 }
@@ -32,6 +34,12 @@ function startSettingsPage() {
     mainHtml.innerHTML = settingsHtml;
   }
 }
+function startGamePage() {
+  setActiveMenuItem('gameTumblerBtn');
+  if(mainHtml) {
+    mainHtml.innerHTML = gameHtml;
+  }
+}
 function onHashChange() {
   const currentId = window.location.hash.slice(1);
   switch (currentId) {
@@ -43,6 +51,9 @@ function onHashChange() {
       break;
     case 'settingsBtn':
       startSettingsPage();
+      break;
+    case 'startGame':
+      startGamePage();
       break;
     default:
       startAboutGamePage();

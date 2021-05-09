@@ -80,6 +80,8 @@ body {
   color: var(--background-color-highlight);
   text-align: center;
   padding: 0 10px;
+  line-height: 40px;
+  text-decoration: none;
 }
 
 .btn:hover {
@@ -205,4 +207,21 @@ nav {
 
 .user-info.registered .register-btn {
   display: none;
+}
+
+.user-info .with-user {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.user-info .user-pic {
+  width: 40px;
+  height: 40px;
+  margin-left: 15px;
+}
+
+.user-pic > img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
