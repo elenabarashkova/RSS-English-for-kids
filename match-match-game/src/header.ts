@@ -9,7 +9,6 @@ function setActiveMenuItem(itemId: string) {
   for(let i = 0; i < menuItems.length; i++) {
     menuItems[i].classList.remove('active');
   }
-
   const current = document.getElementById(itemId);
   current?.classList.add('active');
 }

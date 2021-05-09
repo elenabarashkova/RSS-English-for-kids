@@ -53,8 +53,8 @@
           </li>
         </ul>
       </nav>
-      <div class="header-item user-info registered">
-        <button id="registerBtn" class="btn register-btn">register new player</button>
+      <div class="header-item user-info not-registered">
+        <button id="registerBtn" data-target="registerPopup" class="btn register-btn">register new player</button>
         <div class="with-user">
           <div class="user-pic">
             <img src="assets/user-default-pic.png" alt="User Picture">
@@ -65,5 +65,11 @@
     </div>
   </header>
   <main id="main" class="container"></main>
+  <div id="registerPopup" class="popup registert-popup">
+    <button class="btn-close">X</button>
+    <div class="popup-inner">
+
+    </div>
+  </div>
 </body>
 </html>
