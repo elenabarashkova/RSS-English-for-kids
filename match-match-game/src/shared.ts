@@ -9,3 +9,9 @@ export function setActiveMenuItem(itemId: string) {
   }
   document.getElementById(itemId)?.classList.add('active');
 }
+
+export function insertHtml(element: string) {
+  if(body) {
+    body.innerHTML += element;
+  }
+}
