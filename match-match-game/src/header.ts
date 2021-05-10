@@ -1,57 +1,27 @@
-const mainHtml = document.getElementById('main');
-const aboutGameHtml = '<div>About game</div>';
-const bestScoreHtml = '<div>Best score</div>';
-const settingsHtml = '<div>Settings</div>';
-const gameHtml = '<div>Game field</div>';
+import { startAboutGamePage} from "./pages/about-game/about-game";
+import { startBestScorePage, bestScoreId } from "./pages/best-score/best-score";
+import { startSettingsPage, settingsId } from "./pages/settings/settings";
+import { startGamePage, gameId } from "./pages/game/game";
+
 const menuItems: HTMLCollection = document.getElementsByClassName('menu-item');
 
-function setActiveMenuItem(itemId: string) {
+export function setActiveMenuItem(itemId: string) {
   for(let i = 0; i < menuItems.length; i++) {
     menuItems[i].classList.remove('active');
   }
-  const current = document.getElementById(itemId);
-  current?.classList.add('active');
-}
-function startAboutGamePage() {
-  setActiveMenuItem('aboutGameBtn');
-  window.location.hash = 'aboutGameBtn';
-  if(mainHtml) {
-    mainHtml.innerHTML = aboutGameHtml;
-  }
+  document.getElementById(itemId)?.classList.add('active');
 }
 
-function startBestScorePage() {
-  setActiveMenuItem('bestScoreBtn');
-  if(mainHtml) {
-    mainHtml.innerHTML = bestScoreHtml;
-  }
-}
-
-function startSettingsPage() {
-  setActiveMenuItem('settingsBtn');
-  if(mainHtml) {
-    mainHtml.innerHTML = settingsHtml;
-  }
-}
-function startGamePage() {
-  setActiveMenuItem('gameTumblerBtn');
-  if(mainHtml) {
-    mainHtml.innerHTML = gameHtml;
-  }
-}
 function onHashChange() {
   const currentId = window.location.hash.slice(1);
   switch (currentId) {
-    case 'aboutGameBtn':
-      startAboutGamePage();
-      break;
-    case 'bestScoreBtn':
+    case bestScoreId:
       startBestScorePage();
       break;
-    case 'settingsBtn':
+    case settingsId:
       startSettingsPage();
       break;
-    case 'startGame':
+    case gameId:
       startGamePage();
       break;
     default:
@@ -62,4 +32,3 @@ function onHashChange() {
 
 window.addEventListener("hashchange", onHashChange);
 onHashChange();
-
