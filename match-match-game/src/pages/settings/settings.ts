@@ -1,5 +1,4 @@
-import { mainHtml } from "../../shared";
-import { setActiveMenuItem } from "../../header";
+import { mainHtml, setActiveMenuItem } from "../../shared";
 
 const settingsHtml = '<div>Settings</div>';
 export const settingsId = 'settings';

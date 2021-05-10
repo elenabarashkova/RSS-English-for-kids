@@ -1,5 +1,4 @@
-import { mainHtml } from "../../shared";
-import { setActiveMenuItem } from "../../header";
+import { mainHtml, setActiveMenuItem } from "../../shared";
 
 const bestScoreHtml = '<div>Best score</div>';
 export const bestScoreId = 'best_score';
