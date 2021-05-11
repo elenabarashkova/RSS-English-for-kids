@@ -28,6 +28,7 @@
       "SwitchCase": 1
     }],
     "import/prefer-default-export": "off",
+    "@typescript-eslint/no-var-requires": "off",
     "no-param-reassign": ["error", {
       "props": false
     }]
