@@ -1,4 +1,5 @@
-import { insertHtml } from "./shared";
+import { insertHtml, addMain } from "./shared";
+// import header from "./header.html";
 
 const header = "<header>\n" +
   "  <div class=\"container\">\n" +
@@ -58,7 +59,7 @@ const header = "<header>\n" +
   "</header>"
 
 const main = "<main id=\"main\" class=\"container\"></main>";
-
 insertHtml(header);
 insertHtml(main);
 
+addMain();

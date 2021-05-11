@@ -1,5 +1,5 @@
 export const body = document.querySelector('body');
-export const mainHtml = document.getElementById('main');
+let mainHtml: HTMLElement | null;
 
 const menuItems: HTMLCollection = document.getElementsByClassName('menu-item');
 
@@ -11,7 +11,20 @@ export function setActiveMenuItem(itemId: string) {
 }
 
 export function insertHtml(element: string) {
+  const template = document.createElement('template');
+  template.innerHTML = element;
+  const child = template.content.firstChild as Node;
   if(body) {
-    body.innerHTML += element;
+    body.appendChild(child);
+  }
+}
+
+export function addMain() {
+  mainHtml = document.getElementById('main');
+}
+
+export function addPageHtml(html: string) {
+  if(mainHtml) {
+    mainHtml.innerHTML = html;
   }
 }
