@@ -1,6 +1,33 @@
-<div id="registerPopup" class="popup registert-popup">
+<div id="registerPopup" class="popup register-popup">
   <button class="btn-close">X</button>
+  <div class="popup-title">
+    <h2>Register new player</h2>
+  </div>
   <div class="popup-inner">
-    Form inner
+    <form id="registerForm" class="register-form" action="#">
+      <div class="form-inner">
+        <label>
+          <span>First name</span>
+          <input class="register-input" type="text" name="first-name" placeholder="Lena" required pattern="^[A-Za-z0-9]*[a-zA-Z]{1}[A-Za-z0-9]*$">
+        </label>
+        <label>
+          <span>Last name</span>
+          <input class="register-input" type="text" name="last-name" placeholder="Barashkova" required pattern="^[A-Za-z0-9]*[a-zA-Z]{1}[A-Za-z0-9]*$">
+        </label>
+        <label>
+          <span>Email</span>
+          <input class="register-input" type="email" name="email" placeholder="lenabarashkova@mail.ru" required>
+        </label>
+        <label class="add-user-pic">
+          <span>Add user picture</span>
+          <img src="../../assets/user-default-pic.png" alt="User-pic">
+          <input type="file" name="user-photo">
+        </label>
+      </div>
+      <div class="buttons-wrap">
+        <button id="registerSubmit" class="btn btn-dark" type="submit">Add user</button>
+        <button id="cancel" class="btn btn-dark">Cancel</button>
+      </div>
+    </form>
   </div>
 </div>
