@@ -1,4 +1,4 @@
-import { openPopup } from "../../popup";
+import { openPopup } from "../../popup/popup";
 import "./register-html-insert";
 import "./validation";
 

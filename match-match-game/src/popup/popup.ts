@@ -1,4 +1,4 @@
-import { body } from "./shared";
+import { body } from "../common/shared";
 
 function closePopup(event: MouseEvent) {
   const eventTarget = event.target as Element;

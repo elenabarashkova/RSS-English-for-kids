@@ -1,0 +1,132 @@
+header {
+  background-color: var(--background-color-primary);
+  height: 70px;
+  color: var(--text-color-primary-reverse);
+}
+
+header > .container {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+}
+
+.header-item {
+  flex-grow: 1;
+}
+
+.logo {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.logo h1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+}
+
+.logo h1 span {
+  display: flex;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-transform: uppercase;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  color: var(--text-color-primary-reverse);
+  padding: 0 3px;
+  cursor: default;
+}
+
+.logo h1 > span:last-child {
+  background: var(--text-color-primary-reverse);
+  color: var(--background-color-primary);
+}
+
+nav {
+  height: 100%;
+}
+
+.menu {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.menu-item {
+  flex-grow: 1;
+}
+
+.menu-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color-primary-reverse);
+}
+
+.menu-item-icon {
+  margin-bottom: 4px;
+}
+
+.menu-link:hover {
+  color: var(--hover-color);
+}
+
+.menu-link:hover svg circle,
+.menu-item:nth-child(2) .menu-link:hover svg > path {
+  fill: var(--hover-color);
+}
+
+.menu-link:focus,
+.menu-link:active,
+.menu-item.active .menu-link {
+  color: var(--focus-color);
+}
+
+.menu-link:focus svg circle,
+.menu-link:active svg circle,
+.menu-item.active .menu-link svg circle,
+.menu-item:nth-child(2) .menu-link:focus svg path,
+.menu-item:nth-child(2) .menu-link:active svg path,
+.menu-item:nth-child(2).active .menu-link svg path {
+  fill: var(--focus-color);
+}
+
+.header-item.user-info {
+  flex-grow: 2;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.user-info.not-registered .with-user {
+  display: none;
+}
+
+.user-info.registered .register-btn {
+  display: none;
+}
+
+.user-info .with-user {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.user-info .user-pic {
+  width: 40px;
+  height: 40px;
+  margin-left: 15px;
+}
+
+.user-pic > img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}

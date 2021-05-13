@@ -1,0 +1,120 @@
+:root {
+  --text-color-primary: #333;
+  --text-color-primary-reverse: #fff;
+  --background-color-primary: #4f4f4f;
+  --background-color-reverse: #fefefe;
+  --background-color-highlight: #39a68a;
+  --neutral-color: #bdbdbd;
+  --hover-color: #49d6df;
+  --focus-color: #40a4ac;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+/*default styles*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-color-primary);
+  position: relative;
+  margin: 0;
+}
+
+body.popup-on:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(79, 79, 79, 0.7);
+  z-index: 0;
+}
+
+body.popup-on {
+  overflow: hidden;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1620px;
+}
+
+@media (max-width: 1919px){
+
+  .container {
+    width: 1100px;
+  }
+}
+
+@media (max-width: 1200px){
+
+  .container {
+    width: 1000px;
+  }
+}
+
+@media (max-width: 1024px){
+
+  .container {
+    width: 700px;
+  }
+}
+
+@media (max-width: 768px){
+
+  .container {
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+
+.btn {
+  height: 40px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2), 0 1px 18px rgba(0, 0, 0, 0.12), 0 6px 10px rgba(0, 0, 0, 0.14);
+  border: none;
+  background: var(--background-color-reverse);
+  text-transform: uppercase;
+  color: var(--background-color-highlight);
+  text-align: center;
+  padding: 0 10px;
+  line-height: 40px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn.btn-dark {
+  background: var(--background-color-primary);
+  color: var(--text-color-primary-reverse);
+}
+
+.btn:hover,
+.btn.btn-dark:hover {
+  background: var(--neutral-color);
+  color: var(--background-color-highlight);
+}
+
+.btn:focus,
+.btn:active,
+.btn.active,
+.btn.btn-dark:focus,
+.btn.btn-dark:active,
+.btn.btn-dark.active{
+  background: var(--background-color-highlight);
+  color: var(--text-color-primary-reverse);
+}

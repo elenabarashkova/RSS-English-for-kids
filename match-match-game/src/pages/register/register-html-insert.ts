@@ -1,4 +1,4 @@
-import { insertHtml } from "../../shared";
+import { insertHtml } from "../../common/shared";
 
 const registerPopupHtml = require('./register-form.html');
 

@@ -1,4 +1,4 @@
 import "./style.css";
-import "./insert-html";
-import "./header";
+import "./common/insert-html";
+import "./header/header";
 import "./pages/register/register-form";

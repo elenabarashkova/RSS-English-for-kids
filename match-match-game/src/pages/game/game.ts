@@ -1,4 +1,4 @@
-import {addPageHtml, setActiveMenuItem} from "../../shared";
+import {addPageHtml, setActiveMenuItem} from "../../common/shared";
 
 const gameHtml = '<div>Game field</div>';
 export const gameId = 'game';
