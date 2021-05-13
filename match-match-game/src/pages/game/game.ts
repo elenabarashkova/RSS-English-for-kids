@@ -1,10 +1,10 @@
 import {addPageHtml, setActiveMenuItem} from "../../common/shared";
 
-const gameHtml = '<div>Game field</div>';
-export const gameId = 'game';
-const gameBtnId = 'gameTumblerBtn'
+const GAME_HTML = '<div>Game field</div>';
+export const GAME_ID = 'game';
+const GAME_BTN_ID = 'gameTumblerBtn'
 
 export function startGamePage() {
-  setActiveMenuItem(gameBtnId);
-  addPageHtml(gameHtml);
+  setActiveMenuItem(GAME_BTN_ID);
+  addPageHtml(GAME_HTML);
 }

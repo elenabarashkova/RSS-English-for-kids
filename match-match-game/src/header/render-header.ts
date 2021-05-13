@@ -1,14 +1,13 @@
-import {aboutGameId, startAboutGamePage} from "../pages/about-game/about-game";
-import { startBestScorePage, bestScoreId } from "../pages/best-score/best-score";
-import { startSettingsPage, settingsId } from "../pages/settings/settings";
-import { startGamePage, gameId } from "../pages/game/game";
-
+import { ABOUT_GAME_ID, startAboutGamePage } from "../pages/about-game/about-game";
+import {BEST_SCORE_ID, startBestScorePage } from "../pages/best-score/best-score";
+import {SETTINGS_ID, startSettingsPage } from "../pages/settings/settings";
+import { GAME_ID, startGamePage } from "../pages/game/game";
 
 const ROUTE_ALIASES = {
-  [aboutGameId as string]: startAboutGamePage,
-  [bestScoreId as string]: startBestScorePage,
-  [settingsId as string]: startSettingsPage,
-  [gameId as string]: startGamePage,
+  [ABOUT_GAME_ID as string]: startAboutGamePage,
+  [BEST_SCORE_ID as string]: startBestScorePage,
+  [SETTINGS_ID as string]: startSettingsPage,
+  [GAME_ID as string]: startGamePage,
 }
 
 function onHashChange() {

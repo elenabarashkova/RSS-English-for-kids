@@ -1,9 +1,9 @@
 import {addPageHtml, setActiveMenuItem} from "../../common/shared";
 
-const settingsHtml = '<div>Settings</div>';
-export const settingsId = 'settings';
+const SETTINGS_HTML = '<div>Settings</div>';
+export const SETTINGS_ID = 'settings';
 
 export function startSettingsPage() {
-  setActiveMenuItem(settingsId);
-  addPageHtml(settingsHtml);
+  setActiveMenuItem(SETTINGS_ID);
+  addPageHtml(SETTINGS_HTML);
 }

@@ -1,10 +1,10 @@
 import { setActiveMenuItem, addPageHtml } from "../../common/shared";
 
-const aboutGameHtml = '<div>About game</div>';
-export const aboutGameId = 'about_game';
+const ABOUT_GAME_HTML = '<div>About game</div>';
+export const ABOUT_GAME_ID = 'about_game';
 
 export function startAboutGamePage() {
-  setActiveMenuItem(aboutGameId);
-  window.location.hash = aboutGameId;
-  addPageHtml(aboutGameHtml);
+  setActiveMenuItem(ABOUT_GAME_ID);
+  window.location.hash = ABOUT_GAME_ID;
+  addPageHtml(ABOUT_GAME_HTML);
 }
