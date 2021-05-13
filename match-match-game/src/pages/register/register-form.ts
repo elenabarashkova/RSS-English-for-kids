@@ -1,10 +1,7 @@
 import { openPopup } from "../../popup";
-import { insertHtml } from "../../shared";
+import "./register-html-insert";
 import "./validation";
 
-const registerPopupHtml = require('./register-form.html');
-
-insertHtml(registerPopupHtml.default);
 const registerBtn = document.getElementById('registerBtn');
 registerBtn?.addEventListener('click', openPopup);
 
