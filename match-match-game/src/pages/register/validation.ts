@@ -42,18 +42,15 @@ const onInputChange = (event: Event) => {
 
 const onSubmit = (event: Event) => {
   event.preventDefault();
-  let isValid = true;
-  for(let i = 0; i < registerFields.length; i++) {
-    isValid = inputValidation(registerFields[i] as HTMLInputElement) && isValid;
-  }
+  const isValid = [...registerFields].map(item =>
+    inputValidation(item as HTMLInputElement)
+  ).every((isItemValid) => isItemValid);
   // todo save data if isValid
 }
 
 export const startValidation = () => {
   registerFields = document.getElementsByClassName('register-input');
-  for(let i = 0; i < registerFields.length; i++) {
-    (registerFields[i] as HTMLInputElement).addEventListener('change', onInputChange)
-  }
+  [...registerFields].forEach(item => item.addEventListener('change', onInputChange));
   const registerSubmit = document.getElementById('registerSubmit');
   registerSubmit?.addEventListener('click', onSubmit);
 }

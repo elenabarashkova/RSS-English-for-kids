@@ -20,3 +20,5 @@ export const startRouter = () => {
   window.addEventListener("hashchange", onHashChange);
   onHashChange();
 }
+
+// todo: rename fn
