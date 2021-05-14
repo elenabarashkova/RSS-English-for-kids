@@ -1,5 +1,3 @@
-export const body = document.querySelector('body');
-
 const MENU_ITEMS: HTMLCollection = document.getElementsByClassName('menu-item');
 
 export const setActiveMenuItem = (itemId: string) => {
@@ -13,6 +11,7 @@ export const insertHtml = (element: string) => {
   const template = document.createElement('template');
   template.innerHTML = element;
   const child = template.content.firstChild as Node;
+  const body = document.querySelector('body');
   if(body) {
     body.appendChild(child);
   }
