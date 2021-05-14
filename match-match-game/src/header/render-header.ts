@@ -1,20 +1,39 @@
-import { ABOUT_GAME_ID, startAboutGamePage } from "../pages/about-game/about-game";
-import {BEST_SCORE_ID, startBestScorePage } from "../pages/best-score/best-score";
-import {SETTINGS_ID, startSettingsPage } from "../pages/settings/settings";
-import { GAME_ID, startGamePage } from "../pages/game/game";
+import { ABOUT_GAME_ID, ABOUT_GAME_NAME, aboutGameIcon } from "../pages/about-game/about-game";
+import {BEST_SCORE_ID, BEST_SCORE_NAME, bestScoreIcon } from "../pages/best-score/best-score";
+import {SETTINGS_ID, SETTINGS_NAME, settingsIcon } from "../pages/settings/settings";
 
-const ROUTE_ALIASES = {
-  [ABOUT_GAME_ID as string]: startAboutGamePage,
-  [BEST_SCORE_ID as string]: startBestScorePage,
-  [SETTINGS_ID as string]: startSettingsPage,
-  [GAME_ID as string]: startGamePage,
+const renderMenu = () => {
+  const menuItems = [
+    {
+      id: ABOUT_GAME_ID,
+      name: ABOUT_GAME_NAME,
+      icon: aboutGameIcon,
+    },
+    {
+      id: BEST_SCORE_ID,
+      name: BEST_SCORE_NAME,
+      icon: bestScoreIcon,
+    },
+    {
+      id: SETTINGS_ID,
+      name: SETTINGS_NAME,
+      icon: settingsIcon,
+    },
+  ]
+
+  const html = menuItems.map(({id, name, icon}) =>
+    (`<li id=${id} class="menu-item">
+          <a href="#${id}" class="menu-link">
+            <div class="menu-item-icon">
+              ${icon}
+            </div>
+            <span>Game Settings</span>
+          </a>
+        </li>`
+    )).join('');
+  const menu = document.getElementById('menu');
+  if(menu) {
+    menu.innerHTML = html;
+  }
 }
-
-function onHashChange() {
-  const route = window.location.hash.slice(1);
-  const myFn = ROUTE_ALIASES[route] || startAboutGamePage;
-  myFn();
-}
-
-window.addEventListener("hashchange", onHashChange);
-onHashChange();
+renderMenu();
