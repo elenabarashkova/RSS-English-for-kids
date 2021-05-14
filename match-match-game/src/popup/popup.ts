@@ -9,9 +9,10 @@ function closePopup(event: MouseEvent) {
   }
 }
 
-export function openPopup(this: HTMLElement) {
+export function openPopup(event: MouseEvent) {
   body?.classList.add('popup-on');
-  const targetPopup = document.getElementById(`${this.dataset.target}`);
+  const eventTarget = event.target as HTMLElement;
+  const targetPopup = document.getElementById(`${eventTarget.dataset.target}`);
   targetPopup?.classList.add('active');
   setTimeout(() => document.addEventListener('click', closePopup), 0);
 }
