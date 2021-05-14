@@ -21,7 +21,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
         type: 'asset/resource',
       },
       {
@@ -36,6 +36,10 @@ module.exports = {
         test: /\.html$/i,
         loader: 'html-loader',
       },
+      {
+        test: /\.svg$/,
+        type: 'asset/source'
+      }
     ]
   },
   plugins: [
