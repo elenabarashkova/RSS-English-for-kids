@@ -1,6 +1,5 @@
-const MENU_ITEMS: HTMLCollection = document.getElementsByClassName('menu-item');
-
 export const setActiveMenuItem = (itemId: string) => {
+  const MENU_ITEMS: HTMLCollection = document.getElementsByClassName('menu-item');
   [...MENU_ITEMS].forEach(item => item.classList.remove('active'));
   document.getElementById(itemId)?.classList.add('active');
 }
