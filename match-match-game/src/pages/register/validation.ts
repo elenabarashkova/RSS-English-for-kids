@@ -1,5 +1,4 @@
-const registerSubmit = document.getElementById('registerSubmit');
-const registerFields: HTMLCollection = document.getElementsByClassName('register-input');
+let registerFields: HTMLCollection;
 
 function valid(field: HTMLInputElement) {
   field.classList.remove('invalid');
@@ -50,8 +49,11 @@ function onSubmit(event: Event) {
   // todo save data if isValid
 }
 
-for(let i = 0; i < registerFields.length; i++) {
-  (registerFields[i] as HTMLInputElement).addEventListener('change', onInputChange)
+export const startValidation = () => {
+  registerFields = document.getElementsByClassName('register-input');
+  for(let i = 0; i < registerFields.length; i++) {
+    (registerFields[i] as HTMLInputElement).addEventListener('change', onInputChange)
+  }
+  const registerSubmit = document.getElementById('registerSubmit');
+  registerSubmit?.addEventListener('click', onSubmit);
 }
-
-registerSubmit?.addEventListener('click', onSubmit);

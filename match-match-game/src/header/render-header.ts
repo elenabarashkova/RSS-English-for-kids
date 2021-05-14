@@ -2,7 +2,7 @@ import { ABOUT_GAME_ID, ABOUT_GAME_NAME, aboutGameIcon } from "../pages/about-ga
 import {BEST_SCORE_ID, BEST_SCORE_NAME, bestScoreIcon } from "../pages/best-score/best-score";
 import {SETTINGS_ID, SETTINGS_NAME, settingsIcon } from "../pages/settings/settings";
 
-const renderMenu = () => {
+export const renderMenu = () => {
   const menuItems = [
     {
       id: ABOUT_GAME_ID,
@@ -36,4 +36,3 @@ const renderMenu = () => {
     menu.innerHTML = html;
   }
 };
-renderMenu();

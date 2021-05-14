@@ -16,5 +16,7 @@ function onHashChange() {
   myFn();
 }
 
-window.addEventListener("hashchange", onHashChange);
-onHashChange();
+export const startRouter = () => {
+  window.addEventListener("hashchange", onHashChange);
+  onHashChange();
+}
