@@ -1,5 +1,4 @@
 export const body = document.querySelector('body');
-let mainHtml: HTMLElement | null;
 
 const MENU_ITEMS: HTMLCollection = document.getElementsByClassName('menu-item');
 
@@ -19,11 +18,8 @@ export function insertHtml(element: string) {
   }
 }
 
-export function addMain() {
-  mainHtml = document.getElementById('main');
-}
-
 export function addPageHtml(html: string) {
+  const mainHtml = document.getElementById('main');
   if(mainHtml) {
     mainHtml.innerHTML = html;
   }
