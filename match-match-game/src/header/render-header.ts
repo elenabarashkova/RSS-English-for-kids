@@ -27,7 +27,7 @@ const renderMenu = () => {
             <div class="menu-item-icon">
               ${icon}
             </div>
-            <span>Game Settings</span>
+            <span>${name}</span>
           </a>
         </li>`
     )).join('');
@@ -35,5 +35,5 @@ const renderMenu = () => {
   if(menu) {
     menu.innerHTML = html;
   }
-}
+};
 renderMenu();
