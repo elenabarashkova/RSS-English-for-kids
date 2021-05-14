@@ -23,7 +23,9 @@ function invalid(field: HTMLInputElement) {
 }
 
 function inputValidation(currentField: HTMLInputElement) {
-  if(currentField.validity.patternMismatch || currentField.validity.typeMismatch) {
+  const wrongPattern = currentField.validity.patternMismatch;
+  const wrongType = currentField.validity.typeMismatch;
+  if(wrongPattern || wrongType) {
     invalid(currentField).innerText = 'Invalid value. Please correct your data.';
     return false;
   }

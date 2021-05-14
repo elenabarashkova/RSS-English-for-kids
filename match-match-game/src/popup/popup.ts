@@ -2,7 +2,9 @@ import { body } from "../common/shared";
 
 function closePopup(event: MouseEvent) {
   const eventTarget = event.target as Element;
-  if(eventTarget === document.querySelector('.btn-close') || eventTarget?.closest('.popup') === null) {
+  const closeBtn = document.querySelector('.btn-close');
+  const targetsPopup = eventTarget?.closest('.popup');
+  if(eventTarget === closeBtn || targetsPopup === null) {
     body?.classList.remove('popup-on');
     document.querySelector('.popup.active')?.classList.remove('active');
     document.removeEventListener('click', closePopup);
