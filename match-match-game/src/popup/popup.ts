@@ -1,6 +1,6 @@
 import { body } from "../common/shared";
 
-function closePopup(event: MouseEvent) {
+const closePopup = (event: MouseEvent) => {
   const eventTarget = event.target as Element;
   const closeBtn = document.querySelector('.btn-close');
   const targetsPopup = eventTarget?.closest('.popup');
@@ -11,7 +11,7 @@ function closePopup(event: MouseEvent) {
   }
 }
 
-export function openPopup(event: MouseEvent) {
+export const openPopup = (event: MouseEvent) => {
   body?.classList.add('popup-on');
   const eventTarget = event.target as HTMLElement;
   const targetPopup = document.getElementById(`${eventTarget.dataset.target}`);

@@ -10,7 +10,7 @@ const ROUTE_ALIASES = {
   [GAME_ID as string]: startGamePage,
 }
 
-function onHashChange() {
+const onHashChange = () => {
   const route = window.location.hash.slice(1);
   const myFn = ROUTE_ALIASES[route] || startAboutGamePage;
   myFn();

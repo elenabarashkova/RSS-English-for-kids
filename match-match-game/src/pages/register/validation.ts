@@ -1,6 +1,6 @@
 let registerFields: HTMLCollection;
 
-function valid(field: HTMLInputElement) {
+const valid = (field: HTMLInputElement) => {
   field.classList.remove('invalid');
   field.classList.add('valid');
   const errorItem = field.parentElement?.querySelector('.error-text') as HTMLElement;
@@ -9,7 +9,7 @@ function valid(field: HTMLInputElement) {
   }
 }
 
-function invalid(field: HTMLInputElement) {
+const invalid = (field: HTMLInputElement) => {
   field.classList.remove('valid');
   field.classList.add('invalid');
   if(field?.parentElement?.querySelector('.error-text')) {
@@ -21,7 +21,7 @@ function invalid(field: HTMLInputElement) {
   return errorItem;
 }
 
-function inputValidation(currentField: HTMLInputElement) {
+const inputValidation = (currentField: HTMLInputElement) => {
   const wrongPattern = currentField.validity.patternMismatch;
   const wrongType = currentField.validity.typeMismatch;
   if(wrongPattern || wrongType) {
@@ -36,11 +36,11 @@ function inputValidation(currentField: HTMLInputElement) {
   return true;
 }
 
-function onInputChange(event: Event) {
+const onInputChange = (event: Event) => {
   inputValidation(event.target as HTMLInputElement);
 }
 
-function onSubmit(event: Event) {
+const onSubmit = (event: Event) => {
   event.preventDefault();
   let isValid = true;
   for(let i = 0; i < registerFields.length; i++) {
