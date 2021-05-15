@@ -7,7 +7,7 @@ export const renderRegisterInputs = () => {
       type: 'text',
       inputName: 'first-name',
       placeholder: 'Lena',
-      pattern: `pattern="^[A-Za-z0-9]*[a-zA-Z]{1}[A-Za-z0-9]*$"`,
+      pattern: `pattern="^[A-Za-zА-Яа-я0-9\\-]*[a-zA-ZА-Яа-я]{1}[A-Za-zА-Яа-я0-9\\-]*$"`,
       required: 'required',
     },
     {
@@ -15,7 +15,7 @@ export const renderRegisterInputs = () => {
       type: 'text',
       inputName: 'last-name',
       placeholder: 'Barashkova',
-      pattern: `pattern="^[A-Za-z0-9]*[a-zA-Z]{1}[A-Za-z0-9]*$"`,
+      pattern: `pattern="^[A-Za-zА-Яа-я0-9\\-]*[a-zA-ZА-Яа-я]{1}[A-Za-zА-Яа-я0-9\\-]*$"`,
       required: 'required',
     },
     {
@@ -32,7 +32,7 @@ export const renderRegisterInputs = () => {
     (`<label>
           <span>${fieldName}</span>
           <input class="register-input" type=${type} name=${inputName} 
-          placeholder=${placeholder} ${pattern} ${required}>
+          placeholder=${placeholder} ${pattern} ${required} maxlength="30">
         </label>`
     )).join('');
 }
