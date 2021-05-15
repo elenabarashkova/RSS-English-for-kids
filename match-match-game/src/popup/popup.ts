@@ -18,5 +18,3 @@ export const openPopup = (event: MouseEvent) => {
   targetPopup?.classList.add('active');
   setTimeout(() => document.addEventListener('click', closePopup), 0);
 }
-
-
