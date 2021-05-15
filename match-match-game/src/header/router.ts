@@ -12,13 +12,11 @@ const ROUTE_ALIASES = {
 
 const onHashChange = () => {
   const route = window.location.hash.slice(1);
-  const myFn = ROUTE_ALIASES[route] || startAboutGamePage;
-  myFn();
+  const startRoute = ROUTE_ALIASES[route] || startAboutGamePage;
+  startRoute();
 }
 
 export const startRouter = () => {
   window.addEventListener("hashchange", onHashChange);
   onHashChange();
 }
-
-// todo: rename fn
