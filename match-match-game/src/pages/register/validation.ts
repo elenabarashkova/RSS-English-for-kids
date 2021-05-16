@@ -1,7 +1,6 @@
 import { saveFormData } from "./addUser";
 import { initializeClosing, closePopup } from "../../popup/popup";
-
-let registerFields: HTMLCollection;
+import { renderRegisteredHeader } from "../../header/render-header";
 
 const valid = (field: HTMLInputElement) => {
   field.classList.remove('invalid');
@@ -45,6 +44,7 @@ const onInputChange = (event: Event) => {
 
 const onSubmit = (event: Event) => {
   event.preventDefault();
+  const registerFields = document.getElementsByClassName('register-input');
   const isValid = [...registerFields].map(item =>
     inputValidation(item as HTMLInputElement)
   ).every((isItemValid) => isItemValid);
@@ -52,14 +52,12 @@ const onSubmit = (event: Event) => {
     saveFormData();
     initializeClosing();
     document.removeEventListener('click', closePopup);
-    const headerUserInfo = document.querySelector('.header-item.user-info');
-    headerUserInfo?.classList.remove('not-registered');
-    headerUserInfo?.classList.add('registered');
+    renderRegisteredHeader();
   }
 }
 
 export const startValidation = () => {
-  registerFields = document.getElementsByClassName('register-input');
+  const registerFields = document.getElementsByClassName('register-input');
   [...registerFields].forEach(item => item.addEventListener('change', onInputChange));
   const registerSubmit = document.getElementById('registerSubmit');
   registerSubmit?.addEventListener('click', onSubmit);

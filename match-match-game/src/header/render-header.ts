@@ -36,3 +36,9 @@ export const renderMenu = () => {
     menu.innerHTML = html;
   }
 };
+
+export const renderRegisteredHeader = () => {
+  const headerUserInfo = document.querySelector('.header-item.user-info');
+  headerUserInfo?.classList.remove('not-registered');
+  headerUserInfo?.classList.add('registered');
+}

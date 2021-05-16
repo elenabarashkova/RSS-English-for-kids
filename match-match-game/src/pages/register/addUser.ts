@@ -16,6 +16,5 @@ export const saveFormData = () => {
     email: (formItemsElements.emailInput as HTMLInputElement)?.value,
     userPhoto: file
   };
-  console.log(personData);
   addUser(personData);
 }
