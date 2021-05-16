@@ -1,3 +1,5 @@
+import { saveFormData } from "./register-form";
+
 let registerFields: HTMLCollection;
 
 const valid = (field: HTMLInputElement) => {
@@ -45,7 +47,9 @@ const onSubmit = (event: Event) => {
   const isValid = [...registerFields].map(item =>
     inputValidation(item as HTMLInputElement)
   ).every((isItemValid) => isItemValid);
-  // todo save data if isValid
+  if(isValid) {
+    saveFormData();
+  }
 }
 
 export const startValidation = () => {

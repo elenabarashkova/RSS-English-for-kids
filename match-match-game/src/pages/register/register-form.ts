@@ -11,3 +11,11 @@ export const startRegisterFormBehavior = () => {
     (registerForm as HTMLFormElement)?.reset();
   });
 }
+
+export const saveFormData = () => {
+  const registerFields = document.getElementsByClassName('register-input');
+  const personData = {};
+  // filling person data
+  // [...registerFields].map(item => personData.)
+
+}
