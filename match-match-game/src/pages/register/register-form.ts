@@ -1,4 +1,6 @@
 import { openPopup } from "../../popup/popup";
+import { addUser } from "../../common/indexedDB";
+import { PersonData } from "../../common/types";
 
 export const startRegisterFormBehavior = () => {
   const registerBtn = document.getElementById('registerBtn');
@@ -10,12 +12,4 @@ export const startRegisterFormBehavior = () => {
   document.getElementById('cancel')?.addEventListener('cancel', () => {
     (registerForm as HTMLFormElement)?.reset();
   });
-}
-
-export const saveFormData = () => {
-  const registerFields = document.getElementsByClassName('register-input');
-  const personData = {};
-  // filling person data
-  // [...registerFields].map(item => personData.)
-
 }

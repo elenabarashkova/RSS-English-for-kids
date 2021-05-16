@@ -5,6 +5,7 @@ import { startRouter } from "./header/router";
 import { renderRegisterPopup } from "./pages/register/render-register-popup";
 import { startRegisterFormBehavior } from "./pages/register/register-form";
 import { startValidation } from "./pages/register/validation";
+import "./common/indexedDB";
 
 const header = require('./header/header.html');
 

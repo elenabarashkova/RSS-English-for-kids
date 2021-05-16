@@ -1,4 +1,4 @@
-import { saveFormData } from "./register-form";
+import { saveFormData } from "./addUser";
 
 let registerFields: HTMLCollection;
 

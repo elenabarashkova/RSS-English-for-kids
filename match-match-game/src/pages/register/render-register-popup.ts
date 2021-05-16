@@ -5,7 +5,7 @@ export const renderRegisterInputs = () => {
     {
       fieldName: 'First name',
       type: 'text',
-      inputName: 'first-name',
+      inputName: 'firstName',
       placeholder: 'Lena',
       pattern: `pattern="^[A-Za-zА-Яа-я0-9\\-]*[a-zA-ZА-Яа-я]{1}[A-Za-zА-Яа-я0-9\\-]*$"`,
       required: 'required',
@@ -13,7 +13,7 @@ export const renderRegisterInputs = () => {
     {
       fieldName: 'Last name',
       type: 'text',
-      inputName: 'last-name',
+      inputName: 'lastName',
       placeholder: 'Barashkova',
       pattern: `pattern="^[A-Za-zА-Яа-я0-9\\-]*[a-zA-ZА-Яа-я]{1}[A-Za-zА-Яа-я0-9\\-]*$"`,
       required: 'required',
@@ -44,7 +44,7 @@ const content = (
         <label class="add-user-pic">
           <span>Add user picture</span>
           <img src="./assets/user-default-pic.png" alt="User-pic">
-          <input type="file" name="user-photo">
+          <input type="file" name="userPhoto">
         </label>
       </div>
       <div class="buttons-wrap">
