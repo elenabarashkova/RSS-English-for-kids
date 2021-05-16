@@ -6,20 +6,17 @@ const openRequest = indexedDB.open('elenabarashkova',1);
 
 openRequest.onupgradeneeded = function(event: IDBVersionChangeEvent) {
   const thisDB = openRequest.result;
-  console.log(thisDB);
   if(!thisDB.objectStoreNames.contains('users')) {
-    console.log("makng a new object store");
     thisDB.createObjectStore('users',{keyPath: 'email'});
   }
 }
 
 openRequest.onsuccess = function(event) {
-  console.log("running onsuccess");
   db = openRequest.result;
 }
 
 openRequest.onerror = function(event) {
-  alert("onerror open database!");
+  console.log("onerror open database!");
 }
 
 export function addUser(personData: PersonData) {

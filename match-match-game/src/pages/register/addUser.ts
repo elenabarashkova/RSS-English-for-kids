@@ -1,18 +1,21 @@
 import {PersonData} from "../../common/types";
-import {addUser} from "../../common/indexedDB";
+import { addUser } from "../../common/indexedDB";
 
 export const saveFormData = () => {
-  const firstNameInput: HTMLInputElement | null = document.querySelector('[name="firstName"]');
-  const lastNameInput: HTMLInputElement | null = document.querySelector('[name="lastName"]');
-  const emailInput: HTMLInputElement | null = document.querySelector('[name="email"]');
-  const userPhotoInput: HTMLInputElement | null = document.querySelector('[name="userPhoto"]');
-  const userPhotoFiles = (userPhotoInput as HTMLInputElement).files || [];
+  const formItemsElements = {
+    firstNameInput: document.getElementById('firstName'),
+    lastNameInput: document.getElementById('lastName'),
+    emailInput: document.getElementById('email'),
+    userPhotoInput: document.getElementById('userPhoto'),
+  };
+  const userPhotoFiles = (formItemsElements.userPhotoInput as HTMLInputElement).files || [];
   const file = userPhotoFiles[0];
   const personData: PersonData = {
-    firstName: (firstNameInput)?.value,
-    lastName: (lastNameInput)?.value,
-    email: (emailInput)?.value,
+    firstName: (formItemsElements.firstNameInput as HTMLInputElement)?.value,
+    lastName: (formItemsElements.lastNameInput as HTMLInputElement)?.value,
+    email: (formItemsElements.emailInput as HTMLInputElement)?.value,
     userPhoto: file
   };
+  console.log(personData);
   addUser(personData);
 }

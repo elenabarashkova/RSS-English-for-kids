@@ -4,6 +4,7 @@ export const renderRegisterInputs = () => {
   const formInputs = [
     {
       fieldName: 'First name',
+      id: 'firstName',
       type: 'text',
       inputName: 'firstName',
       placeholder: 'Lena',
@@ -12,6 +13,7 @@ export const renderRegisterInputs = () => {
     },
     {
       fieldName: 'Last name',
+      id: 'lastName',
       type: 'text',
       inputName: 'lastName',
       placeholder: 'Barashkova',
@@ -20,6 +22,7 @@ export const renderRegisterInputs = () => {
     },
     {
       fieldName: 'Email',
+      id: 'email',
       type: 'email',
       inputName: 'email',
       placeholder: 'lenabarashkova@mail.ru',
@@ -28,14 +31,14 @@ export const renderRegisterInputs = () => {
     }
   ]
 
-  return formInputs.map(({fieldName, type, inputName, placeholder, pattern, required}) =>
+  return formInputs.map(({fieldName, id, type, inputName, placeholder, pattern, required}) =>
     (`<label>
           <span>${fieldName}</span>
-          <input class="register-input" type=${type} name=${inputName} 
+          <input id=${id} class="register-input" type=${type} name=${inputName} 
           placeholder=${placeholder} ${pattern} ${required} maxlength="30">
         </label>`
     )).join('');
-}
+};
 
 const content = (
   `<form id="registerForm" class="register-form" action="#">
@@ -44,7 +47,7 @@ const content = (
         <label class="add-user-pic">
           <span>Add user picture</span>
           <img src="./assets/user-default-pic.png" alt="User-pic">
-          <input type="file" name="userPhoto">
+          <input id="userPhoto" type="file" name="userPhoto">
         </label>
       </div>
       <div class="buttons-wrap">

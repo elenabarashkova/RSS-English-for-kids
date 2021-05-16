@@ -1,6 +1,4 @@
 import { openPopup } from "../../popup/popup";
-import { addUser } from "../../common/indexedDB";
-import { PersonData } from "../../common/types";
 
 export const startRegisterFormBehavior = () => {
   const registerBtn = document.getElementById('registerBtn');

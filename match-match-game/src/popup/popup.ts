@@ -1,11 +1,15 @@
-const closePopup = (event: MouseEvent) => {
+export const initializeClosing = () => {
+  const body = document.querySelector('body');
+  body?.classList.remove('popup-on');
+  document.querySelector('.popup.active')?.classList.remove('active');
+}
+
+export const closePopup = (event: MouseEvent) => {
   const eventTarget = event.target as Element;
   const closeBtn = document.querySelector('.btn-close');
   const targetsPopup = eventTarget?.closest('.popup');
   if(eventTarget === closeBtn || targetsPopup === null) {
-    const body = document.querySelector('body');
-    body?.classList.remove('popup-on');
-    document.querySelector('.popup.active')?.classList.remove('active');
+    initializeClosing();
     document.removeEventListener('click', closePopup);
   }
 }

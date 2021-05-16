@@ -1,4 +1,5 @@
 import { saveFormData } from "./addUser";
+import { initializeClosing, closePopup } from "../../popup/popup";
 
 let registerFields: HTMLCollection;
 
@@ -49,6 +50,11 @@ const onSubmit = (event: Event) => {
   ).every((isItemValid) => isItemValid);
   if(isValid) {
     saveFormData();
+    initializeClosing();
+    document.removeEventListener('click', closePopup);
+    const headerUserInfo = document.querySelector('.header-item.user-info');
+    headerUserInfo?.classList.remove('not-registered');
+    headerUserInfo?.classList.add('registered');
   }
 }
 
