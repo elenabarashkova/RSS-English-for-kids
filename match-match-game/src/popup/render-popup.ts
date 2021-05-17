@@ -1,9 +1,4 @@
-interface Content {
-  title: string
-  id: string
-  className: string
-  content: string
-}
+import { Content } from "../common/types";
 
 export const renderPopup = ({title, id, className, content}: Content) =>
   (

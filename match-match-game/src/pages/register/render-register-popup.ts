@@ -6,7 +6,6 @@ export const renderRegisterInputs = () => {
       fieldName: 'First name',
       id: 'firstName',
       type: 'text',
-      inputName: 'firstName',
       placeholder: 'Lena',
       pattern: `pattern="^[A-Za-zА-Яа-я0-9\\-]*[a-zA-ZА-Яа-я]{1}[A-Za-zА-Яа-я0-9\\-]*$"`,
       required: 'required',
@@ -15,7 +14,6 @@ export const renderRegisterInputs = () => {
       fieldName: 'Last name',
       id: 'lastName',
       type: 'text',
-      inputName: 'lastName',
       placeholder: 'Barashkova',
       pattern: `pattern="^[A-Za-zА-Яа-я0-9\\-]*[a-zA-ZА-Яа-я]{1}[A-Za-zА-Яа-я0-9\\-]*$"`,
       required: 'required',
@@ -24,17 +22,16 @@ export const renderRegisterInputs = () => {
       fieldName: 'Email',
       id: 'email',
       type: 'email',
-      inputName: 'email',
       placeholder: 'lenabarashkova@mail.ru',
       pattern: '',
       required: 'required',
     }
   ]
 
-  return formInputs.map(({fieldName, id, type, inputName, placeholder, pattern, required}) =>
+  return formInputs.map(({fieldName, id, type, placeholder, pattern, required}) =>
     (`<label>
           <span>${fieldName}</span>
-          <input id=${id} class="register-input" type=${type} name=${inputName} 
+          <input id=${id} class="register-input" type=${type} name=${id} 
           placeholder=${placeholder} ${pattern} ${required} maxlength="30">
         </label>`
     )).join('');

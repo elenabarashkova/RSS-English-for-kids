@@ -48,6 +48,7 @@ const onSubmit = (event: Event) => {
   const isValid = [...registerFields].map(item =>
     inputValidation(item as HTMLInputElement)
   ).every((isItemValid) => isItemValid);
+
   if(isValid) {
     saveFormData();
     initializeClosing();
@@ -59,6 +60,7 @@ const onSubmit = (event: Event) => {
 export const startValidation = () => {
   const registerFields = document.getElementsByClassName('register-input');
   [...registerFields].forEach(item => item.addEventListener('change', onInputChange));
+
   const registerSubmit = document.getElementById('registerSubmit');
   registerSubmit?.addEventListener('click', onSubmit);
 }
