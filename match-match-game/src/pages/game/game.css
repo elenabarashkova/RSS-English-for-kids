@@ -1,0 +1,113 @@
+#gameTimer {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.board-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 600px;
+  perspective: 1000px;
+}
+
+.card {
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 130px;
+  height: 150px;
+  padding: 10px 0;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+}
+
+/*medium*/
+.board.medium .board-inner {
+  max-width: 900px;
+}
+
+/*hard = 6 cols*/
+.board.hard .board-inner {
+  max-width: 700px;
+}
+
+.board.hard .card {
+  width: 100px;
+  height: 110px;
+  padding: 5px 0;
+}
+
+.card:active {
+  transform: scale(0.97);
+  transition: transform .2s;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.card.matched .card-inner:after {
+  content: '✓';
+  opacity: 1;
+  background: #008000CD;
+}
+
+.card.mismatch .card-inner:after {
+  content: '𐄂';
+  opacity: 1;
+  background: #ff00008c;
+}
+
+.card.mismatch img,
+.card.matched img {
+  opacity: 0.4;
+}
+
+.card.mismatch .card-inner,
+.card.matched .card-inner {
+  background: transparent;
+}
+
+/*-----*/
+.card-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: #bdbdbd;
+  box-shadow: 1px 1px 3px 1px grey;
+  cursor: pointer;
+  text-align: center;
+}
+
+.card-inner:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  opacity: 0;
+  font-size: 80px;
+  line-height: 110px;
+  text-align: center;
+  color: #000000;
+  transform: scale(-1, 1);
+}
+
+.card img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  backface-visibility: hidden;
+}
+
+.card .front-face {
+  transform: rotateY(180deg);
+}

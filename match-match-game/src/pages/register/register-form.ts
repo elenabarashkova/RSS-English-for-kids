@@ -9,7 +9,6 @@ export const startRegisterFormBehavior = () => {
 
   const registerForm = document.getElementById('registerForm');
 
-// On cancel click
   document.getElementById('cancel')?.addEventListener('cancel', () => {
     (registerForm as HTMLFormElement)?.reset();
   });
