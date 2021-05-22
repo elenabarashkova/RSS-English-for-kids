@@ -3,8 +3,13 @@ export const applyAnimation = ():void => {
 
   let isFlipped = false;
   let isBoardBlocked = false;
-  let pairFirst: HTMLElement;
-  let pairSecond: HTMLElement;
+  let pairFirst: HTMLElement | null;
+  let pairSecond: HTMLElement | null;
+
+  const resetBoard = () => {
+    [isFlipped, isBoardBlocked] = [false, false];
+    [pairFirst, pairSecond] = [null, null];
+  }
 
   const unflipCard = () => {
     isBoardBlocked = true;
@@ -12,11 +17,12 @@ export const applyAnimation = ():void => {
     pairSecond?.classList.add('mismatch');
     
     setTimeout(() => {
-      isBoardBlocked = false;
       pairFirst?.classList.remove('mismatch');
       pairSecond?.classList.remove('mismatch');
       pairFirst?.classList.remove('flip');
       pairSecond?.classList.remove('flip');
+
+      resetBoard();
       }, 1500);
   }
 
@@ -25,16 +31,18 @@ export const applyAnimation = ():void => {
       return;
     }
     const targetCard = event.currentTarget as HTMLElement;
-    if (this === pairFirst) {
+    if (targetCard === pairFirst) {
       return;
     }
     targetCard?.classList.add('flip');
 
     const setMatched = () => {
-      pairFirst.removeEventListener('click', flipCard);
-      pairFirst.classList.add('matched');
-      pairSecond.removeEventListener('click', flipCard);
-      pairSecond.classList.add('matched');
+      pairFirst?.removeEventListener('click', flipCard);
+      pairFirst?.classList.add('matched');
+      pairSecond?.removeEventListener('click', flipCard);
+      pairSecond?.classList.add('matched');
+
+      resetBoard();
     }
 
     const checkForMatch = () => {
@@ -54,7 +62,7 @@ export const applyAnimation = ():void => {
     }
 
     pairSecond = targetCard;
-    isFlipped = false;
+    // isFlipped = false;
     checkForMatch();
   }
 
