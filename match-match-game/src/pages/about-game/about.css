@@ -1,0 +1,46 @@
+.about-game {
+  background: lightgrey;
+}
+
+.instructions-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.instructions-item {
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.instructions-text {
+  flex-basis: 50%;
+  padding: 0 35px 0 25px;
+}
+
+.instructions-text-inner {
+  background: #fff;
+  height: 100%;
+  padding: 15px;
+}
+
+.step-number {
+  font-size: 26px;
+  background: #40a4ac;
+  border-radius: 100%;
+  display: inline-block;
+  margin: 5px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-weight: 900;
+}
+
+.instructions-text .text {
+  font-size: 20px;
+}
+
+.instructions-pic img {
+  max-height: 320px;
+}
