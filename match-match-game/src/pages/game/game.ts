@@ -11,4 +11,5 @@ export const startGamePage = () => {
   addPageHtml(GAME_HTML);
   renderGameBoard();
   startGame();
+  // todo:start timer
 }
