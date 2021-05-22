@@ -7,7 +7,7 @@ const SETTINGS_HTML = '<div>Settings</div>';
 export const SETTINGS_ID = 'settings';
 export const settingsIcon = settingsIconLink;
 
-export const startSettingsPage = () => {
+export const startSettingsPage = ():void => {
   setActiveMenuItem(SETTINGS_ID);
   addPageHtml(SETTINGS_HTML);
 }

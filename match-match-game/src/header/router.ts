@@ -16,7 +16,7 @@ const onHashChange = () => {
   startRoute();
 }
 
-export const startRouter = () => {
+export const startRouter = ():void => {
   window.addEventListener("hashchange", onHashChange);
   onHashChange();
 }

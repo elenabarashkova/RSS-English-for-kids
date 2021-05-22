@@ -35,7 +35,7 @@ const randomNumsShuffle = (cardsNum: number) => {
   return ([...half, ...half]).sort(() => Math.random() - 0.5);
 };
 
-export const renderGameBoard = (difficulty = 'easy', picturePack = 'fruits-pack') => {
+export const renderGameBoard = (difficulty = 'easy', picturePack = 'fruits-pack'):boolean => {
   const board = document.getElementById('gameBoard');
   const timer = document.createElement('div');
   timer.id = 'gameTimer';

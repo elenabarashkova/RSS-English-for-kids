@@ -1,6 +1,6 @@
 import { renderPopup } from "../../popup/render-popup";
 
-export const renderRegisterInputs = () => {
+export const renderRegisterInputs = ():string => {
   const formInputs = [
     {
       fieldName: 'First name',

@@ -6,7 +6,7 @@ const GAME_HTML = '<div id="gameBoard" class="board"></div>';
 export const GAME_ID = 'game';
 const GAME_BTN_ID = 'gameTumblerBtn'
 
-export const startGamePage = () => {
+export const startGamePage = ():void => {
   setActiveMenuItem(GAME_BTN_ID);
   addPageHtml(GAME_HTML);
   renderGameBoard();

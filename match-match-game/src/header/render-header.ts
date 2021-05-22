@@ -2,7 +2,7 @@ import { ABOUT_GAME_ID, ABOUT_GAME_NAME, aboutGameIcon } from "../pages/about-ga
 import {BEST_SCORE_ID, BEST_SCORE_NAME, bestScoreIcon } from "../pages/best-score/best-score";
 import {SETTINGS_ID, SETTINGS_NAME, settingsIcon } from "../pages/settings/settings";
 
-export const renderMenu = () => {
+export const renderMenu = ():void => {
   const menuItems = [
     {
       id: ABOUT_GAME_ID,
@@ -37,7 +37,7 @@ export const renderMenu = () => {
   }
 };
 
-export const renderRegisteredHeader = () => {
+export const renderRegisteredHeader = ():void => {
   const headerUserInfo = document.querySelector('.header-item.user-info');
   headerUserInfo?.classList.remove('not-registered');
   headerUserInfo?.classList.add('registered');

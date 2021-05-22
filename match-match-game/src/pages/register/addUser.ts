@@ -1,7 +1,7 @@
 import {PersonData} from "../../common/types";
 import { addUser } from "../../common/indexedDB";
 
-export const saveFormData = () => {
+export const saveFormData = ():void => {
   const formItemsElements = {
     firstNameInput: document.getElementById('firstName'),
     lastNameInput: document.getElementById('lastName'),

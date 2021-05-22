@@ -57,7 +57,7 @@ const onSubmit = (event: Event) => {
   }
 }
 
-export const startValidation = () => {
+export const startValidation = ():void => {
   const registerFields = document.getElementsByClassName('register-input');
   [...registerFields].forEach(item => item.addEventListener('change', onInputChange));
 

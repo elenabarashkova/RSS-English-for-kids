@@ -3,7 +3,7 @@ import {insertHtml} from "../../common/shared";
 import {renderRegisterPopup} from "./render-register-popup";
 import {startValidation} from "./validation";
 
-export const startRegisterFormBehavior = () => {
+export const startRegisterFormBehavior = ():void => {
   const registerBtn = document.getElementById('registerBtn');
   registerBtn?.addEventListener('click', openPopup);
 
@@ -14,7 +14,7 @@ export const startRegisterFormBehavior = () => {
   });
 }
 
-export const startRegisterForm = () => {
+export const startRegisterForm = ():void => {
   insertHtml(renderRegisterPopup);
   startRegisterFormBehavior();
   startValidation();

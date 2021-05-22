@@ -1,6 +1,6 @@
 import { Content } from "../common/types";
 
-export const renderPopup = ({title, id, className, content}: Content) =>
+export const renderPopup = ({title, id, className, content}: Content):string =>
   (
     `<div id=${id} class="popup ${className}">
   <button class="btn-close">X</button>

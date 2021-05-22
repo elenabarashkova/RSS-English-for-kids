@@ -7,7 +7,7 @@ const BEST_SCORE_HTML = '<div>Best score</div>';
 export const BEST_SCORE_ID = 'best_score';
 export const bestScoreIcon = bestScoreIconLink;
 
-export const startBestScorePage = () => {
+export const startBestScorePage = ():void => {
   setActiveMenuItem(BEST_SCORE_ID);
   addPageHtml(BEST_SCORE_HTML);
 }

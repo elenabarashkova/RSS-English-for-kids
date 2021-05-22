@@ -4,7 +4,7 @@ let db: IDBDatabase;
 
 const openRequest = indexedDB.open('elenabarashkova',1);
 
-openRequest.onupgradeneeded = function(event: IDBVersionChangeEvent) {
+openRequest.onupgradeneeded = (event: IDBVersionChangeEvent) => {
   const thisDB = openRequest.result;
   if(!thisDB.objectStoreNames.contains('users')) {
     thisDB.createObjectStore('users',{keyPath: 'email'});
@@ -12,25 +12,25 @@ openRequest.onupgradeneeded = function(event: IDBVersionChangeEvent) {
   // todo: create new object store: scores
 }
 
-openRequest.onsuccess = function(event) {
+openRequest.onsuccess = (event) => {
   db = openRequest.result;
 }
 
-openRequest.onerror = function(event) {
-  console.log("onerror open database!");
+openRequest.onerror = (event) => {
+  // console.log("onerror open database!");
   // todo: add behavior
 }
 
-export function addUser(personData: PersonData) {
+export const addUser = (personData: PersonData):void => {
   const transaction = db.transaction(['users'],'readwrite');
   const store = transaction.objectStore('users');
   const request = store.add(personData);
-  request.onerror = function(e) {
-    console.log("Error adding new person");
+  request.onerror = (e) => {
+    // console.log("Error adding new person");
     // todo: prevent ability to push submit || show error alert/popup + close register popup (not adding .registered)
   }
-  request.onsuccess = function(e) {
-    console.log("New person added");
+  request.onsuccess = (e) => {
+    // console.log("New person added");
     // todo: add initializeClosing here?
   }
 }
