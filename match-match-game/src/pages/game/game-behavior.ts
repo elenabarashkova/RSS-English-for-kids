@@ -2,13 +2,17 @@ export const applyAnimation = ():void => {
   const cards = document.getElementsByClassName('card');
 
   let isFlipped = false;
+  let isBoardBlocked = false;
   let pairFirst: HTMLElement;
   let pairSecond: HTMLElement;
 
   const unflipCard = () => {
+    isBoardBlocked = true;
     pairFirst?.classList.add('mismatch');
     pairSecond?.classList.add('mismatch');
+    
     setTimeout(() => {
+      isBoardBlocked = false;
       pairFirst?.classList.remove('mismatch');
       pairSecond?.classList.remove('mismatch');
       pairFirst?.classList.remove('flip');
@@ -17,7 +21,13 @@ export const applyAnimation = ():void => {
   }
 
   const flipCard = (event: Event) => {
+    if(isBoardBlocked) {
+      return;
+    }
     const targetCard = event.currentTarget as HTMLElement;
+    if (this === pairFirst) {
+      return;
+    }
     targetCard?.classList.add('flip');
 
     const setMatched = () => {
@@ -35,7 +45,6 @@ export const applyAnimation = ():void => {
       } else {
         unflipCard();
       }
-      // firstData === secondData ? setMatched() : unflipCard();
     }
 
     if(!isFlipped) {

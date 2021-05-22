@@ -81,7 +81,6 @@
   background: #bdbdbd;
   box-shadow: 1px 1px 3px 1px grey;
   cursor: pointer;
-  text-align: center;
 }
 
 .card-inner:after {
