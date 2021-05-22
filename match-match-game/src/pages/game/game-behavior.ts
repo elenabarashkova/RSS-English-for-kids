@@ -1,6 +1,5 @@
-export const applyAnimation = ():void => {
+export const startGame = ():void => {
   const cards = document.getElementsByClassName('card');
-
   let isFlipped = false;
   let isBoardBlocked = false;
   let pairFirst: HTMLElement | null;
@@ -11,47 +10,42 @@ export const applyAnimation = ():void => {
     [pairFirst, pairSecond] = [null, null];
   }
 
-  const unflipCard = () => {
-    isBoardBlocked = true;
-    pairFirst?.classList.add('mismatch');
-    pairSecond?.classList.add('mismatch');
-    
-    setTimeout(() => {
-      pairFirst?.classList.remove('mismatch');
-      pairSecond?.classList.remove('mismatch');
-      pairFirst?.classList.remove('flip');
-      pairSecond?.classList.remove('flip');
+  const togglePairClass = (className: string, toggle: string) => {
+    pairFirst?.classList.toggle(className, toggle === 'add');
+    pairSecond?.classList.toggle(className, toggle === 'add');
+  }
 
-      resetBoard();
-      }, 1500);
+  const unflipCards = () => {
+    togglePairClass('missmatch', 'remove');
+    togglePairClass('flip', 'remove');
+    resetBoard();
+  }
+
+  const setMissmatched = () => {
+    isBoardBlocked = true;
+    togglePairClass('missmatch', 'add');
+    setTimeout(unflipCards, 1500);
   }
 
   const flipCard = (event: Event) => {
-    if(isBoardBlocked) {
-      return;
-    }
     const targetCard = event.currentTarget as HTMLElement;
-    if (targetCard === pairFirst) {
+    if (targetCard === pairFirst || isBoardBlocked) {
       return;
     }
     targetCard?.classList.add('flip');
 
     const setMatched = () => {
       pairFirst?.removeEventListener('click', flipCard);
-      pairFirst?.classList.add('matched');
       pairSecond?.removeEventListener('click', flipCard);
-      pairSecond?.classList.add('matched');
-
+      togglePairClass('matched', 'add');
       resetBoard();
     }
 
     const checkForMatch = () => {
-      const firstData = pairFirst?.dataset.pair_num;
-      const secondData = pairSecond?.dataset.pair_num;
-      if(firstData === secondData) {
+      if(pairFirst?.dataset.pair_num === pairSecond?.dataset.pair_num) {
         setMatched();
       } else {
-        unflipCard();
+        setMissmatched();
       }
     }
 
@@ -62,11 +56,8 @@ export const applyAnimation = ():void => {
     }
 
     pairSecond = targetCard;
-    // isFlipped = false;
     checkForMatch();
   }
 
   [...cards].forEach(item => item.addEventListener('click', flipCard));
 }
-
-

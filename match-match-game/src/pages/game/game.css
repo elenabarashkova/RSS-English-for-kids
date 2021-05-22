@@ -57,18 +57,18 @@
   background: #008000CD;
 }
 
-.card.mismatch .card-inner:after {
+.card.missmatch .card-inner:after {
   content: '𐄂';
   opacity: 1;
   background: #ff00008c;
 }
 
-.card.mismatch img,
+.card.missmatch img,
 .card.matched img {
   opacity: 0.4;
 }
 
-.card.mismatch .card-inner,
+.card.missmatch .card-inner,
 .card.matched .card-inner {
   background: transparent;
 }
