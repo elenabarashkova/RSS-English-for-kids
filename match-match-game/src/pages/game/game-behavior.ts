@@ -1,6 +1,4 @@
-import {preGameTimer} from "./pre-game-timer";
-
-export const startGame = ():void => {
+export const startGameBehavior = ():void => {
   const cards = document.getElementsByClassName('card');
   let isFlipped = false;
   let isBoardBlocked = false;
@@ -61,11 +59,5 @@ export const startGame = ():void => {
     checkForMatch();
   }
 
-  const onPreGameTimerOut = () => {
-    [...cards].map(item => item.classList.remove('flip'));
-    [...cards].forEach(item => item.addEventListener('click', flipCard));
-  };
-
-  [...cards].map(item => item.classList.add('flip'));
-  preGameTimer(onPreGameTimerOut);
+  [...cards].forEach(item => item.addEventListener('click', flipCard));
 }

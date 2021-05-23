@@ -1,6 +1,6 @@
 export const renderCard = (cardsNum: number, picturePack:string, pairNumber: number):HTMLElement => {
   const card = document.createElement('div');
-  card.classList.add('card');
+  card.classList.add('card', 'flip');
   card.setAttribute('data-pair_num', String(pairNumber));
   card.innerHTML = (
     `<div class="card-inner">

@@ -1,6 +1,7 @@
 let mainTimer: NodeJS.Timeout;
 
-export const startTimer = ():void => {
+export const startMainTimer = ():void => {
+  document.getElementById('gameTimer')?.classList.remove('hidden');
   const hour = document.getElementById('hours');
   const mins = document.getElementById('minutes');
   const secs = document.getElementById('seconds');
