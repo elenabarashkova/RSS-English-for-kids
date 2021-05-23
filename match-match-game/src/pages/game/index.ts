@@ -1,5 +1,5 @@
 import { addPageHtml, setActiveMenuItem } from "../../common/shared";
-import { renderGameBoard } from "./render-board";
+import { renderGameBoard } from "./render-board/render-board";
 import { startGame } from "./game-behavior";
 import {stopTimer} from "./timer";
 
