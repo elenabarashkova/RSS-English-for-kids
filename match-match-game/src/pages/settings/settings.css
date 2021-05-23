@@ -1,0 +1,47 @@
+.settings-page form {
+  background: lightgray;
+  padding: 20px;
+  box-shadow: 2px 2px 7px var(--background-color-primary);
+}
+
+.select-label {
+  display: block;
+  margin-bottom: 30px;
+  width: 350px;
+  position: relative;
+}
+
+.select-label > span {
+  display: block;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.select-label select {
+  appearance: none;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid var(--background-color-primary);
+  padding: 0 35px 0 10px;
+  color: var(--text-color-primary);
+  font-size: 18px;
+  outline: none;
+  width: 100%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.select-label select:focus {
+  border-bottom-color: var(--hover-color);
+}
+
+.select-label:after {
+  content: '▼';
+  position: absolute;
+  top: 50%;
+  right: 7px;
+  pointer-events: none;
+  display: inline-block;
+  padding: 7px;
+}

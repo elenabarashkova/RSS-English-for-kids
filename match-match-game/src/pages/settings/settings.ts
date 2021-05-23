@@ -1,13 +1,15 @@
-import {addPageHtml, setActiveMenuItem} from "../../common/shared";
+import { addPageHtml, setActiveMenuItem } from "../../common/shared";
+import {renderSettingsFields, settingsPageHtml} from "./render-settings";
 
 const settingsIconLink = require('../../assets/settings-icon.svg');
 
 export const SETTINGS_NAME = 'Game Settings';
-const SETTINGS_HTML = '<div>Settings</div>';
+const SETTINGS_HTML = settingsPageHtml();
 export const SETTINGS_ID = 'settings';
 export const settingsIcon = settingsIconLink;
 
 export const startSettingsPage = ():void => {
   setActiveMenuItem(SETTINGS_ID);
   addPageHtml(SETTINGS_HTML);
+  renderSettingsFields();
 }
