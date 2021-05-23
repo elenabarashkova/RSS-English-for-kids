@@ -1,3 +1,5 @@
+import {startTimer} from "./timer";
+
 export const beforeGameTimer = (callback: CallableFunction) => {
   let remainingTime = 30;
   const preGameTimer = document.getElementById('preGameTimer');
@@ -9,6 +11,8 @@ export const beforeGameTimer = (callback: CallableFunction) => {
       clearTimeout(timer);
       preGameTimer?.classList.add('hidden');
       document.getElementById('gameTimer')?.classList.remove('hidden');
+
+      startTimer();
     } else {
       if(preGameTimerClock) {
         preGameTimerClock.innerHTML = `${remainingTime} seconds`;

@@ -40,7 +40,7 @@ export const renderGameBoard = ():void => {
   board?.append(preGameTimer);
   preGameTimer?.append(preGameTimerClock);
   board?.append(timer);
-  timer.innerText = 'Timer';
+  timer.innerHTML= `<span id="hours">00</span><span>:</span><span id="minutes">00</span><span>:</span><span id="seconds">00</span>`;
 
   const boardInner = document.createElement('div');
   boardInner.classList.add('board-inner');

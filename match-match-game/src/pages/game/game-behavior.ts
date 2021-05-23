@@ -17,11 +17,6 @@ export const startGame = ():void => {
     pairSecond?.classList.toggle(className, toggle === 'add');
   }
 
-  // const showBoard = () => {
-  //   setTimeout(() => [...cards].map(item => item.classList.add('flip')), 30000);
-  //   [...cards].map(item => item.classList.remove('flip'));
-  // }
-
   const unflipCards = () => {
     togglePairClass('missmatch', 'remove');
     togglePairClass('flip', 'remove');
@@ -73,5 +68,4 @@ export const startGame = ():void => {
 
   [...cards].map(item => item.classList.add('flip'));
   beforeGameTimer(onPreGameTimerOut);
-
 }
