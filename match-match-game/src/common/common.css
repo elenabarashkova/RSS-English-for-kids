@@ -124,3 +124,7 @@ body.popup-on {
   background: var(--background-color-highlight);
   color: var(--text-color-primary-reverse);
 }
+
+.hidden {
+  display: none;
+}

@@ -12,7 +12,7 @@ export const getSettings = (event: Event):void => {
   }
 }
 
-export const setSettings = () => ({
+export const setSettings = ():Record<string, string> => ({
   cardsPack,
   difficulty,
 });

@@ -1,3 +1,5 @@
+import {beforeGameTimer} from "./before-game-timer";
+
 export const startGame = ():void => {
   const cards = document.getElementsByClassName('card');
   let isFlipped = false;
@@ -14,6 +16,11 @@ export const startGame = ():void => {
     pairFirst?.classList.toggle(className, toggle === 'add');
     pairSecond?.classList.toggle(className, toggle === 'add');
   }
+
+  // const showBoard = () => {
+  //   setTimeout(() => [...cards].map(item => item.classList.add('flip')), 30000);
+  //   [...cards].map(item => item.classList.remove('flip'));
+  // }
 
   const unflipCards = () => {
     togglePairClass('missmatch', 'remove');
@@ -59,5 +66,12 @@ export const startGame = ():void => {
     checkForMatch();
   }
 
-  [...cards].forEach(item => item.addEventListener('click', flipCard));
+  const onPreGameTimerOut = () => {
+    [...cards].map(item => item.classList.remove('flip'));
+    [...cards].forEach(item => item.addEventListener('click', flipCard));
+  };
+
+  [...cards].map(item => item.classList.add('flip'));
+  beforeGameTimer(onPreGameTimerOut);
+
 }

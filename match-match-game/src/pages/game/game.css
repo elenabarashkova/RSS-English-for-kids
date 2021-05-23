@@ -110,3 +110,15 @@
 .card .front-face {
   transform: rotateY(180deg);
 }
+
+#preGameTimer {
+  padding-top: 20px;
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+}
+
+#preGameTimerClock {
+  text-align: center;
+  font-size: 26px;
+}

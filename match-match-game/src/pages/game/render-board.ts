@@ -1,5 +1,5 @@
 import {setSettings} from "../settings/get-settings";
-import {DEFAULT_CARDS_PACK, DEFAULT_DIFFICULTY, DIFFICULTIES_LIST} from "../../common/constants";
+import {DIFFICULTIES_LIST} from "../../common/constants";
 
 const renderCard = (cardsNum: number, picturePack:string, pairNumber: number) => {
   const card = document.createElement('div');
@@ -24,12 +24,21 @@ const randomNumsShuffle = (cardsNum: number) => {
   return ([...half, ...half]).sort(() => Math.random() - 0.5);
 };
 
-export const renderGameBoard = ():boolean => {
+export const renderGameBoard = ():void => {
   const board = document.getElementById('gameBoard');
   const timer = document.createElement('div');
+  timer.id = 'gameTimer';
+  timer.classList.add('hidden');
+  const preGameTimer = document.createElement('div');
+  preGameTimer.id = 'preGameTimer';
+  preGameTimer.innerText = 'Remember all cards before the time runs out.';
+  const preGameTimerClock = document.createElement('div');
+  preGameTimerClock.id = 'preGameTimerClock';
+
   const { difficulty, cardsPack } = setSettings();
 
-  timer.id = 'gameTimer';
+  board?.append(preGameTimer);
+  preGameTimer?.append(preGameTimerClock);
   board?.append(timer);
   timer.innerText = 'Timer';
 
@@ -42,6 +51,5 @@ export const renderGameBoard = ():boolean => {
   for(let i = 0; i < cardsNum; i++) {
     boardInner?.append(renderCard(cardsNum, cardsPack, randomNums[i]));
   }
-  return true;
 }
 
