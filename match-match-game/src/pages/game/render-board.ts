@@ -1,3 +1,6 @@
+import {setSettings} from "../settings/get-settings";
+import {DEFAULT_CARDS_PACK, DEFAULT_DIFFICULTY, DIFFICULTIES_LIST} from "../../common/constants";
+
 const renderCard = (cardsNum: number, picturePack:string, pairNumber: number) => {
   const card = document.createElement('div');
   card.classList.add('card');
@@ -13,21 +16,7 @@ const renderCard = (cardsNum: number, picturePack:string, pairNumber: number) =>
 
 const applyDifficulty = (difficulty: string) => {
   document.getElementById('gameBoard')?.classList.add(difficulty);
-  const difficultyList = [
-    {
-      difficultyName: 'easy',
-      cardsNum: 16,
-    },
-    {
-      difficultyName: 'medium',
-      cardsNum: 24,
-    },
-    {
-      difficultyName: 'hard',
-      cardsNum: 36,
-    },
-  ];
-  return difficultyList.find(item => item.difficultyName === difficulty)?.cardsNum;
+  return DIFFICULTIES_LIST.find(item => item.difficultyName === difficulty)?.cardsNum;
 }
 
 const randomNumsShuffle = (cardsNum: number) => {
@@ -35,9 +24,11 @@ const randomNumsShuffle = (cardsNum: number) => {
   return ([...half, ...half]).sort(() => Math.random() - 0.5);
 };
 
-export const renderGameBoard = (difficulty = 'easy', picturePack = 'fruits-pack'):boolean => {
+export const renderGameBoard = ():boolean => {
   const board = document.getElementById('gameBoard');
   const timer = document.createElement('div');
+  const { difficulty, cardsPack } = setSettings();
+
   timer.id = 'gameTimer';
   board?.append(timer);
   timer.innerText = 'Timer';
@@ -49,7 +40,7 @@ export const renderGameBoard = (difficulty = 'easy', picturePack = 'fruits-pack'
   const cardsNum = applyDifficulty(difficulty) || 16;
   const randomNums = randomNumsShuffle(cardsNum);
   for(let i = 0; i < cardsNum; i++) {
-    boardInner?.append(renderCard(cardsNum, picturePack, randomNums[i]));
+    boardInner?.append(renderCard(cardsNum, cardsPack, randomNums[i]));
   }
   return true;
 }

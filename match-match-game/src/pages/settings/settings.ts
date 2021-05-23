@@ -1,5 +1,6 @@
 import { addPageHtml, setActiveMenuItem } from "../../common/shared";
-import {renderSettingsFields, settingsPageHtml} from "./render-settings";
+import { renderSettingsFields, settingsPageHtml } from "./render-settings";
+import {getSettingsChange} from "./get-settings-change";
 
 const settingsIconLink = require('../../assets/settings-icon.svg');
 
@@ -12,4 +13,5 @@ export const startSettingsPage = ():void => {
   setActiveMenuItem(SETTINGS_ID);
   addPageHtml(SETTINGS_HTML);
   renderSettingsFields();
+  getSettingsChange();
 }

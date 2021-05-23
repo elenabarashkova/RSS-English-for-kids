@@ -5,13 +5,13 @@ export const settingsPageHtml = ():string =>
   </div>
 `;
 
-export const renderSettingsFields = () => {
+export const renderSettingsFields = ():void => {
   const settingsFields = [
     {
       id: 'gameCards',
       fieldName: 'Game cards',
       placeholder: 'Select game cards type',
-      options: ['camping-pack', 'fruits-pack', 'summer-pack',],
+      options: ['fruits-pack', 'camping-pack', 'summer-pack',],
     },
     {
       id: 'difficulty',
@@ -22,7 +22,7 @@ export const renderSettingsFields = () => {
   ]
   const html = settingsFields.map(({fieldName, id, placeholder, options}) =>
     (`<label class="select-label"><span>${fieldName}</span>
-      <select id="${id}" name="${id}">
+      <select class="setting-select" id="${id}" name="${id}">
         <option hidden="" disabled="" selected="" value="">${placeholder}</option>
         ${options.map(item => `<option>${item}</option>`)};
       </select>
