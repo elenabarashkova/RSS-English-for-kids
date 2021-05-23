@@ -1,4 +1,4 @@
-import {beforeGameTimer} from "./before-game-timer";
+import {preGameTimer} from "./pre-game-timer";
 
 export const startGame = ():void => {
   const cards = document.getElementsByClassName('card');
@@ -67,5 +67,5 @@ export const startGame = ():void => {
   };
 
   [...cards].map(item => item.classList.add('flip'));
-  beforeGameTimer(onPreGameTimerOut);
+  preGameTimer(onPreGameTimerOut);
 }

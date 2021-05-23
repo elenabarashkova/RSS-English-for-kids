@@ -1,7 +1,7 @@
 import { addPageHtml, setActiveMenuItem } from "../../common/shared";
 import { renderGameBoard } from "./render-board/render-board";
 import { startGame } from "./game-behavior";
-import {stopTimer} from "./timer";
+import { stopTimer } from "./main-timer";
 
 const GAME_HTML = '<div id="gameBoard" class="board"></div>';
 export const GAME_ID = 'game';
@@ -21,5 +21,4 @@ export const startGamePage = ():void => {
   renderGameBoard();
   startGame();
   isGameStarted = true;
-  // todo:start timer
 }
