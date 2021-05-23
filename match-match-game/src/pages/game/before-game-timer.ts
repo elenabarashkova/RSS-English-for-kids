@@ -1,6 +1,6 @@
 import {startTimer} from "./timer";
 
-export const beforeGameTimer = (callback: CallableFunction) => {
+export const beforeGameTimer = (callback: CallableFunction):void => {
   let remainingTime = 30;
   const preGameTimer = document.getElementById('preGameTimer');
   const preGameTimerClock = document.getElementById('preGameTimerClock');

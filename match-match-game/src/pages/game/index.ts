@@ -8,7 +8,7 @@ export const GAME_ID = 'game';
 const GAME_BTN_ID = 'gameTumblerBtn';
 let isGameStarted = false;
 
-export const stopGame = () => {
+export const stopGame = ():void => {
   if(isGameStarted) {
     stopTimer();
     isGameStarted = false;

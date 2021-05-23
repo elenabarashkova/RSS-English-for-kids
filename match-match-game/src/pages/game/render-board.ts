@@ -40,7 +40,10 @@ export const renderGameBoard = ():void => {
   board?.append(preGameTimer);
   preGameTimer?.append(preGameTimerClock);
   board?.append(timer);
-  timer.innerHTML= `<span id="hours">00</span><span>:</span><span id="minutes">00</span><span>:</span><span id="seconds">00</span>`;
+  timer.innerHTML=
+    `<span id="hours">00</span><span>:</span>
+    <span id="minutes">00</span><span>:</span>
+    <span id="seconds">00</span>`;
 
   const boardInner = document.createElement('div');
   boardInner.classList.add('board-inner');
@@ -52,4 +55,3 @@ export const renderGameBoard = ():void => {
     boardInner?.append(renderCard(cardsNum, cardsPack, randomNums[i]));
   }
 }
-

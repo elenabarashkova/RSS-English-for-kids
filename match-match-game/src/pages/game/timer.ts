@@ -8,7 +8,7 @@ export const startTimer = ():void => {
   let minutes = 0;
   let hours = 0;
 
-  mainTimer = setInterval(() => {
+  mainTimer = setInterval(():void => {
     seconds = +seconds + 1;
     if( seconds === 60 ) {
       seconds = 0;
@@ -24,6 +24,6 @@ export const startTimer = ():void => {
   },1000);
 };
 
-export const stopTimer = () => {
+export const stopTimer = ():void => {
   clearTimeout(mainTimer);
 }
