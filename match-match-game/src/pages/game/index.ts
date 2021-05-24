@@ -25,6 +25,7 @@ const startGame = () => {
   unflipCards();
   startMainTimer();
   startGameBehavior(/* onGameEnd */);
+  isGameStarted = true;
 }
 
 export const startGamePage = ():void => {
@@ -33,9 +34,7 @@ export const startGamePage = ():void => {
   renderGameBoard();
   startPreGameTimer(startGame);
 
-  // todo: add isGameStarted = true;
-
   // when game ends
-  //    const clicks = gameBehavior.getClicks();
-  //    const time = mainTimer.getTime();
+  //    const clicks: gameBehavior getClicks();
+  //    const time: mainTimer getTime();
 }
