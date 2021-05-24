@@ -5,6 +5,7 @@ let difficulty:string = DEFAULT_DIFFICULTY;
 
 export const getSettings = (event: Event):void => {
   const value = (event.currentTarget as HTMLInputElement)?.value;
+
   if((event.currentTarget as HTMLInputElement)?.getAttribute('name') === 'gameCards') {
     cardsPack = value;
   } else {

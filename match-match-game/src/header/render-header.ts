@@ -1,6 +1,6 @@
 import { ABOUT_GAME_ID, ABOUT_GAME_NAME, aboutGameIcon } from "../pages/about-game/about-game";
 import {BEST_SCORE_ID, BEST_SCORE_NAME, bestScoreIcon } from "../pages/best-score/best-score";
-import {SETTINGS_ID, SETTINGS_NAME, settingsIcon } from "../pages/settings/settings";
+import {SETTINGS_ID, SETTINGS_NAME, settingsIcon } from "../pages/settings";
 
 export const renderMenu = ():void => {
   const menuItems = [

@@ -1,8 +1,8 @@
 import { addPageHtml, setActiveMenuItem } from "../../common/shared";
 import { renderGameBoard } from "./render-board/render-board";
 import { startGameBehavior } from "./game-behavior";
-import {startMainTimer, stopTimer} from "./main-timer";
-import {startPreGameTimer} from "./pre-game-timer";
+import {startMainTimer, stopTimer} from "./timers/main-timer";
+import {startPreGameTimer} from "./timers/pre-game-timer";
 
 const GAME_HTML = '<div id="gameBoard" class="board"></div>';
 export const GAME_ID = 'game';

@@ -1,6 +1,6 @@
 import { ABOUT_GAME_ID, startAboutGamePage } from "../pages/about-game/about-game";
 import {BEST_SCORE_ID, startBestScorePage } from "../pages/best-score/best-score";
-import {SETTINGS_ID, startSettingsPage } from "../pages/settings/settings";
+import {SETTINGS_ID, startSettingsPage } from "../pages/settings";
 import {GAME_ID, startGamePage, stopGame} from "../pages/game";
 
 const ROUTE_ALIASES = {
