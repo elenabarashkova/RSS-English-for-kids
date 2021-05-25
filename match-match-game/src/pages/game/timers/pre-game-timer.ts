@@ -1,11 +1,17 @@
+let timer: NodeJS.Timeout;
+
+export const stopPreGameTimer = ():void => {
+  clearTimeout(timer);
+}
+
 export const startPreGameTimer = (callback: CallableFunction):void => {
   let remainingTime = 30;
   const preGameTimer = document.getElementById('preGameTimer');
   const preGameTimerClock = document.getElementById('preGameTimerClock');
 
-  const timer = setInterval(() => {
+  timer = setInterval(() => {
     if (remainingTime === -1) {
-      clearTimeout(timer);
+      stopPreGameTimer();
       preGameTimer?.classList.add('hidden');
       callback();
     } else {
