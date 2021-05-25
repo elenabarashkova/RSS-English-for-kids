@@ -14,4 +14,5 @@ export const DIFFICULTIES_LIST = [
 ];
 
 export const DEFAULT_DIFFICULTY = DIFFICULTIES_LIST[0].difficultyName;
+export const DEFAULT_CARDS_NUM = DIFFICULTIES_LIST[0].cardsNum;
 export const DEFAULT_CARDS_PACK = 'fruits-pack';

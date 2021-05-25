@@ -1,13 +1,13 @@
 let mainTimer: NodeJS.Timeout;
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
 
 export const startMainTimer = ():void => {
   document.getElementById('gameTimer')?.classList.remove('hidden');
   const hour = document.getElementById('hours');
   const mins = document.getElementById('minutes');
   const secs = document.getElementById('seconds');
-  let seconds = 0;
-  let minutes = 0;
-  let hours = 0;
 
   mainTimer = setInterval(():void => {
     seconds = +seconds + 1;
@@ -28,3 +28,5 @@ export const startMainTimer = ():void => {
 export const stopTimer = ():void => {
   clearTimeout(mainTimer);
 }
+
+export const getGameDuration = ():number => hours * 3600 + minutes * 60 + seconds;

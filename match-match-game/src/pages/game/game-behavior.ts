@@ -1,3 +1,6 @@
+let compareCount: number;
+let mistakenCompareCount: number;
+
 export const startGameBehavior = ():void => {
   const cards = document.getElementsByClassName('card');
   let isFlipped = false;
@@ -25,6 +28,8 @@ export const startGameBehavior = ():void => {
     isBoardBlocked = true;
     togglePairClass('missmatch', 'add');
     setTimeout(unflipCards, 1500);
+    compareCount += 1;
+    mistakenCompareCount += 1;
   }
 
   const flipCard = (event: Event) => {
@@ -39,6 +44,7 @@ export const startGameBehavior = ():void => {
       pairSecond?.removeEventListener('click', flipCard);
       togglePairClass('matched', 'add');
       resetBoard();
+      compareCount += 1;
     }
 
     const checkForMatch = () => {
@@ -61,3 +67,6 @@ export const startGameBehavior = ():void => {
 
   [...cards].forEach(item => item.addEventListener('click', flipCard));
 }
+
+export const getCompareCount = ():number => compareCount;
+export const getMistakenCompareCount = ():number => mistakenCompareCount;
