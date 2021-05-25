@@ -1,0 +1,18 @@
+.popup.win-popup {
+  text-align: center;
+}
+
+.popup.win-popup .btn-close {
+  display: none;
+}
+
+.win-info {
+  width: 90%;
+  margin: 0 auto 25px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.win-popup .btn {
+  display: inline-block;
+}

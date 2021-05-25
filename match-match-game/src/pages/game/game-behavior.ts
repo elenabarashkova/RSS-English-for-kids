@@ -1,7 +1,7 @@
-let compareCount: number;
-let mistakenCompareCount: number;
+let compareCount = 0;
+let mistakenCompareCount = 0;
 
-export const startGameBehavior = ():void => {
+export const startGameBehavior = (callback: CallableFunction):void => {
   const cards = document.getElementsByClassName('card');
   let isFlipped = false;
   let isBoardBlocked = false;
@@ -45,6 +45,9 @@ export const startGameBehavior = ():void => {
       togglePairClass('matched', 'add');
       resetBoard();
       compareCount += 1;
+      if ([...cards].every(card => card.classList.contains('matched'))) {
+        callback();
+      }
     }
 
     const checkForMatch = () => {

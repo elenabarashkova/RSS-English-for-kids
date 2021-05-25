@@ -1,9 +1,11 @@
-import { addPageHtml, setActiveMenuItem } from "../../common/shared";
+import {addPageHtml, insertHtml, setActiveMenuItem} from "../../common/shared";
 import { renderGameBoard } from "./render-board/render-board";
 import { startGameBehavior } from "./game-behavior";
-import {startMainTimer, stopTimer} from "./timers/main-timer";
+import {startMainTimer, stopTimer, getGameDuration} from "./timers/main-timer";
 import {startPreGameTimer, stopPreGameTimer} from "./timers/pre-game-timer";
 import { ABOUT_GAME_ID } from "../about-game/about-game";
+import {countScore} from "./score-count";
+import {startWinPopup} from "./win-popup/render-win-popup";
 
 const GAME_HTML = '<div id="gameBoard" class="board"></div>';
 export const GAME_ID = 'game';
@@ -36,11 +38,17 @@ const unflipCards = () => {
   [...cards].map(item => item.classList.remove('flip'));
 }
 
+const onEndGame = ():void => {
+  stopTimer();
+  const score = countScore();
+  const gameDuration = getGameDuration();
+  startWinPopup(gameDuration, score);
+}
+
 const startGame = () => {
   unflipCards();
   startMainTimer();
-  startGameBehavior(/* onGameEnd */);
-
+  startGameBehavior(onEndGame);
 }
 
 export const startGamePage = ():void => {
@@ -50,7 +58,11 @@ export const startGamePage = ():void => {
   isGameStarted = true;
   startPreGameTimer(startGame);
   changeGameBtn();
+
   // when game ends
-  //    const clicks: gameBehavior getClicks();
-  //    const time: mainTimer getTime();
+  //    ++countScore()
+  //    popupCongrads()
+  //    save score to indexedDb
+  //    startBestScorePage()
+  //
 }

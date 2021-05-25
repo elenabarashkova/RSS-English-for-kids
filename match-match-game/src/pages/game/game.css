@@ -1,3 +1,6 @@
+@import "timers/timers.css";
+@import "win-popup/win-popup.css";
+
 .board-inner {
   display: flex;
   flex-wrap: wrap;

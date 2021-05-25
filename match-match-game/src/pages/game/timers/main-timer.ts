@@ -8,7 +8,9 @@ export const startMainTimer = ():void => {
   const hour = document.getElementById('hours');
   const mins = document.getElementById('minutes');
   const secs = document.getElementById('seconds');
-
+  hours = 0;
+  minutes = 0;
+  seconds = 0;
   mainTimer = setInterval(():void => {
     seconds = +seconds + 1;
     if( seconds === 60 ) {
@@ -29,4 +31,5 @@ export const stopTimer = ():void => {
   clearTimeout(mainTimer);
 }
 
-export const getGameDuration = ():number => hours * 3600 + minutes * 60 + seconds;
+export const getGameDurationSec = ():number => hours * 3600 + minutes * 60 + seconds;
+export const getGameDuration = ():string => `${hours ? `${hours} hours` : ''} ${minutes ? `${minutes} minutes` : ''} ${seconds} seconds`;

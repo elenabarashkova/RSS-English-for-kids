@@ -1,8 +1,8 @@
-import {DIFFICULTIES_LIST} from "../../../common/constants";
+import {convertDifficultyToNum} from "../common-functions";
 
 export const applyDifficulty = (difficulty: string):number | undefined => {
   document.getElementById('gameBoard')?.classList.add(difficulty);
-  return DIFFICULTIES_LIST.find(item => item.difficultyName === difficulty)?.cardsNum;
+  return convertDifficultyToNum(difficulty);
 }
 
 export const randomNumsShuffle = (cardsNum: number):number[] => {
