@@ -23,6 +23,8 @@ export const addUser = (personData: PersonData):void => {
   const transaction = db.transaction(['users'],'readwrite');
   const store = transaction.objectStore('users');
   const request = store.add(personData);
+
+
   request.onerror = (e) => {
     // console.log("Error adding new person");
     // todo: prevent ability to push submit || show error alert/popup + close register popup (not adding .registered)

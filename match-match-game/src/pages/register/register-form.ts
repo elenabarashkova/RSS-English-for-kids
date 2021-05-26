@@ -2,6 +2,7 @@ import { openPopup } from "../../popup/popup";
 import {insertHtml} from "../../common/shared";
 import {renderRegisterPopup} from "./render-register-popup";
 import {startValidation} from "./validation";
+import {handlePhotoInput} from "./photo-behavior";
 
 export const startRegisterFormBehavior = ():void => {
   const registerBtn = document.getElementById('registerBtn');
@@ -12,6 +13,8 @@ export const startRegisterFormBehavior = ():void => {
   document.getElementById('cancel')?.addEventListener('cancel', () => {
     (registerForm as HTMLFormElement)?.reset();
   });
+
+  handlePhotoInput();
 }
 
 export const startRegisterForm = ():void => {
