@@ -1,7 +1,12 @@
+.best-score-page {
+  height: 98%;
+}
+
 .best-score-list {
   background: lightgray;
   padding: 5px 20px;
   box-shadow: 2px 2px 7px var(--background-color-primary);
+  height: calc(98% - 50px);
 }
 
 .best-score-item {
