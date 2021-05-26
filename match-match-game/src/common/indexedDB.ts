@@ -4,24 +4,22 @@ let db: IDBDatabase;
 
 const openRequest = indexedDB.open('elenabarashkova',1);
 
-openRequest.onupgradeneeded = (event: IDBVersionChangeEvent) => {
+openRequest.onupgradeneeded = () => {
   const thisDB = openRequest.result;
   if(!thisDB.objectStoreNames.contains('users')) {
     thisDB.createObjectStore('users',{keyPath: 'email'});
   }
-  // todo: create new object store: scores
+  if(!thisDB.objectStoreNames.contains('scores')) {
+    thisDB.createObjectStore('scores',{autoIncrement:true});
+  }
 }
 
-openRequest.onsuccess = (event) => {
+openRequest.onsuccess = () => {
   db = openRequest.result;
 }
-
-openRequest.onerror = (event) => {
-  // console.log("onerror open database!");
-  // todo: add behavior
-}
-
+let currentUser: PersonData;
 export const addUser = (personData: PersonData):void => {
+  currentUser = personData;
   const transaction = db.transaction(['users'],'readwrite');
   const store = transaction.objectStore('users');
   const request = store.add(personData);
@@ -33,4 +31,44 @@ export const addUser = (personData: PersonData):void => {
     // console.log("New person added");
     // todo: add initializeClosing here?
   }
+}
+
+export const addScores = (score: number, callback: CallableFunction,  triesCount = 0):void => {
+  const transaction = db.transaction(['scores'],'readwrite');
+  const store = transaction.objectStore('scores');
+  const { email, firstName, lastName } = currentUser;
+  const request = store.add({
+    email,
+    firstName,
+    lastName,
+    score,
+  });
+  request.onerror = () => {
+    if (triesCount < 5) {
+      addScores(score, callback, triesCount + 1);
+    }
+  }
+  request.onsuccess = (e) => {
+    callback();
+  }
+}
+
+export const getScores = (callback: CallableFunction) => {
+  const transaction = db.transaction(['scores'],'readonly');
+  const objectStore = transaction.objectStore('scores');
+
+  const request = objectStore.getAll();
+
+
+  request.onsuccess = () => {
+    const requestResult = request.result;
+    requestResult.sort((item1, item2) => item2.score - item1.score);
+    const top10Score = requestResult.slice(0, 9);
+    callback(top10Score);
+  }
+
+  request.onerror = () => {
+    console.log("Error");
+  }
+
 }
