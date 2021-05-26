@@ -1,4 +1,4 @@
-let currentPhoto: string;
+let currentPhoto = '';
 
 export const handlePhotoInput = () => {
   const photoInput = document.getElementById('userPhoto');
@@ -8,8 +8,10 @@ export const handlePhotoInput = () => {
     const file = targetFiles[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
+    const image = document.getElementById('userPhotoImg');
     reader.onload = () => {
       currentPhoto = (reader.result as string);
+      (image as HTMLImageElement).src = currentPhoto;
     };
   });
 }

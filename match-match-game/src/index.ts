@@ -4,7 +4,7 @@ import { renderMenu } from "./header/render-header";
 import { startRouter } from "./header/router";
 import { startRegisterForm } from "./pages/register/register-form";
 import { winPopup } from "./pages/game/win-popup/render-win-popup";
-import "./common/indexedDB";
+import { initializeDB } from "./common/indexedDB";
 
 const header = require('./header/header.html');
 
@@ -12,7 +12,9 @@ window.addEventListener('load', () => {
   insertHtml(header.default);
   renderMenu();
   insertHtml(`<main id="main" class="container"></main>`);
-  startRouter();
-  startRegisterForm();
-  insertHtml(winPopup);
+  initializeDB(() => {
+    startRouter();
+    startRegisterForm();
+    insertHtml(winPopup);
+  });
 });

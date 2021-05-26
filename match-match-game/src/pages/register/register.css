@@ -75,6 +75,20 @@
   opacity: 1;
 }
 
+.user-picture {
+  display: inline-block;
+  width: 198px;
+  height: 198px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.user-picture > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
 .add-user-pic input {
   opacity: 0;
   position: absolute;

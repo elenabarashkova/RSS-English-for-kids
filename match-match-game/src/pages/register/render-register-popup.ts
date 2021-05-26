@@ -43,7 +43,9 @@ const content = (
         ${renderRegisterInputs()}
         <label class="add-user-pic">
           <span>Add user picture</span>
-          <img src="./assets/user-default-pic.png" alt="User-pic">
+          <span class="user-picture">
+            <img id="userPhotoImg" src="./assets/user-default-pic.png" alt="User-pic">
+          </span>
           <input id="userPhoto" type="file" name="userPhoto">
         </label>
       </div>

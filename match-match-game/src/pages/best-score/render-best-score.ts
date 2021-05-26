@@ -7,12 +7,12 @@ export const bestScorePageHtml = ():string =>
   </div>
 `;
 
-const render = (scores: Array<{ email: string, firstName: string, lastName: string, score: number}>) => {
-  const html = scores.map(({firstName, lastName, email, score}) =>
+const render = (scores: Array<{ email: string, firstName: string, lastName: string, userPhoto: string, score: number}>) => {
+  const html = scores.map(({firstName, lastName, email,userPhoto, score}) =>
     (`
     <div class="best-score-item">
       <div class="winner-pic">
-        <img src="./assets/user-default-pic.png" alt="${firstName} ${lastName}">
+        <img src="${userPhoto ?? './assets/user-default-pic.png'}" alt="${firstName} ${lastName}">
       </div>
       <div class="winner-info">
         <div class="winner-name">

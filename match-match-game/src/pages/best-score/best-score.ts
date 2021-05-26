@@ -12,5 +12,4 @@ export const startBestScorePage = ():void => {
   setActiveMenuItem(BEST_SCORE_ID);
   addPageHtml(BEST_SCORE_HTML);
   renderBestScore();
-
 }

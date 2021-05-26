@@ -2,28 +2,31 @@ import { PersonData } from "./types";
 
 let db: IDBDatabase;
 
-const openRequest = indexedDB.open('elenabarashkova',1);
+export const initializeDB = (callback: CallableFunction) => {
+  const openRequest = indexedDB.open('elenabarashkova',1);
 
-openRequest.onupgradeneeded = () => {
-  const thisDB = openRequest.result;
-  if(!thisDB.objectStoreNames.contains('users')) {
-    thisDB.createObjectStore('users',{keyPath: 'email'});
+  openRequest.onupgradeneeded = () => {
+    const thisDB = openRequest.result;
+    if(!thisDB.objectStoreNames.contains('users')) {
+      thisDB.createObjectStore('users',{keyPath: 'email'});
+    }
+    if(!thisDB.objectStoreNames.contains('scores')) {
+      thisDB.createObjectStore('scores',{autoIncrement:true});
+    }
   }
-  if(!thisDB.objectStoreNames.contains('scores')) {
-    thisDB.createObjectStore('scores',{autoIncrement:true});
+
+  openRequest.onsuccess = () => {
+    db = openRequest.result;
+    callback();
   }
 }
 
-openRequest.onsuccess = () => {
-  db = openRequest.result;
-}
 let currentUser: PersonData;
 export const addUser = (personData: PersonData):void => {
   currentUser = personData;
   const transaction = db.transaction(['users'],'readwrite');
   const store = transaction.objectStore('users');
   const request = store.add(personData);
-
 
   request.onerror = (e) => {
     // console.log("Error adding new person");
@@ -38,11 +41,12 @@ export const addUser = (personData: PersonData):void => {
 export const addScores = (score: number, callback: CallableFunction,  triesCount = 0):void => {
   const transaction = db.transaction(['scores'],'readwrite');
   const store = transaction.objectStore('scores');
-  const { email, firstName, lastName } = currentUser;
+  const { email, firstName, lastName, userPhoto } = currentUser;
   const request = store.add({
     email,
     firstName,
     lastName,
+    userPhoto,
     score,
   });
   request.onerror = () => {
@@ -72,5 +76,6 @@ export const getScores = (callback: CallableFunction) => {
   request.onerror = () => {
     console.log("Error");
   }
-
 }
+
+export const getCurrentUser = () => currentUser;
