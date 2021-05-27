@@ -1,4 +1,4 @@
-import { getSettings } from "../../settings/get-settings";
+import { getSettings } from "../../settings";
 import { renderCard } from "./render-card";
 import { applyDifficulty, randomNumsShuffle } from "./set-board-render";
 import {renderMainTimer, renderPreGameTimer} from "./render-timers";
