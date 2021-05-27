@@ -1,0 +1,50 @@
+nav {
+  height: 100%;
+}
+
+.menu {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.menu-item {
+  flex-grow: 1;
+}
+
+.menu-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color-primary-reverse);
+}
+
+.menu-item-icon {
+  margin-bottom: 4px;
+}
+
+.menu-link:hover {
+  color: var(--hover-color);
+}
+
+.menu-link:hover svg circle,
+.menu-item:nth-child(2) .menu-link:hover svg > path {
+  fill: var(--hover-color);
+}
+
+.menu-link:focus,
+.menu-link:active,
+.menu-item.active .menu-link {
+  color: var(--focus-color);
+}
+
+.menu-link:focus svg circle,
+.menu-link:active svg circle,
+.menu-item.active .menu-link svg circle,
+.menu-item:nth-child(2) .menu-link:focus svg path,
+.menu-item:nth-child(2) .menu-link:active svg path,
+.menu-item:nth-child(2).active .menu-link svg path {
+  fill: var(--focus-color);
+}

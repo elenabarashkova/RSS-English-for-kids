@@ -1,0 +1,36 @@
+.header-item.user-info {
+  flex-grow: 2;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.user-info.not-registered .with-user {
+  display: none;
+}
+
+.user-info.registered .register-btn {
+  display: none;
+}
+
+.user-info .with-user {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.user-info .user-pic {
+  width: 40px;
+  height: 40px;
+  margin-left: 15px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.user-pic > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
