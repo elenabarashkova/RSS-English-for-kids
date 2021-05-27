@@ -6,8 +6,16 @@ export interface PersonData {
 }
 
 export interface Content {
-  title: string
-  id: string
-  className: string
-  content: string
+  title: string,
+  id: string,
+  className: string,
+  content: string,
+}
+
+export interface Scores {
+  email: string,
+  firstName: string,
+  lastName: string,
+  userPhoto: string,
+  score: number,
 }

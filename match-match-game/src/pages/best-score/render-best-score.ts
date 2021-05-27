@@ -1,4 +1,5 @@
 import { getScores } from "../../common/indexedDB";
+import {Scores} from "../../common/types";
 
 const bestScorePageWrap = ():string => (`
   <div id="bestScorePage" class="best-score-page">
@@ -7,13 +8,7 @@ const bestScorePageWrap = ():string => (`
   </div>
 `);
 
-
-const generateWinners = (scores: Array<{
-  email: string,
-  firstName: string,
-  lastName: string,
-  userPhoto: string,
-  score: number}>):string =>
+const generateWinners = (scores: Array<Scores>):string =>
   scores
     .map(({firstName, lastName, email,userPhoto, score}) => (`
       <div class="best-score-item">
@@ -37,12 +32,7 @@ const generateWinners = (scores: Array<{
     `))
     .join('');
 
-const renderWinners = (scores: Array<{
-  email: string,
-  firstName: string,
-  lastName: string,
-  userPhoto: string,
-  score: number}>): void => {
+const renderWinners = (scores: Array<Scores>): void => {
 
   const winnersHtml = generateWinners(scores);
 

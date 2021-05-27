@@ -1,3 +1,5 @@
+import {SETTINGS_FIELDS} from "./constants";
+
 const settingsPageHtml = ():string => (`
   <div id="settingsPage" class="settings-page">
     <h2>Settings</h2>
@@ -5,22 +7,8 @@ const settingsPageHtml = ():string => (`
   </div>
 `);
 
-const generateSettingsFields = ():string => {
-  const settingsFields = [
-    {
-      id: 'gameCards',
-      fieldName: 'Game cards',
-      placeholder: 'Select game cards type',
-      options: ['fruits-pack', 'camping-pack', 'summer-pack',],
-    },
-    {
-      id: 'difficulty',
-      fieldName: 'Difficulty',
-      placeholder: 'Select game type',
-      options: ['easy', 'medium', 'hard',],
-    },
-  ]
-  return settingsFields
+const generateSettingsFields = ():string =>
+  SETTINGS_FIELDS
     .map(({fieldName, id, placeholder, options}) => (`
       <label class="select-label"><span>${fieldName}</span>
         <select class="setting-select" id="${id}" name="${id}">
@@ -30,7 +18,6 @@ const generateSettingsFields = ():string => {
       </label>
       `))
     .join('');
-}
 
 export const rendersettingsPage = ():void => {
   const mainHtml = document.getElementById('main');
