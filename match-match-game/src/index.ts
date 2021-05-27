@@ -1,6 +1,6 @@
 import "./style.css";
 import { startRouter } from "./header/router";
-import { startRegisterForm } from "./pages/register/register-form";
+import { startRegisterForm } from "./pages/register";
 import { initializeDB } from "./common/indexedDB";
 import {render} from "./render";
 
