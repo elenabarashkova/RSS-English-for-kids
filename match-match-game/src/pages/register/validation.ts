@@ -1,5 +1,5 @@
 import { saveFormData } from "./addUser";
-import {initializeClosing, handleClosePopup} from "../../popup/popup";
+import {initializeClosing, closePopupHandler} from "../../popup/popup";
 import { switchToRegisteredMode } from "../../header/render-header/switch-to-registered-mode";
 
 const valid = (field: HTMLInputElement) => {
@@ -59,7 +59,7 @@ const handleSubmit = (event: Event) => {
   if(isValid) {
     saveFormData();
     initializeClosing();
-    document.removeEventListener('click', handleClosePopup);
+    document.removeEventListener('click', closePopupHandler);
     switchToRegisteredMode();
   }
 }
