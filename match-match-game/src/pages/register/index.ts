@@ -1,10 +1,10 @@
-import { openPopup } from "../../popup/popup";
+import {handleOpenPopup} from "../../popup/popup";
 import {startValidation} from "./validation";
 import {handlePhotoInput} from "./photo-behavior";
 
 export const startRegisterFormBehavior = ():void => {
   const registerBtn = document.getElementById('registerBtn');
-  registerBtn?.addEventListener('click', openPopup);
+  registerBtn?.addEventListener('click', handleOpenPopup);
 
   const registerForm = document.getElementById('registerForm');
 

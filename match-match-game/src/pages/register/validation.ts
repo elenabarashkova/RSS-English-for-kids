@@ -1,5 +1,5 @@
 import { saveFormData } from "./addUser";
-import { initializeClosing, closePopup } from "../../popup/popup";
+import {initializeClosing, handleClosePopup} from "../../popup/popup";
 import { switchToRegisteredMode } from "../../header/render-header/switch-to-registered-mode";
 
 const valid = (field: HTMLInputElement) => {
@@ -43,11 +43,11 @@ const inputValidation = (currentField: HTMLInputElement) => {
   return true;
 }
 
-const onInputChange = (event: Event) => {
+const handleInputChange = (event: Event) => {
   inputValidation(event.target as HTMLInputElement);
 }
 
-const onSubmit = (event: Event) => {
+const handleSubmit = (event: Event) => {
   event.preventDefault();
 
   const registerFields = document.getElementsByClassName('register-input');
@@ -59,15 +59,15 @@ const onSubmit = (event: Event) => {
   if(isValid) {
     saveFormData();
     initializeClosing();
-    document.removeEventListener('click', closePopup);
+    document.removeEventListener('click', handleClosePopup);
     switchToRegisteredMode();
   }
 }
 
 export const startValidation = ():void => {
   const registerFields = document.getElementsByClassName('register-input');
-  [...registerFields].forEach(item => item.addEventListener('change', onInputChange));
+  [...registerFields].forEach(item => item.addEventListener('change', handleInputChange));
 
   const registerSubmit = document.getElementById('registerSubmit');
-  registerSubmit?.addEventListener('click', onSubmit);
+  registerSubmit?.addEventListener('click', handleSubmit);
 }
