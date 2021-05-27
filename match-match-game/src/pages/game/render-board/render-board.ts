@@ -5,7 +5,16 @@ import {renderMainTimer, renderPreGameTimer} from "./render-timers";
 import {DEFAULT_CARDS_NUM} from "../../../common/constants";
 
 export const renderGameBoard = ():void => {
+
+  const boardItem = () => (`
+    <div id="gameBoard" class="board"></div>
+  `);
+
+  const mainHtml = document.getElementById('main');
+  if(mainHtml) { mainHtml.innerHTML = boardItem(); }
+
   const board = document.getElementById('gameBoard');
+
   const { difficulty, cardsPack } = getSettings();
 
   board?.append(renderPreGameTimer());

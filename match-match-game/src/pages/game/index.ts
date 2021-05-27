@@ -1,15 +1,11 @@
-import {addPageHtml, setActiveMenuItem} from "../../common/shared";
-import { renderGameBoard } from "./render-board/render-board";
 import { startGameBehavior } from "./game-behavior";
 import {startMainTimer, stopTimer, getGameDuration} from "./timers/main-timer";
 import {startPreGameTimer, stopPreGameTimer} from "./timers/pre-game-timer";
-import { ABOUT_GAME_ID } from "../about-game/about-game";
 import {countScore} from "./score-count";
 import {startWinPopup} from "./win-popup/render-win-popup";
 import {addScores} from "../../common/indexedDB";
+import {DEFAULT_PAGE, PAGES_ID} from "../../header/constants";
 
-const GAME_HTML = '<div id="gameBoard" class="board"></div>';
-export const GAME_ID = 'game';
 const GAME_BTN_ID = 'gameTumblerBtn';
 let isGameStarted = false;
 
@@ -18,11 +14,11 @@ const changeGameBtn = () => {
 
   if(isGameStarted && btn) {
     btn.innerText = 'Stop Game';
-    (btn as HTMLLinkElement).href = `#${ABOUT_GAME_ID}`;
+    (btn as HTMLLinkElement).href = `#${DEFAULT_PAGE}`;
   }
   else if(!isGameStarted && btn) {
     btn.innerText = 'Start Game';
-    (btn as HTMLLinkElement).href = `#${GAME_ID}`;
+    (btn as HTMLLinkElement).href = `#${PAGES_ID.GAME}`;
   }
 }
 
@@ -56,10 +52,7 @@ const startGame = () => {
   startGameBehavior(onEndGame);
 }
 
-export const startGamePage = ():void => {
-  setActiveMenuItem(GAME_BTN_ID);
-  addPageHtml(GAME_HTML);
-  renderGameBoard();
+export const gamePageBehavior = ():void => {
   isGameStarted = true;
   startPreGameTimer(startGame);
   changeGameBtn();

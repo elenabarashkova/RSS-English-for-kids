@@ -1,17 +1,16 @@
 import { renderPopup } from "../../../popup/render-popup";
-import { BEST_SCORE_ID } from "../../best-score/best-score";
 import {initializeClosing} from "../../../popup/popup";
+import {PAGES_ID} from "../../../header/constants";
 
-const content =
-  (`
+const content = (`
   <div class="win-info">
     You successfully found all matches on 
     <span id="gameDuration"></span>. 
     Your score is 
     <b><span id="gameScore"></span></b>.
   </div> 
-  <a href=#${BEST_SCORE_ID} id="winBtn" class="btn">Ok</a>
-  `);
+  <a href=#${PAGES_ID.BEST_SCORE} id="winBtn" class="btn">Ok</a>
+`);
 
 const winContent = {
   title: 'Congratulations!',
@@ -31,9 +30,9 @@ export const startWinPopup = (gameDuration: string, score: number):void => {
   document.getElementById('winBtn')?.addEventListener('click', initializeClosing);
 
   const gameDurationText = document.getElementById('gameDuration');
-  if(gameDurationText) {gameDurationText.innerText = gameDuration}
+  if(gameDurationText) { gameDurationText.innerText = gameDuration; }
 
   const gameScoreText = document.getElementById('gameScore');
-  if(gameScoreText) {gameScoreText.innerText = `${score}`}
+  if(gameScoreText) { gameScoreText.innerText = `${score}`; }
 }
 

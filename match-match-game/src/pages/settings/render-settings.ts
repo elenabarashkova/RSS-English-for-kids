@@ -1,11 +1,11 @@
-export const settingsPageHtml = ():string =>
-  `<div id="settingsPage" class="settings-page">
+const settingsPageHtml = ():string => (`
+  <div id="settingsPage" class="settings-page">
     <h2>Settings</h2>
     <form id="settingsForm" action="#"></form>
   </div>
-`;
+`);
 
-export const renderSettingsFields = ():void => {
+const generateSettingsFields = ():string => {
   const settingsFields = [
     {
       id: 'gameCards',
@@ -20,17 +20,22 @@ export const renderSettingsFields = ():void => {
       options: ['easy', 'medium', 'hard',],
     },
   ]
-  const html = settingsFields.map(({fieldName, id, placeholder, options}) =>
-    (`
-    <label class="select-label"><span>${fieldName}</span>
-      <select class="setting-select" id="${id}" name="${id}">
-        <option hidden="" disabled="" selected="" value="">${placeholder}</option>
-        ${options.map(item => `<option>${item}</option>`)};
-      </select>
-    </label>
-    `)
-  ).join('');
+  return settingsFields
+    .map(({fieldName, id, placeholder, options}) => (`
+      <label class="select-label"><span>${fieldName}</span>
+        <select class="setting-select" id="${id}" name="${id}">
+          <option hidden="" disabled="" selected="" value="">${placeholder}</option>
+          ${options.map(item => `<option>${item}</option>`)};
+        </select>
+      </label>
+      `))
+    .join('');
+}
+
+export const rendersettingsPage = ():void => {
+  const mainHtml = document.getElementById('main');
+  if(mainHtml) { mainHtml.innerHTML = settingsPageHtml()}
 
   const settingsForm = document.getElementById('settingsForm');
-  if(settingsForm) { settingsForm.innerHTML = html;}
+  if(settingsForm) { settingsForm.innerHTML = generateSettingsFields()}
 }

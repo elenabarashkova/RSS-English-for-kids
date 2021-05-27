@@ -1,7 +1,6 @@
 import { Content } from "../common/types";
 
-export const renderPopup = ({title, id, className, content}: Content):string =>
-  (`
+export const renderPopup = ({title, id, className, content}: Content):string => (`
   <div id=${id} class="popup ${className}">
     <button class="btn-close">X</button>
     <div class="popup-title">
@@ -11,4 +10,4 @@ export const renderPopup = ({title, id, className, content}: Content):string =>
       ${content}
     </div>
   </div>
-  `)
+`);

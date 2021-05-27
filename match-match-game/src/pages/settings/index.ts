@@ -1,17 +1,10 @@
-import { addPageHtml, setActiveMenuItem } from "../../common/shared";
-import { renderSettingsFields, settingsPageHtml } from "./render-settings";
-import {onSettingsChange} from "./on-settings-change";
+import {handleSettings} from "./get-settings";
 
-const settingsIconLink = require('../../assets/settings-icon.svg');
+const onSettingsChange = ():void => {
+  const settingsSelects = document.getElementsByClassName('setting-select');
+  [...settingsSelects].map(item => item.addEventListener('change', handleSettings))
+};
 
-export const SETTINGS_NAME = 'Game Settings';
-const SETTINGS_HTML = settingsPageHtml();
-export const SETTINGS_ID = 'settings';
-export const settingsIcon = settingsIconLink;
-
-export const startSettingsPage = ():void => {
-  setActiveMenuItem(SETTINGS_ID);
-  addPageHtml(SETTINGS_HTML);
-  renderSettingsFields();
+export const settingsBehavior = ():void => {
   onSettingsChange();
 }

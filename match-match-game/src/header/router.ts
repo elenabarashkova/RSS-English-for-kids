@@ -1,23 +1,34 @@
-import { ABOUT_GAME_ID, startAboutGamePage } from "../pages/about-game/about-game";
-import {BEST_SCORE_ID, startBestScorePage } from "../pages/best-score/best-score";
-import {SETTINGS_ID, startSettingsPage } from "../pages/settings";
-import {GAME_ID, startGamePage, stopGame} from "../pages/game";
+import {stopGame} from "../pages/game";
+import {DEFAULT_PAGE } from "./constants";
+import {PAGES_CONFIG} from "../common/pages-config";
 
-const ROUTE_ALIASES = {
-  [ABOUT_GAME_ID as string]: startAboutGamePage,
-  [BEST_SCORE_ID as string]: startBestScorePage,
-  [SETTINGS_ID as string]: startSettingsPage,
-  [GAME_ID as string]: startGamePage,
+const setActiveMenuItem = (itemId: string):void => {
+  const MENU_ITEMS: HTMLCollection = document.getElementsByClassName('menu-item');
+
+  [...MENU_ITEMS].forEach(item => item.classList.remove('active'));
+  document.getElementById(itemId)?.classList.add('active');
 }
 
 const onHashChange = () => {
-  const route = window.location.hash.slice(1);
-  const startRoute = ROUTE_ALIASES[route] || startAboutGamePage;
+  let route = window.location.hash.slice(1);
+
+  if (!PAGES_CONFIG[route]) {
+    window.location.hash = DEFAULT_PAGE;
+    route = DEFAULT_PAGE;
+  }
+
   stopGame();
-  startRoute();
+
+  setActiveMenuItem(route);
+
+  PAGES_CONFIG[route].render();
+  const {behavior} = PAGES_CONFIG[route];
+  if (behavior) {
+    behavior();
+  }
 }
 
-export const startRouter = ():void => {
+export const startRouter = (): void => {
   window.addEventListener("hashchange", onHashChange);
   onHashChange();
 }
