@@ -1,6 +1,6 @@
 import { saveFormData } from "./addUser";
 import { initializeClosing, closePopup } from "../../popup/popup";
-import { renderRegisteredHeader } from "../../header/render-header/render-header-btns";
+import { switchToRegisteredMode } from "../../header/render-header/switch-to-registered-mode";
 
 const valid = (field: HTMLInputElement) => {
   field.classList.remove('invalid');
@@ -60,7 +60,7 @@ const onSubmit = (event: Event) => {
     saveFormData();
     initializeClosing();
     document.removeEventListener('click', closePopup);
-    renderRegisteredHeader();
+    switchToRegisteredMode();
   }
 }
 
