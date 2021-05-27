@@ -1,4 +1,4 @@
-import {addPageHtml, insertHtml, setActiveMenuItem} from "../../common/shared";
+import {addPageHtml, setActiveMenuItem} from "../../common/shared";
 import { renderGameBoard } from "./render-board/render-board";
 import { startGameBehavior } from "./game-behavior";
 import {startMainTimer, stopTimer, getGameDuration} from "./timers/main-timer";

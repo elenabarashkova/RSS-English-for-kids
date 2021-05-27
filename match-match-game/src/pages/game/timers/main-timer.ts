@@ -32,4 +32,7 @@ export const stopTimer = ():void => {
 }
 
 export const getGameDurationSec = ():number => hours * 3600 + minutes * 60 + seconds;
-export const getGameDuration = ():string => `${hours ? `${hours} hours` : ''} ${minutes ? `${minutes} minutes` : ''} ${seconds} seconds`;
+export const getGameDuration = ():string =>
+  (`
+  ${hours ? `${hours} hours` : ''} ${minutes ? `${minutes} minutes` : ''} ${seconds} seconds`
+  );

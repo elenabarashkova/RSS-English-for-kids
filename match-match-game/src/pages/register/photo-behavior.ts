@@ -1,6 +1,6 @@
 let currentPhoto = '';
 
-export const handlePhotoInput = () => {
+export const handlePhotoInput = ():void => {
   const photoInput = document.getElementById('userPhoto');
   photoInput?.addEventListener('change', (event:Event) => {
     const target = event.currentTarget;
@@ -16,4 +16,4 @@ export const handlePhotoInput = () => {
   });
 }
 
-export const getCurrentPhoto = () => currentPhoto;
+export const getCurrentPhoto = ():string => currentPhoto;

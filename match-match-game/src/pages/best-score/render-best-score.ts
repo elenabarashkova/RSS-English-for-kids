@@ -7,7 +7,12 @@ export const bestScorePageHtml = ():string =>
   </div>
 `;
 
-const render = (scores: Array<{ email: string, firstName: string, lastName: string, userPhoto: string, score: number}>) => {
+const render = (scores: Array<{
+  email: string,
+  firstName: string,
+  lastName: string,
+  userPhoto: string,
+  score: number}>) => {
   const html = scores.map(({firstName, lastName, email,userPhoto, score}) =>
     (`
     <div class="best-score-item">

@@ -2,7 +2,7 @@ import { PersonData } from "./types";
 
 let db: IDBDatabase;
 
-export const initializeDB = (callback: CallableFunction) => {
+export const initializeDB = (callback: CallableFunction):void => {
   const openRequest = indexedDB.open('elenabarashkova',1);
 
   openRequest.onupgradeneeded = () => {
@@ -59,7 +59,7 @@ export const addScores = (score: number, callback: CallableFunction,  triesCount
   }
 }
 
-export const getScores = (callback: CallableFunction) => {
+export const getScores = (callback: CallableFunction):void => {
   const transaction = db.transaction(['scores'],'readonly');
   const objectStore = transaction.objectStore('scores');
 
@@ -74,8 +74,8 @@ export const getScores = (callback: CallableFunction) => {
   }
 
   request.onerror = () => {
-    console.log("Error");
+    // console.log("Error");
   }
 }
 
-export const getCurrentUser = () => currentUser;
+export const getCurrentUser = ():PersonData => currentUser;
