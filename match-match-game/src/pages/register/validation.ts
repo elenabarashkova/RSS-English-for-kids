@@ -1,6 +1,6 @@
 import { saveFormData } from "./addUser";
 import { initializeClosing, closePopup } from "../../popup/popup";
-import { renderRegisteredHeader } from "../../header/render-header";
+import { renderRegisteredHeader } from "../../header/render-header/render-header-btns";
 
 const valid = (field: HTMLInputElement) => {
   field.classList.remove('invalid');

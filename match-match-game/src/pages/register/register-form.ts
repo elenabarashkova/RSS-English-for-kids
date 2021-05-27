@@ -1,6 +1,4 @@
 import { openPopup } from "../../popup/popup";
-import {insertHtml} from "../../common/shared";
-import {renderRegisterPopup} from "./render-register-popup";
 import {startValidation} from "./validation";
 import {handlePhotoInput} from "./photo-behavior";
 
@@ -18,7 +16,6 @@ export const startRegisterFormBehavior = ():void => {
 }
 
 export const startRegisterForm = ():void => {
-  insertHtml(renderRegisterPopup);
   startRegisterFormBehavior();
   startValidation();
 }

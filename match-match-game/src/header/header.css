@@ -1,5 +1,5 @@
-@import "refactor/menu.css";
-@import "refactor/header-btns.css";
+@import "render-header/menu.css";
+@import "render-header/header-btns.css";
 
 header {
   background-color: var(--background-color-primary);

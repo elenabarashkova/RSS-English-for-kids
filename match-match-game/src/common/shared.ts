@@ -4,14 +4,6 @@ export const setActiveMenuItem = (itemId: string):void => {
   document.getElementById(itemId)?.classList.add('active');
 }
 
-export const insertHtml = (element: string):void => {
-  const template = document.createElement('template');
-  template.innerHTML = element;
-  const child = template.content.firstChild as Node;
-  const body = document.querySelector('body');
-  if(body) { body.appendChild(child)}
-}
-
 export const addPageHtml = (html: string):void => {
   const mainHtml = document.getElementById('main');
   if(mainHtml) { mainHtml.innerHTML = html}
