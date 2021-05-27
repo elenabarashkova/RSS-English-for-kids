@@ -1,10 +1,10 @@
 export const aboutPageHtml = ():string =>
-  `
+  (`
   <div class="about-game">
     <h2>How to play?</h2>
     <div id="instructionsList" class="instructions-list"></div>
   </div>
-`;
+  `);
 
 export const renderInstructionsItems = ():void => {
   const instructionsItems = [
@@ -25,11 +25,9 @@ export const renderInstructionsItems = ():void => {
       <div class="instructions-pic">
         <img src="./assets/about-step-${index + 1}.png" alt="about-step-${index + 1}">
       </div>
-    </div>`
-    )).join('');
+    </div>
+    `)).join('');
 
   const instructionsList = document.getElementById('instructionsList');
-  if(instructionsList) {
-    instructionsList.innerHTML = html;
-  }
+  if(instructionsList) {instructionsList.innerHTML = html}
 }

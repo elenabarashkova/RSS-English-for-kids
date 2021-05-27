@@ -7,6 +7,7 @@ export const initializeDB = (callback: CallableFunction):void => {
 
   openRequest.onupgradeneeded = () => {
     const thisDB = openRequest.result;
+
     if(!thisDB.objectStoreNames.contains('users')) {
       thisDB.createObjectStore('users',{keyPath: 'email'});
     }
@@ -24,6 +25,7 @@ export const initializeDB = (callback: CallableFunction):void => {
 let currentUser: PersonData;
 export const addUser = (personData: PersonData):void => {
   currentUser = personData;
+
   const transaction = db.transaction(['users'],'readwrite');
   const store = transaction.objectStore('users');
   const request = store.add(personData);
@@ -42,6 +44,7 @@ export const addScores = (score: number, callback: CallableFunction,  triesCount
   const transaction = db.transaction(['scores'],'readwrite');
   const store = transaction.objectStore('scores');
   const { email, firstName, lastName, userPhoto } = currentUser;
+
   const request = store.add({
     email,
     firstName,
@@ -49,12 +52,13 @@ export const addScores = (score: number, callback: CallableFunction,  triesCount
     userPhoto,
     score,
   });
+
   request.onerror = () => {
     if (triesCount < 5) {
       addScores(score, callback, triesCount + 1);
     }
   }
-  request.onsuccess = (e) => {
+  request.onsuccess = () => {
     callback();
   }
 }
@@ -64,7 +68,6 @@ export const getScores = (callback: CallableFunction):void => {
   const objectStore = transaction.objectStore('scores');
 
   const request = objectStore.getAll();
-
 
   request.onsuccess = () => {
     const requestResult = request.result;

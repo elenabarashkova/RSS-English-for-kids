@@ -23,26 +23,28 @@ export const renderMenu = ():void => {
   ]
 
   const html = menuItems.map(({id, name, icon}) =>
-    (`<li id=${id} class="menu-item">
-          <a href="#${id}" class="menu-link">
-            <div class="menu-item-icon">
-              ${icon}
-            </div>
-            <span>${name}</span>
-          </a>
-        </li>`
-    )).join('');
+    (`
+    <li id=${id} class="menu-item">
+      <a href="#${id}" class="menu-link">
+        <div class="menu-item-icon">
+          ${icon}
+        </div>
+        <span>${name}</span>
+      </a>
+    </li>
+    `)).join('');
+
   const menu = document.getElementById('menu');
-  if(menu) {
-    menu.innerHTML = html;
-  }
+  if(menu) { menu.innerHTML = html}
 };
 
 export const renderRegisteredHeader = ():void => {
   const headerUserInfo = document.querySelector('.header-item.user-info');
   headerUserInfo?.classList.remove('not-registered');
+
   const image = document.getElementById('headerUserPic');
   const {userPhoto} = getCurrentUser();
   if(userPhoto) {(image as HTMLImageElement).src = userPhoto}
+
   headerUserInfo?.classList.add('registered');
 }

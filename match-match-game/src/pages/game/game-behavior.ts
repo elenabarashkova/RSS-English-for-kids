@@ -3,6 +3,7 @@ let mistakenCompareCount = 0;
 
 export const startGameBehavior = (callback: CallableFunction):void => {
   const cards = document.getElementsByClassName('card');
+
   let isFlipped = false;
   let isBoardBlocked = false;
   let pairFirst: HTMLElement | null;
@@ -34,6 +35,7 @@ export const startGameBehavior = (callback: CallableFunction):void => {
 
   const flipCard = (event: Event) => {
     const targetCard = event.currentTarget as HTMLElement;
+
     if (targetCard === pairFirst || isBoardBlocked) {
       return;
     }
@@ -42,9 +44,11 @@ export const startGameBehavior = (callback: CallableFunction):void => {
     const setMatched = () => {
       pairFirst?.removeEventListener('click', flipCard);
       pairSecond?.removeEventListener('click', flipCard);
+
       togglePairClass('matched', 'add');
       resetBoard();
       compareCount += 1;
+
       if ([...cards].every(card => card.classList.contains('matched'))) {
         callback();
       }

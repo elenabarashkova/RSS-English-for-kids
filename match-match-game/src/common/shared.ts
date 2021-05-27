@@ -9,14 +9,10 @@ export const insertHtml = (element: string):void => {
   template.innerHTML = element;
   const child = template.content.firstChild as Node;
   const body = document.querySelector('body');
-  if(body) {
-    body.appendChild(child);
-  }
+  if(body) { body.appendChild(child)}
 }
 
 export const addPageHtml = (html: string):void => {
   const mainHtml = document.getElementById('main');
-  if(mainHtml) {
-    mainHtml.innerHTML = html;
-  }
+  if(mainHtml) { mainHtml.innerHTML = html}
 }

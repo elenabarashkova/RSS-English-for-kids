@@ -12,6 +12,7 @@ window.addEventListener('load', () => {
   insertHtml(header.default);
   renderMenu();
   insertHtml(`<main id="main" class="container"></main>`);
+
   initializeDB(() => {
     startRouter();
     startRegisterForm();

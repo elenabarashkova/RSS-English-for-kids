@@ -15,6 +15,7 @@ let isGameStarted = false;
 
 const changeGameBtn = () => {
   const btn = document.getElementById(GAME_BTN_ID);
+
   if(isGameStarted && btn) {
     btn.innerText = 'Stop Game';
     (btn as HTMLLinkElement).href = `#${ABOUT_GAME_ID}`;
@@ -31,6 +32,7 @@ export const stopGame = ():void => {
     stopPreGameTimer();
     isGameStarted = false;
   }
+
   changeGameBtn();
 }
 

@@ -21,15 +21,16 @@ export const renderSettingsFields = ():void => {
     },
   ]
   const html = settingsFields.map(({fieldName, id, placeholder, options}) =>
-    (`<label class="select-label"><span>${fieldName}</span>
+    (`
+    <label class="select-label"><span>${fieldName}</span>
       <select class="setting-select" id="${id}" name="${id}">
         <option hidden="" disabled="" selected="" value="">${placeholder}</option>
         ${options.map(item => `<option>${item}</option>`)};
       </select>
-    </label>`
-    )).join('');
+    </label>
+    `)
+  ).join('');
+
   const settingsForm = document.getElementById('settingsForm');
-  if(settingsForm) {
-    settingsForm.innerHTML = html;
-  }
+  if(settingsForm) { settingsForm.innerHTML = html;}
 }

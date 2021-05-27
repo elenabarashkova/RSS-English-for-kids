@@ -1,6 +1,6 @@
-import {getSettings} from "./get-settings";
+import {handleSettings} from "./get-settings";
 
 export const onSettingsChange = ():void => {
   const settingsSelects = document.getElementsByClassName('setting-select');
-  [...settingsSelects].map(item => item.addEventListener('change', getSettings))
+  [...settingsSelects].map(item => item.addEventListener('change', handleSettings))
 };

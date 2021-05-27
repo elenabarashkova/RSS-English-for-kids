@@ -1,11 +1,12 @@
 import {getScores} from "../../common/indexedDB";
 
 export const bestScorePageHtml = ():string =>
-  `<div id="bestScorePage" class="best-score-page">
+  (`
+  <div id="bestScorePage" class="best-score-page">
     <h2>Best Players</h2>
     <div id="bestScoreInner" class="best-score-list"></div>
   </div>
-`;
+  `);
 
 const render = (scores: Array<{
   email: string,
@@ -13,6 +14,7 @@ const render = (scores: Array<{
   lastName: string,
   userPhoto: string,
   score: number}>) => {
+
   const html = scores.map(({firstName, lastName, email,userPhoto, score}) =>
     (`
     <div class="best-score-item">
@@ -34,10 +36,9 @@ const render = (scores: Array<{
       </div>
     </div>
     `)).join('');
+
   const bestScoreInner = document.getElementById('bestScoreInner');
-  if(bestScoreInner) {
-    bestScoreInner.innerHTML = html;
-  }
+  if(bestScoreInner) { bestScoreInner.innerHTML = html;}
 }
 
 export const renderBestScore = ():void => {
