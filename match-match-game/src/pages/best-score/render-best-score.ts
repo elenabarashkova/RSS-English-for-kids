@@ -1,6 +1,8 @@
 import { getScores } from "../../common/indexedDB";
 import { Scores } from "../../common/types";
 
+const defaultImg = require('../../assets/user-default-pic.png');
+
 const bestScorePageWrap = (): string => (`
   <div id="bestScorePage" class="best-score-page">
     <h2>Best Players</h2>
@@ -13,7 +15,7 @@ const generateWinners = (scores: Array<Scores>): string =>
     .map(({firstName, lastName, email, userPhoto, score}) => (`
       <div class="best-score-item">
         <div class="winner-pic">
-          <img src="${ userPhoto ?? './assets/user-default-pic.png' }" alt="${ firstName } ${ lastName }">
+          <img src="${ userPhoto || defaultImg }" alt="${ firstName } ${ lastName }">
         </div>
         <div class="winner-info">
           <div class="winner-name">
