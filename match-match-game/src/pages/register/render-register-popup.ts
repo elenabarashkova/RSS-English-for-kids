@@ -28,7 +28,7 @@ const content = (`
     </div>
     <div class="buttons-wrap">
       <button id="registerSubmit" class="btn btn-dark" type="submit">Add user</button>
-      <button id="cancel" class="btn btn-dark">Cancel</button>
+      <div id="cancel" class="btn btn-dark">Cancel</div>
     </div>
   </form>
 `);
