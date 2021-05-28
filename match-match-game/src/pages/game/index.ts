@@ -12,13 +12,12 @@ let isGameStarted = false;
 const changeGameBtn = () => {
   const btn = document.getElementById(GAME_BTN_ID);
 
-  if (isGameStarted && btn) {
-    btn.innerText = 'Stop Game';
-    (btn as HTMLLinkElement).href = `#${ DEFAULT_PAGE }`;
-  } else if (!isGameStarted && btn) {
-    btn.innerText = 'Start Game';
-    (btn as HTMLLinkElement).href = `#${ PAGES_ID.GAME }`;
-  }
+  const [label, href] = isGameStarted
+    ? ['Stop Game', DEFAULT_PAGE]
+    : ['Start Game', PAGES_ID.GAME];
+
+  (btn as HTMLElement).innerText = label;
+  (btn as HTMLLinkElement).href = `#${ href }`
 }
 
 export const stopGame = (): void => {
