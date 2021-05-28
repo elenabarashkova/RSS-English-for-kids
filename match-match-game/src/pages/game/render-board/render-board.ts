@@ -2,7 +2,7 @@ import { getSettings } from "../../settings";
 import { renderCard } from "./render-card";
 import { applyDifficulty, randomNumsShuffle } from "./set-board-render";
 import { renderMainTimer, renderPreGameTimer } from "./render-timers";
-import { DEFAULT_CARDS_NUM } from "../../../common/constants";
+import { DEFAULT_CARDS_NUM } from "../constants";
 import { gamePageBehavior } from "../index";
 
 export const initGameBoard = (): void => {

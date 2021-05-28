@@ -1,13 +1,13 @@
 export const initializeClosing = (): void => {
-  const body = document.querySelector('body');
-  body?.classList.remove('popup-on');
   document.querySelector('.popup.active')?.classList.remove('active');
+
+  document.getElementById('winPopup')?.remove();
 }
 
 export const closePopupHandler = (event: MouseEvent): void => {
   const eventTarget = event.target as Element;
   const closeBtn = document.querySelector('.btn-close');
-  const targetsPopup = eventTarget?.closest('.popup');
+  const targetsPopup = eventTarget?.closest('.popup-wrap');
 
   if (eventTarget === closeBtn || targetsPopup === null) {
     initializeClosing();
@@ -16,9 +16,6 @@ export const closePopupHandler = (event: MouseEvent): void => {
 }
 
 export const openPopupHandler = (event: MouseEvent): void => {
-  const body = document.querySelector('body');
-  body?.classList.add('popup-on');
-
   const eventTarget = event.target as HTMLElement;
   const targetPopup = document.getElementById(`${ eventTarget.dataset.target }`);
 

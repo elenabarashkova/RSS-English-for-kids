@@ -2,9 +2,10 @@ import { startGameBehavior } from "./game-behavior";
 import { getGameDuration, startMainTimer, stopTimer } from "./timers/main-timer";
 import { startPreGameTimer, stopPreGameTimer } from "./timers/pre-game-timer";
 import { countScore } from "./score-count";
-import { startWinPopup } from "./win-popup/render-win-popup";
+import { startWinPopup, winPopup } from "./win-popup/render-win-popup";
 import { addScores } from "../../common/indexedDB";
 import { DEFAULT_PAGE, PAGES_ID } from "../../header/constants";
+import { insertHtml } from "../../common/shared";
 
 const GAME_BTN_ID = 'gameTumblerBtn';
 let isGameStarted = false;
@@ -39,8 +40,15 @@ const onEndGame = (): void => {
   stopTimer();
   const score = countScore();
   const gameDuration = getGameDuration();
+
+  const body = document.querySelector('body');
+
+  if (body) {
+    insertHtml(body, winPopup(gameDuration, score));
+  }
+
   addScores(score, () => {
-    startWinPopup(gameDuration, score);
+    startWinPopup();
   });
 }
 

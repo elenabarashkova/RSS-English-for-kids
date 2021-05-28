@@ -1,4 +1,4 @@
-import { DEFAULT_CARDS_PACK, DEFAULT_DIFFICULTY } from "../../common/constants";
+import { DEFAULT_CARDS_PACK, DEFAULT_DIFFICULTY } from "../game/constants";
 
 let cardsPack: string = DEFAULT_CARDS_PACK;
 let difficulty: string = DEFAULT_DIFFICULTY;
