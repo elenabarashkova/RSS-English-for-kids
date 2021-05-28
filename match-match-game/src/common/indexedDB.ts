@@ -23,21 +23,13 @@ export const initializeDB = (callback: CallableFunction):void => {
 }
 
 let currentUser: PersonData;
+
 export const addUser = (personData: PersonData):void => {
   currentUser = personData;
 
   const transaction = db.transaction(['users'],'readwrite');
   const store = transaction.objectStore('users');
-  const request = store.add(personData);
-
-  request.onerror = (e) => {
-    // console.log("Error adding new person");
-    // todo: prevent ability to push submit || show error alert/popup + close register popup (not adding .registered)
-  }
-  request.onsuccess = (e) => {
-    // console.log("New person added");
-    // todo: add initializeClosing here?
-  }
+  store.add(personData);
 }
 
 export const addScores = (score: number, callback: CallableFunction,  triesCount = 0):void => {
@@ -74,10 +66,6 @@ export const getScores = (callback: CallableFunction):void => {
     requestResult.sort((item1, item2) => item2.score - item1.score);
     const top10Score = requestResult.slice(0, 9);
     callback(top10Score);
-  }
-
-  request.onerror = () => {
-    // console.log("Error");
   }
 }
 

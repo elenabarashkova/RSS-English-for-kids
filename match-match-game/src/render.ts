@@ -1,17 +1,16 @@
 import {renderHeader} from "./header/render-header/render-header";
 import {renderRegisterPopup} from "./pages/register/render-register-popup";
 import {winPopup} from "./pages/game/win-popup/render-win-popup";
+import {createMain, insertHtml} from "./common/shared"
 
 export const render = ():void => {
   const body = document.querySelector('body');
 
-  const main = document.createElement('main');
-  main.id = 'main';
-  main.classList.add('container');
-
   renderHeader();
+  createMain();
 
-  body?.append(main);
-  body?.insertAdjacentHTML('beforeend', renderRegisterPopup);
-  body?.insertAdjacentHTML('beforeend', winPopup);
+  if(body) {
+    insertHtml(body, renderRegisterPopup);
+    insertHtml(body, winPopup);
+  }
 }

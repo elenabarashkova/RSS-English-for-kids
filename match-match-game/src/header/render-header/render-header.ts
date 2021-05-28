@@ -1,5 +1,7 @@
 import {renderMenu} from "./render-menu";
 import {renderHeaderBtns} from "./render-header-btns";
+import {insertHtml} from "../../common/shared";
+import {renderRegisterPopup} from "../../pages/register/render-register-popup";
 
 const headerLogo = ():string => (`
   <div class="header-item logo">
@@ -21,9 +23,9 @@ export const renderHeader = ():void => {
 
   header?.append(headerContainer);
 
-  headerContainer.insertAdjacentHTML('beforeend', headerLogo());
-  headerContainer.insertAdjacentHTML('beforeend', renderMenu());
-  headerContainer.insertAdjacentHTML('beforeend', renderHeaderBtns());
+  insertHtml(headerContainer, headerLogo());
+  insertHtml(headerContainer, renderMenu());
+  insertHtml(headerContainer, renderHeaderBtns());
 }
 
 
