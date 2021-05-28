@@ -1,7 +1,7 @@
 let compareCount = 0;
 let mistakenCompareCount = 0;
 
-export const startGameBehavior = (callback: CallableFunction):void => {
+export const startGameBehavior = (callback: CallableFunction): void => {
   const cards = document.getElementsByClassName('card');
 
   let isFlipped = false;
@@ -55,14 +55,14 @@ export const startGameBehavior = (callback: CallableFunction):void => {
     }
 
     const checkForMatch = () => {
-      if(pairFirst?.dataset.pair_num === pairSecond?.dataset.pair_num) {
+      if (pairFirst?.dataset.pair_num === pairSecond?.dataset.pair_num) {
         setMatched();
       } else {
         setMissmatched();
       }
     }
 
-    if(!isFlipped) {
+    if (!isFlipped) {
       isFlipped = true;
       pairFirst = targetCard;
       return;
@@ -75,5 +75,5 @@ export const startGameBehavior = (callback: CallableFunction):void => {
   [...cards].forEach(item => item.addEventListener('click', flipCard));
 }
 
-export const getCompareCount = ():number => compareCount;
-export const getMistakenCompareCount = ():number => mistakenCompareCount;
+export const getCompareCount = (): number => compareCount;
+export const getMistakenCompareCount = (): number => mistakenCompareCount;

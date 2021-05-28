@@ -1,9 +1,9 @@
 let currentPhoto = '';
 
-export const handlePhotoInput = ():void => {
+export const handlePhotoInput = (): void => {
   const photoInput = document.getElementById('userPhoto');
 
-  photoInput?.addEventListener('change', (event:Event) => {
+  photoInput?.addEventListener('change', (event: Event) => {
     const target = event.currentTarget;
     const targetFiles = (target as HTMLInputElement)?.files || [];
     const file = targetFiles[0];
@@ -12,7 +12,7 @@ export const handlePhotoInput = ():void => {
     reader.readAsDataURL(file);
 
     const image = document.getElementById('userPhotoImg');
-    
+
     reader.onload = () => {
       currentPhoto = (reader.result as string);
       (image as HTMLImageElement).src = currentPhoto;
@@ -20,4 +20,4 @@ export const handlePhotoInput = ():void => {
   });
 }
 
-export const getCurrentPhoto = ():string => currentPhoto;
+export const getCurrentPhoto = (): string => currentPhoto;

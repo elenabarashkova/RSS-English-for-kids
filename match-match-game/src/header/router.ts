@@ -1,8 +1,8 @@
-import {stopGame} from "../pages/game";
-import {DEFAULT_PAGE } from "./constants";
-import {PAGES_CONFIG} from "../common/pages-config";
+import { stopGame } from "../pages/game";
+import { DEFAULT_PAGE } from "./constants";
+import { PAGES_CONFIG } from "../common/pages-config";
 
-const setActiveMenuItem = (itemId: string):void => {
+const setActiveMenuItem = (itemId: string): void => {
   const MENU_ITEMS: HTMLCollection = document.getElementsByClassName('menu-item');
 
   [...MENU_ITEMS].forEach(item => item.classList.remove('active'));

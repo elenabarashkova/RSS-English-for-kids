@@ -1,6 +1,6 @@
 import { renderPopup } from "../../../popup/render-popup";
-import {initializeClosing} from "../../../popup/popup";
-import {PAGES_ID} from "../../../header/constants";
+import { initializeClosing } from "../../../popup/popup";
+import { PAGES_ID } from "../../../header/constants";
 
 const content = (`
   <div class="win-info">
@@ -9,7 +9,7 @@ const content = (`
     Your score is 
     <b><span id="gameScore"></span></b>.
   </div> 
-  <a href=#${PAGES_ID.BEST_SCORE} id="winBtn" class="btn">Ok</a>
+  <a href=#${ PAGES_ID.BEST_SCORE } id="winBtn" class="btn">Ok</a>
 `);
 
 const winContent = {
@@ -21,7 +21,7 @@ const winContent = {
 
 export const winPopup = renderPopup(winContent);
 
-export const startWinPopup = (gameDuration: string, score: number):void => {
+export const startWinPopup = (gameDuration: string, score: number): void => {
   const body = document.querySelector('body');
   body?.classList.add('popup-on');
 
@@ -30,9 +30,13 @@ export const startWinPopup = (gameDuration: string, score: number):void => {
   document.getElementById('winBtn')?.addEventListener('click', initializeClosing);
 
   const gameDurationText = document.getElementById('gameDuration');
-  if(gameDurationText) { gameDurationText.innerText = gameDuration; }
+  if (gameDurationText) {
+    gameDurationText.innerText = gameDuration;
+  }
 
   const gameScoreText = document.getElementById('gameScore');
-  if(gameScoreText) { gameScoreText.innerText = `${score}`; }
+  if (gameScoreText) {
+    gameScoreText.innerText = `${ score }`;
+  }
 }
 

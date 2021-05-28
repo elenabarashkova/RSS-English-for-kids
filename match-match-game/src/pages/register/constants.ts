@@ -25,4 +25,4 @@ export const FORM_INPUTS = [
   }
 ];
 
-export const FIELDS_IDS = FORM_INPUTS.map(({ id }) => id);
+export const FIELDS_IDS = FORM_INPUTS.map(({id}) => id);

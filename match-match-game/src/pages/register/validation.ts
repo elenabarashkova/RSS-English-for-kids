@@ -1,5 +1,5 @@
 import { saveFormData } from "./addUser";
-import {initializeClosing, closePopupHandler} from "../../popup/popup";
+import { closePopupHandler, initializeClosing } from "../../popup/popup";
 import { switchToRegisteredMode } from "../../header/render-header/switch-to-registered-mode";
 
 const valid = (field: HTMLInputElement) => {
@@ -22,11 +22,11 @@ const inputValidation = (currentField: HTMLInputElement) => {
   const wrongPattern = currentField.validity.patternMismatch;
   const wrongType = currentField.validity.typeMismatch;
 
-  if(wrongPattern || wrongType) {
+  if (wrongPattern || wrongType) {
     invalid(currentField, 'Invalid value. Please correct your data.');
     return false;
   }
-  if(!currentField.value) {
+  if (!currentField.value) {
     invalid(currentField, 'Empty value. Please fill in the field.');
     return false;
   }
@@ -48,7 +48,7 @@ const handleSubmit = (event: Event) => {
     inputValidation(item as HTMLInputElement)
   ).every((isItemValid) => isItemValid);
 
-  if(isValid) {
+  if (isValid) {
     saveFormData();
     initializeClosing();
     document.removeEventListener('click', closePopupHandler);
@@ -56,7 +56,7 @@ const handleSubmit = (event: Event) => {
   }
 }
 
-export const startValidation = ():void => {
+export const startValidation = (): void => {
   const registerFields = document.getElementsByClassName('register-input');
   [...registerFields].forEach(item => item.addEventListener('change', handleInputChange));
 

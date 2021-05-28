@@ -1,10 +1,10 @@
 let timer: NodeJS.Timeout;
 
-export const stopPreGameTimer = ():void => {
+export const stopPreGameTimer = (): void => {
   clearTimeout(timer);
 }
 
-export const startPreGameTimer = (callback: CallableFunction):void => {
+export const startPreGameTimer = (callback: CallableFunction): void => {
   let remainingTime = 30;
   const preGameTimer = document.getElementById('preGameTimer');
   const preGameTimerClock = document.getElementById('preGameTimerClock');
@@ -15,8 +15,8 @@ export const startPreGameTimer = (callback: CallableFunction):void => {
       preGameTimer?.classList.add('hidden');
       callback();
     } else {
-      if(preGameTimerClock) {
-        preGameTimerClock.innerHTML = `${remainingTime} seconds`;
+      if (preGameTimerClock) {
+        preGameTimerClock.innerHTML = `${ remainingTime } seconds`;
       }
       remainingTime--;
     }

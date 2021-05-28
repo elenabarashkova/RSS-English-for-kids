@@ -1,6 +1,4 @@
-import {renderRegisterPopup} from "../pages/register/render-register-popup";
-
-export const createMain = ():void => {
+export const createMain = (): void => {
   const main = document.createElement('main');
   main.id = 'main';
   main.classList.add('container');
@@ -9,6 +7,6 @@ export const createMain = ():void => {
   body?.append(main);
 }
 
-export const insertHtml = (insertPlace:HTMLElement, html: string) => {
+export const insertHtml = (insertPlace: HTMLElement, html: string) => {
   insertPlace.insertAdjacentHTML('beforeend', html);
 }

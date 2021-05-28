@@ -1,21 +1,23 @@
 import { getSettings } from "../../settings";
 import { renderCard } from "./render-card";
 import { applyDifficulty, randomNumsShuffle } from "./set-board-render";
-import {renderMainTimer, renderPreGameTimer} from "./render-timers";
-import {DEFAULT_CARDS_NUM} from "../../../common/constants";
+import { renderMainTimer, renderPreGameTimer } from "./render-timers";
+import { DEFAULT_CARDS_NUM } from "../../../common/constants";
 
-export const renderGameBoard = ():void => {
+export const renderGameBoard = (): void => {
 
   const boardItem = () => (`
     <div id="gameBoard" class="board"></div>
   `);
 
   const mainHtml = document.getElementById('main');
-  if(mainHtml) { mainHtml.innerHTML = boardItem(); }
+  if (mainHtml) {
+    mainHtml.innerHTML = boardItem();
+  }
 
   const board = document.getElementById('gameBoard');
 
-  const { difficulty, cardsPack } = getSettings();
+  const {difficulty, cardsPack} = getSettings();
 
   board?.append(renderPreGameTimer());
   board?.append(renderMainTimer());
@@ -27,7 +29,7 @@ export const renderGameBoard = ():void => {
   const cardsNum = applyDifficulty(difficulty) || DEFAULT_CARDS_NUM;
   const randomNums = randomNumsShuffle(cardsNum);
 
-  for(let i = 0; i < cardsNum; i++) {
+  for (let i = 0; i < cardsNum; i++) {
     boardInner?.append(renderCard(cardsNum, cardsPack, randomNums[i]));
   }
 }

@@ -1,14 +1,14 @@
 import { renderPopup } from "../../popup/render-popup";
-import {FORM_INPUTS} from "./constants";
+import { FORM_INPUTS } from "./constants";
 
-export const renderRegisterInputs = ():string =>
+export const renderRegisterInputs = (): string =>
   FORM_INPUTS
     .map(({fieldName, id, type, placeholder, pattern, required}) =>
       (`
       <label>
-        <span>${fieldName}</span>
-        <input id=${id} class="register-input" type=${type} name=${id}
-        placeholder=${placeholder} ${pattern} ${required} maxlength="30">
+        <span>${ fieldName }</span>
+        <input id=${ id } class="register-input" type=${ type } name=${ id }
+        placeholder=${ placeholder } ${ pattern } ${ required } maxlength="30">
         <span class="error-text"></span>
       </label>
       `))
@@ -17,7 +17,7 @@ export const renderRegisterInputs = ():string =>
 const content = (`
   <form id="registerForm" class="register-form" action="#">
     <div class="form-inner">
-      ${renderRegisterInputs()}
+      ${ renderRegisterInputs() }
       <label class="add-user-pic">
         <span>Add user picture</span>
         <span class="user-picture">

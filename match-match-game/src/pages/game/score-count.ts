@@ -1,7 +1,7 @@
 import { getCompareCount, getMistakenCompareCount } from "./game-behavior";
 import { getGameDurationSec } from "./timers/main-timer";
 
-export const countScore = ():number => {
+export const countScore = (): number => {
   const mistakenCompareCount = getMistakenCompareCount();
   const compareCount = getCompareCount();
   const gameDuration = getGameDurationSec();

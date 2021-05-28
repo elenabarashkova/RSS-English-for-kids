@@ -1,4 +1,4 @@
-export const renderCard = (cardsNum: number, picturePack:string, pairNumber: number):HTMLElement => {
+export const renderCard = (cardsNum: number, picturePack: string, pairNumber: number): HTMLElement => {
   const card = document.createElement('div');
   card.classList.add('card', 'flip');
 
@@ -6,7 +6,7 @@ export const renderCard = (cardsNum: number, picturePack:string, pairNumber: num
 
   card.innerHTML = (`
     <div class="card-inner">
-      <img class="front-face" src=assets/${picturePack}/${pairNumber}.png alt="Card-fontface">
+      <img class="front-face" src=assets/${ picturePack }/${ pairNumber }.png alt="Card-fontface">
       <img class="back-face" src="assets/card-backside.png" alt="Card-backface">
     </div>
   `);

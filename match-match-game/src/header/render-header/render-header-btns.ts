@@ -1,4 +1,4 @@
-export const renderHeaderBtns = ():string => (`
+export const renderHeaderBtns = (): string => (`
   <div class="header-item user-info not-registered">
     <button id="registerBtn" data-target="registerPopup" class="btn register-btn">register new player</button>
     <div class="with-user">

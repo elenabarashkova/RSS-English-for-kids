@@ -1,4 +1,4 @@
-export const renderPreGameTimer = ():HTMLElement => {
+export const renderPreGameTimer = (): HTMLElement => {
   const preGameTimer = document.createElement('div');
   preGameTimer.id = 'preGameTimer';
 
@@ -10,16 +10,16 @@ export const renderPreGameTimer = ():HTMLElement => {
   return preGameTimer;
 }
 
-export const renderMainTimer = ():HTMLElement => {
+export const renderMainTimer = (): HTMLElement => {
   const timer = document.createElement('div');
   timer.id = 'gameTimer';
   timer.classList.add('hidden');
 
-  timer.innerHTML= (`
+  timer.innerHTML = (`
     <span id="hours">00</span><span>:</span>
     <span id="minutes">00</span><span>:</span>
     <span id="seconds">00</span>
   `);
-  
+
   return timer;
 }

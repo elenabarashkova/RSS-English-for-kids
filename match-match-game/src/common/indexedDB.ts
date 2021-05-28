@@ -2,17 +2,17 @@ import { PersonData } from "./types";
 
 let db: IDBDatabase;
 
-export const initializeDB = (callback: CallableFunction):void => {
-  const openRequest = indexedDB.open('elenabarashkova',1);
+export const initializeDB = (callback: CallableFunction): void => {
+  const openRequest = indexedDB.open('elenabarashkova', 1);
 
   openRequest.onupgradeneeded = () => {
     const thisDB = openRequest.result;
 
-    if(!thisDB.objectStoreNames.contains('users')) {
-      thisDB.createObjectStore('users',{keyPath: 'email'});
+    if (!thisDB.objectStoreNames.contains('users')) {
+      thisDB.createObjectStore('users', {keyPath: 'email'});
     }
-    if(!thisDB.objectStoreNames.contains('scores')) {
-      thisDB.createObjectStore('scores',{autoIncrement:true});
+    if (!thisDB.objectStoreNames.contains('scores')) {
+      thisDB.createObjectStore('scores', {autoIncrement: true});
     }
   }
 
@@ -24,18 +24,18 @@ export const initializeDB = (callback: CallableFunction):void => {
 
 let currentUser: PersonData;
 
-export const addUser = (personData: PersonData):void => {
+export const addUser = (personData: PersonData): void => {
   currentUser = personData;
 
-  const transaction = db.transaction(['users'],'readwrite');
+  const transaction = db.transaction(['users'], 'readwrite');
   const store = transaction.objectStore('users');
   store.add(personData);
 }
 
-export const addScores = (score: number, callback: CallableFunction,  triesCount = 0):void => {
-  const transaction = db.transaction(['scores'],'readwrite');
+export const addScores = (score: number, callback: CallableFunction, triesCount = 0): void => {
+  const transaction = db.transaction(['scores'], 'readwrite');
   const store = transaction.objectStore('scores');
-  const { email, firstName, lastName, userPhoto } = currentUser;
+  const {email, firstName, lastName, userPhoto} = currentUser;
 
   const request = store.add({
     email,
@@ -55,8 +55,8 @@ export const addScores = (score: number, callback: CallableFunction,  triesCount
   }
 }
 
-export const getScores = (callback: CallableFunction):void => {
-  const transaction = db.transaction(['scores'],'readonly');
+export const getScores = (callback: CallableFunction): void => {
+  const transaction = db.transaction(['scores'], 'readonly');
   const objectStore = transaction.objectStore('scores');
 
   const request = objectStore.getAll();
@@ -69,4 +69,4 @@ export const getScores = (callback: CallableFunction):void => {
   }
 }
 
-export const getCurrentUser = ():PersonData => currentUser;
+export const getCurrentUser = (): PersonData => currentUser;

@@ -1,9 +1,8 @@
-import {renderMenu} from "./render-menu";
-import {renderHeaderBtns} from "./render-header-btns";
-import {insertHtml} from "../../common/shared";
-import {renderRegisterPopup} from "../../pages/register/render-register-popup";
+import { renderMenu } from "./render-menu";
+import { renderHeaderBtns } from "./render-header-btns";
+import { insertHtml } from "../../common/shared";
 
-const headerLogo = ():string => (`
+const headerLogo = (): string => (`
   <div class="header-item logo">
     <h1>
       <span>Match</span>
@@ -12,7 +11,7 @@ const headerLogo = ():string => (`
   </div>
 `);
 
-export const renderHeader = ():void => {
+export const renderHeader = (): void => {
   const body = document.querySelector('body');
 
   const header = document.createElement('header');
