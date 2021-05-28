@@ -22,11 +22,13 @@ const generateSettingsFields = (): string =>
 
 export const initSettingsPage = (): void => {
   const mainHtml = document.getElementById('main');
+
   if (mainHtml) {
     mainHtml.innerHTML = settingsPageHtml()
   }
 
   const settingsForm = document.getElementById('settingsForm');
+
   if (settingsForm) {
     settingsForm.innerHTML = generateSettingsFields()
   }

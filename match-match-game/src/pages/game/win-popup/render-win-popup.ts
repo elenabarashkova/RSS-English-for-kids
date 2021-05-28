@@ -30,11 +30,13 @@ export const startWinPopup = (gameDuration: string, score: number): void => {
   document.getElementById('winBtn')?.addEventListener('click', initializeClosing);
 
   const gameDurationText = document.getElementById('gameDuration');
+
   if (gameDurationText) {
     gameDurationText.innerText = gameDuration;
   }
 
   const gameScoreText = document.getElementById('gameScore');
+
   if (gameScoreText) {
     gameScoreText.innerText = `${ score }`;
   }

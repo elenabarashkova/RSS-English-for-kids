@@ -21,6 +21,7 @@ export const openPopupHandler = (event: MouseEvent): void => {
 
   const eventTarget = event.target as HTMLElement;
   const targetPopup = document.getElementById(`${ eventTarget.dataset.target }`);
+
   targetPopup?.classList.add('active');
 
   setTimeout(() => document.addEventListener('click', closePopupHandler), 0);

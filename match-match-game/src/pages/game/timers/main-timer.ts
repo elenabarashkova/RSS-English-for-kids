@@ -16,20 +16,25 @@ export const startMainTimer = (): void => {
 
   mainTimer = setInterval((): void => {
     seconds = +seconds + 1;
+
     if (seconds === 60) {
       seconds = 0;
       minutes = +minutes + 1;
+
       if (minutes === 60) {
         minutes = 0;
         hours = +hours + 1;
       }
     }
+
     if (secs) {
       secs.innerText = `${ seconds < 10 ? '0' : '' }${ seconds }`;
     }
+
     if (mins) {
       mins.innerText = `${ minutes < 10 ? '0' : '' }${ minutes }`;
     }
+
     if (hour) {
       hour.innerText = `${ hours < 10 ? '0' : '' }${ hours }`;
     }

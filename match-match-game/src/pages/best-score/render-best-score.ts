@@ -37,6 +37,7 @@ const renderWinners = (scores: Array<Scores>): void => {
   const winnersHtml = generateWinners(scores);
 
   const bestScoreInner = document.getElementById('bestScoreInner');
+
   if (bestScoreInner) {
     bestScoreInner.innerHTML = winnersHtml;
   }
@@ -44,6 +45,7 @@ const renderWinners = (scores: Array<Scores>): void => {
 
 export const initBestScore = (): void => {
   const mainHtml = document.getElementById('main');
+
   if (mainHtml) {
     mainHtml.innerHTML = bestScorePageWrap();
   }

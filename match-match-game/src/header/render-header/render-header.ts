@@ -22,9 +22,8 @@ export const renderHeader = (): void => {
 
   header?.append(headerContainer);
 
-  insertHtml(headerContainer, headerLogo());
-  insertHtml(headerContainer, renderMenu());
-  insertHtml(headerContainer, renderHeaderBtns());
+  const headerComponents = [headerLogo(), renderMenu(), renderHeaderBtns()];
+  headerComponents.map(component => insertHtml(headerContainer, component) )
 }
 
 

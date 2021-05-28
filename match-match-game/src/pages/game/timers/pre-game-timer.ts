@@ -10,6 +10,7 @@ export const startPreGameTimer = (callback: CallableFunction): void => {
   const preGameTimerClock = document.getElementById('preGameTimerClock');
 
   timer = setInterval(() => {
+
     if (remainingTime === -1) {
       stopPreGameTimer();
       preGameTimer?.classList.add('hidden');

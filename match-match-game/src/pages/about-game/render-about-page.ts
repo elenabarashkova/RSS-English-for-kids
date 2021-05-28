@@ -26,11 +26,13 @@ const generateInstructionsItems = (): string =>
 
 export const initAboutPage = (): void => {
   const mainHtml = document.getElementById('main');
+
   if (mainHtml) {
     mainHtml.innerHTML = aboutPageWrap()
   }
 
   const instructionsList = document.getElementById('instructionsList');
+
   if (instructionsList) {
     instructionsList.innerHTML = generateInstructionsItems()
   }

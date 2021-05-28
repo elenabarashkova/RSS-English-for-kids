@@ -29,6 +29,7 @@ export const addUser = (personData: PersonData): void => {
 
   const transaction = db.transaction(['users'], 'readwrite');
   const store = transaction.objectStore('users');
+
   store.add(personData);
 }
 
@@ -65,6 +66,7 @@ export const getScores = (callback: CallableFunction): void => {
     const requestResult = request.result;
     requestResult.sort((item1, item2) => item2.score - item1.score);
     const top10Score = requestResult.slice(0, 9);
+
     callback(top10Score);
   }
 }
