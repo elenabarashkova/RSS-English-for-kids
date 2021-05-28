@@ -1,3 +1,5 @@
+import { INSTRUCTIONS_ITEMS } from "./constants";
+
 const aboutPageWrap = (): string => (`
   <div class="about-game">
     <h2>How to play?</h2>
@@ -5,14 +7,8 @@ const aboutPageWrap = (): string => (`
   </div>
 `);
 
-const generateInstructionsItems = (): string => {
-  const instructionsItems = [
-    {text: 'Register new player in game',},
-    {text: 'Configure your game settings',},
-    {text: 'Start you new game! Remember card positions and match it before times up.',},
-  ];
-
-  return instructionsItems
+const generateInstructionsItems = (): string =>
+  INSTRUCTIONS_ITEMS
     .map(({text}, index) => (`
       <div class="instructions-item">
         <div class="instructions-text">
@@ -27,7 +23,6 @@ const generateInstructionsItems = (): string => {
       </div>
       `))
     .join('');
-}
 
 export const initAboutPage = (): void => {
   const mainHtml = document.getElementById('main');
