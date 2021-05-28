@@ -7,6 +7,6 @@ export const createMain = (): void => {
   body?.append(main);
 }
 
-export const insertHtml = (insertPlace: HTMLElement, html: string) => {
+export const insertHtml = (insertPlace: HTMLElement, html: string):void => {
   insertPlace.insertAdjacentHTML('beforeend', html);
 }
