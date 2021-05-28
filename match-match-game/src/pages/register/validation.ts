@@ -7,23 +7,15 @@ const valid = (field: HTMLInputElement) => {
   field.classList.add('valid');
 
   const errorItem = field.parentElement?.querySelector('.error-text') as HTMLElement;
-  if(errorItem) { errorItem.innerText = '';}
+  errorItem.innerText = '';
 }
 
-const invalid = (field: HTMLInputElement) => {
+const invalid = (field: HTMLInputElement, errorText: string) => {
   field.classList.remove('valid');
   field.classList.add('invalid');
 
-  if(field?.parentElement?.querySelector('.error-text')) {
-    return field.nextSibling as HTMLElement;
-  }
-
-  const errorItem = document.createElement('span');
-  errorItem.classList.add('error-text');
-
-  field.insertAdjacentElement('afterend', errorItem);
-
-  return errorItem;
+  const errorTextElement = field.parentElement?.querySelector('.error-text');
+  (errorTextElement as HTMLElement).innerText = errorText;
 }
 
 const inputValidation = (currentField: HTMLInputElement) => {
@@ -31,11 +23,11 @@ const inputValidation = (currentField: HTMLInputElement) => {
   const wrongType = currentField.validity.typeMismatch;
 
   if(wrongPattern || wrongType) {
-    invalid(currentField).innerText = 'Invalid value. Please correct your data.';
+    invalid(currentField, 'Invalid value. Please correct your data.');
     return false;
   }
   if(!currentField.value) {
-    invalid(currentField).innerText = 'Empty value. Please fill in the field.';
+    invalid(currentField, 'Empty value. Please fill in the field.');
     return false;
   }
   valid(currentField);

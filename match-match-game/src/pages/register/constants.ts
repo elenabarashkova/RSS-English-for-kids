@@ -23,4 +23,6 @@ export const FORM_INPUTS = [
     pattern: '',
     required: 'required',
   }
-]
+];
+
+export const FIELDS_IDS = FORM_INPUTS.map(({ id }) => id);

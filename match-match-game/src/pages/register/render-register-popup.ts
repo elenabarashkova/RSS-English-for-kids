@@ -7,8 +7,9 @@ export const renderRegisterInputs = ():string =>
       (`
       <label>
         <span>${fieldName}</span>
-        <input id=${id} class="register-input" type=${type} name=${id} 
+        <input id=${id} class="register-input" type=${type} name=${id}
         placeholder=${placeholder} ${pattern} ${required} maxlength="30">
+        <span class="error-text"></span>
       </label>
       `))
     .join('');
