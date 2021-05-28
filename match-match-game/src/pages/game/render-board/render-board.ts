@@ -3,8 +3,9 @@ import { renderCard } from "./render-card";
 import { applyDifficulty, randomNumsShuffle } from "./set-board-render";
 import { renderMainTimer, renderPreGameTimer } from "./render-timers";
 import { DEFAULT_CARDS_NUM } from "../../../common/constants";
+import { gamePageBehavior } from "../index";
 
-export const renderGameBoard = (): void => {
+export const initGameBoard = (): void => {
 
   const boardItem = () => (`
     <div id="gameBoard" class="board"></div>
@@ -32,4 +33,6 @@ export const renderGameBoard = (): void => {
   for (let i = 0; i < cardsNum; i++) {
     boardInner?.append(renderCard(cardsNum, cardsPack, randomNums[i]));
   }
+
+  gamePageBehavior();
 }

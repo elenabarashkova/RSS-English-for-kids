@@ -21,11 +21,7 @@ const onHashChange = () => {
 
   setActiveMenuItem(route);
 
-  PAGES_CONFIG[route].render();
-  const {behavior} = PAGES_CONFIG[route];
-  if (behavior) {
-    behavior();
-  }
+  PAGES_CONFIG[route]();
 }
 
 export const startRouter = (): void => {

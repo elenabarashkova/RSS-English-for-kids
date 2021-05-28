@@ -29,7 +29,7 @@ const generateInstructionsItems = (): string => {
     .join('');
 }
 
-export const renderAboutPage = (): void => {
+export const initAboutPage = (): void => {
   const mainHtml = document.getElementById('main');
   if (mainHtml) {
     mainHtml.innerHTML = aboutPageWrap()

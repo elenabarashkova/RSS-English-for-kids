@@ -42,7 +42,7 @@ const renderWinners = (scores: Array<Scores>): void => {
   }
 }
 
-export const renderBestScore = (): void => {
+export const initBestScore = (): void => {
   const mainHtml = document.getElementById('main');
   if (mainHtml) {
     mainHtml.innerHTML = bestScorePageWrap();

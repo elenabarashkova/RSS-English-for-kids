@@ -1,4 +1,5 @@
 import { SETTINGS_FIELDS } from "./constants";
+import { settingsBehavior } from "./index";
 
 const settingsPageHtml = (): string => (`
   <div id="settingsPage" class="settings-page">
@@ -19,7 +20,7 @@ const generateSettingsFields = (): string =>
       `))
     .join('');
 
-export const rendersettingsPage = (): void => {
+export const initSettingsPage = (): void => {
   const mainHtml = document.getElementById('main');
   if (mainHtml) {
     mainHtml.innerHTML = settingsPageHtml()
@@ -29,4 +30,6 @@ export const rendersettingsPage = (): void => {
   if (settingsForm) {
     settingsForm.innerHTML = generateSettingsFields()
   }
+
+  settingsBehavior();
 }
