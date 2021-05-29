@@ -4,7 +4,7 @@ export const FORM_INPUTS = [
     id: 'firstName',
     type: 'text',
     placeholder: 'Lena',
-    pattern: `pattern="^[A-Za-zА-Яа-я0-9\\-]*[a-zA-ZА-Яа-я]{1}[A-Za-zА-Яа-я0-9\\-]*$"`,
+    pattern: `pattern="^[\\p{L}0-9\\\\-]*[\\p{L}]{1}[\\p{L}0-9\\\\-]*$"`,
     required: 'required',
   },
   {
@@ -12,7 +12,7 @@ export const FORM_INPUTS = [
     id: 'lastName',
     type: 'text',
     placeholder: 'Barashkova',
-    pattern: `pattern="^[A-Za-zА-Яа-я0-9\\-]*[a-zA-ZА-Яа-я]{1}[A-Za-zА-Яа-я0-9\\-]*$"`,
+    pattern: `pattern="^[\\p{L}0-9\\\\-]*[\\p{L}]{1}[\\p{L}0-9\\\\-]*$"`,
     required: 'required',
   },
   {
