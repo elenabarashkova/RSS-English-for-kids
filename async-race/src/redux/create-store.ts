@@ -1,4 +1,6 @@
-export const createStore = (rootReducer:CallableFunction, initialState:Record<string, string | boolean>) => {
+export const createStore = (
+  rootReducer:CallableFunction,
+  initialState:Record<string, string | boolean | Array<Car>>) => {
   let state:Record<string, string> = rootReducer(initialState, {type: '__INIT__'});
   const subscribers:Array<CallableFunction> = [];
 

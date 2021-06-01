@@ -36,6 +36,7 @@ window.addEventListener('load', () => {
 
       PAGES_CONFIG[prevState.currentPage].remove();
       PAGES_CONFIG[state.currentPage].render();
+      PAGES_CONFIG[state.currentPage].start(store);
     }
 
   });
