@@ -5,6 +5,7 @@ import { rootReducer } from "./redux/root-reducer";
 import { initialState } from "./redux/initial-state";
 import { PAGES, PAGES_CONFIG } from "./shared/constants";
 import { setActivePage } from "./redux/actions";
+import { START_APPLICATION } from "./redux/types";
 
 
 window.addEventListener('load', () => {
@@ -25,16 +26,19 @@ window.addEventListener('load', () => {
 
   store.subscribe((prevState:Record<string, string>) => {
     const state = store.getState();
-    // if(prevState.currentPage !== state.currentPage) {
+
+    const currentPageChanged = prevState.currentPage !== state.currentPage;
+    const shouldInitialize = !prevState.applicationStarted && state.applicationStarted;
+
+    if(currentPageChanged || shouldInitialize) {
       document.getElementById(prevState.currentPage)?.classList.remove('active');
       document.getElementById(state.currentPage)?.classList.add('active');
 
       PAGES_CONFIG[prevState.currentPage].remove();
       PAGES_CONFIG[state.currentPage].render();
+    }
 
-    // }
+  });
 
-  })
-
-  store.dispatch({type: 'START_APPLICATION'});
+  store.dispatch({type: START_APPLICATION});
 })
