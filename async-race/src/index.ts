@@ -3,7 +3,7 @@ import { renderHeader } from "./render/header";
 import { createStore } from "./redux/create-store";
 import { rootReducer } from "./redux/root-reducer";
 import { initialState } from "./redux/initial-state";
-import { PAGES } from "./shared/constants";
+import { PAGES, PAGES_CONFIG } from "./shared/constants";
 import { setActivePage } from "./redux/actions";
 
 
@@ -28,7 +28,12 @@ window.addEventListener('load', () => {
     // if(prevState.currentPage !== state.currentPage) {
       document.getElementById(prevState.currentPage)?.classList.remove('active');
       document.getElementById(state.currentPage)?.classList.add('active');
+
+      PAGES_CONFIG[prevState.currentPage].remove();
+      PAGES_CONFIG[state.currentPage].render();
+
     // }
+
   })
 
   store.dispatch({type: 'START_APPLICATION'});
