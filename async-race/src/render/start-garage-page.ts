@@ -4,7 +4,7 @@ import { renderCar } from "./car";
 export const startGaragePage = (store: Store) => {
   const newCarName = document.getElementById('newCarName') as HTMLInputElement;
   const newCarColor = document.getElementById('newCarColor') as HTMLInputElement;
-  const createNewCarForm = document.getElementById('createNewCar');
+  const createNewCarForm = document.getElementById('createNewCar') as HTMLFormElement;
 
   createNewCarForm?.addEventListener('submit', (event:Event) => {
     event.preventDefault();
@@ -18,6 +18,8 @@ export const startGaragePage = (store: Store) => {
 
   const carsList = document.getElementById('carsList');
   store.subscribe(() => {
-    carsList?.insertAdjacentHTML('beforeend', renderCar(store.getState().carsList[0]));
+    carsList?.insertAdjacentHTML('afterbegin', renderCar(store.getState().carsList[0]));
+
+    createNewCarForm.reset();
   })
 }
