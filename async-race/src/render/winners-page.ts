@@ -4,8 +4,7 @@ export const renderWinnersPage = () => {
       <h2>Winners</h2>
     </div>
   `);
-  const header = document.querySelector('header');
-  header?.insertAdjacentHTML('beforeend', html);
+  document.body?.insertAdjacentHTML('beforeend', html);
 }
 
 export const removeWinnersPage = () => {

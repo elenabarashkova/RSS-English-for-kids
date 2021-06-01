@@ -1,3 +1,5 @@
+@import url(render/car.css);
+
 header .active {
   background: #974949;
 }

@@ -1,0 +1,31 @@
+.car-header h4 {
+  display: inline-block;
+}
+
+.car-field {
+  position: relative;
+  border-bottom: 2px dashed #333;
+  height: 40px;
+}
+
+.car {
+  position: absolute;
+  bottom: -8px;
+  left: 80px;
+}
+
+.car > svg {
+  width: 72px;
+  height: 34px;
+}
+
+.finish-line {
+  position: absolute;
+  right: 100px;
+  bottom: 0;
+
+}
+
+.finish-line > img {
+  height: 30px;
+}
