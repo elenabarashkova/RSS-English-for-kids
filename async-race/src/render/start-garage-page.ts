@@ -1,6 +1,6 @@
 import { createCar, setCarsList } from "../redux/actions";
 import { renderCar } from "./car";
-import { SERVER_ADDRESS } from "./constants";
+import { SERVER_ADDRESS } from "../shared/constants";
 
 export const startGaragePage = (store: Store) => {
 

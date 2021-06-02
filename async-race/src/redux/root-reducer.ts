@@ -7,6 +7,7 @@ export const rootReducer = (state:Record<string, string>, action:Record<string, 
       currentPage: action.payload,
     };
   }
+  
   if(action.type === START_APPLICATION) {
     return {
       ...state,

@@ -1,4 +1,4 @@
-import { PAGES } from "../shared/constants";
+import { PAGES } from "../pages/constants";
 
 export const renderHeader = () => {
   const html = (`
