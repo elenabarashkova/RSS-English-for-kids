@@ -1,4 +1,4 @@
-@import "./render/car.css";
+@import "pages/garage/car/car.css";
 
 header .active {
   background: #974949;

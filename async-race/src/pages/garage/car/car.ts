@@ -1,5 +1,5 @@
-const carIcon = require("../assets/car-icon.svg");
-const finishIcon = require("../assets/finish-icon.png")
+const carIcon = require("../../../assets/car-icon.svg");
+const finishIcon = require("../../../assets/finish-icon.png")
 
 export const renderCar = ({name, color}:Car) => (`
   <div class="car-item">

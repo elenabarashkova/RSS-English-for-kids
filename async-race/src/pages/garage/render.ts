@@ -1,4 +1,4 @@
-
+// todo: remake render with loops
 export const renderGaragePage = () => {
   const html = (`
     <div id="garagePage" class="Garage">

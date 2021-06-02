@@ -1,7 +1,7 @@
-import { removeGaragePage, renderGaragePage } from "../render/garage-page";
-import { startGaragePage } from "../render/start-garage-page";
-import { removeWinnersPage, renderWinnersPage } from "../render/winners-page";
-import { startWinnersPage } from "../render/start-winners-page";
+import { removeGaragePage, renderGaragePage } from "./garage/render";
+import { startGaragePage } from "./garage";
+import { removeWinnersPage, renderWinnersPage } from "./winners/render";
+import { startWinnersPage } from "./winners";
 
 export const PAGES = {
   GARAGE: 'garage',
@@ -12,13 +12,11 @@ export const DEFAULT_PAGE = PAGES.GARAGE;
 
 export const PAGES_CONFIG = {
   [PAGES.GARAGE]: {
-    render: renderGaragePage,
-    remove: removeGaragePage,
     start: startGaragePage,
+    remove: removeGaragePage,
   },
   [PAGES.WINNERS]: {
-    render: renderWinnersPage,
-    remove: removeWinnersPage,
     start: startWinnersPage,
+    remove: removeWinnersPage,
   },
 }
