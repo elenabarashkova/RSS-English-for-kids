@@ -12,7 +12,7 @@ window.addEventListener('load', () => {
 
   startHeader(store);
 
-  store.subscribe((prevState:Record<string, string>) => {
+  store.subscribe((prevState:Record<string, string>):void => {
     const state = store.getState();
 
     const currentPageChanged = prevState.currentPage !== state.currentPage;

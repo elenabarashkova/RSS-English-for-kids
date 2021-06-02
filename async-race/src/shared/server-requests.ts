@@ -1,7 +1,6 @@
 import { SERVER_ADDRESS } from "./constants";
-import { setCarsList } from "../redux/actions";
 
-export const getCars = () => {
+export const getCars = ():Promise<Array<Car>> => {
   const promise = fetch(`${SERVER_ADDRESS}/garage`);
   return promise.then((response) => response.json());
 };

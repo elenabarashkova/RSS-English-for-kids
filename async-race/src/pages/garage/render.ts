@@ -1,5 +1,5 @@
 // todo: remake render with loops
-export const renderGaragePage = () => {
+export const renderGaragePage = ():void => {
   const html = (`
     <div id="garagePage" class="Garage">
       <div class="form-area">
@@ -30,7 +30,7 @@ export const renderGaragePage = () => {
   document.body.insertAdjacentHTML('beforeend', html);
 }
 
-export const removeGaragePage = () => {
+export const removeGaragePage = ():void => {
   const garagePage = document.getElementById('garagePage');
   garagePage?.remove();
 }

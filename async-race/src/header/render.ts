@@ -1,6 +1,6 @@
 import { PAGES } from "../pages/constants";
 
-export const renderHeader = () => {
+export const renderHeader = ():void => {
   const html = (`
     <header>
       <button id="${PAGES.GARAGE}">Garage</button>

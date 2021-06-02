@@ -2,7 +2,7 @@ import { renderHeader } from "./render";
 import { PAGES } from "../pages/constants";
 import { setActivePage } from "../redux/actions";
 
-export const startHeader = (store: Store) => {
+export const startHeader = (store: Store):void => {
   renderHeader();
 
   const garageBtn = document.getElementById(PAGES.GARAGE);
@@ -16,7 +16,7 @@ export const startHeader = (store: Store) => {
   });
 }
 
-export const setActiveMenuItem = (prevPageId:string, nextPageId:string) => {
+export const setActiveMenuItem = (prevPageId:string, nextPageId:string):void => {
   document.getElementById(prevPageId)?.classList.remove('active');
   document.getElementById(nextPageId)?.classList.add('active');
 }

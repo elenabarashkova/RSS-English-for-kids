@@ -4,7 +4,7 @@ import { renderGaragePage } from "./render";
 import { getCars } from "../../shared/server-requests";
 import { createCarFormBehavior } from "./create-car-form";
 
-export const startGaragePage = (store: Store) => {
+export const startGaragePage = (store: Store):void => {
   renderGaragePage();
 
   getCars().then(data => {
@@ -15,7 +15,7 @@ export const startGaragePage = (store: Store) => {
 
   const carsList = document.getElementById('carsList');
 
-  store.subscribe(() => {
+  store.subscribe(():void => {
     if(carsList) {
       carsList.innerHTML = '';
     }

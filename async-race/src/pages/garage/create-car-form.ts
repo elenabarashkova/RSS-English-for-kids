@@ -1,6 +1,6 @@
 import { createCar } from "../../redux/actions";
 
-export const createCarFormBehavior = (store: Store) => {
+export const createCarFormBehavior = (store: Store):void => {
   const newCarName = document.getElementById('newCarName') as HTMLInputElement;
   const newCarColor = document.getElementById('newCarColor') as HTMLInputElement;
   const createNewCarForm = document.getElementById('createNewCar') as HTMLFormElement;

@@ -1,6 +1,6 @@
 import { renderWinnersPage } from "./render";
 
-export const startWinnersPage = () => {
+export const startWinnersPage = ():void => {
   renderWinnersPage();
 
   // + future behavior();

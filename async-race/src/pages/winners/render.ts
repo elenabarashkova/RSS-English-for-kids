@@ -1,4 +1,4 @@
-export const renderWinnersPage = () => {
+export const renderWinnersPage = ():void => {
   const html = (`
     <div id="winnersPage" class="winners">
       <h2>Winners</h2>
@@ -7,7 +7,7 @@ export const renderWinnersPage = () => {
   document.body?.insertAdjacentHTML('beforeend', html);
 }
 
-export const removeWinnersPage = () => {
+export const removeWinnersPage = ():void => {
   const winnersPage = document.getElementById('winnersPage');
   winnersPage?.remove();
 }
