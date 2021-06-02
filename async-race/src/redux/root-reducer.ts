@@ -1,4 +1,4 @@
-import { CREATE_CAR, SET_ACTIVE_PAGE, START_APPLICATION } from "./types";
+import { CREATE_CAR, SET_ACTIVE_PAGE, SET_CARS_LIST, START_APPLICATION } from "./types";
 
 export const rootReducer = (state:Record<string, string>, action:Record<string, string>) => {
   if(action.type === SET_ACTIVE_PAGE) {
@@ -18,6 +18,13 @@ export const rootReducer = (state:Record<string, string>, action:Record<string, 
     return {
       ...state,
       carsList: [action.payload, ...state.carsList],
+    }
+  }
+
+  if(action.type === SET_CARS_LIST) {
+    return {
+      ...state,
+      carsList: action.payload,
     }
   }
 

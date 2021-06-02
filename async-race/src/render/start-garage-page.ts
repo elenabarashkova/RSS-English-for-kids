@@ -1,7 +1,17 @@
-import { createCar } from "../redux/actions";
+import { createCar, setCarsList } from "../redux/actions";
 import { renderCar } from "./car";
+import { SERVER_ADDRESS } from "./constants";
 
 export const startGaragePage = (store: Store) => {
+
+
+  const promise = fetch(`${SERVER_ADDRESS}/garage`);
+  promise.then((response) => response.json())
+  .then((data) => {
+    store.dispatch(setCarsList(data));
+  });
+
+
   const newCarName = document.getElementById('newCarName') as HTMLInputElement;
   const newCarColor = document.getElementById('newCarColor') as HTMLInputElement;
   const createNewCarForm = document.getElementById('createNewCar') as HTMLFormElement;
@@ -18,8 +28,11 @@ export const startGaragePage = (store: Store) => {
 
   const carsList = document.getElementById('carsList');
   store.subscribe(() => {
-    carsList?.insertAdjacentHTML('afterbegin', renderCar(store.getState().carsList[0]));
-
+    // debugger;
+    if(carsList) {
+      carsList.innerHTML = '';
+    }
+    store.getState().carsList.forEach((car: Car) => carsList?.insertAdjacentHTML('beforeend', renderCar(car)));
     createNewCarForm.reset();
   })
 }
