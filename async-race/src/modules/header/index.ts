@@ -1,6 +1,20 @@
-import { renderHeader } from "./render";
-import { PAGES } from "../constants";
+import { PAGES, PAGES_CONFIG } from "../constants";
 import { setActivePage } from "../../redux/actions";
+
+const renderHeader = ():void => {
+
+  const renderMenuItems = () =>
+    Object.values(PAGES).map(pageId => (`
+      <button id="${pageId}">${PAGES_CONFIG[pageId].name}</button>
+  `)).join('');
+
+  const html = (`
+    <header>
+      ${renderMenuItems()};
+    </header> 
+  `);
+  document.body.insertAdjacentHTML('beforeend', html);
+}
 
 export const startHeader = (store: Store):void => {
   renderHeader();

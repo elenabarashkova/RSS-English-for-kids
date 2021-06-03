@@ -1,7 +1,7 @@
 import { PAGES_CONFIG } from "./constants";
 import { startHeader } from "./header";
 
-export const initPageTemplate = (store: Store) => {
+export const initPageTemplate = (store: Store):void => {
   startHeader(store);
 
   const mainWrap = document.createElement('main');

@@ -2,7 +2,7 @@ import "./style.css";
 import { createStore } from "./redux/create-store";
 import { rootReducer } from "./redux/root-reducer";
 import { initialState } from "./redux/initial-state";
-import { setActiveMenuItem, startHeader } from "./modules/header";
+import { setActiveMenuItem } from "./modules/header";
 import { initPageTemplate, startPage } from "./modules";
 
 const startActivePage = (prevPageId:string, nextPageId:string, store:Store) => {
