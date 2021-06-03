@@ -1,4 +1,4 @@
-import { ROUTES, PAGES_CONFIG } from "../constants";
+import { ROUTES, PAGES_CONFIG, DEFAULT_PAGE } from "../constants";
 import { setActivePage } from "../../redux/actions";
 
 const renderHeader = ():void => {
@@ -9,7 +9,7 @@ const renderHeader = ():void => {
   `)).join('');
 
   const html = (`
-    <header>
+    <header id="header">
       ${renderMenuItems()}
     </header> 
   `);
@@ -19,18 +19,20 @@ const renderHeader = ():void => {
 export const initHeader = (store: Store):void => {
   renderHeader();
 
-  const garageBtn = document.getElementById(ROUTES.GARAGE);
-  const winnersBtn = document.getElementById(ROUTES.WINNERS);
+  document.getElementById(DEFAULT_PAGE)?.classList.add('active');
 
-  garageBtn?.addEventListener('click', () => {
-    store.dispatch(setActivePage(ROUTES.GARAGE));
-  });
-  winnersBtn?.addEventListener('click', () => {
-    store.dispatch(setActivePage(ROUTES.WINNERS));
-  });
-}
+  const header = document.getElementById('header');
 
-export const setActiveMenuItem = (prevPageId:string, nextPageId:string):void => {
-  document.getElementById(prevPageId)?.classList.remove('active');
-  document.getElementById(nextPageId)?.classList.add('active');
+  header?.addEventListener('click', (event:Event) => {
+    const target = event.target as HTMLElement;
+
+    if(target !== header) {
+      store.dispatch(setActivePage(target.id));
+
+      [...(header?.getElementsByTagName('button') as HTMLCollection)]
+        .map(btn => btn.classList.remove('active'));
+
+      target.classList.add('active');
+    }
+  });
 }
