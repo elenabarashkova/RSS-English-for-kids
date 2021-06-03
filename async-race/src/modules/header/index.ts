@@ -16,7 +16,7 @@ const renderHeader = ():void => {
   document.body.insertAdjacentHTML('beforeend', html);
 }
 
-export const startHeader = (store: Store):void => {
+export const initHeader = (store: Store):void => {
   renderHeader();
 
   const garageBtn = document.getElementById(PAGES.GARAGE);

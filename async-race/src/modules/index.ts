@@ -1,8 +1,8 @@
 import { PAGES_CONFIG } from "./constants";
-import { startHeader } from "./header";
+import { initHeader } from "./header";
 
 export const initPageTemplate = (store: Store):void => {
-  startHeader(store);
+  initHeader(store);
 
   const main = document.createElement('main');
   main.id = 'main';
