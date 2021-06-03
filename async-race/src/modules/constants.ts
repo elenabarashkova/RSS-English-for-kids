@@ -1,19 +1,19 @@
 import { startGaragePage } from "./garage";
 import { startWinnersPage } from "./winners";
 
-export const PAGES = {
+export const ROUTES = {
   GARAGE: 'garage',
   WINNERS: 'winners',
 }
 
-export const DEFAULT_PAGE = PAGES.GARAGE;
+export const DEFAULT_PAGE = ROUTES.GARAGE;
 
 export const PAGES_CONFIG = {
-  [PAGES.GARAGE]: {
+  [ROUTES.GARAGE]: {
     name: 'Garage',
     start: startGaragePage,
   },
-  [PAGES.WINNERS]: {
+  [ROUTES.WINNERS]: {
     name: 'Winners',
     start: startWinnersPage,
   },

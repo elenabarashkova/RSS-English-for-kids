@@ -1,10 +1,10 @@
-import { PAGES, PAGES_CONFIG } from "../constants";
+import { ROUTES, PAGES_CONFIG } from "../constants";
 import { setActivePage } from "../../redux/actions";
 
 const renderHeader = ():void => {
 
   const renderMenuItems = () =>
-    Object.values(PAGES).map(pageId => (`
+    Object.values(ROUTES).map(pageId => (`
       <button id="${pageId}">${PAGES_CONFIG[pageId].name}</button>
   `)).join('');
 
@@ -19,14 +19,14 @@ const renderHeader = ():void => {
 export const initHeader = (store: Store):void => {
   renderHeader();
 
-  const garageBtn = document.getElementById(PAGES.GARAGE);
-  const winnersBtn = document.getElementById(PAGES.WINNERS);
+  const garageBtn = document.getElementById(ROUTES.GARAGE);
+  const winnersBtn = document.getElementById(ROUTES.WINNERS);
 
   garageBtn?.addEventListener('click', () => {
-    store.dispatch(setActivePage(PAGES.GARAGE));
+    store.dispatch(setActivePage(ROUTES.GARAGE));
   });
   winnersBtn?.addEventListener('click', () => {
-    store.dispatch(setActivePage(PAGES.WINNERS));
+    store.dispatch(setActivePage(ROUTES.WINNERS));
   });
 }
 
