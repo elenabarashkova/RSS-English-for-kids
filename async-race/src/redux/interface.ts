@@ -3,8 +3,3 @@ interface Store {
   subscribe: CallableFunction,
   getState: CallableFunction,
 }
-
-interface Car {
-  name: string,
-  color: string,
-}
