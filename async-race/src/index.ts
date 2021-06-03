@@ -1,5 +1,5 @@
 import "./style.css";
-import { createStore } from "./redux/create-store";
+import { createStore } from "./redux/core/create-store";
 import { rootReducer } from "./redux/root-reducer";
 import { initialState } from "./redux/initial";
 import { setActiveMenuItem } from "./modules/header";
