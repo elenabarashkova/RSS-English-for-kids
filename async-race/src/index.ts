@@ -1,7 +1,7 @@
 import "./style.css";
 import { createStore } from "./redux/create-store";
 import { rootReducer } from "./redux/root-reducer";
-import { initialState } from "./redux/initial-state";
+import { initialState } from "./redux";
 import { setActiveMenuItem } from "./modules/header";
 import { initPageTemplate, startPage } from "./modules";
 
