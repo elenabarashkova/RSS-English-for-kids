@@ -1,4 +1,5 @@
 import { createCar } from "../../../redux/actions";
+import { postNewCar } from "../../../services/service-requests";
 
 export const createCarFormRender = ():string => (`
   <form id="createNewCar">
@@ -13,7 +14,7 @@ export const createCarFormBehavior = (store: Store):void => {
   const newCarColor = document.getElementById('newCarColor') as HTMLInputElement;
   const createNewCarForm = document.getElementById('createNewCar') as HTMLFormElement;
 
-  createNewCarForm?.addEventListener('submit', (event: Event) => {
+  createNewCarForm?.addEventListener('submit', async (event: Event) => {
     event.preventDefault();
 
     const newCar = {
@@ -21,8 +22,12 @@ export const createCarFormBehavior = (store: Store):void => {
       color: newCarColor.value,
     };
 
-    store.dispatch(createCar(newCar));
-
-    createNewCarForm.reset();
+    try {
+      const data = await postNewCar(newCar);
+      store.dispatch(createCar(data));
+      createNewCarForm.reset();
+    } catch(error) {
+      alert('Error creating the car. Please, try again')
+    }
   });
 }
