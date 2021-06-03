@@ -2,7 +2,7 @@ import { setCarsList } from "../../redux/actions";
 import { renderCar } from "./car/car";
 import { renderGaragePage } from "./render";
 import { getCars } from "../../services/service-requests";
-import { createCarFormBehavior } from "./create-car-form";
+import { createCarFormBehavior } from "./forms/create-car-form";
 
 const getInitialCarsList = async (store: Store) => {
   const data = await getCars();

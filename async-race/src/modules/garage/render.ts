@@ -1,18 +1,12 @@
-// todo: remake render with loops
+import { createCarFormRender } from "./forms/create-car-form";
+import { updateCarFormRender } from "./forms/update-car-form";
+
 export const renderGaragePage = ():void => {
   const html = (`
     <div id="garagePage" class="Garage">
       <div class="form-area">
-        <form id="createNewCar">
-          <input type="text" id="newCarName" required>
-          <input type="color" id="newCarColor">
-          <button id="createCarBtn" type="submit">Create</button>
-        </form>
-        <form id="updateCarForm">
-          <input type="text" name="updateCar" id="updateCar">
-          <input type="color" name="updateCarColor" id="updateCarColor">
-          <button id="submitUpdateCar" type="submit">Update</button>
-        </form>
+        ${createCarFormRender()}
+        ${updateCarFormRender()}
         <div class="buttons">
           <button id="raceBtn">Race</button>
           <button id="resetBtn">Reset</button>

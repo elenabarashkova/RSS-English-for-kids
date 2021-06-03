@@ -10,7 +10,7 @@ const renderHeader = ():void => {
 
   const html = (`
     <header>
-      ${renderMenuItems()};
+      ${renderMenuItems()}
     </header> 
   `);
   document.body.insertAdjacentHTML('beforeend', html);
