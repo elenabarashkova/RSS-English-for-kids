@@ -1,4 +1,4 @@
-import { PAGES } from "../pages/constants";
+import { PAGES } from "../constants";
 
 export const renderHeader = ():void => {
   const html = (`

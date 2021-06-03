@@ -1,6 +1,6 @@
 import { renderHeader } from "./render";
-import { PAGES } from "../pages/constants";
-import { setActivePage } from "../redux/actions";
+import { PAGES } from "../constants";
+import { setActivePage } from "../../redux/actions";
 
 export const startHeader = (store: Store):void => {
   renderHeader();

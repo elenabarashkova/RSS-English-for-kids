@@ -27,10 +27,5 @@ export const renderGaragePage = ():void => {
     </div>
   `);
 
-  document.body.insertAdjacentHTML('beforeend', html);
-}
-
-export const removeGaragePage = ():void => {
-  const garagePage = document.getElementById('garagePage');
-  garagePage?.remove();
+  document.getElementById('main')?.insertAdjacentHTML('beforeend', html);
 }
