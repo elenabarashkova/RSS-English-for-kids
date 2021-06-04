@@ -22,12 +22,11 @@ export const createCarFormBehavior = (store: Store):void => {
       color: newCarColor.value,
     };
 
-    try {
-      const data = await postNewCar(newCar);
+    const data = await postNewCar(newCar);
+    if(data) {
       store.dispatch(createCar(data));
-      createNewCarForm.reset();
-    } catch(error) {
-      alert('Error creating the car. Please, try again')
     }
+
+    createNewCarForm.reset();
   });
 }
