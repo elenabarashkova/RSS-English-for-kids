@@ -1,5 +1,4 @@
 import { ROUTES, PAGES_CONFIG, DEFAULT_PAGE } from "../constants";
-import { setActivePage } from "../../redux/actions";
 
 const renderHeader = ():void => {
 
@@ -16,7 +15,7 @@ const renderHeader = ():void => {
   document.body.insertAdjacentHTML('beforeend', html);
 }
 
-export const initHeader = (store: Store):void => {
+export const initHeader = (setActivePageAction: CallableFunction):void => {
   renderHeader();
 
   document.getElementById(DEFAULT_PAGE)?.classList.add('active');
@@ -27,7 +26,7 @@ export const initHeader = (store: Store):void => {
     const target = event.target as HTMLElement;
 
     if(target !== header) {
-      store.dispatch(setActivePage(target.id));
+      setActivePageAction(target.id);
 
       [...(header?.getElementsByTagName('button') as HTMLCollection)]
         .map(btn => btn.classList.remove('active'));

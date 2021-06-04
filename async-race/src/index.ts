@@ -3,23 +3,26 @@ import { createStore } from "./redux/core/create-store";
 import { rootReducer } from "./redux/root-reducer";
 import { initialState } from "./redux/initial";
 import { initPageTemplate, startPage } from "./modules";
+import { setActivePage } from "./redux/actions";
 
-const startActivePage = (prevPageId:string, nextPageId:string, store:Store) => {
-  startPage(prevPageId, nextPageId, store);
+const startActivePage = (pageName:string, store:Store) => {
+  startPage(pageName, store);
 }
 
 window.addEventListener('load', () => {
 
   const store = createStore(rootReducer, initialState);
+  const setActivePageAction = setActivePage(store);
 
-  initPageTemplate(store);
-  startActivePage('', store.getState().currentPage, store)
+  initPageTemplate(setActivePageAction);
+
+  startActivePage(store.getState().currentPage, store)
 
   store.subscribe((prevState:Record<string, string>):void => {
     const state = store.getState();
 
     if(prevState.currentPage !== state.currentPage) {
-      startActivePage(prevState.currentPage, state.currentPage, store)
+      startActivePage(state.currentPage, store)
     }
   });
 })
