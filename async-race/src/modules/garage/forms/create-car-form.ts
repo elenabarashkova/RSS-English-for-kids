@@ -1,4 +1,3 @@
-import { createCar } from "../../../redux/actions";
 import { postNewCar } from "../../../services/service-requests";
 
 export const createCarFormRender = ():string => (`
@@ -9,7 +8,7 @@ export const createCarFormRender = ():string => (`
   </form>
 `)
 
-export const createCarFormBehavior = (store: Store):void => {
+export const createCarFormBehavior = (createCarAction:CallableFunction):void => {
   const newCarName = document.getElementById('newCarName') as HTMLInputElement;
   const newCarColor = document.getElementById('newCarColor') as HTMLInputElement;
   const createNewCarForm = document.getElementById('createNewCar') as HTMLFormElement;
@@ -24,7 +23,7 @@ export const createCarFormBehavior = (store: Store):void => {
 
     const data = await postNewCar(newCar);
     if(data) {
-      store.dispatch(createCar(data));
+      createCarAction(data);
     }
 
     createNewCarForm.reset();

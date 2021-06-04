@@ -1,28 +1,27 @@
-import { setCarsList } from "../../redux/actions";
-import { renderCar } from "./car/car";
+// import { renderCar } from "./car/car";
 import { renderGaragePage } from "./render";
 import { getCars } from "../../services/service-requests";
 import { createCarFormBehavior } from "./forms/create-car-form";
 
-const getInitialCarsList = async (store: Store) => {
+const getInitialCarsList = async (setCarsListAction:CallableFunction) => {
   const data = await getCars();
-  store.dispatch(setCarsList(data));
+  setCarsListAction(data);
 }
 
-export const startGaragePage = (store: Store):void => {
+export const startGaragePage = (setCarsListAction:CallableFunction, createCarAction:CallableFunction):void => {
   renderGaragePage();
 
-  getInitialCarsList(store);
+  getInitialCarsList(setCarsListAction);
 
-  createCarFormBehavior(store);
+  createCarFormBehavior(createCarAction);
 
-  const carsList = document.getElementById('carsList');
+  // const carsList = document.getElementById('carsList');
 
-  store.subscribe(():void => {
-    if(carsList) {
-      carsList.innerHTML = '';
-    }
-
-    store.getState().carsList.forEach((car: Car) => carsList?.insertAdjacentHTML('beforeend', renderCar(car)));
-  })
+//   store.subscribe(():void => {
+//     if(carsList) {
+//       carsList.innerHTML = '';
+//     }
+//
+//     store.getState().carsList.forEach((car: Car) => carsList?.insertAdjacentHTML('beforeend', renderCar(car)));
+//   })
 }

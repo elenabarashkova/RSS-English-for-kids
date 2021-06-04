@@ -9,12 +9,16 @@ export const initPageTemplate = (setActivePageAction: CallableFunction):void => 
   document.body.appendChild(main);
 }
 
-export const startPage = (pageName:string, store: Store):void => {
+export const startPage = (
+  pageName:string,
+  setCarsListAction: CallableFunction,
+  createCarAction:CallableFunction):void => {
+
   const main = document.getElementById('main');
 
   if(main) {
     main.innerHTML = '';
   }
 
-  PAGES_CONFIG[pageName].start(store);
+  PAGES_CONFIG[pageName].start(setCarsListAction, createCarAction);
 }

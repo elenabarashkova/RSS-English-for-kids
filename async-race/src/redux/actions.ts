@@ -7,14 +7,19 @@ export const setActivePage = (store: Store) =>
       payload: page,
     });
   }
-//
 
-export const createCar = (newCar: Car): ActionType<Car> => ({
-  type: CREATE_CAR,
-  payload: newCar,
-})
+export const createCar = (store: Store) =>
+  (newCar: Car):void => {
+    store.dispatch({
+      type: CREATE_CAR,
+      payload: newCar,
+    });
+  }
 
-export const setCarsList = (carsList: Array<Car>): ActionType<Array <Car> > => ({
-  type: SET_CARS_LIST,
-  payload: carsList,
-})
+export const setCarsList = (store: Store) =>
+  (carsList: Array<Car>):void => {
+    store.dispatch({
+      type: SET_CARS_LIST,
+      payload: carsList,
+    });
+  }
