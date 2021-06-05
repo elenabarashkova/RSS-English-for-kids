@@ -1,12 +1,4 @@
-import { CREATE_CAR, SET_ACTIVE_PAGE, SET_CARS_LIST } from "./types";
-
-export const setActivePage = (store: Store) =>
-  (page: string):void => {
-    store.dispatch({
-      type: SET_ACTIVE_PAGE,
-      payload: page,
-    });
-  }
+import { CREATE_CAR, SET_CARS_LIST } from "./types";
 
 export const createCar = (store: Store) =>
   (newCar: Car):void => {

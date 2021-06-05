@@ -1,18 +1,17 @@
-import { PAGES_CONFIG } from "./constants";
-import { initHeader } from "./header";
+import { DEFAULT_PAGE, PAGES_CONFIG } from "./constants";
+import { getHeader, startRouting } from "./header";
 
-export const initPageTemplate = (setActivePageAction: CallableFunction):void => {
-  initHeader(setActivePageAction);
+const getMain = ():string => (`
+  <main id="main"></main>
+`)
 
-  const main = document.createElement('main');
-  main.id = 'main';
-  document.body.appendChild(main);
+const renderCommonPageTemplate = ():void => {
+  document.body.insertAdjacentHTML('beforeend', getHeader());
+  document.body.insertAdjacentHTML('beforeend', getMain());
 }
 
-export const startPage = (
-  pageName:string,
-  setCarsListAction: CallableFunction,
-  createCarAction:CallableFunction):void => {
+const startDefaultPage = (setCarsListAction: CallableFunction,  createCarAction: CallableFunction) => {
+  document.getElementById(DEFAULT_PAGE)?.classList.add('active');
 
   const main = document.getElementById('main');
 
@@ -20,5 +19,13 @@ export const startPage = (
     main.innerHTML = '';
   }
 
-  PAGES_CONFIG[pageName].start(setCarsListAction, createCarAction);
+  PAGES_CONFIG[DEFAULT_PAGE].start(setCarsListAction, createCarAction);
+}
+
+export const initCommonPageTemplate = (
+  setCarsListAction: CallableFunction,
+  createCarAction: CallableFunction
+):void => {
+  renderCommonPageTemplate();
+  startDefaultPage(setCarsListAction, createCarAction);
 }
