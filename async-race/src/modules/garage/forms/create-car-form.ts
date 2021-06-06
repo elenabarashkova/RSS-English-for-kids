@@ -21,10 +21,7 @@ export const createCarFormBehavior = (createCarAction:CallableFunction):void => 
       color: newCarColor.value,
     };
 
-    const data = await postNewCar(newCar);
-    if(data) {
-      createCarAction(data);
-    }
+    postNewCar(newCar, createCarAction);
 
     createNewCarForm.reset();
   });
