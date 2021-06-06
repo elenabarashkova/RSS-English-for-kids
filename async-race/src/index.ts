@@ -4,7 +4,7 @@ import { rootReducer } from "./redux/root-reducer";
 import { initialState } from "./redux/initial";
 import { initCommonPageTemplate } from "./modules";
 import { createCar, setCarsList } from "./redux/actions";
-import { renderCar } from "./modules/garage/car/car";
+import { renderCarsList } from "./modules/garage/render";
 import { startRouting } from "./modules/header";
 
 window.addEventListener('load', () => {
@@ -23,14 +23,8 @@ window.addEventListener('load', () => {
   store.subscribe((prevState:Record<string, string>):void => {
     state = store.getState();
 
-    const carsList = document.getElementById('carsList');
-
     if(prevState.carsList !== state.carsList) {
-      if(carsList) {
-        carsList.innerHTML = '';
-      }
-
-      state.carsList.forEach((car: Car) => carsList?.insertAdjacentHTML('beforeend', renderCar(car)));
+      renderCarsList(state.carsList);
     }
   });
 })

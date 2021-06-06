@@ -1,5 +1,6 @@
 import { createCarFormRender } from "./forms/create-car-form";
 import { updateCarFormRender } from "./forms/update-car-form";
+import { renderCar } from "./car/car";
 
 export const renderGaragePage = ():void => {
   const html = (`
@@ -22,4 +23,14 @@ export const renderGaragePage = ():void => {
   `);
 
   document.getElementById('main')?.insertAdjacentHTML('beforeend', html);
+}
+
+export const renderCarsList = (carsList: Array<Car>):void => {
+  const carsListElement = document.getElementById('carsList');
+
+  if(carsListElement) {
+    carsListElement.innerHTML = '';
+  }
+
+  carsList.forEach((car: Car) => carsListElement?.insertAdjacentHTML('beforeend', renderCar(car)));
 }
