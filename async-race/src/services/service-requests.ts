@@ -22,3 +22,14 @@ export const postNewCar = async (car: Car):Promise<void> => {
     alert('Error creating the car. Please, try again');
   }
 };
+
+export const deleteCar = async (id:number, deleteCarAction: CallableFunction):Promise<void> => {
+  try {
+    await (await fetch(`${SERVER_ADDRESS}/garage/${id}`, {
+      method: 'DELETE',
+    }));
+    deleteCarAction(id);
+  } catch(error) {
+    alert('Error deleting the car. Please, try again');
+  }
+};

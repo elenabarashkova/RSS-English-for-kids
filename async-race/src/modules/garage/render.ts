@@ -1,6 +1,6 @@
 import { createCarFormRender } from "./forms/create-car-form";
 import { updateCarFormRender } from "./forms/update-car-form";
-import { renderCar } from "./car/car";
+import { renderCar } from "./car/render";
 
 export const renderGaragePage = ():void => {
   const html = (`
