@@ -1,7 +1,7 @@
 const carIcon = require("../../../assets/car-icon.svg");
 const finishIcon = require("../../../assets/finish-icon.png")
 
-export const renderCar = ({name, color}:Car):string => (`
+export const renderCar = ({name, color, id}:Car):string => (`
   <div class="car-item">
     <div class="car-header">
       <button id="carSelect">Select</button>
@@ -13,7 +13,7 @@ export const renderCar = ({name, color}:Car):string => (`
         <button id="carNavA">A</button>
         <button id="carNavB">B</button>
       </div>
-      <div class="car" style="color: ${color}">
+      <div id=${id} class="car" style="color: ${color}">
         ${carIcon}
       </div>
       <div id="finishLine" class="finish-line">
