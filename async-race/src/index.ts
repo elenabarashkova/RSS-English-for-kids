@@ -12,13 +12,13 @@ window.addEventListener('load', () => {
   const store = createStore(rootReducer, initialState);
   let state = store.getState();
 
-  const actions = {
+  const actions:Actions = {
     setCarsListAction: setCarsList(store),
     createCarAction: createCar(store),
   }
 
-  initCommonPageTemplate(actions.setCarsListAction, actions.createCarAction);
-  startRouting(actions.setCarsListAction, actions.createCarAction);
+  initCommonPageTemplate(actions);
+  startRouting(actions);
 
   store.subscribe((prevState:Record<string, string>):void => {
     state = store.getState();

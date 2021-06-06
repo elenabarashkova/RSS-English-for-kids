@@ -14,7 +14,7 @@ export const getHeader = ():string => {
   `);
 }
 
-export const startRouting = (setCarsListAction: CallableFunction, createCarAction:CallableFunction):void => {
+export const startRouting = (actions: Actions):void => {
   const header = document.getElementById('header');
 
   header?.addEventListener('click', (event:Event) => {
@@ -32,7 +32,7 @@ export const startRouting = (setCarsListAction: CallableFunction, createCarActio
         main.innerHTML = '';
       }
 
-      PAGES_CONFIG[target.id].start(setCarsListAction, createCarAction);
+      PAGES_CONFIG[target.id].start(actions);
     }
   });
 }

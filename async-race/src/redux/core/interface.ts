@@ -4,7 +4,7 @@ interface Store {
   getState: CallableFunction,
 }
 
-interface ActionType<PayloadType> {
-  type: string,
-  payload: PayloadType,
+interface Actions {
+  setCarsListAction: CallableFunction,
+  createCarAction: CallableFunction,
 }
