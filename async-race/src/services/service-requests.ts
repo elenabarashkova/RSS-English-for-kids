@@ -33,3 +33,18 @@ export const deleteCar = async (id:number, deleteCarAction: CallableFunction):Pr
     alert('Error deleting the car. Please, try again');
   }
 };
+
+export const updateCar1 = async (id:number, car: Car, updateCarAction: CallableFunction):Promise<void> => {
+  try {
+    const response = await (await fetch(`${SERVER_ADDRESS}/garage/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({name: car.name, color: car.color}),
+    })).json();
+    updateCarAction(car);
+  } catch(error) {
+    alert('Error updating the car. Please, try again');
+  }
+}

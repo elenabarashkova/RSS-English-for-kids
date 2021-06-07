@@ -1,9 +1,38 @@
+import { updateCar1 } from "../../../services/service-requests";
+
 export const updateCarFormRender = ():string => (`
   <form id="updateCarForm">
-    <input type="text" name="updateCar" id="updateCar">
-    <input type="color" name="updateCarColor" id="updateCarColor">
-    <button id="submitUpdateCar" type="submit">Update</button>
+    <input type="text" id="updateCarName" disabled>
+    <input type="color" id="updateCarColor" disabled>
+    <button id="updateCarBtn" type="submit" disabled>Update</button>
   </form>
 `)
 
-// updateCarFormBehavior
+export const updateCarFormBehavior = (targetCar: HTMLElement, targetCarItemId:number, updateCarAction: CallableFunction) => {
+  const updateCarName = document.getElementById('updateCarName') as HTMLInputElement;
+  const updateCarColor = document.getElementById('updateCarColor') as HTMLInputElement;
+  const updateCarForm = document.getElementById('updateCarForm') as HTMLFormElement;
+
+  [...updateCarForm.children].forEach((elem) => elem.removeAttribute('disabled'));
+
+  updateCarName.value = targetCar.dataset.name as string;
+  updateCarColor.value = targetCar.dataset.color as string;
+
+  const updateCarHandler = (event: Event) => {
+    event.preventDefault();
+
+    const updatedCar = {
+      name: updateCarName.value,
+      color: updateCarColor.value,
+      id: targetCarItemId,
+    }
+
+    updateCar1(targetCarItemId, updatedCar, updateCarAction);
+
+    updateCarForm.reset();
+    updateCarForm?.removeEventListener('submit', updateCarHandler);
+  }
+
+  updateCarForm?.addEventListener('submit', updateCarHandler);
+
+}

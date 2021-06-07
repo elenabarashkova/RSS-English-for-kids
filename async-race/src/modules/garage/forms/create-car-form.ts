@@ -13,7 +13,7 @@ export const createCarFormBehavior = ():void => {
   const newCarColor = document.getElementById('newCarColor') as HTMLInputElement;
   const createNewCarForm = document.getElementById('createNewCar') as HTMLFormElement;
 
-  createNewCarForm?.addEventListener('submit', async (event: Event) => {
+  createNewCarForm?.addEventListener('submit',  (event: Event) => {
     event.preventDefault();
 
     const newCar = {

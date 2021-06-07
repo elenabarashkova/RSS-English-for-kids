@@ -1,6 +1,7 @@
 import "./style.css";
 import store from "./redux/core/store";
 import { initCommonPageTemplate } from "./modules";
+import { createCar, deleteCar, setCarsList, updateCar } from "./redux/actions";
 import { renderCarsList } from "./modules/garage/render";
 import { startRouting } from "./modules/header";
 

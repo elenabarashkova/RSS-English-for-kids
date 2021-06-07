@@ -1,5 +1,5 @@
 import store from "./core/store";
-import { CREATE_CAR, DELETE_CAR, SET_CARS_LIST } from "./types";
+import { CREATE_CAR, DELETE_CAR, SET_CARS_LIST, UPDATE_CAR } from "./types";
 
 export const createCar = (newCar: Car):void => {
   store.dispatch({
@@ -19,5 +19,12 @@ export const deleteCar = (carId: number):void => {
     store.dispatch({
       type: DELETE_CAR,
       payload: carId,
+    });
+  }
+
+export const updateCar = (updatedCar: Car):void => {
+    store.dispatch({
+      type: UPDATE_CAR,
+      payload: updatedCar,
     });
   }
