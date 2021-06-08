@@ -10,7 +10,7 @@ const renderCommonPageTemplate = ():void => {
   document.body.insertAdjacentHTML('beforeend', getMain());
 }
 
-const startDefaultPage = (actions: Actions) => {
+const startDefaultPage = () => {
   document.getElementById(DEFAULT_PAGE)?.classList.add('active');
 
   const main = document.getElementById('main');
@@ -19,10 +19,10 @@ const startDefaultPage = (actions: Actions) => {
     main.innerHTML = '';
   }
 
-  PAGES_CONFIG[DEFAULT_PAGE].start(actions);
+  PAGES_CONFIG[DEFAULT_PAGE].start();
 }
 
-export const initCommonPageTemplate = (actions: Actions):void => {
+export const initCommonPageTemplate = ():void => {
   renderCommonPageTemplate();
-  startDefaultPage(actions);
+  startDefaultPage();
 }

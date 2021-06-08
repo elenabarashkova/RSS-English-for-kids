@@ -25,7 +25,7 @@ export const renderGaragePage = ():void => {
   document.getElementById('main')?.insertAdjacentHTML('beforeend', html);
 }
 
-export const renderCarsList = (carsList: Array<Car>):void => {
+export const renderCarsList = (carsList: CarsList):void => {
   const carsListElement = document.getElementById('carsList');
 
   if(carsListElement) {

@@ -4,7 +4,7 @@ interface Store {
   getState: CallableFunction,
 }
 
-interface Actions {
-  setCarsListAction: CallableFunction,
-  createCarAction: CallableFunction,
+interface State {
+  currentPage: string,
+  carsList: CarsList,
 }

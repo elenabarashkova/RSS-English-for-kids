@@ -3,3 +3,5 @@ interface Car {
   color: string,
   id?: number,
 }
+
+interface CarsList extends Array<Car> {}

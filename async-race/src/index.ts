@@ -1,26 +1,17 @@
 import "./style.css";
-import { createStore } from "./redux/core/create-store";
-import { rootReducer } from "./redux/root-reducer";
-import { initialState } from "./redux/initial";
+import store from "./redux/core/store";
 import { initCommonPageTemplate } from "./modules";
-import { createCar, setCarsList } from "./redux/actions";
 import { renderCarsList } from "./modules/garage/render";
 import { startRouting } from "./modules/header";
 
-window.addEventListener('load', () => {
 
-  const store = createStore(rootReducer, initialState);
+window.addEventListener('load', () => {
   let state = store.getState();
 
-  const actions:Actions = {
-    setCarsListAction: setCarsList(store),
-    createCarAction: createCar(store),
-  }
+  initCommonPageTemplate();
+  startRouting();
 
-  initCommonPageTemplate(actions);
-  startRouting(actions);
-
-  store.subscribe((prevState:Record<string, string>):void => {
+  store.subscribe((prevState:State):void => {
     state = store.getState();
 
     if(prevState.carsList !== state.carsList) {

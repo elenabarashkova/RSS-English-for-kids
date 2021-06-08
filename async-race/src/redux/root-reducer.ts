@@ -1,6 +1,6 @@
 import { CREATE_CAR, SET_CARS_LIST } from "./types";
 
-export const rootReducer = (state:Record<string, string>, action:Record<string, string>) => {
+export const rootReducer = (state:State, action:Record<string, string>) => {
   if(action.type === CREATE_CAR) {
     return {
       ...state,

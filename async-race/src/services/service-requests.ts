@@ -1,20 +1,23 @@
 import { SERVER_ADDRESS } from "./constants";
+import { createCar, setCarsList } from "../redux/actions";
 
-export const getCars = async (setCarsListAction:CallableFunction):Promise<void> => {
-  const response = await (await fetch(`${SERVER_ADDRESS}/garage`)).json();
-  setCarsListAction(response);
+export const getCars = async ():Promise<void> => {
+  const response = await fetch(`${SERVER_ADDRESS}/garage`);
+  const result = await response.json();
+  setCarsList(result);
 };
 
-export const postNewCar = async (car: Car, createCarAction: CallableFunction):Promise<void> => {
+export const postNewCar = async (car: Car):Promise<void> => {
   try {
-    const response = await (await fetch(`${SERVER_ADDRESS}/garage`, {
+    const response = await fetch(`${SERVER_ADDRESS}/garage`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(car),
-    })).json();
-    createCarAction(response);
+    });
+    const result = await response.json();
+    createCar(result);
   } catch(error) {
     alert('Error creating the car. Please, try again');
   }

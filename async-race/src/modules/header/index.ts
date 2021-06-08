@@ -14,7 +14,7 @@ export const getHeader = ():string => {
   `);
 }
 
-export const startRouting = (actions: Actions):void => {
+export const startRouting = ():void => {
   const header = document.getElementById('header');
 
   header?.addEventListener('click', (event:Event) => {
@@ -32,7 +32,7 @@ export const startRouting = (actions: Actions):void => {
         main.innerHTML = '';
       }
 
-      PAGES_CONFIG[target.id].start(actions);
+      PAGES_CONFIG[target.id].start();
     }
   });
 }

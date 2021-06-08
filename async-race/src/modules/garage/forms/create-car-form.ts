@@ -8,7 +8,7 @@ export const createCarFormRender = ():string => (`
   </form>
 `)
 
-export const createCarFormBehavior = (createCarAction:CallableFunction):void => {
+export const createCarFormBehavior = ():void => {
   const newCarName = document.getElementById('newCarName') as HTMLInputElement;
   const newCarColor = document.getElementById('newCarColor') as HTMLInputElement;
   const createNewCarForm = document.getElementById('createNewCar') as HTMLFormElement;
@@ -21,7 +21,7 @@ export const createCarFormBehavior = (createCarAction:CallableFunction):void => 
       color: newCarColor.value,
     };
 
-    postNewCar(newCar, createCarAction);
+    postNewCar(newCar);
 
     createNewCarForm.reset();
   });
