@@ -1,32 +1,17 @@
-import {carBtnsClasses} from "./constants";
 import { deleteCar } from "../../../services/service-requests";
-import { updateCarFormBehavior } from "../forms/update-car-form";
-
-const removeCar = (targetCarItemId: number):void => {
-  deleteCar(targetCarItemId);
-}
-
-const selectCar = (targetCar: HTMLElement, targetCarItemId:number):void => {
-  updateCarFormBehavior(targetCar, targetCarItemId);
-}
+import { selectCar } from "./select-car";
 
 export const carBehavior = ():void => {
-  const carsList = document.getElementById('carsList');
+  const carRemoveBtns = document.getElementsByClassName('car-remove');
+  const carSelectBtns = document.getElementsByClassName('car-select');
 
-  carsList?.addEventListener('click', (event:Event) => {
-    const target = event.target as HTMLElement;
-    const targetCarItem = target?.closest(".car-item");
-    const targetCarItemId = parseInt(targetCarItem?.id as string, 10);
+  [...carRemoveBtns].forEach(btn => btn.addEventListener('click', (event: Event) => {
+    const targetId = (event.target as HTMLElement).dataset.id;
 
-    const carRemoveBtnClass = carBtnsClasses.carRemove;
-    const carSelectBtnClass = carBtnsClasses.carSelect;
+    deleteCar((parseInt(targetId as string, 10)));
+  }));
 
-    if(target.classList.contains(carRemoveBtnClass)) {
-      removeCar(targetCarItemId);
-    }
-
-    if(target.classList.contains(carSelectBtnClass)) {
-      selectCar(targetCarItem as HTMLElement, targetCarItemId);
-    }
-  })
+  [...carSelectBtns].forEach(btn => btn.addEventListener('click', (event: Event) => {
+    selectCar((event.target as HTMLElement).dataset.id as string);
+  }));
 }

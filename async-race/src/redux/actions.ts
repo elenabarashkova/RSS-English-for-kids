@@ -1,5 +1,5 @@
 import store from "./core/store";
-import { CREATE_CAR, DELETE_CAR, SET_CARS_LIST, UPDATE_CAR } from "./types";
+import { CREATE_CAR, DELETE_CAR, SELECT_CARS, SET_CARS_LIST } from "./action-types";
 
 export const createCar = (newCar: Car):void => {
   store.dispatch({
@@ -22,9 +22,9 @@ export const deleteCarAction = (carId: number):void => {
   });
 }
 
-export const updateCarAction = (updatedCar: Car):void => {
+export const selectCarAction = (carId: number):void => {
   store.dispatch({
-    type: UPDATE_CAR,
-    payload: updatedCar,
-  });
+    type: SELECT_CARS,
+    payload: carId,
+  })
 }

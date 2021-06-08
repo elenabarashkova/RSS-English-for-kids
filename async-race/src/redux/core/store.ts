@@ -1,6 +1,6 @@
 import { createStore } from "./create-store";
 import { rootReducer } from "../root-reducer";
-import { initialState } from "../initial";
+import { initialState } from "../initial-state";
 
 const store = createStore(rootReducer, initialState);
 

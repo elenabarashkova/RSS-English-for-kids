@@ -1,4 +1,4 @@
-import { updateCar1 } from "../../../services/service-requests";
+import { updateCar } from "../../../services/service-requests";
 
 export const updateCarFormRender = ():string => (`
   <form id="updateCarForm">
@@ -8,30 +8,22 @@ export const updateCarFormRender = ():string => (`
   </form>
 `)
 
-export const updateCarFormBehavior = (targetCar: HTMLElement, targetCarItemId:number):void => {
+export const updateCarFormBehavior = ():void => {
+  const updateCarForm = document.getElementById('updateCarForm') as HTMLFormElement;
   const updateCarName = document.getElementById('updateCarName') as HTMLInputElement;
   const updateCarColor = document.getElementById('updateCarColor') as HTMLInputElement;
-  const updateCarForm = document.getElementById('updateCarForm') as HTMLFormElement;
 
-  [...updateCarForm.children].forEach((elem) => elem.removeAttribute('disabled'));
-
-  updateCarName.value = targetCar.dataset.name as string;
-  updateCarColor.value = targetCar.dataset.color as string;
-
-  const updateCarHandler = (event: Event) => {
+  updateCarForm?.addEventListener('submit', (event: Event) => {
     event.preventDefault();
 
     const updatedCar = {
       name: updateCarName.value,
       color: updateCarColor.value,
-      id: targetCarItemId,
     }
 
-    updateCar1(targetCarItemId, updatedCar);
+    updateCar(updatedCar);
 
     updateCarForm.reset();
-    updateCarForm?.removeEventListener('submit', updateCarHandler);
-  }
-
-  updateCarForm?.addEventListener('submit', updateCarHandler);
+    [...updateCarForm.children].forEach((elem) => elem.setAttribute('disabled', ''));
+  });
 }

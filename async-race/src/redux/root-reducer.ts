@@ -1,10 +1,10 @@
-import { CREATE_CAR, DELETE_CAR, SET_CARS_LIST, UPDATE_CAR } from "./types";
+import { CREATE_CAR, DELETE_CAR, SELECT_CARS, SET_CARS_LIST } from "./action-types";
 
 export const rootReducer = (state:State, action:Record<string, string | number | Car>) => {
   if(action.type === CREATE_CAR) {
     return {
       ...state,
-      carsList: [action.payload, ...state.carsList],
+      carsList: [...state.carsList, action.payload],
     }
   }
 
@@ -22,16 +22,10 @@ export const rootReducer = (state:State, action:Record<string, string | number |
     }
   }
 
-  if(action.type === UPDATE_CAR) {
+  if(action.type === SELECT_CARS) {
     return {
       ...state,
-      carsList: state.carsList.map((car) => {
-        if(car.id === (action.payload as Car).id ) {
-          car.name = (action.payload as Car).name;
-          car.color = (action.payload as Car).color;
-        }
-        return car;
-      }),
+      selectedCar: action.payload,
     }
   }
 
