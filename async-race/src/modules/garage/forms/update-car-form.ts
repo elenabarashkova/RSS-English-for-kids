@@ -8,7 +8,7 @@ export const updateCarFormRender = ():string => (`
   </form>
 `)
 
-export const updateCarFormBehavior = (targetCar: HTMLElement, targetCarItemId:number, updateCarAction: CallableFunction) => {
+export const updateCarFormBehavior = (targetCar: HTMLElement, targetCarItemId:number):void => {
   const updateCarName = document.getElementById('updateCarName') as HTMLInputElement;
   const updateCarColor = document.getElementById('updateCarColor') as HTMLInputElement;
   const updateCarForm = document.getElementById('updateCarForm') as HTMLFormElement;
@@ -27,12 +27,11 @@ export const updateCarFormBehavior = (targetCar: HTMLElement, targetCarItemId:nu
       id: targetCarItemId,
     }
 
-    updateCar1(targetCarItemId, updatedCar, updateCarAction);
+    updateCar1(targetCarItemId, updatedCar);
 
     updateCarForm.reset();
     updateCarForm?.removeEventListener('submit', updateCarHandler);
   }
 
   updateCarForm?.addEventListener('submit', updateCarHandler);
-
 }

@@ -15,16 +15,16 @@ export const setCarsList = (carsList: CarsList):void => {
   });
 }
 
-export const deleteCar = (carId: number):void => {
-    store.dispatch({
-      type: DELETE_CAR,
-      payload: carId,
-    });
-  }
+export const deleteCarAction = (carId: number):void => {
+  store.dispatch({
+    type: DELETE_CAR,
+    payload: carId,
+  });
+}
 
-export const updateCar = (updatedCar: Car):void => {
-    store.dispatch({
-      type: UPDATE_CAR,
-      payload: updatedCar,
-    });
-  }
+export const updateCarAction = (updatedCar: Car):void => {
+  store.dispatch({
+    type: UPDATE_CAR,
+    payload: updatedCar,
+  });
+}

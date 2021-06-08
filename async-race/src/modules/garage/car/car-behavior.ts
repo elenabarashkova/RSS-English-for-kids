@@ -1,16 +1,16 @@
 import {carBtnsClasses} from "./constants";
-import { deleteCar, updateCar1 } from "../../../services/service-requests";
+import { deleteCar } from "../../../services/service-requests";
 import { updateCarFormBehavior } from "../forms/update-car-form";
 
-const removeCar = (targetCarItemId: number, deleteCarAction:CallableFunction):void => {
-  deleteCar(targetCarItemId, deleteCarAction);
+const removeCar = (targetCarItemId: number):void => {
+  deleteCar(targetCarItemId);
 }
 
-const selectCar = (targetCar: HTMLElement, targetCarItemId:number, updateCarAction: CallableFunction):void => {
-  updateCarFormBehavior(targetCar, targetCarItemId, updateCarAction);
+const selectCar = (targetCar: HTMLElement, targetCarItemId:number):void => {
+  updateCarFormBehavior(targetCar, targetCarItemId);
 }
 
-export const carBehavior = (deleteCarAction:CallableFunction, updateCarAction: CallableFunction):void => {
+export const carBehavior = ():void => {
   const carsList = document.getElementById('carsList');
 
   carsList?.addEventListener('click', (event:Event) => {
@@ -22,11 +22,11 @@ export const carBehavior = (deleteCarAction:CallableFunction, updateCarAction: C
     const carSelectBtnClass = carBtnsClasses.carSelect;
 
     if(target.classList.contains(carRemoveBtnClass)) {
-      removeCar(targetCarItemId, deleteCarAction);
+      removeCar(targetCarItemId);
     }
 
     if(target.classList.contains(carSelectBtnClass)) {
-      selectCar(targetCarItem as HTMLElement, targetCarItemId, updateCarAction);
+      selectCar(targetCarItem as HTMLElement, targetCarItemId);
     }
   })
 }

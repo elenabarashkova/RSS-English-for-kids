@@ -1,5 +1,5 @@
 import { SERVER_ADDRESS } from "./constants";
-import { createCar, setCarsList } from "../redux/actions";
+import { createCar, setCarsList, deleteCarAction, updateCarAction } from "../redux/actions";
 
 export const getCars = async ():Promise<void> => {
   const response = await fetch(`${SERVER_ADDRESS}/garage`);
@@ -23,7 +23,7 @@ export const postNewCar = async (car: Car):Promise<void> => {
   }
 };
 
-export const deleteCar = async (id:number, deleteCarAction: CallableFunction):Promise<void> => {
+export const deleteCar = async (id:number):Promise<void> => {
   try {
     await (await fetch(`${SERVER_ADDRESS}/garage/${id}`, {
       method: 'DELETE',
@@ -34,9 +34,9 @@ export const deleteCar = async (id:number, deleteCarAction: CallableFunction):Pr
   }
 };
 
-export const updateCar1 = async (id:number, car: Car, updateCarAction: CallableFunction):Promise<void> => {
+export const updateCar1 = async (id:number, car: Car):Promise<void> => {
   try {
-    const response = await (await fetch(`${SERVER_ADDRESS}/garage/${id}`, {
+    await (await fetch(`${SERVER_ADDRESS}/garage/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
