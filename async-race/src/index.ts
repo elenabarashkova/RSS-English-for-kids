@@ -1,9 +1,8 @@
 import "./style.css";
 import store from "./redux/core/store";
 import { initCommonPageTemplate } from "./modules";
-import { renderCarsList } from "./modules/garage/render";
 import { startRouting } from "./modules/header";
-import { carBehavior } from "./modules/garage/car/car-behavior";
+import { onCarsListUpdate } from "./modules/garage";
 
 window.addEventListener('load', () => {
   let state = store.getState();
@@ -15,8 +14,7 @@ window.addEventListener('load', () => {
     state = store.getState();
 
     if(prevState.carsList !== state.carsList) {
-      renderCarsList(state.carsList);
-      carBehavior();
+      onCarsListUpdate(state.carsList);
     }
   });
 })

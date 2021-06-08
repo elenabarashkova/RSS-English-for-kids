@@ -15,7 +15,7 @@ export const renderGaragePage = ():void => {
         </div>
       </div>
       <div class="garage-area">
-        <h2>Garage (Number)</h2>
+        <h2>Garage (<span id="garageLength"></span>)</h2>
         <div class="page-number">Page Number</div>
         <div id="carsList" class="garage-area-inner"></div>
       </div>
@@ -33,4 +33,12 @@ export const renderCarsList = (carsList: CarsList):void => {
   }
 
   carsList.forEach((car: Car) => carsListElement?.insertAdjacentHTML('beforeend', renderCar(car)));
+}
+
+export const insertCarsCount = (carsListLength: number):void => {
+  const garageLength = document.getElementById('garageLength');
+
+  if(garageLength) {
+    garageLength.innerText = `${carsListLength}`;
+  }
 }
