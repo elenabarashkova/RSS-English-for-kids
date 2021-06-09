@@ -14,7 +14,7 @@ window.addEventListener('load', () => {
     state = store.getState();
 
     if(prevState.carsList !== state.carsList) {
-      onCarsListUpdate(state.carsList);
+      onCarsListUpdate(state.carsList, state.totalCars);
     }
   });
 })

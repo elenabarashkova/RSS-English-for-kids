@@ -8,10 +8,10 @@ export const createCar = (newCar: Car):void => {
   });
 }
 
-export const setCarsList = (carsList: CarsList):void => {
+export const setCarsList = (carsList: CarsList, total: number):void => {
   store.dispatch({
     type: SET_CARS_LIST,
-    payload: carsList,
+    payload: {carsList, total},
   });
 }
 

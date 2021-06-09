@@ -1,6 +1,6 @@
 import { CREATE_CAR, DELETE_CAR, SELECT_CARS, SET_CARS_LIST } from "./action-types";
 
-export const rootReducer = (state:State, action:Record<string, string | number | Car>) => {
+export const rootReducer = (state:State, action:any) => {
   if(action.type === CREATE_CAR) {
     return {
       ...state,
@@ -11,7 +11,8 @@ export const rootReducer = (state:State, action:Record<string, string | number |
   if(action.type === SET_CARS_LIST) {
     return {
       ...state,
-      carsList: action.payload,
+      carsList: action.payload.carsList,
+      totalCars: action.payload.total,
     }
   }
 

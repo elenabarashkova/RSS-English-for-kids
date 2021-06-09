@@ -3,11 +3,12 @@ import { createCar, setCarsList, deleteCarAction } from "../redux/actions";
 import store from "../redux/core/store";
 
 export const getCars = async ():Promise<void> => {
-  const response = await fetch(`${SERVER_ADDRESS}/garage`);
+  const response = await fetch(`${SERVER_ADDRESS}/garage?_page=${store.getState().pageNumber}&_limit=7`);
+  const total = parseInt(response.headers.get('X-Total-Count') as string, 10);
 
   const result = await response.json();
 
-  setCarsList(result);
+  setCarsList(result, total);
 };
 
 export const postNewCar = async (car: Car):Promise<void> => {

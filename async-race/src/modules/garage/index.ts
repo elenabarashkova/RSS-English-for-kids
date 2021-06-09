@@ -12,8 +12,8 @@ export const startGaragePage = ():void => {
   updateCarFormBehavior();
 }
 
-export const onCarsListUpdate = (stateCarsList: CarsList):void => {
+export const onCarsListUpdate = (stateCarsList: CarsList, stateTotalCars: number):void => {
   renderCarsList(stateCarsList);
   carBehavior();
-  insertCarsCount(stateCarsList.length);
+  insertCarsCount(stateTotalCars);
 }
