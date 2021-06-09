@@ -18,6 +18,8 @@ export const renderGaragePage = ():void => {
         <h2>Garage (<span id="garageLength"></span>)</h2>
         <div class="page-number">Page Number</div>
         <div id="carsList" class="garage-area-inner"></div>
+        <button id="prevPage">Previous</button>
+        <button id="nextPage">Next</button>
       </div>
     </div>
   `);

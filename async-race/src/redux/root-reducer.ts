@@ -1,4 +1,4 @@
-import { CREATE_CAR, DELETE_CAR, SELECT_CARS, SET_CARS_LIST } from "./action-types";
+import { CHANGE_PAGE_NUMBER, CREATE_CAR, DELETE_CAR, SELECT_CARS, SET_CARS_LIST } from "./action-types";
 
 export const rootReducer = (state:State, action:any) => {
   if(action.type === CREATE_CAR) {
@@ -27,6 +27,22 @@ export const rootReducer = (state:State, action:any) => {
     return {
       ...state,
       selectedCar: action.payload,
+    }
+  }
+
+  if(action.type === CHANGE_PAGE_NUMBER) {
+    let newPageNumber = state.pageNumber + action.payload;
+    if (newPageNumber < 1) {
+      newPageNumber = 1;
+    }
+
+    const maxPageNumber = Math.ceil(state.totalCars/7);
+    if (newPageNumber > maxPageNumber) {
+      newPageNumber = maxPageNumber;
+    }
+    return {
+      ...state,
+      pageNumber: newPageNumber,
     }
   }
 
