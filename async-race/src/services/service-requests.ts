@@ -25,6 +25,7 @@ export const postNewCar = async (car: Car):Promise<void> => {
     const result = await response.json();
 
     createCar(result);
+
   } catch(error) {
     alert('Error creating the car. Please, try again');
   }
@@ -56,6 +57,7 @@ export const updateCar = async (car: Car):Promise<void> => {
     })).json();
 
     getCars();
+
   } catch(error) {
     alert('Error updating the car. Please, try again');
   }
@@ -85,6 +87,7 @@ export const stopCar = async (id:number):Promise<void> => {
     await fetch(`${SERVER_ADDRESS}/engine?id=${id}&status=stopped`);
 
     stopCarAction(id);
+
   } catch(error) {
     alert('Error stopping the car. Please, try again');
   }

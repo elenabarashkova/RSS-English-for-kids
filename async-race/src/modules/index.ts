@@ -13,11 +13,7 @@ const renderCommonPageTemplate = ():void => {
 const startDefaultPage = () => {
   document.getElementById(DEFAULT_PAGE)?.classList.add('active');
 
-  const main = document.getElementById('main');
-
-  if(main) {
-    main.innerHTML = '';
-  }
+  (document.getElementById('main') as HTMLElement).innerHTML = '';
 
   PAGES_CONFIG[DEFAULT_PAGE].start();
 }

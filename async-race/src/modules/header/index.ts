@@ -20,17 +20,13 @@ export const startRouting = ():void => {
   header?.addEventListener('click', (event:Event) => {
     const target = event.target as HTMLElement;
 
-    if(target.parentElement === header) {
+    if (target.parentElement === header) {
       [...(header?.getElementsByTagName('button') as HTMLCollection)]
         .map(btn => btn.classList.remove('active'));
 
       target.classList.add('active');
 
-      const main = document.getElementById('main');
-
-      if(main) {
-        main.innerHTML = '';
-      }
+      (document.getElementById('main') as HTMLElement).innerHTML = '';
 
       PAGES_CONFIG[target.id].start();
     }

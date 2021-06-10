@@ -6,18 +6,14 @@ export const startCarAnimation = (startedCar: StartedCar):void => {
   car.style.animationDuration = `${startedCar.duration}s`;
   car.style.animationPlayState = 'running';
 
-  const startBtn = carContainer.querySelector('.car-nav-a') as HTMLElement;
-  const stopBtn = carContainer.querySelector('.car-nav-b') as HTMLElement;
-
-  startBtn.setAttribute('disabled', '');
-  stopBtn.removeAttribute('disabled');
+  (carContainer.querySelector('.car-nav-a') as HTMLElement).setAttribute('disabled', '');
+  (carContainer.querySelector('.car-nav-b') as HTMLElement).removeAttribute('disabled');
 }
 
 export const stopCarAnimation = (id: number):void => {
   const carContainer = document.getElementById(`${id}`) as HTMLElement;
-  const car = carContainer.querySelector(`.car`) as HTMLElement;
 
-  car.style.animationPlayState = 'paused';
+  (carContainer.querySelector(`.car`) as HTMLElement).style.animationPlayState = 'paused';
 }
 
 export const stopCarEngine = (id: number):void => {
@@ -28,9 +24,6 @@ export const stopCarEngine = (id: number):void => {
   car.style.animationDuration = '';
   car.style.animationPlayState = '';
 
-  const startBtn = carContainer.querySelector('.car-nav-a') as HTMLElement;
-  const stopBtn = carContainer.querySelector('.car-nav-b') as HTMLElement;
-
-  stopBtn.setAttribute('disabled', '');
-  startBtn.removeAttribute('disabled');
+  (carContainer.querySelector('.car-nav-b') as HTMLElement).setAttribute('disabled', '');
+  (carContainer.querySelector('.car-nav-a') as HTMLElement).removeAttribute('disabled');
 }

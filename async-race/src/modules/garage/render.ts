@@ -36,13 +36,9 @@ export const renderCarsList = (carsList: CarsList):void => {
 }
 
 export const insertCarsCount = (carsListLength: number):void => {
-  const garageLength = document.getElementById('garageLength') as HTMLElement;
-
-  garageLength.innerText = `${carsListLength}`;
+  (document.getElementById('garageLength') as HTMLElement).innerText = `${carsListLength}`;
 }
 
 export const insertPageNumber = (pageNumber: number):void => {
-  const garageLength = document.getElementById('pageNum') as HTMLElement;
-
-  garageLength.innerText = `${pageNumber}`;
+  (document.getElementById('pageNum') as HTMLElement).innerText = `${pageNumber}`;
 }
