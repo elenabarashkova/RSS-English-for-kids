@@ -14,7 +14,7 @@ export const stopCarAnimation = (id: number):void => {
   car.style.animationPlayState = 'paused';
 }
 
-export const stopCarEngine = (id: number) => {
+export const stopCarEngine = (id: number):void => {
   const carContainer = document.getElementById(`${id}`) as HTMLElement;
   const car = carContainer.querySelector(`.car`) as HTMLElement;
 

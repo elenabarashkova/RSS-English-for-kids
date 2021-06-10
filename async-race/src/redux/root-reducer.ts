@@ -8,19 +8,19 @@ import {
   STOP_CAR
 } from "./action-types";
 
-export const rootReducer = (state:State, action:any) => {
+export const rootReducer = (state:State, action: Action): State => {
   if(action.type === CREATE_CAR) {
     return {
       ...state,
-      carsList: [...state.carsList, action.payload],
+      carsList: [...state.carsList, action.payload as Car],
     }
   }
 
   if(action.type === SET_CARS_LIST) {
     return {
       ...state,
-      carsList: action.payload.carsList,
-      totalCars: action.payload.total,
+      carsList: (action.payload as SetCarsListPayload).carsList,
+      totalCars: (action.payload as SetCarsListPayload).total,
     }
   }
 
@@ -34,12 +34,12 @@ export const rootReducer = (state:State, action:any) => {
   if(action.type === SELECT_CARS) {
     return {
       ...state,
-      selectedCar: action.payload,
+      selectedCar: action.payload as string,
     }
   }
 
   if(action.type === CHANGE_PAGE_NUMBER) {
-    let newPageNumber = state.pageNumber + action.payload;
+    let newPageNumber = state.pageNumber + (action.payload as number);
     if (newPageNumber < 1) {
       newPageNumber = 1;
     }
@@ -57,7 +57,7 @@ export const rootReducer = (state:State, action:any) => {
   if(action.type === START_CAR) {
     return {
       ...state,
-      startedCarsList: [...state.startedCarsList, action.payload],
+      startedCarsList: [...state.startedCarsList, action.payload as StartedCar],
     }
   }
 

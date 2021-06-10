@@ -12,3 +12,15 @@ interface State {
   pageNumber: number,
   startedCarsList: StartedCarsList,
 }
+
+interface SetCarsListPayload {
+  carsList: CarsList,
+  total: number,
+}
+
+type Payload = number | Car | CarsList | SetCarsListPayload | StartedCar | string;
+
+interface Action {
+  type: string,
+  payload: Payload,
+}

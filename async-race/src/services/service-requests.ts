@@ -1,7 +1,7 @@
 import { SERVER_ADDRESS } from "./constants";
 import { createCar, setCarsList, deleteCarAction, startCarAction, stopCarAction } from "../redux/actions";
 import store from "../redux/core/store";
-import { stopCarAnimation, stopCarEngine } from "../modules/garage/car/car-animation";
+import { stopCarAnimation } from "../modules/garage/car/car-animation";
 
 export const getCars = async ():Promise<void> => {
   const response = await fetch(`${SERVER_ADDRESS}/garage?_page=${store.getState().pageNumber}&_limit=7`);

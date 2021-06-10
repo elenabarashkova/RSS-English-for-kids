@@ -34,26 +34,26 @@ export const selectCarAction = (carId: number):void => {
   store.dispatch({
     type: SELECT_CARS,
     payload: carId,
-  })
+  });
 }
 
 export const changePageNumber = (result: number):void => {
   store.dispatch({
     type: CHANGE_PAGE_NUMBER,
     payload: result,
-  })
+  });
 }
 
 export const startCarAction = (id: number, duration: number):void => {
   store.dispatch({
     type: START_CAR,
     payload: {id, duration},
-  })
+  });
 }
 
 export const stopCarAction = (id: number):void => {
   store.dispatch({
     type: STOP_CAR,
     payload: id,
-  })
+  });
 }
