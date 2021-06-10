@@ -1,6 +1,7 @@
 import { SERVER_ADDRESS } from "./constants";
 import { createCar, setCarsList, deleteCarAction, startCarAction } from "../redux/actions";
 import store from "../redux/core/store";
+import { stopCarAnimation } from "../modules/garage/car/car-animation";
 
 export const getCars = async ():Promise<void> => {
   const response = await fetch(`${SERVER_ADDRESS}/garage?_page=${store.getState().pageNumber}&_limit=7`);
@@ -67,7 +68,14 @@ export const startCar = async (id:number):Promise<void> => {
     const duration = Math.round(distance / velocity) / 1000;
 
     startCarAction(id, duration);
+
+    const driveResponse = await fetch(`${SERVER_ADDRESS}/engine?id=${id}&status=drive`);
+
+    if (!driveResponse.ok) {
+      stopCarAnimation(id);
+    }
+
   } catch(error) {
-    alert('Error deleting the car. Please, try again');
+    alert('Error starting the car. Please, try again');
   }
 }
