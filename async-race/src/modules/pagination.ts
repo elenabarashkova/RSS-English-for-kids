@@ -1,6 +1,6 @@
 import { changePageNumber } from "../redux/actions";
 
-export const pagination = () => {
+export const pagination = ():void => {
   const prevPage = document.getElementById('prevPage');
   const nextPage = document.getElementById('nextPage');
 
@@ -13,11 +13,11 @@ export const pagination = () => {
   })
 }
 
-export const disablePagination = (pageNumber: number, maxPageNumber: number) => {
+export const disablePagination = (pageNumber: number, maxPageNumber: number):void => {
   const prevPage = document.getElementById('prevPage') as HTMLButtonElement;
 
   if (pageNumber === 1) {
-  prevPage.setAttribute('disabled', '');
+    prevPage.setAttribute('disabled', '');
   } else {
     prevPage.removeAttribute('disabled');
   }
