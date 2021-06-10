@@ -1,5 +1,5 @@
 import { SERVER_ADDRESS } from "./constants";
-import { createCar, setCarsList, deleteCarAction } from "../redux/actions";
+import { createCar, setCarsList, deleteCarAction, startCarAction } from "../redux/actions";
 import store from "../redux/core/store";
 
 export const getCars = async ():Promise<void> => {
@@ -57,5 +57,17 @@ export const updateCar = async (car: Car):Promise<void> => {
     getCars();
   } catch(error) {
     alert('Error updating the car. Please, try again');
+  }
+}
+
+export const startCar = async (id:number):Promise<void> => {
+  try {
+    const result = await (await fetch(`${SERVER_ADDRESS}/engine?id=${id}&status=started`)).json();
+    const { velocity, distance } = result;
+    const duration = Math.round(distance / velocity) / 1000;
+
+    startCarAction(id, duration);
+  } catch(error) {
+    alert('Error deleting the car. Please, try again');
   }
 }

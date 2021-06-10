@@ -6,12 +6,30 @@
   position: relative;
   border-bottom: 2px dashed #333;
   height: 40px;
+  display: flex;
+  padding-right: 100px;
+}
+
+.car-navigation {
+  flex-basis: 80px;
+}
+
+.car-field-inner {
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
 
 .car {
   position: absolute;
   bottom: -8px;
-  left: 80px;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes drive {
+  0%   {left:0;}
+  100% {left:98%;}
 }
 
 .car > svg {
@@ -21,7 +39,7 @@
 
 .finish-line {
   position: absolute;
-  right: 100px;
+  right: 0;
   bottom: 0;
 
 }

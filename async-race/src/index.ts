@@ -5,6 +5,7 @@ import { startRouting } from "./modules/header";
 import { onCarsListUpdate } from "./modules/garage";
 import { getCars } from "./services/service-requests";
 import { disablePagination } from "./modules/pagination";
+import { startCarAnimation } from "./modules/garage/car/car-animation";
 
 window.addEventListener('load', () => {
   let state = store.getState();
@@ -24,5 +25,9 @@ window.addEventListener('load', () => {
     }
 
     disablePagination(state.pageNumber, Math.ceil(state.totalCars/7));
+
+    if(prevState.startedCarsList !== state.startedCarsList) {
+      startCarAnimation(state.startedCarsList[state.startedCarsList.length - 1]);
+    }
   });
 })

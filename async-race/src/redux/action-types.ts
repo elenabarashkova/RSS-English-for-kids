@@ -4,3 +4,4 @@ export const DELETE_CAR = 'DELETE_CAR';
 export const SELECT_CARS = 'SELECT_CAR';
 export const UPDATE_CAR = 'UPDATE_CAR';
 export const CHANGE_PAGE_NUMBER = 'CHANGE_PAGE_NUMBER';
+export const START_CAR = 'START_CAR';

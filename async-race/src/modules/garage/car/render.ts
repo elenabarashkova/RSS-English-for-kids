@@ -13,12 +13,14 @@ export const renderCar = ({name, color, id}:Car):string => (`
         <button class='car-nav-a' data-id=${id}>A</button>
         <button class='car-nav-b' data-id=${id}>B</button>
       </div>
-      <div class="car" style="color: ${color}">
-        ${carIcon}
-      </div>
-      <div class="finish-line">
-        <img src="${finishIcon}" alt="finish-line">
-      </div>
+      <div class="car-field-inner">
+        <div class="car" style="color: ${color}">
+          ${carIcon}
+        </div>
+        <div class="finish-line">
+          <img src="${finishIcon}" alt="finish-line">
+        </div>
+      </div>   
     </div>
   </div>
 `);

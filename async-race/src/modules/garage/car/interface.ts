@@ -5,3 +5,11 @@ interface Car {
 }
 
 interface CarsList extends Array<Car> {}
+
+
+interface StartedCar {
+  id: number,
+  duration: number,
+}
+
+interface StartedCarsList extends Array<StartedCar> {}

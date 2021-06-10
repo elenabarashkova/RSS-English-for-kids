@@ -10,4 +10,5 @@ interface State {
   selectedCar?: string,
   totalCars: number,
   pageNumber: number,
+  startedCarsList: StartedCarsList,
 }
