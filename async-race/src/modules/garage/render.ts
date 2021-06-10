@@ -4,10 +4,10 @@ import { renderCar } from "./car/render";
 
 export const renderGaragePage = ():void => {
   const html = (`
-    <div id="garagePage" class="Garage">
+    <div id="garagePage" class="Garage" xmlns="http://www.w3.org/1999/html">
       <div class="form-area">
-        ${createCarFormRender()}
-        ${updateCarFormRender()}
+        ${ createCarFormRender() }
+        ${ updateCarFormRender() }
         <div class="buttons">
           <button id="raceBtn">Race</button>
           <button id="resetBtn">Reset</button>
@@ -16,7 +16,7 @@ export const renderGaragePage = ():void => {
       </div>
       <div class="garage-area">
         <h2>Garage (<span id="garageLength"></span>)</h2>
-        <div class="page-number">Page Number</div>
+        <div class="page-number">Page #<span id="pageNum">1</span></div>
         <div id="carsList" class="garage-area-inner"></div>
         <button id="prevPage">Previous</button>
         <button id="nextPage">Next</button>
@@ -28,19 +28,21 @@ export const renderGaragePage = ():void => {
 }
 
 export const renderCarsList = (carsList: CarsList):void => {
-  const carsListElement = document.getElementById('carsList');
+  const carsListElement = document.getElementById('carsList') as HTMLElement;
 
-  if(carsListElement) {
-    carsListElement.innerHTML = '';
-  }
+  carsListElement.innerHTML = '';
 
   carsList.forEach((car: Car) => carsListElement?.insertAdjacentHTML('beforeend', renderCar(car)));
 }
 
 export const insertCarsCount = (carsListLength: number):void => {
-  const garageLength = document.getElementById('garageLength');
+  const garageLength = document.getElementById('garageLength') as HTMLElement;
 
-  if(garageLength) {
-    garageLength.innerText = `${carsListLength}`;
-  }
+  garageLength.innerText = `${carsListLength}`;
+}
+
+export const insertPageNumber = (pageNumber: number):void => {
+  const garageLength = document.getElementById('pageNum') as HTMLElement;
+
+  garageLength.innerText = `${pageNumber}`;
 }

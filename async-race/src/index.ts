@@ -6,6 +6,7 @@ import { onCarsListUpdate } from "./modules/garage";
 import { getCars } from "./services/service-requests";
 import { disablePagination } from "./modules/pagination";
 import { startCarAnimation, stopCarEngine } from "./modules/garage/car/car-animation";
+import { insertPageNumber } from "./modules/garage/render";
 
 window.addEventListener('load', () => {
   let state = store.getState();
@@ -21,6 +22,7 @@ window.addEventListener('load', () => {
     }
 
     if(prevState.pageNumber !== state.pageNumber) {
+      insertPageNumber(state.pageNumber);
       getCars();
     }
 
@@ -28,6 +30,7 @@ window.addEventListener('load', () => {
 
     if(prevState.startedCarsList.length < state.startedCarsList.length) {
       startCarAnimation(state.startedCarsList[state.startedCarsList.length - 1]);
+
     } else if (prevState.startedCarsList.length > state.startedCarsList.length) {
       const stoppedCar = prevState.startedCarsList.find(car => state.startedCarsList.indexOf(car) === -1);
 
