@@ -1,4 +1,4 @@
-import { deleteCar, startCar } from "../../../services/service-requests";
+import { deleteCar, startCar, stopCar } from "../../../services/service-requests";
 import { selectCar } from "./select-car";
 
 export const carBehavior = ():void => {
@@ -21,5 +21,11 @@ export const carBehavior = ():void => {
     const targetId = (event.target as HTMLElement).dataset.id;
 
     startCar((parseInt(targetId as string, 10)));
-  }))
+  }));
+
+  [...carStopBtn].forEach(btn => btn.addEventListener('click', (event: Event) => {
+    const targetId = (event.target as HTMLElement).dataset.id;
+
+    stopCar((parseInt(targetId as string, 10)));
+  }));
 }

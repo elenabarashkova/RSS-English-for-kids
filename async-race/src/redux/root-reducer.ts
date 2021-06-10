@@ -1,4 +1,12 @@
-import { CHANGE_PAGE_NUMBER, CREATE_CAR, DELETE_CAR, SELECT_CARS, SET_CARS_LIST, START_CAR } from "./action-types";
+import {
+  CHANGE_PAGE_NUMBER,
+  CREATE_CAR,
+  DELETE_CAR,
+  SELECT_CARS,
+  SET_CARS_LIST,
+  START_CAR,
+  STOP_CAR
+} from "./action-types";
 
 export const rootReducer = (state:State, action:any) => {
   if(action.type === CREATE_CAR) {
@@ -50,6 +58,13 @@ export const rootReducer = (state:State, action:any) => {
     return {
       ...state,
       startedCarsList: [...state.startedCarsList, action.payload],
+    }
+  }
+
+  if(action.type === STOP_CAR) {
+    return {
+      ...state,
+      startedCarsList: state.startedCarsList.filter((car) => car.id !== action.payload),
     }
   }
 

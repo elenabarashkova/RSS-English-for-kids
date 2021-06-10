@@ -1,5 +1,13 @@
 import store from "./core/store";
-import { CHANGE_PAGE_NUMBER, CREATE_CAR, DELETE_CAR, SELECT_CARS, SET_CARS_LIST, START_CAR } from "./action-types";
+import {
+  CHANGE_PAGE_NUMBER,
+  CREATE_CAR,
+  DELETE_CAR,
+  SELECT_CARS,
+  SET_CARS_LIST,
+  START_CAR,
+  STOP_CAR
+} from "./action-types";
 
 export const createCar = (newCar: Car):void => {
   store.dispatch({
@@ -40,5 +48,12 @@ export const startCarAction = (id: number, duration: number):void => {
   store.dispatch({
     type: START_CAR,
     payload: {id, duration},
+  })
+}
+
+export const stopCarAction = (id: number):void => {
+  store.dispatch({
+    type: STOP_CAR,
+    payload: id,
   })
 }

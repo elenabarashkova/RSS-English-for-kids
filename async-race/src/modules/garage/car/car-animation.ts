@@ -10,8 +10,15 @@ export const startCarAnimation = (startedCar: StartedCar):void => {
 export const stopCarAnimation = (id: number):void => {
   const carContainer = document.getElementById(`${id}`) as HTMLElement;
   const car = carContainer.querySelector(`.car`) as HTMLElement;
-  console.log(carContainer);
-  console.log('test');
-  car.style.animationPlayState = 'paused';
 
+  car.style.animationPlayState = 'paused';
+}
+
+export const stopCarEngine = (id: number) => {
+  const carContainer = document.getElementById(`${id}`) as HTMLElement;
+  const car = carContainer.querySelector(`.car`) as HTMLElement;
+
+  car.style.animationName = '';
+  car.style.animationDuration = '';
+  car.style.animationPlayState = '';
 }
