@@ -1,5 +1,5 @@
 import { SERVER_ADDRESS } from "./constants";
-import { createCar, setCarsList, deleteCarAction, startCarAction, stopCarAction } from "../redux/actions";
+import { createCar, setCarsList, startCarAction, stopCarAction } from "../redux/actions";
 import store from "../redux/core/store";
 import { startCarAnimation, stopCarAnimation, stopCarEngine } from "../modules/garage/car/car-animation";
 
@@ -37,7 +37,7 @@ export const deleteCar = async (id:number):Promise<void> => {
       method: 'DELETE',
     }));
 
-    deleteCarAction(id);
+    getCars();
 
   } catch(error) {
     alert('Error deleting the car. Please, try again');

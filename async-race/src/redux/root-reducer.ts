@@ -1,7 +1,6 @@
 import {
   CHANGE_PAGE_NUMBER,
   CREATE_CAR,
-  DELETE_CAR,
   SELECT_CARS,
   SET_CARS_LIST,
   START_CAR,
@@ -21,13 +20,6 @@ export const rootReducer = (state:State, action: Action): State => {
       ...state,
       carsList: (action.payload as SetCarsListPayload).carsList,
       totalCars: (action.payload as SetCarsListPayload).total,
-    }
-  }
-
-  if (action.type === DELETE_CAR) {
-    return {
-      ...state,
-      carsList: state.carsList.filter((car) => car.id !== action.payload),
     }
   }
 
