@@ -1,5 +1,4 @@
 import {
-  CHANGE_PAGE_NUMBER,
   CREATE_CAR,
   SELECT_CARS,
   SET_CARS_LIST,
@@ -27,22 +26,6 @@ export const rootReducer = (state:State, action: Action): State => {
     return {
       ...state,
       selectedCar: action.payload as string,
-    }
-  }
-
-  if (action.type === CHANGE_PAGE_NUMBER) {
-    let newPageNumber = state.pageNumber + (action.payload as number);
-    if (newPageNumber < 1) {
-      newPageNumber = 1;
-    }
-
-    const maxPageNumber = Math.ceil(state.totalCars/7);
-    if (newPageNumber > maxPageNumber) {
-      newPageNumber = maxPageNumber;
-    }
-    return {
-      ...state,
-      pageNumber: newPageNumber,
     }
   }
 

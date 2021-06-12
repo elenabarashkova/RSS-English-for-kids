@@ -1,4 +1,5 @@
 import { ROUTES, PAGES_CONFIG } from "../constants";
+import { getCars } from "../../services/service-requests";
 
 export const getHeader = ():string => {
 
@@ -27,6 +28,8 @@ export const startRouting = ():void => {
       target.classList.add('active');
 
       (document.getElementById('main') as HTMLElement).innerHTML = '';
+
+      window.removeEventListener("hashchange", getCars);
 
       PAGES_CONFIG[target.id].start();
     }

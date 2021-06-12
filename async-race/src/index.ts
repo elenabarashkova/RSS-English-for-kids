@@ -3,9 +3,7 @@ import store from "./redux/core/store";
 import { initCommonPageTemplate } from "./modules";
 import { startRouting } from "./modules/header";
 import { onCarsListUpdate } from "./modules/garage";
-import { getCars } from "./services/service-requests";
 import { disablePagination } from "./modules/pagination";
-import { insertPageNumber } from "./modules/garage/render";
 
 window.addEventListener('load', () => {
   let state = store.getState();
@@ -20,11 +18,6 @@ window.addEventListener('load', () => {
       onCarsListUpdate(state.carsList, state.totalCars);
     }
 
-    if (prevState.pageNumber !== state.pageNumber) {
-      insertPageNumber(state.pageNumber);
-      getCars();
-    }
-
-    disablePagination(state.pageNumber, Math.ceil(state.totalCars/7));
+    disablePagination(Math.ceil(state.totalCars/7));
   });
 })

@@ -16,7 +16,7 @@ export const renderGaragePage = ():void => {
       </div>
       <div class="garage-area">
         <h2>Garage (<span id="garageLength"></span>)</h2>
-        <div class="page-number">Page #<span id="pageNum">1</span></div>
+        <div class="page-number">Page #<span id="pageNum"></span></div>
         <div id="carsList" class="garage-area-inner"></div>
         <button id="prevPage">Previous</button>
         <button id="nextPage">Next</button>

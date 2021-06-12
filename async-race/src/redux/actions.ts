@@ -1,6 +1,5 @@
 import store from "./core/store";
 import {
-  CHANGE_PAGE_NUMBER,
   CREATE_CAR,
   SELECT_CARS,
   SET_CARS_LIST,
@@ -26,13 +25,6 @@ export const selectCarAction = (carId: number):void => {
   store.dispatch({
     type: SELECT_CARS,
     payload: carId,
-  });
-}
-
-export const changePageNumber = (result: number):void => {
-  store.dispatch({
-    type: CHANGE_PAGE_NUMBER,
-    payload: result,
   });
 }
 

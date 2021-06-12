@@ -1,12 +1,14 @@
-import { insertCarsCount, renderCarsList, renderGaragePage } from "./render";
+import { insertCarsCount, insertPageNumber, renderCarsList, renderGaragePage } from "./render";
 import { getCars } from "../../services/service-requests";
 import { createCarFormBehavior } from "./forms/create-car-form";
 import { carBehavior } from "./car/car-behavior";
 import { updateCarFormBehavior } from "./forms/update-car-form";
-import { pagination } from "../pagination";
+import { handlePagination, pagination } from "../pagination";
+import { getGaragePageNumber } from "../../shared";
 
 export const startGaragePage = ():void => {
   renderGaragePage();
+  handlePagination();
   getCars();
   carBehavior();
   createCarFormBehavior();
@@ -18,4 +20,5 @@ export const onCarsListUpdate = (stateCarsList: CarsList, stateTotalCars: number
   renderCarsList(stateCarsList);
   carBehavior();
   insertCarsCount(stateTotalCars);
+  insertPageNumber(getGaragePageNumber());
 }
