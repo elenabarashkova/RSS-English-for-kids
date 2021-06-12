@@ -3,11 +3,12 @@ import { setCarsList, startCarAction, stopCarAction } from "../redux/actions";
 import store from "../redux/core/store";
 import { startCarAnimation, stopCarAnimation, stopCarEngine } from "../modules/garage/car/car-animation";
 import { getGaragePageNumber } from "../shared";
+import { CARS_LIMIT } from "../shared/constants";
 
 export const getCars = async ():Promise<void> => {
   const pageNum = getGaragePageNumber();
 
-  const response = await fetch(`${SERVER_ADDRESS}/garage?_page=${pageNum}&_limit=7`);
+  const response = await fetch(`${SERVER_ADDRESS}/garage?_page=${pageNum}&_limit=${CARS_LIMIT}`);
   const total = parseInt(response.headers.get('X-Total-Count') as string, 10);
 
   const result = await response.json();
