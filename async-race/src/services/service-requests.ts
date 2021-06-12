@@ -53,7 +53,7 @@ export const updateCar = async (car: Car):Promise<void> => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({name: car.name, color: car.color}),
+      body: JSON.stringify(car),
     })).json();
 
     getCars();
