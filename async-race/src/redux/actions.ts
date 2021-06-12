@@ -1,18 +1,10 @@
 import store from "./core/store";
 import {
-  CREATE_CAR,
   SELECT_CARS,
   SET_CARS_LIST,
   START_CAR,
   STOP_CAR
 } from "./action-types";
-
-export const createCar = (newCar: Car):void => {
-  store.dispatch({
-    type: CREATE_CAR,
-    payload: newCar,
-  });
-}
 
 export const setCarsList = (carsList: CarsList, total: number):void => {
   store.dispatch({

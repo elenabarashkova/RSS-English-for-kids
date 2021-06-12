@@ -1,5 +1,4 @@
 import {
-  CREATE_CAR,
   SELECT_CARS,
   SET_CARS_LIST,
   START_CAR,
@@ -7,13 +6,6 @@ import {
 } from "./action-types";
 
 export const rootReducer = (state:State, action: Action): State => {
-  if (action.type === CREATE_CAR) {
-    return {
-      ...state,
-      carsList: [...state.carsList, action.payload as Car],
-    }
-  }
-
   if (action.type === SET_CARS_LIST) {
     return {
       ...state,

@@ -1,5 +1,5 @@
 import { SERVER_ADDRESS } from "./constants";
-import { createCar, setCarsList, startCarAction, stopCarAction } from "../redux/actions";
+import { setCarsList, startCarAction, stopCarAction } from "../redux/actions";
 import store from "../redux/core/store";
 import { startCarAnimation, stopCarAnimation, stopCarEngine } from "../modules/garage/car/car-animation";
 import { getGaragePageNumber } from "../shared";
@@ -17,17 +17,15 @@ export const getCars = async ():Promise<void> => {
 
 export const postNewCar = async (car: Car):Promise<void> => {
   try {
-    const response = await fetch(`${SERVER_ADDRESS}/garage`, {
+    await (await fetch(`${SERVER_ADDRESS}/garage`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(car),
-    });
+    }));
 
-    const result = await response.json();
-
-    createCar(result);
+    getCars();
 
   } catch(error) {
     alert('Error creating the car. Please, try again');
