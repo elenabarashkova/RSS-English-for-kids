@@ -47,10 +47,10 @@ export const deleteCar = async (id:number):Promise<void> => {
 };
 
 export const updateCar = async (car: Car):Promise<void> => {
-  const {selectedCar: {id}} = store.getState();
+  const {selectedCarId} = store.getState();
 
   try {
-    await (await fetch(`${SERVER_ADDRESS}/garage/${id}`, {
+    await (await fetch(`${SERVER_ADDRESS}/garage/${selectedCarId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -82,6 +82,8 @@ export const startCar = async (id:number):Promise<void> => {
 
     if (!driveResponse.ok) {
       stopCarAnimation(id);
+    } else {
+      // todo
     }
 
   } catch(error) {

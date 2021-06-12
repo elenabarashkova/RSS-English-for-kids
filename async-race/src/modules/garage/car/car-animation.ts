@@ -1,4 +1,4 @@
-import { getElement, setDisabledState } from "../../../shared";
+import { getElement, switchDisabledState } from "../../../shared";
 
 export const startCarAnimation = ({ id, duration}: StartedCar):void => {
   const car = getElement('.car', `${id}`);
@@ -10,7 +10,7 @@ export const startCarAnimation = ({ id, duration}: StartedCar):void => {
   const btnStart = getElement('.car-nav-a', `${id}`);
   const btnStop = getElement('.car-nav-b', `${id}`);
 
-  setDisabledState(btnStart, btnStop);
+  switchDisabledState(btnStart, btnStop);
 }
 
 export const stopCarAnimation = (id: number):void => {
@@ -29,5 +29,5 @@ export const stopCarEngine = (id: number):void => {
   const btnStart = getElement('.car-nav-a', `${id}`);
   const btnStop = getElement('.car-nav-b', `${id}`);
 
-  setDisabledState(btnStop, btnStart);
+  switchDisabledState(btnStop, btnStart);
 }

@@ -5,6 +5,7 @@ import { carBehavior } from "./car/car-behavior";
 import { updateCarFormBehavior } from "./forms/update-car-form";
 import { handlePagination, pagination } from "../pagination";
 import { getGaragePageNumber } from "../../shared";
+import { race } from "./race";
 
 export const startGaragePage = ():void => {
   renderGaragePage();
@@ -14,6 +15,7 @@ export const startGaragePage = ():void => {
   createCarFormBehavior();
   updateCarFormBehavior();
   pagination();
+  race();
 }
 
 export const onCarsListUpdate = (stateCarsList: CarsList, stateTotalCars: number):void => {

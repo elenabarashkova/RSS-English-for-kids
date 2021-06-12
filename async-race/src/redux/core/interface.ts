@@ -7,7 +7,7 @@ interface Store {
 interface State {
   currentPage: string,
   carsList: CarsList,
-  selectedCar?: string,
+  selectedCarId?: number,
   totalCars: number,
   pageNumber: number,
   startedCarsList: StartedCarsList,

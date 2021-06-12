@@ -10,7 +10,7 @@ export const renderGaragePage = ():void => {
         ${ updateCarFormRender() }
         <div class="buttons">
           <button id="raceBtn">Race</button>
-          <button id="resetBtn">Reset</button>
+          <button id="resetBtn" disabled>Reset</button>
           <button id="generateCarsBtn">Generate Cars</button>
         </div>
       </div>

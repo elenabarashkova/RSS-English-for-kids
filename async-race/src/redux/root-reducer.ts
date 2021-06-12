@@ -17,7 +17,7 @@ export const rootReducer = (state:State, action: Action): State => {
   if (action.type === SELECT_CARS) {
     return {
       ...state,
-      selectedCar: action.payload as string,
+      selectedCarId: action.payload as number,
     }
   }
 
