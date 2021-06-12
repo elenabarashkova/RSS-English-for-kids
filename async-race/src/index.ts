@@ -5,7 +5,6 @@ import { startRouting } from "./modules/header";
 import { onCarsListUpdate } from "./modules/garage";
 import { getCars } from "./services/service-requests";
 import { disablePagination } from "./modules/pagination";
-import { startCarAnimation, stopCarEngine } from "./modules/garage/car/car-animation";
 import { insertPageNumber } from "./modules/garage/render";
 
 window.addEventListener('load', () => {
@@ -27,14 +26,5 @@ window.addEventListener('load', () => {
     }
 
     disablePagination(state.pageNumber, Math.ceil(state.totalCars/7));
-
-    if (prevState.startedCarsList.length < state.startedCarsList.length) {
-      startCarAnimation(state.startedCarsList[state.startedCarsList.length - 1]);
-
-    } else if (prevState.startedCarsList.length > state.startedCarsList.length) {
-      const stoppedCar = prevState.startedCarsList.find(car => state.startedCarsList.indexOf(car) === -1);
-
-      stopCarEngine(stoppedCar?.id as number);
-    }
   });
 })
