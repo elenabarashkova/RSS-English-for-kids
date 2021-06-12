@@ -23,6 +23,7 @@ export const disablePagination = (pageNumber: number, maxPageNumber: number):voi
   }
 
   const nextPage = document.getElementById('nextPage') as HTMLButtonElement;
+
   if (pageNumber === maxPageNumber) {
     nextPage.setAttribute('disabled', '');
   } else {

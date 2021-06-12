@@ -45,7 +45,7 @@ export const deleteCar = async (id:number):Promise<void> => {
 };
 
 export const updateCar = async (car: Car):Promise<void> => {
-  const id = store.getState().selectedCar;
+  const {selectedCar: {id}} = store.getState();
 
   try {
     await (await fetch(`${SERVER_ADDRESS}/garage/${id}`, {

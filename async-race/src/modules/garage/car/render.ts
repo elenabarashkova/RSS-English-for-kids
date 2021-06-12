@@ -14,7 +14,7 @@ export const renderCar = ({name, color, id}:Car):string => (`
         <button class='car-nav-b' data-id=${id} disabled>B</button>
       </div>
       <div class="car-field-inner">
-        <div class="car" style="color: ${color}">
+        <div class="car" data-id=${id} style="color: ${color}">
           ${carIcon}
         </div>
         <div class="finish-line">
