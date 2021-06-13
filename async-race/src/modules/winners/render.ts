@@ -6,13 +6,13 @@ export const renderWinnersPage = ():void => {
         <div class="page-number">Page #<span id="pageNumWinners"></span></div>
         <div class="winners-area-inner">
           <div id="winnersHeader" class="winners-header">
-            <span id="winnerNumberBtn">Number</span>
-            <span id="winnerPicBtn">Car</span>
-            <span id="winnerNameBtn">Name</span>
-            <button id="winnerWinsNumBtn">Wins</button>
-            <button id="winnerTimeBtn">Best time (seconds)</button>
+            <div id="winnerNumberBtn" class="winners-header-item">Number</div>
+            <div id="winnerPicBtn" class="winners-header-item">Car</div>
+            <div id="winnerNameBtn" class="winners-header-item">Name</div>
+            <button id="winnerWinsNumBtn" class="winners-header-item">Wins</button>
+            <button id="winnerTimeBtn" class="winners-header-item">Best time (seconds)</button>
           </div>
-          <div id="winnersList" class="winners-area-inner"></div>
+          <div id="winnersList" class="winners-wrap"></div>
         </div>
         <button id="prevPageWinners">Previous</button>
         <button id="nextPageWinners">Next</button>

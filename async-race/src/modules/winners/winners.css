@@ -1,0 +1,41 @@
+.winners-area-inner {
+  margin-bottom: 30px;
+}
+
+.winners-header,
+.winner-item {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.winners-header {
+  background: #333;
+}
+
+.winners-header-item,
+.winner-item > * {
+  width: 120px;
+  background: transparent;
+  text-align: center;
+  border: none;
+  display: block;
+}
+
+.winners-header-item {
+  color: #fff;
+  border-right: 1px solid;
+}
+
+.winners-header > *:last-child {
+  border-right: none;
+}
+
+.winner-item svg {
+  width: 72px;
+  height: 34px;
+}
+
+.winners-header button {
+  cursor: pointer;
+}

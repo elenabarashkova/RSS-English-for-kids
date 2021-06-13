@@ -1,4 +1,5 @@
 @import "modules/garage/car/car.css";
+@import "modules/winners/winners.css";
 
 header .active {
   background: #974949;
