@@ -9,10 +9,6 @@ export const onGarageHashChange = (): void => {
 }
 
 export const handlePagination = (): void => {
-  if (!window.location.hash) {
-    window.location.hash = '1';
-  }
-
   window.addEventListener("hashchange", onGarageHashChange);
 }
 
@@ -20,11 +16,13 @@ export const pagination = ():void => {
   const prevPage = document.getElementById('prevPage');
   const nextPage = document.getElementById('nextPage');
 
+  const re = /garage=\d+/;
+
   prevPage?.addEventListener('click', () => {
     const currentPage = getGaragePageNumber();
 
     if(currentPage) {
-      window.location.hash = `${currentPage - 1}`;
+      window.location.hash = window.location.hash.replace(re, `garage=${currentPage - 1}`);
     }
 
     raceStoptHandler();
@@ -34,7 +32,7 @@ export const pagination = ():void => {
     const currentPage = getGaragePageNumber();
 
     if(currentPage) {
-      window.location.hash = `${currentPage + 1}`;
+      window.location.hash = window.location.hash.replace(re, `garage=${currentPage + 1}`);
     }
 
     raceStoptHandler();

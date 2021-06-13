@@ -21,4 +21,8 @@ const startDefaultPage = () => {
 export const initCommonPageTemplate = ():void => {
   renderCommonPageTemplate();
   startDefaultPage();
+
+  if (!window.location.hash) {
+    window.location.hash = 'garage=1&winners=1';
+  }
 }
