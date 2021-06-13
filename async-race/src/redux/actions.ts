@@ -5,6 +5,7 @@ import {
   START_CAR,
   STOP_CAR,
   START_RACE,
+  STOP_RACE,
   ADD_NEW_WINNER,
   SET_WINNERS_LIST,
 } from "./action-types";
@@ -40,6 +41,12 @@ export const stopCarAction = (id: number):void => {
 export const raceStartAction = ():void => {
   store.dispatch({
     type: START_RACE,
+  });
+}
+
+export const raceStopAction = ():void => {
+  store.dispatch({
+    type: STOP_RACE,
   });
 }
 

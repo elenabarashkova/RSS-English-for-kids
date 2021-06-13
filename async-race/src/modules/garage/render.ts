@@ -27,10 +27,16 @@ export const renderGaragePage = ():void => {
   document.getElementById('main')?.insertAdjacentHTML('beforeend', html);
 }
 
-export const renderCarsList = (carsList: CarsList):void => {
+export const clearCarsList = ():void => {
   const carsListElement = document.getElementById('carsList') as HTMLElement;
 
   carsListElement.innerHTML = '';
+}
+
+export const renderCarsList = (carsList: CarsList):void => {
+  const carsListElement = document.getElementById('carsList') as HTMLElement;
+
+  clearCarsList();
 
   carsList.forEach((car: Car) => carsListElement?.insertAdjacentHTML('beforeend', renderCar(car)));
 }

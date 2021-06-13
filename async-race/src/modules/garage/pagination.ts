@@ -1,12 +1,19 @@
 import { getCars } from "../../services/service-requests";
 import { getGaragePageNumber } from "../../shared";
+import { raceStoptHandler } from "./race";
+import { clearCarsList } from "./render";
+
+export const onGarageHashChange = (): void => {
+  clearCarsList();
+  getCars();
+}
 
 export const handlePagination = (): void => {
   if (!window.location.hash) {
     window.location.hash = '1';
   }
 
-  window.addEventListener("hashchange", getCars);
+  window.addEventListener("hashchange", onGarageHashChange);
 }
 
 export const pagination = ():void => {
@@ -19,6 +26,8 @@ export const pagination = ():void => {
     if(currentPage) {
       window.location.hash = `${currentPage - 1}`;
     }
+
+    raceStoptHandler();
   })
 
   nextPage?.addEventListener('click', () => {
@@ -27,12 +36,18 @@ export const pagination = ():void => {
     if(currentPage) {
       window.location.hash = `${currentPage + 1}`;
     }
+
+    raceStoptHandler();
   });
 }
 
 export const disablePagination = (maxPageNumber: number):void => {
   const prevPage = document.getElementById('prevPage') as HTMLButtonElement;
   const nextPage = document.getElementById('nextPage') as HTMLButtonElement;
+
+  if(!prevPage || !nextPage) {
+    return;
+  }
 
   const currentPage = getGaragePageNumber();
 

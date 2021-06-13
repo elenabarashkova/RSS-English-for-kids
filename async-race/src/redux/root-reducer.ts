@@ -3,7 +3,7 @@ import {
   SELECT_CARS,
   SET_CARS_LIST, SET_WINNERS_LIST,
   START_CAR, START_RACE,
-  STOP_CAR
+  STOP_CAR, STOP_RACE
 } from "./action-types";
 
 export const rootReducer = (state:State, action: Action): State => {
@@ -41,6 +41,13 @@ export const rootReducer = (state:State, action: Action): State => {
       ...state,
       isRaceStarted: true,
       currentWinner: null,
+    }
+  }
+
+  if (action.type === STOP_RACE) {
+    return {
+      ...state,
+      isRaceStarted: false,
     }
   }
 

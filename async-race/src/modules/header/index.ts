@@ -1,5 +1,6 @@
 import { ROUTES, PAGES_CONFIG } from "../constants";
-import { getCars } from "../../services/service-requests";
+import { raceStoptHandler } from "../garage/race";
+import { onGarageHashChange } from "../garage/pagination";
 
 export const getHeader = ():string => {
 
@@ -29,7 +30,8 @@ export const startRouting = ():void => {
 
       (document.getElementById('main') as HTMLElement).innerHTML = '';
 
-      window.removeEventListener("hashchange", getCars);
+      window.removeEventListener("hashchange", onGarageHashChange);
+      raceStoptHandler();
       // todo: remove here all event listeners for page => stopPage()
 
       PAGES_CONFIG[target.id].start();
