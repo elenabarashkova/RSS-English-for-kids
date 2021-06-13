@@ -4,7 +4,7 @@ import { renderCar } from "./car/render";
 
 export const renderGaragePage = ():void => {
   const html = (`
-    <div id="garagePage" class="Garage" xmlns="http://www.w3.org/1999/html">
+    <div id="garagePage" class="garage" xmlns="http://www.w3.org/1999/html">
       <div class="form-area">
         ${ createCarFormRender() }
         ${ updateCarFormRender() }

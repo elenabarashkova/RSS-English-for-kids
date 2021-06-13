@@ -5,7 +5,6 @@ interface Store {
 }
 
 interface State {
-  currentPage: string,
   carsList: CarsList,
   selectedCarId?: number,
   totalCars: number,
@@ -13,6 +12,8 @@ interface State {
   startedCarsList: StartedCarsList,
   isRaceStarted: boolean,
   currentWinner: Winner | null,
+  winnersList: WinnersList,
+  totalWinners: number,
 }
 
 interface SetCarsListPayload {
@@ -20,7 +21,12 @@ interface SetCarsListPayload {
   total: number,
 }
 
-type Payload = number | Car | CarsList | SetCarsListPayload | StartedCar | string | Winner | null;
+interface SetWinnersListPayload {
+  winnersList: WinnersList,
+  total: number,
+}
+
+type Payload = number | Car | CarsList | SetCarsListPayload | StartedCar | string | Winner | null | SetWinnersListPayload;
 
 interface Action {
   type: string,

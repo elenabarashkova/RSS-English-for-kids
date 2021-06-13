@@ -5,3 +5,4 @@ export const START_CAR = 'START_CAR';
 export const STOP_CAR = 'STOP_CAR';
 export const START_RACE = 'START_RACE';
 export const ADD_NEW_WINNER = 'ADD_NEW_WINNER';
+export const SET_WINNERS_LIST = 'SET_WINNERS_LIST';

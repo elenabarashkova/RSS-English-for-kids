@@ -1,7 +1,7 @@
 import {
   ADD_NEW_WINNER,
   SELECT_CARS,
-  SET_CARS_LIST,
+  SET_CARS_LIST, SET_WINNERS_LIST,
   START_CAR, START_RACE,
   STOP_CAR
 } from "./action-types";
@@ -52,5 +52,12 @@ export const rootReducer = (state:State, action: Action): State => {
     }
   }
 
+  if (action.type === SET_WINNERS_LIST) {
+    return {
+      ...state,
+      winnersList: (action.payload as SetWinnersListPayload).winnersList,
+      totalWinners: (action.payload as SetWinnersListPayload).total,
+    }
+  }
   return state;
 }

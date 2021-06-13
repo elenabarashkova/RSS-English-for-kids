@@ -30,6 +30,7 @@ export const startRouting = ():void => {
       (document.getElementById('main') as HTMLElement).innerHTML = '';
 
       window.removeEventListener("hashchange", getCars);
+      // todo: remove here all event listeners for page => stopPage()
 
       PAGES_CONFIG[target.id].start();
     }

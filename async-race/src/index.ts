@@ -6,6 +6,7 @@ import { onCarsListUpdate } from "./modules/garage";
 import { disablePagination } from "./modules/garage/pagination";
 import { CARS_LIMIT } from "./shared/constants";
 import { createWinner } from "./services/service-requests";
+import { onWinnersListUpdate } from "./modules/winners";
 
 window.addEventListener('load', () => {
   let state = store.getState();
@@ -21,10 +22,16 @@ window.addEventListener('load', () => {
     }
 
     if(state.currentWinner !== null && prevState.currentWinner !== state.currentWinner) {
-      console.log(`Winner is ${state.currentWinner.id}! Time is ${state.currentWinner.time}`);
       createWinner(state.currentWinner);
     }
 
-    disablePagination(Math.ceil(state.totalCars/CARS_LIMIT));
+    if(prevState.winnersList !== state.winnersList) {
+      onWinnersListUpdate(state.winnersList);
+    }
+
+    const currentGaragePage = document.querySelector('#garage.active');
+    if(currentGaragePage) {
+      disablePagination(Math.ceil(state.totalCars/CARS_LIMIT));
+    }
   });
 })
