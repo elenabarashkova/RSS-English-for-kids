@@ -16,19 +16,15 @@ export const getCars = async ():Promise<void> => {
   setCarsList(result, total);
 };
 
-// export const getCar = async (id: number):Promise<Car> => (
-//   await (await fetch(`${SERVER_ADDRESS}/garage/${id}`)).json()
-// );
-
 export const postNewCar = async (car: Car):Promise<void> => {
   try {
-    await (await fetch(`${SERVER_ADDRESS}/garage`, {
+    await fetch(`${SERVER_ADDRESS}/garage`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(car),
-    }));
+    });
 
     getCars();
 
@@ -39,9 +35,12 @@ export const postNewCar = async (car: Car):Promise<void> => {
 
 export const deleteCar = async (id:number):Promise<void> => {
   try {
-    await (await fetch(`${SERVER_ADDRESS}/garage/${id}`, {
+    await fetch(`${SERVER_ADDRESS}/garage/${id}`, {
       method: 'DELETE',
-    }));
+    });
+    await fetch(`${SERVER_ADDRESS}/winners/${id}`, {
+      method: 'DELETE',
+    });
 
     getCars();
 
@@ -115,13 +114,13 @@ export const stopCar = async (id:number):Promise<void> => {
 
 export const createWinner = async (winner: Winner):Promise<void> => {
   try {
-    await (await fetch(`${SERVER_ADDRESS}/winners`, {
+    await fetch(`${SERVER_ADDRESS}/winners`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(winner),
-    }));
+    });
 
   } catch(error) {
     alert('Error creating the car. Please, try again');
