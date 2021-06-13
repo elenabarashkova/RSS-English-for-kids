@@ -26,7 +26,7 @@ window.addEventListener('load', () => {
     }
 
     if(prevState.winnersList !== state.winnersList) {
-      onWinnersListUpdate(state.winnersList);
+      onWinnersListUpdate(state.winnersList, state.totalWinners);
     }
 
     const currentGaragePage = document.querySelector('#garage.active');

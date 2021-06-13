@@ -44,3 +44,7 @@ export const renderWinnersList = (winnersList: WinnersList):void => {
     winnersListElement?.insertAdjacentHTML('beforeend', renderWinner(winner)))
   );
 }
+
+export const insertWinnersCount = (winnersListLength: number):void => {
+  (document.getElementById('winnersLength') as HTMLElement).innerText = `${winnersListLength}`;
+}
