@@ -23,17 +23,19 @@ export const startRouting = ():void => {
     const target = event.target as HTMLElement;
 
     if (target.parentElement === header) {
-      [...(header?.getElementsByTagName('button') as HTMLCollection)]
-        .map(btn => btn.classList.remove('active'));
+      const prevPageBtn = [...(header?.getElementsByTagName('button') as HTMLCollection)]
+        .find(btn => btn.classList.contains('active'));
+
+      const prevPageBtnId = prevPageBtn?.id as string;
+      prevPageBtn?.classList.remove('active');
 
       target.classList.add('active');
 
       (document.getElementById('main') as HTMLElement).innerHTML = '';
 
-      window.removeEventListener("hashchange", onGarageHashChange);
-      raceStoptHandler();
-      // todo: remove here all event listeners for page => stopPage()
 
+
+      PAGES_CONFIG[prevPageBtnId].stop();
       PAGES_CONFIG[target.id].start();
     }
   });

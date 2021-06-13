@@ -7,6 +7,10 @@ export const startWinnersPage = ():void => {
   // + future behavior();
 }
 
+export const stopWinnersPage = (): void => {
+
+}
+
 export const onWinnersListUpdate = (stateWinnersList: WinnersList, stateTotalWinners: number):void => {
   renderWinnersList(stateWinnersList);
   insertWinnersCount(stateTotalWinners);

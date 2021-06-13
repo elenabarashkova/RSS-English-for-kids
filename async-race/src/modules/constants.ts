@@ -1,5 +1,5 @@
-import { startGaragePage } from "./garage";
-import { startWinnersPage } from "./winners";
+import { startGaragePage, stopGaragePage } from "./garage";
+import { startWinnersPage, stopWinnersPage } from "./winners";
 
 export const ROUTES = {
   GARAGE: 'garage',
@@ -12,9 +12,11 @@ export const PAGES_CONFIG = {
   [ROUTES.GARAGE]: {
     name: 'Garage',
     start: startGaragePage,
+    stop: stopGaragePage,
   },
   [ROUTES.WINNERS]: {
     name: 'Winners',
     start: startWinnersPage,
+    stop: stopWinnersPage,
   },
 }
