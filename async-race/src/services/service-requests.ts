@@ -114,13 +114,31 @@ export const stopCar = async (id:number):Promise<void> => {
 
 export const createWinner = async (winner: Winner):Promise<void> => {
   try {
-    await fetch(`${SERVER_ADDRESS}/winners`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(winner),
-    });
+    const winnerExisting = await (await fetch(`${SERVER_ADDRESS}/winners/${winner.id}`)).json();
+
+    if(!winnerExisting) {
+      await fetch(`${SERVER_ADDRESS}/winners`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(winner),
+      });
+    } else {
+      const newWinner = {
+        ...winnerExisting,
+        wins: winnerExisting.wins + 1,
+        time: winnerExisting.time > winner.time ? winner.time : winnerExisting.time,
+      }
+
+      await fetch(`${SERVER_ADDRESS}/winners/${newWinner.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newWinner),
+      });
+    }
 
   } catch(error) {
     alert('Error creating the car. Please, try again');
