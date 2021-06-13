@@ -1,5 +1,6 @@
 import { startCar, stopCar } from "../../../services/service-requests";
 import { switchDisabledState } from "../../../shared"
+import { raceStartAction } from "../../../redux/actions";
 
 export const race = ():void => {
   const raceBtn = document.getElementById('raceBtn') as HTMLElement;
@@ -14,6 +15,8 @@ export const race = ():void => {
       startCar(parseInt(car.id, 10));
       car.classList.add('in-race');
     });
+
+    raceStartAction();
   });
 
   resetBtn?.addEventListener('click', () => {
@@ -27,9 +30,3 @@ export const race = ():void => {
     });
   })
 }
-
-// todo: add new state: 1. isRaceStarted:boolean; 2.CurrentWinner: StartedCar
-// start action on click on raceBtn to change isRaceStarted && CurrentWinner = null
-// in else of service error catcher add action  - writeCurrentWinner
-// in reducer: if isRaceStarted && actionType === writeCurrentWinner => isRaceStarted=false, CurrentWinner === payload
-// in subscriber: CurrentWinner === updated && !== null => show popup, && service = createWinner

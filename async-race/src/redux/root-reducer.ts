@@ -1,7 +1,8 @@
 import {
+  ADD_NEW_WINNER,
   SELECT_CARS,
   SET_CARS_LIST,
-  START_CAR,
+  START_CAR, START_RACE,
   STOP_CAR
 } from "./action-types";
 
@@ -32,6 +33,22 @@ export const rootReducer = (state:State, action: Action): State => {
     return {
       ...state,
       startedCarsList: state.startedCarsList.filter((car) => car.id !== action.payload),
+    }
+  }
+
+  if (action.type === START_RACE) {
+    return {
+      ...state,
+      isRaceStarted: true,
+      currentWinner: null,
+    }
+  }
+
+  if (action.type === ADD_NEW_WINNER && state.isRaceStarted) {
+    return {
+      ...state,
+      isRaceStarted: false,
+      currentWinner: action.payload as Winner,
     }
   }
 

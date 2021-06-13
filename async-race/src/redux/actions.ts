@@ -3,7 +3,9 @@ import {
   SELECT_CARS,
   SET_CARS_LIST,
   START_CAR,
-  STOP_CAR
+  STOP_CAR,
+  START_RACE,
+  ADD_NEW_WINNER,
 } from "./action-types";
 
 export const setCarsList = (carsList: CarsList, total: number):void => {
@@ -31,5 +33,18 @@ export const stopCarAction = (id: number):void => {
   store.dispatch({
     type: STOP_CAR,
     payload: id,
+  });
+}
+
+export const raceStartAction = ():void => {
+  store.dispatch({
+    type: START_RACE,
+  });
+}
+
+export const addCurrentWinner = (winner: Winner):void => {
+  store.dispatch({
+    type: ADD_NEW_WINNER,
+    payload: winner,
   });
 }

@@ -3,7 +3,7 @@ import { getCars } from "../../services/service-requests";
 import { createCarFormBehavior } from "./forms/create-car-form";
 import { carBehavior } from "./car/car-behavior";
 import { updateCarFormBehavior } from "./forms/update-car-form";
-import { handlePagination, pagination } from "../pagination";
+import { handlePagination, pagination } from "./pagination";
 import { getGaragePageNumber } from "../../shared";
 import { race } from "./race";
 

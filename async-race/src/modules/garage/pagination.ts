@@ -1,5 +1,5 @@
-import { getCars } from "../services/service-requests";
-import { getGaragePageNumber } from "../shared";
+import { getCars } from "../../services/service-requests";
+import { getGaragePageNumber } from "../../shared";
 
 export const handlePagination = (): void => {
   if (!window.location.hash) {

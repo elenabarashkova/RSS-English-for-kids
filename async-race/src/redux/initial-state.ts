@@ -4,4 +4,6 @@ export const initialState:State = {
   totalCars: 0,
   pageNumber: 1,
   startedCarsList: [],
+  isRaceStarted: false,
+  currentWinner: null,
 }

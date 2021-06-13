@@ -1,5 +1,5 @@
 import { SERVER_ADDRESS } from "./constants";
-import { setCarsList, startCarAction, stopCarAction } from "../redux/actions";
+import { addCurrentWinner, setCarsList, startCarAction, stopCarAction } from "../redux/actions";
 import store from "../redux/core/store";
 import { startCarAnimation, stopCarAnimation, stopCarEngine } from "../modules/garage/car/car-animation";
 import { getGaragePageNumber } from "../shared";
@@ -83,7 +83,13 @@ export const startCar = async (id:number):Promise<void> => {
     if (!driveResponse.ok) {
       stopCarAnimation(id);
     } else {
-      // todo
+      const newWinner: Winner = {
+        id,
+        wins: 1,
+        time: duration,
+      }
+
+      addCurrentWinner(newWinner);
     }
 
   } catch(error) {
@@ -100,5 +106,20 @@ export const stopCar = async (id:number):Promise<void> => {
 
   } catch(error) {
     alert('Error stopping the car. Please, try again');
+  }
+}
+
+export const createWinner = async (winner: Winner):Promise<void> => {
+  try {
+    await (await fetch(`${SERVER_ADDRESS}/winners`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(winner),
+    }));
+
+  } catch(error) {
+    alert('Error creating the car. Please, try again');
   }
 }

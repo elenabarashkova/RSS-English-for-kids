@@ -11,6 +11,8 @@ interface State {
   totalCars: number,
   pageNumber: number,
   startedCarsList: StartedCarsList,
+  isRaceStarted: boolean,
+  currentWinner: Winner | null,
 }
 
 interface SetCarsListPayload {
@@ -18,7 +20,7 @@ interface SetCarsListPayload {
   total: number,
 }
 
-type Payload = number | Car | CarsList | SetCarsListPayload | StartedCar | string;
+type Payload = number | Car | CarsList | SetCarsListPayload | StartedCar | string | Winner | null;
 
 interface Action {
   type: string,
