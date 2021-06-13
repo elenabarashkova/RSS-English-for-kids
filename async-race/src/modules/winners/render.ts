@@ -25,9 +25,9 @@ export const renderWinnersPage = ():void => {
 
 const carIcon = require("../../assets/car-icon.svg");
 
-export const renderWinner = ({id, wins, time, name, color}:WinnerItem):string => (`
+export const renderWinner = ({id, wins, time, name, color}:WinnerItem, index: number):string => (`
   <div class="winner-item" data-id=${id}>
-    <span class="winner-number">INDEX</span>
+    <span class="winner-number">${index}</span>
     <span class="winner-picture" style="color: ${color}">${carIcon}</span>
     <span class="winner-name">${name}</span>
     <span class="winner-wins-number">${wins}</span>
@@ -40,8 +40,10 @@ export const renderWinnersList = (winnersList: WinnersList):void => {
 
   winnersListElement.innerHTML = '';
 
-  winnersList.forEach((winner: WinnerItem) => (
-    winnersListElement?.insertAdjacentHTML('beforeend', renderWinner(winner)))
+  winnersList.forEach((winner: WinnerItem, index) => (
+    // const pageNumber = ...;
+    // const winnerIndex = index + 1 + pageNumber * 10;
+    winnersListElement?.insertAdjacentHTML('beforeend', renderWinner(winner, (index + 1))))
   );
 }
 
