@@ -12,7 +12,7 @@ window.addEventListener('load', () => {
   let state = store.getState();
 
   initCommonPageTemplate();
-  startRouting();
+  startRouting(store);
 
   store.subscribe((prevState:State):void => {
     state = store.getState();

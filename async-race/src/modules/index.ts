@@ -15,7 +15,7 @@ const startDefaultPage = () => {
 
   (document.getElementById('main') as HTMLElement).innerHTML = '';
 
-  PAGES_CONFIG[DEFAULT_PAGE].start();
+  PAGES_CONFIG[DEFAULT_PAGE].start({} as GarageFormsConfig);
 }
 
 export const initCommonPageTemplate = ():void => {

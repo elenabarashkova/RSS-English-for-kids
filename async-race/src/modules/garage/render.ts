@@ -2,12 +2,12 @@ import { createCarFormRender } from "./forms/create-car-form";
 import { updateCarFormRender } from "./forms/update-car-form";
 import { renderCar } from "./car/render";
 
-export const renderGaragePage = ():void => {
+export const renderGaragePage = (garageFormsConfig: GarageFormsConfig):void => {
   const html = (`
     <div id="garagePage" class="garage" xmlns="http://www.w3.org/1999/html">
       <div class="form-area">
-        ${ createCarFormRender() }
-        ${ updateCarFormRender() }
+        ${ createCarFormRender(garageFormsConfig) }
+        ${ updateCarFormRender(garageFormsConfig) }
         <div class="buttons">
           <button id="raceBtn">Race</button>
           <button id="resetBtn" disabled>Reset</button>

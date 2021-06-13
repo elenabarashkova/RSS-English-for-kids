@@ -7,7 +7,7 @@ import {
   START_RACE,
   STOP_RACE,
   ADD_NEW_WINNER,
-  SET_WINNERS_LIST,
+  SET_WINNERS_LIST, SAVE_GARAGE_FORMS_DATA,
 } from "./action-types";
 
 export const setCarsList = (carsList: CarsList, total: number):void => {
@@ -61,5 +61,12 @@ export const setWinnersList = (winnersList: WinnersList, total: number):void => 
   store.dispatch({
     type: SET_WINNERS_LIST,
     payload: {winnersList, total},
+  });
+}
+
+export const saveFormsData = (config: GarageFormsConfig): void => {
+  store.dispatch({
+    type: SAVE_GARAGE_FORMS_DATA,
+    payload: config,
   });
 }

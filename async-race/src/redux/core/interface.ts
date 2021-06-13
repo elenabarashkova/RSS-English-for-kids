@@ -14,6 +14,7 @@ interface State {
   currentWinner: Winner | null,
   winnersList: WinnersList,
   totalWinners: number,
+  garageFormsConfig?: GarageFormsConfig,
 }
 
 interface SetCarsListPayload {
@@ -26,7 +27,10 @@ interface SetWinnersListPayload {
   total: number,
 }
 
-type Payload = number | Car | CarsList | SetCarsListPayload | StartedCar | string | Winner | null | SetWinnersListPayload;
+type Payload =
+  number
+  | Car
+  | CarsList | SetCarsListPayload | StartedCar | string | Winner | null | SetWinnersListPayload | GarageFormsConfig;
 
 interface Action {
   type: string,

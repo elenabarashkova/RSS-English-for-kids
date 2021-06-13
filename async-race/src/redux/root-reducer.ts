@@ -1,5 +1,5 @@
 import {
-  ADD_NEW_WINNER,
+  ADD_NEW_WINNER, SAVE_GARAGE_FORMS_DATA,
   SELECT_CARS,
   SET_CARS_LIST, SET_WINNERS_LIST,
   START_CAR, START_RACE,
@@ -64,6 +64,13 @@ export const rootReducer = (state:State, action: Action): State => {
       ...state,
       winnersList: (action.payload as SetWinnersListPayload).winnersList,
       totalWinners: (action.payload as SetWinnersListPayload).total,
+    }
+  }
+
+  if (action.type === SAVE_GARAGE_FORMS_DATA) {
+    return {
+      ...state,
+      garageFormsConfig: action.payload as GarageFormsConfig,
     }
   }
   return state;

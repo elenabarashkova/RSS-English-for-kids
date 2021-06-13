@@ -1,6 +1,4 @@
 import { ROUTES, PAGES_CONFIG } from "../constants";
-import { raceStoptHandler } from "../garage/race";
-import { onGarageHashChange } from "../garage/pagination";
 
 export const getHeader = ():string => {
 
@@ -16,7 +14,7 @@ export const getHeader = ():string => {
   `);
 }
 
-export const startRouting = ():void => {
+export const startRouting = (store: Store):void => {
   const header = document.getElementById('header');
 
   header?.addEventListener('click', (event:Event) => {
@@ -31,12 +29,13 @@ export const startRouting = ():void => {
 
       target.classList.add('active');
 
+      PAGES_CONFIG[prevPageBtnId].stop();
+
       (document.getElementById('main') as HTMLElement).innerHTML = '';
 
+      const state = store.getState();
 
-
-      PAGES_CONFIG[prevPageBtnId].stop();
-      PAGES_CONFIG[target.id].start();
+      PAGES_CONFIG[target.id].start(state.garageFormsConfig);
     }
   });
 }

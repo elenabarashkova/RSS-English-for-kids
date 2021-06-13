@@ -1,10 +1,10 @@
 import { updateCar } from "../../../services/service-requests";
 
-export const updateCarFormRender = ():string => (`
+export const updateCarFormRender = ({updateCarName = '', updateCarColor = ''}: GarageFormsConfig):string => (`
   <form id="updateCarForm">
-    <input type="text" id="updateCarName" disabled>
-    <input type="color" id="updateCarColor" disabled>
-    <button id="updateCarBtn" type="submit" disabled>Update</button>
+    <input type="text" id="updateCarName" value="${updateCarName}" ${updateCarName ? '' : 'disabled'}>
+    <input type="color" id="updateCarColor" value="${updateCarColor}" ${updateCarColor ? '' : 'disabled'}>
+    <button id="updateCarBtn" type="submit" ${updateCarName && updateCarColor ? '' : 'disabled'}>Update</button>
   </form>
 `)
 
@@ -23,7 +23,16 @@ export const updateCarFormBehavior = ():void => {
 
     updateCar(updatedCar);
 
-    updateCarForm.reset();
+    updateCarName.value = '';
+    updateCarColor.value = '';
+
     [...updateCarForm.children].forEach((elem) => elem.setAttribute('disabled', ''));
   });
 }
+
+export const getUpdateCarFormData = () => (
+  {
+    updateCarName: (document.getElementById('updateCarName') as HTMLInputElement).value,
+    updateCarColor: (document.getElementById('updateCarColor') as HTMLInputElement).value,
+  }
+);

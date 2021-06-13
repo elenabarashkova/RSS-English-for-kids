@@ -1,14 +1,15 @@
 import { insertCarsCount, insertPageNumber, renderCarsList, renderGaragePage } from "./render";
 import { getCars } from "../../services/service-requests";
-import { createCarFormBehavior } from "./forms/create-car-form";
+import { createCarFormBehavior, getCreateCarFormData } from "./forms/create-car-form";
 import { carBehavior } from "./car/car-behavior";
-import { updateCarFormBehavior } from "./forms/update-car-form";
+import { getUpdateCarFormData, updateCarFormBehavior } from "./forms/update-car-form";
 import { handlePagination, onGarageHashChange, pagination } from "./pagination";
 import { getGaragePageNumber } from "../../shared";
 import { race, raceStoptHandler } from "./race";
+import { saveFormsData } from "../../redux/actions";
 
-export const startGaragePage = ():void => {
-  renderGaragePage();
+export const startGaragePage = (garageFormsConfig: GarageFormsConfig):void => {
+  renderGaragePage(garageFormsConfig);
   handlePagination();
   getCars();
   carBehavior();
@@ -21,6 +22,13 @@ export const startGaragePage = ():void => {
 export const stopGaragePage = ():void => {
   window.removeEventListener("hashchange", onGarageHashChange);
   raceStoptHandler();
+
+  const garageFormsConfig = {
+    ...getCreateCarFormData(),
+    ...getUpdateCarFormData(),
+  };
+
+  saveFormsData(garageFormsConfig);
 }
 
 export const onCarsListUpdate = (stateCarsList: CarsList, stateTotalCars: number):void => {

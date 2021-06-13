@@ -7,3 +7,4 @@ export const START_RACE = 'START_RACE';
 export const STOP_RACE = 'STOP_RACE';
 export const ADD_NEW_WINNER = 'ADD_NEW_WINNER';
 export const SET_WINNERS_LIST = 'SET_WINNERS_LIST';
+export const SAVE_GARAGE_FORMS_DATA = 'SAVE_GARAGE_FORMS_DATA';
