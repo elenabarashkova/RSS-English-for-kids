@@ -50,3 +50,7 @@ export const renderWinnersList = (winnersList: WinnersList):void => {
 export const insertWinnersCount = (winnersListLength: number):void => {
   (document.getElementById('winnersLength') as HTMLElement).innerText = `${winnersListLength}`;
 }
+
+export const insertPageNumber = (pageNumber: number):void => {
+  (document.getElementById('pageNumWinners') as HTMLElement).innerText = `${pageNumber}`;
+}

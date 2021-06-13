@@ -2,7 +2,7 @@ import { SERVER_ADDRESS } from "./constants";
 import { addCurrentWinner, setCarsList, setWinnersList, startCarAction, stopCarAction } from "../redux/actions";
 import store from "../redux/core/store";
 import { startCarAnimation, stopCarAnimation, stopCarEngine } from "../modules/garage/car/car-animation";
-import { getGaragePageNumber } from "../shared";
+import { getGaragePageNumber, getWinnersPageNumber } from "../shared";
 import { CARS_LIMIT } from "../shared/constants";
 
 export const getCars = async ():Promise<void> => {
@@ -116,7 +116,7 @@ export const createWinner = async (winner: Winner):Promise<void> => {
   try {
     const winnerExisting = await (await fetch(`${SERVER_ADDRESS}/winners/${winner.id}`)).json();
 
-    if(!winnerExisting) {
+    if(!winnerExisting.id) {
       await fetch(`${SERVER_ADDRESS}/winners`, {
         method: 'POST',
         headers: {
@@ -146,9 +146,9 @@ export const createWinner = async (winner: Winner):Promise<void> => {
 }
 
 export const getWinners = async ():Promise<void> => {
-  // const pageNum = getGaragePageNumber();
+  const pageNum = getWinnersPageNumber();
 
-  const response = await fetch(`${SERVER_ADDRESS}/winners?_page=1&_limit=10`);
+  const response = await fetch(`${SERVER_ADDRESS}/winners?_page=${pageNum}&_limit=10`);
   const total = parseInt(response.headers.get('X-Total-Count') as string, 10);
 
   const result = await response.json();

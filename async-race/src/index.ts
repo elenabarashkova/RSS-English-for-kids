@@ -7,6 +7,7 @@ import { disablePagination } from "./modules/garage/pagination";
 import { CARS_LIMIT } from "./shared/constants";
 import { createWinner } from "./services/service-requests";
 import { onWinnersListUpdate } from "./modules/winners";
+import { disableWinnersPagination } from "./modules/winners/pagination";
 
 window.addEventListener('load', () => {
   let state = store.getState();
@@ -32,6 +33,8 @@ window.addEventListener('load', () => {
     const currentGaragePage = document.querySelector('#garage.active');
     if(currentGaragePage) {
       disablePagination(Math.ceil(state.totalCars/CARS_LIMIT));
+    } else {
+      disableWinnersPagination(Math.ceil(state.totalWinners/10))
     }
   });
 })

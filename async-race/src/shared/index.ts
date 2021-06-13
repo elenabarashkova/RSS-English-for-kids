@@ -10,3 +10,7 @@ export const getElement = (name: string, id: string): HTMLElement => (
 export const getGaragePageNumber = (): number => (
   parseInt(window.location.hash.slice(1).split('&')[0].split('=')[1], 10)
 );
+
+export const getWinnersPageNumber = (): number => (
+  parseInt(window.location.hash.slice(1).split('&')[1].split('=')[1], 10)
+);
