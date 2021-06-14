@@ -1,8 +1,12 @@
 import { getWinnersPageNumber } from "../../shared";
 import { getWinners } from "../../services/service-requests";
 
+export const onWinnersHashChange = (): void => {
+  getWinners();
+}
+
 export const handlePagination = (): void => {
-  window.addEventListener("hashchange", getWinners);
+  window.addEventListener("hashchange", onWinnersHashChange);
 }
 
 export const pagination = ():void => {
