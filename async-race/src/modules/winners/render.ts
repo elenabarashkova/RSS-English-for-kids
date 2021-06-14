@@ -1,3 +1,5 @@
+import { getWinnersPageNumber } from "../../shared";
+
 export const renderWinnersPage = ():void => {
   const html = (`
     <div id="winnersPage" class="winners" xmlns="http://www.w3.org/1999/html">
@@ -40,11 +42,12 @@ export const renderWinnersList = (winnersList: WinnersList):void => {
 
   winnersListElement.innerHTML = '';
 
-  winnersList.forEach((winner: WinnerItem, index) => (
-    // const pageNumber = ...;
-    // const winnerIndex = index + 1 + pageNumber * 10;
-    winnersListElement?.insertAdjacentHTML('beforeend', renderWinner(winner, (index + 1))))
-  );
+  const pageNumber = getWinnersPageNumber();
+
+  winnersList.forEach((winner: WinnerItem, index) => {
+    const winnerIndex = index + 1 + (pageNumber - 1) * 10;
+    winnersListElement?.insertAdjacentHTML('beforeend', renderWinner(winner, (winnerIndex)))
+  });
 }
 
 export const insertWinnersCount = (winnersListLength: number):void => {
