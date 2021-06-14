@@ -1,4 +1,4 @@
-import { startCar, stopCar } from "../../../services/service-requests";
+import { startCar, stopCar } from "../../../services/service-car-drive";
 import { switchDisabledState } from "../../../shared"
 import { raceStartAction, raceStopAction } from "../../../redux/actions";
 import { removePopup } from "./popup";

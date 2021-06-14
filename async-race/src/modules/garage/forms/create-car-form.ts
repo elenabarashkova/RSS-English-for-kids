@@ -1,4 +1,4 @@
-import { postNewCar } from "../../../services/service-requests";
+import { postNewCar } from "../../../services/service-car";
 
 export const createCarFormRender = ({createCarName = '', createCarColor = ''}: GarageFormsConfig): string => (`
   <form id="createNewCar">

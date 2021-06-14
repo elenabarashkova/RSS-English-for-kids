@@ -1,4 +1,4 @@
-import { updateCar } from "../../../services/service-requests";
+import { updateCar } from "../../../services/service-car";
 
 export const updateCarFormRender = ({updateCarName = '', updateCarColor = ''}: GarageFormsConfig):string => (`
   <form id="updateCarForm">

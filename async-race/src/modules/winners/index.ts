@@ -1,5 +1,5 @@
 import { insertPageNumber, insertWinnersCount, renderWinnersList, renderWinnersPage } from "./render";
-import { getWinners } from "../../services/service-requests";
+import { getWinners } from "../../services/service-winners";
 import { handlePagination, onWinnersHashChange, pagination } from "./pagination";
 import { getWinnersPageNumber } from "../../shared";
 

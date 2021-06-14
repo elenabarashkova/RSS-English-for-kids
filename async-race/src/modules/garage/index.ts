@@ -1,5 +1,5 @@
 import { insertCarsCount, insertPageNumber, renderCarsList, renderGaragePage } from "./render";
-import { getCars } from "../../services/service-requests";
+import { getCars } from "../../services/service-car";
 import { createCarFormBehavior, getCreateCarFormData } from "./forms/create-car-form";
 import { carBehavior } from "./car/car-behavior";
 import { getUpdateCarFormData, updateCarFormBehavior } from "./forms/update-car-form";

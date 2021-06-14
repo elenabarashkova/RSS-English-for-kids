@@ -1,4 +1,4 @@
-import { getCars } from "../../services/service-requests";
+import { getCars } from "../../services/service-car";
 import { getGaragePageNumber } from "../../shared";
 import { raceStoptHandler } from "./race";
 import { clearCarsList } from "./render";

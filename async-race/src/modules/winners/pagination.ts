@@ -1,5 +1,5 @@
 import { getWinnersPageNumber } from "../../shared";
-import { getWinners } from "../../services/service-requests";
+import { getWinners } from "../../services/service-winners";
 
 export const onWinnersHashChange = (): void => {
   getWinners();

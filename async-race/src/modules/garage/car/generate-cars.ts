@@ -1,4 +1,4 @@
-import { postNewCar } from "../../../services/service-requests";
+import { postNewCar } from "../../../services/service-car";
 
 export const generateCarsBehavior = (): void => {
   const generateCarsBtn = document.getElementById('generateCarsBtn');

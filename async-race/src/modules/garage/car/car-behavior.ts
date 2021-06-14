@@ -1,4 +1,5 @@
-import { deleteCar, startCar, stopCar } from "../../../services/service-requests";
+import { startCar, stopCar } from "../../../services/service-car-drive";
+import { deleteCar } from "../../../services/service-car"
 import { selectCar } from "./select-car";
 
 export const carBehavior = ():void => {

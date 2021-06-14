@@ -5,7 +5,7 @@ import { startRouting } from "./modules/header";
 import { onCarsListUpdate } from "./modules/garage";
 import { disablePagination } from "./modules/garage/pagination";
 import { CARS_LIMIT, WINNERS_LIMIT } from "./services/constants";
-import { createWinner } from "./services/service-requests";
+import { createWinner } from "./services/service-winners";
 import { onWinnersListUpdate } from "./modules/winners";
 import { disableWinnersPagination } from "./modules/winners/pagination";
 
