@@ -1,6 +1,7 @@
 import { startCar, stopCar } from "../../../services/service-requests";
 import { switchDisabledState } from "../../../shared"
 import { raceStartAction, raceStopAction } from "../../../redux/actions";
+import { removePopup } from "./popup";
 
 const raceStartHandler = (): void => {
   const raceBtn = document.getElementById('raceBtn') as HTMLElement;
@@ -34,6 +35,8 @@ export const raceStoptHandler = (): void => {
       car.classList.remove('in-race');
     });
   }
+
+  removePopup();
 }
 
 export const race = (): void => {

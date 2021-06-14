@@ -7,6 +7,7 @@ import { handlePagination, onGarageHashChange, pagination } from "./pagination";
 import { getGaragePageNumber } from "../../shared";
 import { race, raceStoptHandler } from "./race";
 import { saveFormsData } from "../../redux/actions";
+import { removePopup } from "./race/popup";
 
 export const startGaragePage = (garageFormsConfig: GarageFormsConfig):void => {
   renderGaragePage(garageFormsConfig);
@@ -29,6 +30,8 @@ export const stopGaragePage = ():void => {
   };
 
   saveFormsData(garageFormsConfig);
+
+  removePopup();
 }
 
 export const onCarsListUpdate = (stateCarsList: CarsList, stateTotalCars: number):void => {

@@ -4,6 +4,7 @@ import store from "../redux/core/store";
 import { startCarAnimation, stopCarAnimation, stopCarEngine } from "../modules/garage/car/car-animation";
 import { getGaragePageNumber, getWinnersPageNumber } from "../shared";
 import { CARS_LIMIT } from "../shared/constants";
+import { removePopup, startPopup } from "../modules/garage/race/popup";
 
 export const getCars = async ():Promise<void> => {
   const pageNum = getGaragePageNumber();
@@ -139,9 +140,12 @@ export const createWinner = async (winner: Winner):Promise<void> => {
         body: JSON.stringify(newWinner),
       });
     }
+    const state = store.getState();
+    const winnerName = state.carsList.find((car: Car) => car.id === winner.id).name;
+    startPopup(winnerName, state.currentWinner.time);
 
   } catch(error) {
-    alert('Error creating the car. Please, try again');
+    alert('Error creating the winner. Please, try again');
   }
 }
 

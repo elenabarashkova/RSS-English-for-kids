@@ -1,0 +1,48 @@
+.popup {
+  width: 200px;
+  height: 200px;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 1px solid gray;
+  box-shadow: 2px 2px 2px lightgray;
+  position: fixed;
+}
+
+.popup-inner {
+  height: 100%;
+  padding: 10px 15px;
+  text-align: center;
+}
+
+.popup-title {
+  font-size: 22px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.popup-title h2 {
+  margin: 0;
+}
+
+.popup .btn-close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  color: #333;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.popup .btn-close:hover {
+  color: cadetblue;
+}
+
+.popup.active {
+  display: block;
+}
