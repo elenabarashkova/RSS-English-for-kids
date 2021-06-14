@@ -4,7 +4,7 @@ import { initCommonPageTemplate } from "./modules";
 import { startRouting } from "./modules/header";
 import { onCarsListUpdate } from "./modules/garage";
 import { disablePagination } from "./modules/garage/pagination";
-import { CARS_LIMIT } from "./shared/constants";
+import { CARS_LIMIT, WINNERS_LIMIT } from "./services/constants";
 import { createWinner } from "./services/service-requests";
 import { onWinnersListUpdate } from "./modules/winners";
 import { disableWinnersPagination } from "./modules/winners/pagination";
@@ -31,10 +31,11 @@ window.addEventListener('load', () => {
     }
 
     const currentGaragePage = document.querySelector('#garage.active');
+
     if(currentGaragePage) {
       disablePagination(Math.ceil(state.totalCars/CARS_LIMIT));
     } else {
-      disableWinnersPagination(Math.ceil(state.totalWinners/10))
+      disableWinnersPagination(Math.ceil(state.totalWinners/WINNERS_LIMIT));
     }
   });
 })

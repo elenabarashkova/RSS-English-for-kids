@@ -1,15 +1,20 @@
-import { SERVER_ADDRESS } from "./constants";
+import {
+  CARS_LIMIT,
+  WINNERS_LIMIT,
+  SERVER_ADDRESS_GARAGE,
+  SERVER_ADDRESS_WINNERS,
+  SERVER_ADDRESS_ENGINE
+} from "./constants";
 import { addCurrentWinner, setCarsList, setWinnersList, startCarAction, stopCarAction } from "../redux/actions";
 import store from "../redux/core/store";
 import { startCarAnimation, stopCarAnimation, stopCarEngine } from "../modules/garage/car/car-animation";
 import { getGaragePageNumber, getWinnersPageNumber } from "../shared";
-import { CARS_LIMIT } from "../shared/constants";
 import { startPopup } from "../modules/garage/race/popup";
 
 export const getCars = async ():Promise<void> => {
   const pageNum = getGaragePageNumber();
 
-  const response = await fetch(`${SERVER_ADDRESS}/garage?_page=${pageNum}&_limit=${CARS_LIMIT}`);
+  const response = await fetch(`${SERVER_ADDRESS_GARAGE}?_page=${pageNum}&_limit=${CARS_LIMIT}`);
   const total = parseInt(response.headers.get('X-Total-Count') as string, 10);
 
   const result = await response.json();
@@ -19,7 +24,7 @@ export const getCars = async ():Promise<void> => {
 
 export const postNewCar = async (car: Car):Promise<void> => {
   try {
-    await fetch(`${SERVER_ADDRESS}/garage`, {
+    await fetch(`${SERVER_ADDRESS_GARAGE}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -36,10 +41,10 @@ export const postNewCar = async (car: Car):Promise<void> => {
 
 export const deleteCar = async (id:number):Promise<void> => {
   try {
-    await fetch(`${SERVER_ADDRESS}/garage/${id}`, {
+    await fetch(`${SERVER_ADDRESS_GARAGE}/${id}`, {
       method: 'DELETE',
     });
-    await fetch(`${SERVER_ADDRESS}/winners/${id}`, {
+    await fetch(`${SERVER_ADDRESS_WINNERS}/${id}`, {
       method: 'DELETE',
     });
 
@@ -54,7 +59,7 @@ export const updateCar = async (car: Car):Promise<void> => {
   const {selectedCarId} = store.getState();
 
   try {
-    await (await fetch(`${SERVER_ADDRESS}/garage/${selectedCarId}`, {
+    await (await fetch(`${SERVER_ADDRESS_GARAGE}/${selectedCarId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -71,7 +76,7 @@ export const updateCar = async (car: Car):Promise<void> => {
 
 export const startCar = async (id:number):Promise<void> => {
   try {
-    const result = await (await fetch(`${SERVER_ADDRESS}/engine?id=${id}&status=started`)).json();
+    const result = await (await fetch(`${SERVER_ADDRESS_ENGINE}?id=${id}&status=started`)).json();
     const { velocity, distance } = result;
     const duration = Math.round(distance / velocity) / 1000;
 
@@ -82,7 +87,7 @@ export const startCar = async (id:number):Promise<void> => {
 
     startCarAnimation(startedCarsList[startedCarsList.length - 1]);
 
-    const driveResponse = await fetch(`${SERVER_ADDRESS}/engine?id=${id}&status=drive`);
+    const driveResponse = await fetch(`${SERVER_ADDRESS_ENGINE}?id=${id}&status=drive`);
 
     if (!driveResponse.ok) {
       stopCarAnimation(id);
@@ -103,7 +108,7 @@ export const startCar = async (id:number):Promise<void> => {
 
 export const stopCar = async (id:number):Promise<void> => {
   try {
-    await fetch(`${SERVER_ADDRESS}/engine?id=${id}&status=stopped`);
+    await fetch(`${SERVER_ADDRESS_ENGINE}?id=${id}&status=stopped`);
 
     stopCarAction(id);
     stopCarEngine(id);
@@ -115,10 +120,10 @@ export const stopCar = async (id:number):Promise<void> => {
 
 export const createWinner = async (winner: Winner):Promise<void> => {
   try {
-    const winnerExisting = await (await fetch(`${SERVER_ADDRESS}/winners/${winner.id}`)).json();
+    const winnerExisting = await (await fetch(`${SERVER_ADDRESS_WINNERS}/${winner.id}`)).json();
 
     if(!winnerExisting.id) {
-      await fetch(`${SERVER_ADDRESS}/winners`, {
+      await fetch(`${SERVER_ADDRESS_WINNERS}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -132,7 +137,7 @@ export const createWinner = async (winner: Winner):Promise<void> => {
         time: winnerExisting.time > winner.time ? winner.time : winnerExisting.time,
       }
 
-      await fetch(`${SERVER_ADDRESS}/winners/${newWinner.id}`, {
+      await fetch(`${SERVER_ADDRESS_WINNERS}/${newWinner.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -152,13 +157,13 @@ export const createWinner = async (winner: Winner):Promise<void> => {
 export const getWinners = async (sortOrder='ASC'):Promise<void> => {
   const pageNum = getWinnersPageNumber();
 
-  const response = await fetch(`${SERVER_ADDRESS}/winners?_page=${pageNum}&_limit=10&_order=${sortOrder}`);
+  const response = await fetch(`${SERVER_ADDRESS_WINNERS}?_page=${pageNum}&_limit=${WINNERS_LIMIT}&_order=${sortOrder}`);
   const total = parseInt(response.headers.get('X-Total-Count') as string, 10);
 
   const result = await response.json();
 
   const winnersList = await Promise.all(result.map(async (winner: Winner): Promise<Winner> => {
-    const car = await (await fetch(`${SERVER_ADDRESS}/garage/${winner.id}`)).json();
+    const car = await (await fetch(`${SERVER_ADDRESS_GARAGE}/${winner.id}`)).json();
 
     return {
       ...winner,

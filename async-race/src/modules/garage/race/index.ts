@@ -44,6 +44,5 @@ export const race = (): void => {
   const resetBtn = document.getElementById('resetBtn') as HTMLElement;
 
   raceBtn?.addEventListener('click', raceStartHandler);
-
   resetBtn?.addEventListener('click', raceStoptHandler);
 }
