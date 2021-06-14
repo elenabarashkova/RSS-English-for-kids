@@ -8,11 +8,23 @@ const winnersSortingBtns = (): void => {
   const bestTimeBtn = document.getElementById('winnerTimeBtn');
 
   winsNumberBtn?.addEventListener('click', () => {
-    getWinners('ASC');
+    winsNumberBtn.classList.toggle('desc');
+
+    if(winsNumberBtn.classList.contains('desc')) {
+      getWinners('wins','DESC');
+    } else {
+      getWinners('wins','ASC');
+    }
   });
 
   bestTimeBtn?.addEventListener('click', () => {
-    getWinners('DESC');
+    bestTimeBtn.classList.toggle('asc');
+
+    if(bestTimeBtn.classList.contains('asc')) {
+      getWinners('time','ASC');
+    } else {
+      getWinners('time','DESC');
+    }
   });
 }
 

@@ -154,10 +154,15 @@ export const createWinner = async (winner: Winner):Promise<void> => {
   }
 }
 
-export const getWinners = async (sortOrder='ASC'):Promise<void> => {
+export const getWinners = async (sortBy='id',orderBy='ASC'):Promise<void> => {
   const pageNum = getWinnersPageNumber();
 
-  const response = await fetch(`${SERVER_ADDRESS_WINNERS}?_page=${pageNum}&_limit=${WINNERS_LIMIT}&_order=${sortOrder}`);
+  const page = `_page=${pageNum}`;
+  const limit = `_limit=${WINNERS_LIMIT}`;
+  const sort = `_sort=${sortBy}`;
+  const order = `_order=${orderBy}`;
+
+  const response = await fetch(`${SERVER_ADDRESS_WINNERS}?${page}&${limit}&${sort}&${order}`);
   const total = parseInt(response.headers.get('X-Total-Count') as string, 10);
 
   const result = await response.json();
