@@ -8,6 +8,7 @@ import { getGaragePageNumber } from "../../shared";
 import { race, raceStoptHandler } from "./race";
 import { saveFormsData } from "../../redux/actions";
 import { removePopup } from "./race/popup";
+import { generateCarsBehavior } from "./car/generate-cars";
 
 export const startGaragePage = (garageFormsConfig: GarageFormsConfig):void => {
   renderGaragePage(garageFormsConfig);
@@ -16,6 +17,7 @@ export const startGaragePage = (garageFormsConfig: GarageFormsConfig):void => {
   carBehavior();
   createCarFormBehavior();
   updateCarFormBehavior();
+  generateCarsBehavior();
   pagination();
   race();
 }
