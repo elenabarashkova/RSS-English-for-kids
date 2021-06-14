@@ -14,3 +14,29 @@ export const getGaragePageNumber = (): number => (
 export const getWinnersPageNumber = (): number => (
   parseInt(window.location.hash.slice(1).split('&')[1].split('=')[1], 10)
 );
+
+export const disablePagination = (
+  maxPageNumber: number,
+  { prevPageId, nextPageId, currentPageNum }: PaginationConfig
+): void => {
+  const prevPage = document.getElementById(`${prevPageId}`) as HTMLButtonElement;
+  const nextPage = document.getElementById(`${nextPageId}`) as HTMLButtonElement;
+
+  if(!prevPage || !nextPage) {
+    return;
+  }
+
+  const currentPage = currentPageNum();
+
+  if (currentPage === 1) {
+    prevPage.setAttribute('disabled', '');
+  } else {
+    prevPage.removeAttribute('disabled');
+  }
+
+  if (currentPage === maxPageNumber) {
+    nextPage.setAttribute('disabled', '');
+  } else {
+    nextPage.removeAttribute('disabled');
+  }
+}

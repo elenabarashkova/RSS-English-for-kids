@@ -38,27 +38,3 @@ export const pagination = ():void => {
     raceStoptHandler();
   });
 }
-
-export const disablePagination = (maxPageNumber: number):void => {
-  const prevPage = document.getElementById('prevPage') as HTMLButtonElement;
-  const nextPage = document.getElementById('nextPage') as HTMLButtonElement;
-
-  if(!prevPage || !nextPage) {
-    return;
-  }
-
-  const currentPage = getGaragePageNumber();
-
-  if (currentPage === 1) {
-    prevPage.setAttribute('disabled', '');
-  } else {
-    prevPage.removeAttribute('disabled');
-  }
-
-  if (currentPage === maxPageNumber) {
-    nextPage.setAttribute('disabled', '');
-  } else {
-    nextPage.removeAttribute('disabled');
-  }
-
-}

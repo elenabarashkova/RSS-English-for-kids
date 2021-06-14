@@ -31,27 +31,3 @@ export const pagination = ():void => {
     }
   });
 }
-
-export const disableWinnersPagination = (maxPageNumber: number):void => {
-  const prevPage = document.getElementById('prevPageWinners') as HTMLButtonElement;
-  const nextPage = document.getElementById('nextPageWinners') as HTMLButtonElement;
-
-  if(!prevPage || !nextPage) {
-    return;
-  }
-
-  const currentPage = getWinnersPageNumber();
-
-  if (currentPage === 1) {
-    prevPage.setAttribute('disabled', '');
-  } else {
-    prevPage.removeAttribute('disabled');
-  }
-
-  if (currentPage === maxPageNumber) {
-    nextPage.setAttribute('disabled', '');
-  } else {
-    nextPage.removeAttribute('disabled');
-  }
-
-}

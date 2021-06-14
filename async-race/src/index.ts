@@ -3,11 +3,11 @@ import store from "./redux/core/store";
 import { initCommonPageTemplate } from "./modules";
 import { startRouting } from "./modules/header";
 import { onCarsListUpdate } from "./modules/garage";
-import { disablePagination } from "./modules/garage/pagination";
+import { disablePagination } from "./shared";
 import { CARS_LIMIT, WINNERS_LIMIT } from "./services/constants";
 import { createWinner } from "./services/service-winners";
 import { onWinnersListUpdate } from "./modules/winners";
-import { disableWinnersPagination } from "./modules/winners/pagination";
+import { GARAGE_PAGINATION_CONFIG, WINNERS_PAGINATION_CONFIG } from "./modules/constants";
 
 window.addEventListener('load', () => {
   let state = store.getState();
@@ -33,9 +33,9 @@ window.addEventListener('load', () => {
     const currentGaragePage = document.querySelector('#garage.active');
 
     if(currentGaragePage) {
-      disablePagination(Math.ceil(state.totalCars/CARS_LIMIT));
+      disablePagination(Math.ceil(state.totalCars/CARS_LIMIT), GARAGE_PAGINATION_CONFIG);
     } else {
-      disableWinnersPagination(Math.ceil(state.totalWinners/WINNERS_LIMIT));
+      disablePagination(Math.ceil(state.totalWinners/WINNERS_LIMIT), WINNERS_PAGINATION_CONFIG);
     }
   });
 })

@@ -1,5 +1,6 @@
 import { startGaragePage, stopGaragePage } from "./garage";
 import { startWinnersPage, stopWinnersPage } from "./winners";
+import { getGaragePageNumber, getWinnersPageNumber } from "../shared";
 
 export const ROUTES = {
   GARAGE: 'garage',
@@ -19,4 +20,16 @@ export const PAGES_CONFIG = {
     start: startWinnersPage,
     stop: stopWinnersPage,
   },
+}
+
+export const GARAGE_PAGINATION_CONFIG: PaginationConfig = {
+  prevPageId: 'prevPage',
+  nextPageId: 'nextPage',
+  currentPageNum: getGaragePageNumber,
+}
+
+export const WINNERS_PAGINATION_CONFIG: PaginationConfig = {
+  prevPageId: 'prevPageWinners',
+  nextPageId: 'nextPageWinners',
+  currentPageNum: getWinnersPageNumber,
 }
