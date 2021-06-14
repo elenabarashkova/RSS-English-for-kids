@@ -10,7 +10,7 @@ const renderPopup = (name: string, time: number) => (`
   </div>
 `);
 
-export const removePopup = () => {
+export const removePopup = (): void => {
   const popup = document.getElementById('raceWinner');
 
   if(popup) {
@@ -18,7 +18,7 @@ export const removePopup = () => {
   }
 }
 
-export const startPopup = (name: string, time: number) => {
+export const startPopup = (name: string, time: number): void => {
   document.getElementById('main')?.insertAdjacentHTML('beforeend', renderPopup(name, time));
 
   const closeBtn = document.getElementById('btnClose');

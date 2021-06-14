@@ -1,9 +1,20 @@
 import { postNewCar } from "../../../services/service-requests";
 
-export const generateCarsBehavior = () => {
+export const generateCarsBehavior = (): void => {
   const generateCarsBtn = document.getElementById('generateCarsBtn');
 
-  const carsNames = ['Tesla', 'Batmobile', 'Ford', 'Audi', 'BMW', 'Cadillac', 'Chevrolet', 'Ferrari', 'Honda', 'Subaru'];
+  const carsNames = [
+    'Tesla',
+    'Batmobile',
+    'Ford',
+    'Audi',
+    'BMW',
+    'Cadillac',
+    'Chevrolet',
+    'Ferrari',
+    'Honda',
+    'Subaru',
+  ];
   const carsModels = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'SUPER', 'MINI'];
 
   generateCarsBtn?.addEventListener('click', () => {

@@ -4,7 +4,7 @@ import store from "../redux/core/store";
 import { startCarAnimation, stopCarAnimation, stopCarEngine } from "../modules/garage/car/car-animation";
 import { getGaragePageNumber, getWinnersPageNumber } from "../shared";
 import { CARS_LIMIT } from "../shared/constants";
-import { removePopup, startPopup } from "../modules/garage/race/popup";
+import { startPopup } from "../modules/garage/race/popup";
 
 export const getCars = async ():Promise<void> => {
   const pageNum = getGaragePageNumber();

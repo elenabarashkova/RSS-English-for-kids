@@ -1,6 +1,6 @@
 import { postNewCar } from "../../../services/service-requests";
 
-export const createCarFormRender = ({createCarName = '', createCarColor = ''}: GarageFormsConfig):string => (`
+export const createCarFormRender = ({createCarName = '', createCarColor = ''}: GarageFormsConfig): string => (`
   <form id="createNewCar">
     <input type="text" id="newCarName" required value="${createCarName}">
     <input type="color" id="newCarColor" value="${createCarColor}">
@@ -8,7 +8,7 @@ export const createCarFormRender = ({createCarName = '', createCarColor = ''}: G
   </form>
 `)
 
-export const createCarFormBehavior = ():void => {
+export const createCarFormBehavior = (): void => {
   const newCarName = document.getElementById('newCarName') as HTMLInputElement;
   const newCarColor = document.getElementById('newCarColor') as HTMLInputElement;
   const createNewCarForm = document.getElementById('createNewCar') as HTMLFormElement;
@@ -28,7 +28,7 @@ export const createCarFormBehavior = ():void => {
   });
 }
 
-export const getCreateCarFormData = () => (
+export const getCreateCarFormData = (): GarageFormsConfig => (
   {
     createCarName: (document.getElementById('newCarName') as HTMLInputElement).value,
     createCarColor: (document.getElementById('newCarColor') as HTMLInputElement).value,

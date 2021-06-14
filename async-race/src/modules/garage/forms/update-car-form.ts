@@ -30,7 +30,7 @@ export const updateCarFormBehavior = ():void => {
   });
 }
 
-export const getUpdateCarFormData = () => (
+export const getUpdateCarFormData = (): GarageFormsConfig => (
   {
     updateCarName: (document.getElementById('updateCarName') as HTMLInputElement).value,
     updateCarColor: (document.getElementById('updateCarColor') as HTMLInputElement).value,
