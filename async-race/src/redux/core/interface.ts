@@ -30,9 +30,20 @@ interface SetWinnersListPayload {
 type Payload =
   number
   | Car
-  | CarsList | SetCarsListPayload | StartedCar | string | Winner | null | SetWinnersListPayload | GarageFormsConfig;
+  | CarsList
+  | SetCarsListPayload
+  | StartedCar
+  | string
+  | Winner
+  | null
+  | SetWinnersListPayload
+  | GarageFormsConfig;
 
 interface Action {
   type: string,
   payload: Payload,
 }
+
+// interface reducerConfig {
+//   string: CallableFunction,
+// }
