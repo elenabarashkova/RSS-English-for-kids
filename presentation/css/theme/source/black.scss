@@ -1,0 +1,79 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(./fonts/source-sans-pro/source-sans-pro.css);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #191919;
+
+$mainColor: #fff;
+$headingColor: #fff;
+
+$mainFontSize: 30px;
+$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 600;
+$linkColor: #42affa;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 20px;
+
+// Change text colors against light slide backgrounds
+@include light-bg-text-color(#222);
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+// Custom styles
+
+section.slide-1 {
+  height: 100%;
+}
+
+.slide-1 figure {
+  width: 400px;
+  font-size: 20px;
+  float: left;
+}
+
+.slide-1 .right-bottom {
+  width: 500px;
+  font-size: 20px;
+  position: absolute;
+  bottom: 150px;
+  right: 0;
+}
+
+.slide-2 img {
+  margin: 0;
+}
+
+.slide-2 h2 {
+  margin-bottom: 60px;
+}
+
+.slide-7 li {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
