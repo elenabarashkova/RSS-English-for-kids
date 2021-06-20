@@ -1,10 +1,12 @@
 import "./style.css";
-import { createStore } from "redux";
+import store from "./redux/store";
+import { toggleGameMode } from "./redux/actions";
 
-console.log(createStore);
-// import store from "./redux/core/store";
-//
-// window.addEventListener('load', () => {
-//   let state = store.getState();
-//
-// })
+window.addEventListener('load', () => {
+  const state = store.getState();
+
+  document.getElementById('checkbox')?.addEventListener('click', () => {
+    toggleGameMode();
+    console.log(store.getState());
+  })
+})

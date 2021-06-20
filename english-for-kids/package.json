@@ -28,6 +28,7 @@
     "webpack-cli": "^4.7.0"
   },
   "dependencies": {
-    "redux": "^4.1.0"
+    "redux": "^4.1.0",
+    "redux-devtools-extension": "^2.13.9"
   }
 }

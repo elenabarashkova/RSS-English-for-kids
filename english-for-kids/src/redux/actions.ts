@@ -1,8 +1,8 @@
-// import store from "./core/store";
+import store from "./store";
+import { TOGGLE_GAME_MODE } from "./action-types";
 
-// export const setCarsList = (carsList: any, total: number):void => {
-//   store.dispatch({
-//     type: SET_CARS_LIST,
-//     payload: {carsList, total},
-//   });
-// }
+export const toggleGameMode = ():void => {
+  store.dispatch({
+    type: TOGGLE_GAME_MODE,
+  });
+}

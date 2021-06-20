@@ -1,0 +1,1 @@
+export const TOGGLE_GAME_MODE = 'TOGGLE_GAME_MODE';
