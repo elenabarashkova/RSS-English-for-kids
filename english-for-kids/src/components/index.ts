@@ -17,7 +17,7 @@ const getFooter = (): string => (`
 `)
 
 export const renderCommonPageTemplate = (): void => {
-  document.body.insertAdjacentHTML('beforeend', getMain());
   document.body.insertAdjacentHTML('beforeend', getMenu());
+  document.body.insertAdjacentHTML('beforeend', getMain());
   document.body.insertAdjacentHTML('beforeend', getFooter());
 }

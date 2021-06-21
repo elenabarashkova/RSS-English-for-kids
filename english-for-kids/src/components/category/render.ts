@@ -1,12 +1,12 @@
-const getWordCard = ({ name, imageUrl }: Category) => (`
-  <a href="#category/${name}" class="category-card card">
+const getWordCard = ({ name, imageUrl }: Word) => (`
+  <div class="category-card card">
     <img src=${imageUrl} alt=${name}>
     <div>${name}</div>
-  </a>
+  </div>
 `)
 
-export const getCategoryInner = (wordsListConfigAnimals: WordsListConfig): string => (`
+export const getCategoryInner = (currentCategoryWords: WordsListConfig): string => (`
   <div class="category-page card-wrap container">
-    ${(Object.keys(wordsListConfigAnimals)).map((word: string) => getWordCard(wordsListConfigAnimals[word])).join('')}
+    ${(Object.keys(currentCategoryWords)).map((word: string) => getWordCard(currentCategoryWords[word])).join('')}
   </div>
 `)
