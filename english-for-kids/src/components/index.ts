@@ -1,4 +1,5 @@
 import { getMenu } from "./menu/get-menu";
+import { openMenu } from "./menu";
 
 const getMain = (): string => (`
   <main id="main"></main>
@@ -20,4 +21,6 @@ export const renderCommonPageTemplate = (): void => {
   document.body.insertAdjacentHTML('beforeend', getMenu());
   document.body.insertAdjacentHTML('beforeend', getMain());
   document.body.insertAdjacentHTML('beforeend', getFooter());
+
+  openMenu();
 }
