@@ -10,6 +10,7 @@ aside {
   background: transparent;
   padding: 0;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .menu-toggler span {
@@ -39,4 +40,8 @@ aside {
 .menu-toggler.opened span:last-child {
   transform: rotate(-45deg);
   top: -5px;
+}
+
+.menu-toggler:hover span {
+  background: #acecef;
 }

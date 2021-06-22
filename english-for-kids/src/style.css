@@ -1,6 +1,7 @@
 @import "components/footer.css";
 @import "components/main-page/main-page.css";
 @import "components/menu/menu-button.css";
+@import "components/menu/menu.css";
 
 * {
   box-sizing: border-box;

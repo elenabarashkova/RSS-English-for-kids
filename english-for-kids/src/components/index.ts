@@ -17,10 +17,10 @@ const getFooter = (): string => (`
   </footer>
 `)
 
-export const renderCommonPageTemplate = (): void => {
+export const initCommonPageTemplate = (): void => {
   document.body.insertAdjacentHTML('beforeend', getMenu());
   document.body.insertAdjacentHTML('beforeend', getMain());
   document.body.insertAdjacentHTML('beforeend', getFooter());
 
-  openMenu();
+  openMenu(); // -> rename into menu behavior?
 }

@@ -8,7 +8,7 @@ const onHashChange = (event: HashChangeEvent | null): void => {
 
   if(oldUrl) {
     const oldRoute = oldUrl.split('/')[0];
-    PAGES_CONFIG[oldRoute]?.stop();
+    PAGES_CONFIG[oldRoute]?.stop(); // -> in case stop behavior will be added for each page
   }
 
   const route = window.location.hash.slice(1).split('/')[0];
@@ -23,5 +23,6 @@ const onHashChange = (event: HashChangeEvent | null): void => {
 
 export const startRouter = (): void => {
   window.addEventListener('hashchange', onHashChange);
+
   onHashChange(null);
 }
