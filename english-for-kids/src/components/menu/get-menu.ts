@@ -20,14 +20,14 @@ const getMenuItem = ( { url, name, subcategory }: Route): string => (`
 `)
 
 export const getMenu = (): string => (`
-  <aside id="menu">
+  <aside id="menu" class="aside">
     <button id="menuToggler" class="menu-toggler">
       <span></span>
       <span></span>
       <span></span>
     </button>
     <div id="menuInner" class="menu-inner">
-      <nav id="navigation">
+      <nav id="navigation" class="navigation">
         <ul class="menu-list">
           ${(Object.keys(ROUTES)).map((route: string) => getMenuItem(ROUTES[route])).join('')}
         </ul>
