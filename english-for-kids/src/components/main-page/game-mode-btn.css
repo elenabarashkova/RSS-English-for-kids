@@ -1,0 +1,75 @@
+.game-mode-wrap {
+  text-align: right;
+}
+
+.game-mode-btn {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+  font-size: 16px;
+  user-select: none;
+}
+.game-mode-toggler-inner {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 86px;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, .1);
+  border-radius: 2px;
+  vertical-align: top;
+  background: lightblue;
+  transition: .2s;
+  text-align: right;
+  padding: 0 5px;
+}
+.game-mode-toggler-inner:before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 1px;
+  display: inline-block;
+  width: 30px;
+  height: 80%;
+  background: white;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  transition: .15s;
+}
+.game-mode-toggler {
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.game-mode-toggler:active + .game-mode-toggler-inner:before {
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
+}
+.game-mode-toggler:checked + .game-mode-toggler-inner {
+  background: #e3babf;
+  text-align: left;
+}
+.game-mode-toggler:checked + .game-mode-toggler-inner:before {
+  transform:translateX(50px);
+}
+
+/* Hover */
+.game-mode-toggler-inner {
+  cursor: pointer;
+  border-color: rgba(0, 0, 0, .3);
+}
+
+.in-game {
+  display: none;
+}
+
+.game-mode-toggler:checked + .game-mode-toggler-inner .in-game {
+  display: inline;
+}
+
+.game-mode-toggler:checked + .game-mode-toggler-inner .in-train {
+  display: none;
+}
+
