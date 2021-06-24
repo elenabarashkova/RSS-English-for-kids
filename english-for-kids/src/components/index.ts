@@ -1,8 +1,13 @@
 import { getMenu } from "./menu/get-menu";
 import { openMenu } from "./menu";
+import { getGameModeBtn } from "./game-mode-toggle/render";
+import { gameModeBtnBehavior } from "./game-mode-toggle";
 
 const getMain = (): string => (`
-  <main id="main"></main>
+  <main id="main">
+    ${getGameModeBtn()}
+    <div id="mainWrap"></div>
+  </main>
 `)
 
 const getFooter = (): string => (`
@@ -22,5 +27,6 @@ export const initCommonPageTemplate = (): void => {
   document.body.insertAdjacentHTML('beforeend', getMain());
   document.body.insertAdjacentHTML('beforeend', getFooter());
 
-  openMenu(); // -> rename into menu behavior?
+  openMenu();
+  gameModeBtnBehavior();
 }

@@ -1,6 +1,6 @@
 @import "components/footer.css";
 @import "components/main-page/main-page.css";
-@import "components/main-page/game-mode-btn.css";
+@import "components/game-mode-toggle/game-mode-btn.css";
 @import "components/menu/menu-button.css";
 @import "components/menu/menu.css";
 

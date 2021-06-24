@@ -2,9 +2,9 @@ import { getMainPageInner } from "./render";
 import { categoriesListConfig } from "./categories-config";
 
 export const startMainPage = (): void => {
-  const main = document.getElementById('main') as HTMLElement;
+  const mainWrap = document.getElementById('mainWrap') as HTMLElement;
 
-  main?.insertAdjacentHTML('beforeend', getMainPageInner(categoriesListConfig));
+  mainWrap?.insertAdjacentHTML('beforeend', getMainPageInner(categoriesListConfig));
 }
 
 export const stopMainPage = (): void => {

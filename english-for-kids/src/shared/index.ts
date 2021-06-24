@@ -3,10 +3,10 @@ import { ROUTES } from "../router/constants";
 const DEFAULT_PAGE = ROUTES.MAIN.url;
 
 export const clearMain = (): void => {
-  const main = document.getElementById('main');
+  const mainWrap = document.getElementById('mainWrap');
 
-  if(main) {
-    main.innerHTML = '';
+  if(mainWrap) {
+    mainWrap.innerHTML = '';
   }
 }
 
