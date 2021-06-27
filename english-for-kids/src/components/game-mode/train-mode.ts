@@ -1,3 +1,5 @@
+import { playAudio } from "../../shared";
+
 const cardTrainHandler = (event: Event): void => {
   const card = event.currentTarget as HTMLElement;
 
@@ -10,7 +12,12 @@ const cardTrainHandler = (event: Event): void => {
     }
     card.addEventListener('mouseleave', mouseOutHandler);
   } else {
-    console.log('sound');
+    const audio = card.querySelector('audio');
+
+    if(audio && !card.classList.contains('turn')) {
+      console.log(audio);
+      playAudio(audio);
+    }
   }
 }
 

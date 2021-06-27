@@ -13,3 +13,8 @@ export const clearMain = (): void => {
 export const redirectToDefaultPage = (): void => {
   window.location.hash = DEFAULT_PAGE;
 }
+
+export const playAudio = (audio: HTMLAudioElement) => {
+  audio.currentTime = 0;
+  audio.play();
+}

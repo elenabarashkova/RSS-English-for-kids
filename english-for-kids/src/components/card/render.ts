@@ -1,4 +1,4 @@
-export const getWordCard = ({ name, imageUrl, translation }: Word): string => (`
+export const getWordCard = ({ name, imageUrl, translation, sound }: Word): string => (`
   <div class="category-card card">
     <div class="category-card-inner">
       <div class="category-card-pic">
@@ -12,6 +12,9 @@ export const getWordCard = ({ name, imageUrl, translation }: Word): string => (`
         <div class="caption-turned">
           <div class="caption-text translation">${translation}</div>
         </div>        
+      </div>
+      <div class="audio">
+        <audio src=${sound}></audio>
       </div>
     </div>
   </div>
