@@ -61,15 +61,15 @@
   border-color: rgba(0, 0, 0, .3);
 }
 
-.in-game {
+span.in-game {
   display: none;
 }
 
-.game-mode-toggler:checked + .game-mode-toggler-inner .in-game {
+.game-mode-toggler:checked + .game-mode-toggler-inner span.in-game {
   display: inline;
 }
 
-.game-mode-toggler:checked + .game-mode-toggler-inner .in-train {
+.game-mode-toggler:checked + .game-mode-toggler-inner span.in-train {
   display: none;
 }
 

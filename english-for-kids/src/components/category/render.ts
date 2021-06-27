@@ -1,9 +1,4 @@
-const getWordCard = ({ name, imageUrl }: Word) => (`
-  <div class="category-card card">
-    <img src=${imageUrl} alt=${name}>
-    <div>${name}</div>
-  </div>
-`)
+import { getWordCard } from "../card/render";
 
 export const getCategoryInner = (currentCategoryWords: WordsListConfig): string => (`
   <div class="category-page card-wrap container">

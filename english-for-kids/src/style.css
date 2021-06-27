@@ -3,6 +3,7 @@
 @import "components/game-mode-toggle/game-mode-btn.css";
 @import "components/menu/menu-button.css";
 @import "components/menu/menu.css";
+@import "components/card/card.css";
 
 * {
   box-sizing: border-box;
@@ -23,11 +24,13 @@ body {
 .card-wrap {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .card {
-  width: 25%;
+  width: 24%;
   padding: 20px;
+  margin-bottom: 20px;
 }
 
 .card > img {

@@ -1,6 +1,7 @@
 import { getCategoryInner } from "./render";
 import { categoriesListConfig } from "../main-page/categories-config";
 import { redirectToDefaultPage } from "../../shared";
+import { cardBehaviorTrain } from "../card";
 
 export const startCategoryPage = (): void => {
   const mainWrap = document.getElementById('mainWrap') as HTMLElement;
@@ -13,6 +14,8 @@ export const startCategoryPage = (): void => {
   } else {
     redirectToDefaultPage();
   }
+
+  cardBehaviorTrain();
 }
 
 export const stopCategoryPage = (): void => {
