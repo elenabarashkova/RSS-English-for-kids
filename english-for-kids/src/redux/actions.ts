@@ -1,5 +1,5 @@
 import store from "./store";
-import { CURRENT_PAGE, START_GAME, STOP_GAME, TOGGLE_GAME_MODE } from "./action-types";
+import { SET_CURRENT_PAGE, START_GAME, STOP_GAME, TOGGLE_GAME_MODE } from "./action-types";
 
 export const toggleGameModeAction = ():void => {
   store.dispatch({
@@ -7,9 +7,10 @@ export const toggleGameModeAction = ():void => {
   });
 }
 
-export const startGameAction = ():void => {
+export const startGameAction = (wordsInPlay:WordsListConfig):void => {
   store.dispatch({
     type: START_GAME,
+    payload: wordsInPlay,
   });
 }
 
@@ -21,7 +22,7 @@ export const stopGameAction = ():void => {
 
 export const setCurrentPageAction = (page: string):void => {
   store.dispatch({
-    type: CURRENT_PAGE,
+    type: SET_CURRENT_PAGE,
     payload: page,
   });
 }

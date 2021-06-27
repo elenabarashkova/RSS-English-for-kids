@@ -1,11 +1,11 @@
 import { Action, combineReducers } from 'redux'
 import { GAME_MODES } from "../shared/constants";
-import { CURRENT_PAGE, START_GAME, STOP_GAME, TOGGLE_GAME_MODE } from "./action-types";
+import { SET_CURRENT_PAGE, START_GAME, STOP_GAME, TOGGLE_GAME_MODE } from "./action-types";
 import { DEFAULT_PAGE } from "../shared";
 import { ActionWithPayload } from "./interface";
 
 const currentPageReducer = (state = DEFAULT_PAGE, action: ActionWithPayload) => {
-  if (action.type === CURRENT_PAGE) {
+  if (action.type === SET_CURRENT_PAGE) {
     return (action.payload)
   }
   return state
@@ -13,7 +13,8 @@ const currentPageReducer = (state = DEFAULT_PAGE, action: ActionWithPayload) => 
 
 const initialGameState = {
   gameMode: GAME_MODES.TRAIN,
-  isGameStarted: false
+  isGameStarted: false,
+  wordsInPlay: {},
 }
 
 const gameReducer = (state = initialGameState, action: Action) => {
@@ -27,7 +28,11 @@ const gameReducer = (state = initialGameState, action: Action) => {
     }
   }
   if (action.type === START_GAME && state.gameMode === GAME_MODES.GAME) {
-    return {... state, isGameStarted: true}
+    return {
+      ... state,
+      isGameStarted: true,
+      wordsInPlay: (action as ActionWithPayload).payload,
+    }
   }
   if (action.type === STOP_GAME) {
     return {... state, isGameStarted: false}
