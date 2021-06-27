@@ -1,7 +1,7 @@
 import { getMenu } from "./menu/get-menu";
 import { openMenu } from "./menu";
-import { getGameModeBtn } from "./game-mode-toggle/render";
-import { gameModeBtnBehavior } from "./game-mode-toggle";
+import { getGameModeBtn } from "./game-mode/game-mode-btn/render";
+import { gameModeBtnBehavior } from "./game-mode/game-mode-btn";
 
 const getMain = (): string => (`
   <main id="main">
