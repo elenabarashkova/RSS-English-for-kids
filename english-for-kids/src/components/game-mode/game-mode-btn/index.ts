@@ -1,8 +1,8 @@
-import { toggleGameMode } from "../../../redux/actions";
+import { toggleGameModeAction } from "../../../redux/actions";
 
 export const gameModeBtnBehavior = (): void => {
   document.getElementById('gameModeCheckbox')?.addEventListener('click', () => {
-    toggleGameMode();
+    toggleGameModeAction();
     document.getElementById('mainWrap')?.classList.toggle('in-game');
   })
 }

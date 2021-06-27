@@ -4,6 +4,7 @@
 @import "components/menu/menu-button.css";
 @import "components/menu/menu.css";
 @import "components/card/card.css";
+@import "components/category/category.css";
 
 * {
   box-sizing: border-box;

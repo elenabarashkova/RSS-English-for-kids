@@ -1,6 +1,6 @@
 import { ROUTES } from "../router/constants";
 
-const DEFAULT_PAGE = ROUTES.MAIN.url;
+export const DEFAULT_PAGE = ROUTES.MAIN.url;
 
 export const clearMain = (): void => {
   const mainWrap = document.getElementById('mainWrap');
@@ -14,7 +14,7 @@ export const redirectToDefaultPage = (): void => {
   window.location.hash = DEFAULT_PAGE;
 }
 
-export const playAudio = (audio: HTMLAudioElement) => {
+export const playAudio = (audio: HTMLAudioElement): void => {
   audio.currentTime = 0;
   audio.play();
 }

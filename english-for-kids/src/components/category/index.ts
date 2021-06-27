@@ -1,7 +1,6 @@
 import { getCategoryInner } from "./render";
 import { categoriesListConfig } from "../main-page/categories-config";
 import { redirectToDefaultPage } from "../../shared";
-import { startBehaviorTrain } from "../game-mode/train-mode";
 
 export const startCategoryPage = (): void => {
   const mainWrap = document.getElementById('mainWrap') as HTMLElement;
@@ -14,8 +13,6 @@ export const startCategoryPage = (): void => {
   } else {
     redirectToDefaultPage();
   }
-
-  startBehaviorTrain();
 }
 
 export const stopCategoryPage = (): void => {

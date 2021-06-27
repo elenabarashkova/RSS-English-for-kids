@@ -1,0 +1,8 @@
+.game-btn,
+.stars-wrap {
+  display: none;
+}
+
+.in-game .game-btn.start-game-btn {
+  display: block;
+}
