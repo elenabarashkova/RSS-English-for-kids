@@ -2,21 +2,12 @@ import { startGameAction } from "../../redux/actions";
 
 export const startBehaviorGame = (): void => {
   const startGameBtn = document.getElementById('startGameBtn');
-  console.log(startGameBtn);
 
-  startGameBtn?.addEventListener('click', () => {
-    console.log('click test');
-    startGameAction();
-  });
-
-    // startGame();
-    // add class to main wrap gameStarted &&add styles for stars and repeatbtn and startgameBtn
-    // start game
+  startGameBtn?.addEventListener('click', startGameAction);
 }
 
 export const stopBehaviorGame = (): void => {
-  // const startGameBtn = document.getElementById('startGameBtn');
-  // startGameBtn?.removeEventListener('click', startGame);
-  // stopGameAction();
+  const startGameBtn = document.getElementById('startGameBtn');
+  startGameBtn?.removeEventListener('click', startGameAction);
   console.log('stop card behavior GAME');
 }

@@ -6,3 +6,12 @@
 .in-game .game-btn.start-game-btn {
   display: block;
 }
+
+.in-game.game-started .game-btn.start-game-btn {
+  display: none;
+}
+
+.in-game.game-started .game-btn.repeat-word-btn,
+.in-game.game-started .stars-wrap{
+  display: block;
+}

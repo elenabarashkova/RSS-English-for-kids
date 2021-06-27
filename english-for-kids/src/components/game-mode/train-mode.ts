@@ -15,7 +15,6 @@ const cardTrainHandler = (event: Event): void => {
     const audio = card.querySelector('audio');
 
     if(audio && !card.classList.contains('turn')) {
-      console.log(audio);
       playAudio(audio);
     }
   }

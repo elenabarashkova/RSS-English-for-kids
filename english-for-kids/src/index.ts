@@ -15,5 +15,12 @@ window.addEventListener('load', () => {
     const state = store.getState();
 
     gameModeBehaviorToggle(state.game.gameMode);
+
+    if(state.game.isGameStarted) {
+      document.getElementById('mainWrap')?.classList.add('game-started');
+    }
+    else if(!state.game.isGameStarted) {
+      document.getElementById('mainWrap')?.classList.remove('game-started');
+    }
   });
 })
