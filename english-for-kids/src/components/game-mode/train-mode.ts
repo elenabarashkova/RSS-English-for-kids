@@ -4,9 +4,11 @@ const cardTrainHandler = (event: Event): void => {
   if((event.target as HTMLElement).classList.contains('turnCardBtn')) {
     card.classList.add('turn');
 
-    card.addEventListener('mouseout', () => {
+    const mouseOutHandler = () => {
       card.classList.remove('turn');
-    })
+      card.removeEventListener('mouseleave', mouseOutHandler);
+    }
+    card.addEventListener('mouseleave', mouseOutHandler);
   } else {
     console.log('sound');
   }

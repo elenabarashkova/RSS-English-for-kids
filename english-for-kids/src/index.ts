@@ -5,8 +5,6 @@ import { startRouter } from "./router";
 import { gameModeBehaviorToggle } from "./components/game-mode";
 
 window.addEventListener('load', () => {
-  // let state = store.getState();
-
   initCommonPageTemplate();
   startRouter();
 

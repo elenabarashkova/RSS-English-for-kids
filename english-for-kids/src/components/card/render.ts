@@ -5,9 +5,13 @@ export const getWordCard = ({ name, imageUrl, translation }: Word): string => (`
         <img src=${imageUrl} alt=${name}>
       </div>
       <div class="category-card-caption">
-        <div>${name}</div>
-        <button class="turnCardBtn">Turn</button>
-<!--        <div>${translation}</div>-->
+        <div class="caption-normal">
+          <div class="caption-text name">${name}</div>
+          <button class="turnCardBtn">Turn</button>
+        </div>
+        <div class="caption-turned">
+          <div class="caption-text translation">${translation}</div>
+        </div>        
       </div>
     </div>
   </div>

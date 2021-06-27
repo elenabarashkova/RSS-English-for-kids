@@ -1,5 +1,13 @@
 .category-card {
   border: 1px solid gray;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  cursor: pointer;
+}
+
+.card.turn {
+  transform: rotateY(180deg);
 }
 
 .category-card-inner {
@@ -20,6 +28,19 @@
 
 .category-card-caption {
   font-size: 18px;
+}
+
+.caption-turned {
+  display: none;
+}
+
+.card.turn .caption-normal {
+  display: none;
+}
+
+.card.turn .caption-turned {
+  display: block;
+  transform: rotateY(-180deg);
 }
 
 .in-game .category-card-caption {
