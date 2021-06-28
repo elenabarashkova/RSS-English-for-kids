@@ -1,6 +1,6 @@
 import { CATEGORIES_LIST } from "./constants";
 import { wordsListConfigAnimals } from "../category/words-configs/animals";
-import { wordsListConfigTransport } from "../category/words-configs/transport";
+// import { wordsListConfigTransport } from "../category/words-configs/transport";
 
 export const categoriesListConfig: CategoriesListConfig = {
   [CATEGORIES_LIST.ANIMALS]: {
@@ -13,7 +13,7 @@ export const categoriesListConfig: CategoriesListConfig = {
     name: 'Transport',
     url: 'transport',
     imageUrl: './assets/animals.jpg',
-    wordsConfig: wordsListConfigTransport,
+    wordsConfig: wordsListConfigAnimals,
   },
   [CATEGORIES_LIST.ECOLOGY]: {
     name: 'Ecology',

@@ -1,8 +1,9 @@
 interface Word {
+  word: string,
   name: string,
   translation: string,
   imageUrl: string,
   sound?: string,
 }
 
-interface WordsListConfig extends Record<string, Word> {}
+interface WordsListConfig extends Array<Word> {}

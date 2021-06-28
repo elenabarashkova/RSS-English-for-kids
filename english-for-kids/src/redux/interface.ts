@@ -5,5 +5,6 @@ export interface ActionWithPayload extends Action {payload?: string | WordsListC
 export interface GameState {
   gameMode: string,
   isGameStarted: boolean,
-  wordsInPlay: WordsListConfig
+  wordsInPlay: WordsListConfig,
+  currentWord: Word,
 }

@@ -1,50 +1,58 @@
-export const wordsListConfigAnimals: WordsListConfig = {
-  dog: {
+export const wordsListConfigAnimals: WordsListConfig = [
+  {
+    word: 'dog',
     name: 'Dog',
     translation: 'Собака',
     imageUrl: './assets/animals.jpg',
     sound: './assets/dog.mp3'
   },
-  cat: {
+  {
+    word: 'cat',
     name: 'Cat',
     translation: 'Собака',
     imageUrl: './assets/animals.jpg',
     sound: './assets/dog.mp3'
   },
-  elephant: {
+  {
+    word: 'elephant',
     name: 'Elephant',
     translation: 'Собака',
     imageUrl: './assets/animals.jpg',
     sound: './assets/dog.mp3'
   },
-  puma: {
+  {
+    word: 'puma',
     name: 'Puma',
     translation: 'Собака',
     imageUrl: './assets/animals.jpg',
     sound: './assets/dog.mp3'
   },
-  lion: {
+  {
+    word: 'lion',
     name: 'Lion',
     translation: 'Собака',
     imageUrl: './assets/animals.jpg',
     sound: './assets/dog.mp3'
   },
-  zebra: {
+  {
+    word: 'zebra',
     name: 'Zebra',
     translation: 'Собака',
     imageUrl: './assets/animals.jpg',
     sound: './assets/dog.mp3'
   },
-  turtle: {
+  {
+    word: 'turtle',
     name: 'Turtle',
     translation: 'Собака',
     imageUrl: './assets/animals.jpg',
     sound: './assets/dog.mp3'
   },
-  panda: {
+  {
+    word: 'panda',
     name: 'Panda',
     translation: 'Собака',
     imageUrl: './assets/animals.jpg',
     sound: './assets/dog.mp3'
   },
-}
+]

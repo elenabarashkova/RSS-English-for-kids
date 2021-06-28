@@ -1,6 +1,12 @@
 import { Action, combineReducers } from 'redux'
 import { GAME_MODES } from "../shared/constants";
-import { SET_CURRENT_PAGE, START_GAME, STOP_GAME, TOGGLE_GAME_MODE } from "./action-types";
+import {
+  NEXT_CURRENT_WORD,
+  SET_CURRENT_PAGE,
+  START_GAME,
+  STOP_GAME,
+  TOGGLE_GAME_MODE
+} from "./action-types";
 import { DEFAULT_PAGE } from "../shared";
 import { ActionWithPayload } from "./interface";
 
@@ -14,7 +20,8 @@ const currentPageReducer = (state = DEFAULT_PAGE, action: ActionWithPayload) => 
 const initialGameState = {
   gameMode: GAME_MODES.TRAIN,
   isGameStarted: false,
-  wordsInPlay: {},
+  wordsInPlay: [],
+  currentWord: null,
 }
 
 const gameReducer = (state = initialGameState, action: Action) => {
@@ -28,14 +35,26 @@ const gameReducer = (state = initialGameState, action: Action) => {
     }
   }
   if (action.type === START_GAME && state.gameMode === GAME_MODES.GAME) {
+    const currentWords = (action as ActionWithPayload).payload;
+    let firstWord;
+
+    if(currentWords) {
+      [firstWord] = currentWords;
+    }
     return {
       ... state,
       isGameStarted: true,
-      wordsInPlay: (action as ActionWithPayload).payload,
+      wordsInPlay: currentWords,
+      currentWord: firstWord,
     }
   }
   if (action.type === STOP_GAME) {
     return {... state, isGameStarted: false}
+  }
+  if (action.type === NEXT_CURRENT_WORD) {
+    state.wordsInPlay.shift();
+    const nextCurrentWord = state.wordsInPlay[0];
+    return {... state, currentWord: nextCurrentWord }
   }
   return state
 }
