@@ -3,7 +3,7 @@ interface Word {
   name: string,
   translation: string,
   imageUrl: string,
-  sound?: string,
+  sound: string,
 }
 
 interface WordsListConfig extends Array<Word> {}

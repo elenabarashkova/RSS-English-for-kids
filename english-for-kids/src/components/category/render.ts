@@ -1,7 +1,7 @@
 import { getWordCard } from "../card/render";
 
 export const getCategoryInner = (currentCategoryWords: WordsListConfig): string => (`
-  <div id="starsWrap" class="stars-wrap">*</div>
+  <div id="starsWrap" class="stars-wrap"></div>
   <div class="category-page card-wrap container">
     ${currentCategoryWords.map((word: Word) => getWordCard(word)).join('')}
   </div>

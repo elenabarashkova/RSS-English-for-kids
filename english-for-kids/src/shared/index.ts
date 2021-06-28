@@ -14,7 +14,12 @@ export const redirectToDefaultPage = (): void => {
   window.location.hash = DEFAULT_PAGE;
 }
 
-export const playAudio = (audio: HTMLAudioElement): void => {
+export const playAudioTag = (audio: HTMLAudioElement): void => {
   audio.currentTime = 0;
+  audio.play();
+}
+
+export const playAudioSound = (path: string): void => {
+  const audio = new Audio(path);
   audio.play();
 }

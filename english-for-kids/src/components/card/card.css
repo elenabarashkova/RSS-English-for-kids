@@ -46,3 +46,8 @@
 .in-game .category-card-caption {
   display: none;
 }
+
+.card.disabled {
+  background: lightgray;
+  cursor: default;
+}
