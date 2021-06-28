@@ -7,7 +7,7 @@ export const startCategoryPage = (): void => {
 
   const currentCategory = window.location.hash.slice(1).split('/')[1];
   const currentCategoryWords = categoriesListConfig[currentCategory]?.wordsConfig;
-  // debugger;
+
   if(currentCategoryWords) {
     mainWrap?.insertAdjacentHTML('beforeend', getCategoryInner(currentCategoryWords));
   } else {

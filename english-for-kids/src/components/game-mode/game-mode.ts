@@ -42,7 +42,12 @@ const gameCycle = () => {
 
   playAudioSound(currentWord.sound);
 
-  // track click on RepeatBtn ->play current Word
+  const repeatWordHandler = () => {
+    playAudioSound(currentWord.sound);
+  }
+
+  const repeatBtn = document.getElementById('repeatWordBtn');
+  repeatBtn?.addEventListener('click', repeatWordHandler);
 
   const cards = document.querySelectorAll('.category-card:not(.disabled)');
 
@@ -59,6 +64,7 @@ const gameCycle = () => {
       if(wordsInPlay.length) {
         gameCycle();
       } else {
+        repeatBtn?.removeEventListener('click', repeatWordHandler);
         gameOver((state.game as GameState).mistakesCount);
       }
     }
