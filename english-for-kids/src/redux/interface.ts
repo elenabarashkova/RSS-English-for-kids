@@ -7,4 +7,5 @@ export interface GameState {
   isGameStarted: boolean,
   wordsInPlay: WordsListConfig,
   currentWord: Word,
+  mistakesCount: 0,
 }

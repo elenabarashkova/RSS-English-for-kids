@@ -1,9 +1,8 @@
-import { changeCurrentWordAction, startGameAction } from "../../redux/actions";
+import { changeCurrentWordAction, mistakesCountAction, startGameAction, stopGameAction } from "../../redux/actions";
 import { categoriesListConfig } from "../main-page/categories-config";
 import store from "../../redux/store";
 import { GameState } from "../../redux/interface";
-import { playAudioSound } from "../../shared";
-import { getMenu } from "../menu/get-menu";
+import { playAudioSound, redirectToDefaultPage } from "../../shared";
 
 const wordsShuffle = (wordsConfig: WordsListConfig) => {
   let currentWordI = wordsConfig.length;
@@ -25,8 +24,15 @@ const renderStars = (isCorrect: boolean): void => {
   starsWrap?.insertAdjacentHTML('beforeend', `${isCorrect ? '+' : '-'}`);
 }
 
-const gameOver = (): void => {
-
+const gameOver = (mistakesCount: number): void => {
+  if(mistakesCount > 0) {
+    console.log(`You made ${mistakesCount} mistakes`);
+    playAudioSound('./assets/end-game-lose.mp3');
+  } else {
+    console.log(`You Won`);
+    playAudioSound('./assets/end-game-victory.mp3');
+  }
+  setTimeout(redirectToDefaultPage, 3000)
 }
 
 const gameCycle = () => {
@@ -53,12 +59,13 @@ const gameCycle = () => {
       if(wordsInPlay.length) {
         gameCycle();
       } else {
-        console.log('Game Over');
+        gameOver((state.game as GameState).mistakesCount);
       }
     }
     else {
       playAudioSound('./assets/incorrect-sound.mp3');
       renderStars(false);
+      mistakesCountAction();
     }
   }
 
@@ -67,21 +74,11 @@ const gameCycle = () => {
 
 const startGameHandler = () => {
   const currentCategory = window.location.hash.slice(1).split('/')[1];
-  const currentCategoryWords = categoriesListConfig[currentCategory]?.wordsConfig;
+  const currentCategoryWords = [...categoriesListConfig[currentCategory]?.wordsConfig];
   const randomizedWordsInPlay = wordsShuffle(currentCategoryWords);
 
   startGameAction(randomizedWordsInPlay);
   gameCycle();
-
-          // add  CurentWord in state -> from wordsShuffle
-          // 1. play current word
-  // 2. track click on RepeatBtn ->play current Word
-          // 3. track click on card -> compare current word with card id (+ add card id)
-          // 4. onFailure - появляется пустая звездочка, звучит звук WRONG,
-          // 5. onSucces - появляется полная звездочка,звучит звук CORRECT, текущий звук - удаляется,
-          // карточке дается свойство - Correct + она становится disabled,
-  //    from wordsShuffle - достать новое Current word. Если wordsShuffle - empty => конец игры
-  // Конец игры: тз
 }
 
 export const startBehaviorGame = (): void => {

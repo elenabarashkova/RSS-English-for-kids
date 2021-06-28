@@ -1,6 +1,7 @@
 import { Action, combineReducers } from 'redux'
 import { GAME_MODES } from "../shared/constants";
 import {
+  MISTAKES_COUNT,
   NEXT_CURRENT_WORD,
   SET_CURRENT_PAGE,
   START_GAME,
@@ -22,6 +23,7 @@ const initialGameState = {
   isGameStarted: false,
   wordsInPlay: [],
   currentWord: null,
+  mistakesCount: 0,
 }
 
 const gameReducer = (state = initialGameState, action: Action) => {
@@ -49,12 +51,15 @@ const gameReducer = (state = initialGameState, action: Action) => {
     }
   }
   if (action.type === STOP_GAME) {
-    return {... state, isGameStarted: false}
+    return {... state, isGameStarted: false, mistakesCount: 0}
   }
   if (action.type === NEXT_CURRENT_WORD) {
     state.wordsInPlay.shift();
     const nextCurrentWord = state.wordsInPlay[0];
     return {... state, currentWord: nextCurrentWord }
+  }
+  if (action.type === MISTAKES_COUNT) {
+    return {... state, mistakesCount: state.mistakesCount + 1}
   }
   return state
 }
