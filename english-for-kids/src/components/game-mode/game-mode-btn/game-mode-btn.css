@@ -1,6 +1,6 @@
 .game-mode-wrap {
   text-align: right;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 
 .game-mode-btn {
@@ -9,6 +9,7 @@
   line-height: 40px;
   user-select: none;
 }
+
 .game-mode-toggler-inner {
   position: relative;
   display: inline-block;
@@ -24,6 +25,7 @@
   font-size: 14px;
   cursor: pointer;
 }
+
 .game-mode-toggler-inner:before {
   content: '';
   position: absolute;
@@ -36,6 +38,7 @@
   box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
   transition: .15s;
 }
+
 .game-mode-toggler {
   display: block;
   width: 0;
@@ -44,13 +47,16 @@
   z-index: -1;
   opacity: 0;
 }
+
 .game-mode-toggler:active + .game-mode-toggler-inner:before {
   box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
 }
+
 .game-mode-toggler:checked + .game-mode-toggler-inner {
   background: #e3babf;
   text-align: left;
 }
+
 .game-mode-toggler:checked + .game-mode-toggler-inner:before {
   transform:translateX(50px);
 }
@@ -66,4 +72,3 @@ span.in-game {
 .game-mode-toggler:checked + .game-mode-toggler-inner span.in-train {
   display: none;
 }
-

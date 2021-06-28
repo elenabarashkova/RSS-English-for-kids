@@ -3,7 +3,7 @@ import { playAudioTag } from "../../shared";
 const cardTrainHandler = (event: Event): void => {
   const card = event.currentTarget as HTMLElement;
 
-  if((event.target as HTMLElement).classList.contains('turnCardBtn')) {
+  if((event.target as HTMLElement).classList.contains('turn-card-btn')) {
     card.classList.add('turn');
 
     const mouseOutHandler = () => {
@@ -21,11 +21,11 @@ const cardTrainHandler = (event: Event): void => {
 }
 
 export const startBehaviorTrain = (): void => {
-  const cards = document.getElementsByClassName('category-card');
+  const cards = document.getElementsByClassName('word-card');
   [...cards].forEach(card => card.addEventListener('click', cardTrainHandler));
 }
 
 export const stopBehaviorTrain = (): void => {
-  const cards = document.getElementsByClassName('category-card');
+  const cards = document.getElementsByClassName('word-card');
   [...cards].forEach(card => card.removeEventListener('click', cardTrainHandler));
 }

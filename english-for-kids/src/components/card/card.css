@@ -1,53 +1,45 @@
-.category-card {
-  border: 1px solid gray;
-  transform: scale(1);
-  transform-style: preserve-3d;
-  transition: transform .5s;
-  cursor: pointer;
-}
-
-.card.turn {
-  transform: rotateY(180deg);
-}
-
-.category-card-inner {
+.card-wrap {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.category-card-pic {
-  width: 100%;
+.card {
+  width: 24%;
+  padding: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
   height: 300px;
 }
 
-.category-card-pic > img {
+.card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-pic {
+  width: 100%;
+  height: 85%;
+  transition: all .5s linear;
+}
+
+.card-pic > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.category-card-caption {
+.card-caption {
   font-size: 18px;
+  height: 15%;
+  padding-top: 5px;
+  transition: all .5s linear;
 }
 
-.caption-turned {
-  display: none;
-}
-
-.card.turn .caption-normal {
-  display: none;
-}
-
-.card.turn .caption-turned {
-  display: block;
-  transform: rotateY(-180deg);
-}
-
-.in-game .category-card-caption {
-  display: none;
-}
-
-.card.disabled {
-  background: lightgray;
-  cursor: default;
+.caption-normal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }

@@ -40,16 +40,20 @@ const gameCycle = () => {
   const { currentWord } = state.game as GameState;
   const { wordsInPlay } = state.game as GameState;
 
-  playAudioSound(currentWord.sound);
+  const playCurrentAudio = () => {
+    playAudioSound(currentWord.sound);
+  }
+
+  setTimeout(playCurrentAudio, 2000)
 
   const repeatWordHandler = () => {
-    playAudioSound(currentWord.sound);
+    playCurrentAudio();
   }
 
   const repeatBtn = document.getElementById('repeatWordBtn');
   repeatBtn?.addEventListener('click', repeatWordHandler);
 
-  const cards = document.querySelectorAll('.category-card:not(.disabled)');
+  const cards = document.querySelectorAll('.word-card:not(.disabled)');
 
   const cardsClickHandler = (event: Event) => {
     const targetCard =  event.currentTarget as HTMLElement;
@@ -62,6 +66,7 @@ const gameCycle = () => {
       changeCurrentWordAction();
 
       if(wordsInPlay.length) {
+        repeatBtn?.removeEventListener('click', repeatWordHandler);
         gameCycle();
       } else {
         repeatBtn?.removeEventListener('click', repeatWordHandler);
@@ -97,5 +102,6 @@ export const startBehaviorGame = (): void => {
 export const stopBehaviorGame = (): void => {
   const startGameBtn = document.getElementById('startGameBtn');
   startGameBtn?.removeEventListener('click', startGameHandler);
-  console.log('stop card behavior GAME');
+
+  // todo:add here repeatBtn?.removeEventListener('click', repeatWordHandler);
 }
