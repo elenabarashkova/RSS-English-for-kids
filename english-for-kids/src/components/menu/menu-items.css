@@ -1,0 +1,38 @@
+.menu-list {
+  margin: 0;
+  padding-left: 15px;
+}
+
+.menu-item {
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+.sub .menu-item:first-child {
+  margin-top: 7px;
+}
+
+.sub .menu-item {
+  margin-bottom: 7px;
+}
+
+.menu-item a,
+.menu-item span {
+  text-decoration: none;
+  color: #333;
+  font-size: 20px;
+}
+
+.sub .menu-item a {
+  font-size: 18px;
+}
+
+.menu-item a:hover {
+  color: #47aac9;
+}
+
+.menu-item.active a {
+  border-bottom: 1px solid;
+  cursor: default;
+  color: #3c8297;
+}

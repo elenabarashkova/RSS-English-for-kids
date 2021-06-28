@@ -3,8 +3,13 @@
 @import "components/game-mode/game-mode-btn/game-mode-btn.css";
 @import "components/menu/menu-button.css";
 @import "components/menu/menu.css";
+@import "components/menu/menu-items.css";
 @import "components/card/card.css";
 @import "components/category/category.css";
+
+:root {
+  --padding-for-main-top-desctop: 30px;
+}
 
 * {
   box-sizing: border-box;
@@ -20,20 +25,42 @@ body {
   display: flex;
   height: 100%;
   margin: 0;
+  font-family: Arial, sans-serif;
+  position: relative;
 }
 
-.card-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.container {
+  margin: 0 auto;
 }
 
-.card {
-  width: 24%;
-  padding: 20px;
-  margin-bottom: 20px;
+@media (min-width: 1920px){
+
+  .container {
+    max-width: 1620px;
+  }
 }
 
-.card > img {
-  max-width: 100%;
+@media (max-width: 1919px){
+
+  .container {
+    padding: 0 100px;
+  }
+}
+
+@media (max-width: 1199px){
+
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 639px){
+
+  .container {
+    padding: 0 10px;
+  }
+}
+
+main {
+  padding-top: var(--padding-for-main-top-desctop);
 }

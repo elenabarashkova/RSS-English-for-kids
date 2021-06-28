@@ -1,7 +1,7 @@
 import { ROUTES } from "../../router/constants";
 
 const getSubMenuItem = ({ name, url }: Category): string => (`
-  <li class="menu-item">
+  <li id='${url}Page' class="menu-item">
     <a href="#${ROUTES.CATEGORY.url}/${url}">${name}</a>  
   </li>
 `)
@@ -12,9 +12,17 @@ const getSubMenu = (subcategory: CategoriesListConfig): string => (`
   </ul>
 `)
 
+const getLink = (url: string, name: string): string => (`
+  <a href="#${url}">${name}</a> 
+`)
+
+const getSpan = (name: string): string => (`
+  <span>${name}</a> 
+`)
+
 const getMenuItem = ( { url, name, subcategory }: Route): string => (`
-  <li class="menu-item">
-    <a href="#${url}">${name}</a>  
+  <li id='${url}Page' class="menu-item">
+    ${subcategory ? getSpan(name) : getLink(url, name)}
     ${subcategory ? getSubMenu(subcategory) : ''}
   </li>
 `)

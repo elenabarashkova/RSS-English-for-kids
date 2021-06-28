@@ -25,3 +25,11 @@ export const openMenu = (): void => {
     setTimeout(closeMenu);
   })
 }
+
+export const setActiveMenuItem = (page: string): void => {
+  const menuItem = document.getElementById(`${page}Page`);
+  const menuItems = document.getElementsByClassName('menu-item');
+
+  [...menuItems].map(item => item.classList.remove('active'));
+  menuItem?.classList.add('active');
+}

@@ -12,7 +12,7 @@ const getMain = (): string => (`
 
 const getFooter = (): string => (`
   <footer id="footer" class="footer">
-    <div class="footer-container">
+    <div class="container">
       <a class="github" href="https://github.com/elenabarashkova" target="_blank">elenabarashkova</a>
       <div>2021</div>
       <a class="rss" href="https://rs.school/js/" target="_blank" rel="noopener noreferrer">
@@ -23,8 +23,12 @@ const getFooter = (): string => (`
 `)
 
 export const initCommonPageTemplate = (): void => {
-  document.body.insertAdjacentHTML('beforeend', getMenu());
-  document.body.insertAdjacentHTML('beforeend', getMain());
+  const container = document.createElement('div');
+  container.classList.add('container');
+
+  document.body.appendChild(container);
+  container.insertAdjacentHTML('beforeend', getMenu());
+  container.insertAdjacentHTML('beforeend', getMain());
   document.body.insertAdjacentHTML('beforeend', getFooter());
 
   openMenu();

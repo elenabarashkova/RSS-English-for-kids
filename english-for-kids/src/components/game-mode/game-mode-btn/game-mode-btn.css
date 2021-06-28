@@ -1,28 +1,28 @@
 .game-mode-wrap {
   text-align: right;
+  margin-bottom: 30px;
 }
 
 .game-mode-btn {
   display: inline-block;
   height: 40px;
   line-height: 40px;
-  vertical-align: middle;
-  font-size: 16px;
   user-select: none;
 }
 .game-mode-toggler-inner {
   position: relative;
   display: inline-block;
-  box-sizing: border-box;
   width: 86px;
   height: 100%;
   border: 1px solid rgba(0, 0, 0, .1);
   border-radius: 2px;
-  vertical-align: top;
   background: lightblue;
   transition: .2s;
   text-align: right;
   padding: 0 5px;
+  text-transform: uppercase;
+  font-size: 14px;
+  cursor: pointer;
 }
 .game-mode-toggler-inner:before {
   content: '';
@@ -53,12 +53,6 @@
 }
 .game-mode-toggler:checked + .game-mode-toggler-inner:before {
   transform:translateX(50px);
-}
-
-/* Hover */
-.game-mode-toggler-inner {
-  cursor: pointer;
-  border-color: rgba(0, 0, 0, .3);
 }
 
 span.in-game {

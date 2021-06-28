@@ -1,0 +1,15 @@
+.card-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  width: 24%;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.card > img {
+  max-width: 100%;
+}
