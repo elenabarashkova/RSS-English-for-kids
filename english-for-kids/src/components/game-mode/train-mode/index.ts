@@ -1,4 +1,4 @@
-import { playAudioTag } from "../../shared";
+import { playAudioTag } from "../../../shared";
 
 const cardTrainHandler = (event: Event): void => {
   const card = event.currentTarget as HTMLElement;

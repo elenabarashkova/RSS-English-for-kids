@@ -1,6 +1,6 @@
 import { GAME_MODES } from "../../shared/constants";
-import { startBehaviorGame, stopBehaviorGame } from "./game-mode";
 import { startBehaviorTrain, stopBehaviorTrain } from "./train-mode";
+import { startBehaviorGame, stopBehaviorGame } from "./game-mode";
 
 export const gameStartTrack = (isGameStarted: boolean): void => {
   const mainWrap = document.getElementById('mainWrap');
