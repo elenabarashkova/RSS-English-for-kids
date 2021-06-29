@@ -1,4 +1,4 @@
-import { changeCurrentWordAction, mistakesCountAction, startGameAction, stopGameAction } from "../../redux/actions";
+import { changeCurrentWordAction, mistakesCountAction, startGameAction } from "../../redux/actions";
 import { categoriesListConfig } from "../main-page/categories-config";
 import store from "../../redux/store";
 import { GameState } from "../../redux/interface";
@@ -27,12 +27,23 @@ const renderStars = (isCorrect: boolean): void => {
 const gameOver = (mistakesCount: number): void => {
   if(mistakesCount > 0) {
     console.log(`You made ${mistakesCount} mistakes`);
-    playAudioSound('./assets/end-game-lose.mp3');
+    playAudioSound('./assets/game-sounds/end-game-lose.mp3');
   } else {
     console.log(`You Won`);
-    playAudioSound('./assets/end-game-victory.mp3');
+    playAudioSound('./assets/game-sounds/end-game-victory.mp3');
   }
   setTimeout(redirectToDefaultPage, 3000)
+}
+
+const playCurrentAudio = () => {
+  const state = store.getState();
+  const { currentWord } = state.game as GameState;
+
+  playAudioSound(currentWord.sound);
+}
+
+const repeatWordHandler = () => {
+  playCurrentAudio();
 }
 
 const gameCycle = () => {
@@ -40,15 +51,11 @@ const gameCycle = () => {
   const { currentWord } = state.game as GameState;
   const { wordsInPlay } = state.game as GameState;
 
-  const playCurrentAudio = () => {
-    playAudioSound(currentWord.sound);
-  }
+
 
   setTimeout(playCurrentAudio, 2000)
 
-  const repeatWordHandler = () => {
-    playCurrentAudio();
-  }
+
 
   const repeatBtn = document.getElementById('repeatWordBtn');
   repeatBtn?.addEventListener('click', repeatWordHandler);
@@ -59,7 +66,7 @@ const gameCycle = () => {
     const targetCard =  event.currentTarget as HTMLElement;
 
     if(currentWord.word === targetCard?.id) {
-      playAudioSound('./assets/correct-sound.mp3');
+      playAudioSound('./assets/game-sounds/correct-sound.mp3');
       renderStars(true);
       targetCard.classList.add('disabled');
       [...cards].forEach(card => card.removeEventListener('click', cardsClickHandler));
@@ -74,7 +81,7 @@ const gameCycle = () => {
       }
     }
     else {
-      playAudioSound('./assets/incorrect-sound.mp3');
+      playAudioSound('./assets/game-sounds/incorrect-sound.mp3');
       renderStars(false);
       mistakesCountAction();
     }
@@ -103,5 +110,6 @@ export const stopBehaviorGame = (): void => {
   const startGameBtn = document.getElementById('startGameBtn');
   startGameBtn?.removeEventListener('click', startGameHandler);
 
-  // todo:add here repeatBtn?.removeEventListener('click', repeatWordHandler);
+  const repeatBtn = document.getElementById('repeatWordBtn');
+  repeatBtn?.removeEventListener('click', repeatWordHandler);
 }
