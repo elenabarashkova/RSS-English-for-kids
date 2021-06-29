@@ -1,7 +1,7 @@
 import { Action } from "redux";
 import { GAME_MODES } from "../../shared/constants";
 import { MISTAKES_COUNT, NEXT_CURRENT_WORD, START_GAME, STOP_GAME, TOGGLE_GAME_MODE } from "../action-types";
-import { ActionWithPayload } from "../interface";
+import { ActionWithPayload } from "../types";
 
 const initialGameState = {
   gameMode: GAME_MODES.TRAIN,

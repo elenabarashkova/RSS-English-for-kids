@@ -1,5 +1,5 @@
 import store from "../../../redux/store";
-import { GameState } from "../../../redux/interface";
+import { GameState } from "../../../redux/types";
 import { playAudioSound } from "../../../shared";
 import { changeCurrentWordAction, mistakesCountAction } from "../../../redux/actions";
 

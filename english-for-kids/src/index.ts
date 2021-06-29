@@ -4,7 +4,7 @@ import { initCommonPageTemplate } from "./components";
 import { startRouter } from "./router";
 import { gameModeBehaviorToggle, gameStartTrack } from "./components/game-mode";
 import { startBehaviorTrain } from "./components/game-mode/train-mode";
-import { GameState } from "./redux/interface";
+import { GameState } from "./redux/types";
 
 window.addEventListener('load', () => {
   initCommonPageTemplate();
