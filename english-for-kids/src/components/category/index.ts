@@ -14,7 +14,3 @@ export const startCategoryPage = (): void => {
     redirectToDefaultPage();
   }
 }
-
-export const stopCategoryPage = (): void => {
-
-}

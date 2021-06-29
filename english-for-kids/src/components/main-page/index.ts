@@ -6,7 +6,3 @@ export const startMainPage = (): void => {
 
   mainWrap?.insertAdjacentHTML('beforeend', getMainPageInner(categoriesListConfig));
 }
-
-export const stopMainPage = (): void => {
-
-}

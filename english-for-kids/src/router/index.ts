@@ -3,16 +3,9 @@ import { clearMain, redirectToDefaultPage } from "../shared";
 import { setCurrentPageAction, stopGameAction } from "../redux/actions";
 import { setActiveMenuItem } from "../components/menu";
 
-const onHashChange = (event: HashChangeEvent | null): void => {
+const onHashChange = (): void => {
   stopGameAction();
   clearMain();
-
-  const oldUrl = event?.oldURL.split('#')[1];
-
-  if(oldUrl) {
-    const oldRoute = oldUrl.split('/')[0];
-    PAGES_CONFIG[oldRoute]?.stop(); // -> in case stop behavior will be added for each page
-  }
 
   const route = window.location.hash.slice(1).split('/')[0];
   const innerRoute = window.location.hash.slice(1).split('/')[1];
@@ -22,7 +15,7 @@ const onHashChange = (event: HashChangeEvent | null): void => {
     return;
   }
 
-  PAGES_CONFIG[route].start();
+  PAGES_CONFIG[route]();
 
   if(innerRoute) {
     setActiveMenuItem(innerRoute);
@@ -36,5 +29,5 @@ const onHashChange = (event: HashChangeEvent | null): void => {
 export const startRouter = (): void => {
   window.addEventListener('hashchange', onHashChange);
 
-  onHashChange(null);
+  onHashChange();
 }
