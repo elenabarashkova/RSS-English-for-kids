@@ -29,9 +29,13 @@ export const cardsClickHandler = (event: Event): void => {
   const { currentWord, wordsInPlay } = state;
 
   const target =  event.target as HTMLElement;
-  const card = target.closest('.word-card') as HTMLElement;
+  const card = target.closest('.word-card:not(.disabled)') as HTMLElement;
 
-  if(!card || currentWord?.word !== card?.id) {
+  if(!card) {
+    return;
+  }
+
+  if(currentWord?.word !== card?.id) {
     incorrectWordBehavior();
     return;
   }

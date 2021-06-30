@@ -1,11 +1,11 @@
 .word-card {
-
   border: 1px solid lightgrey;
 }
 
 .card-inner {
   transform-style: preserve-3d;
   transition: transform .5s;
+  position: relative;
 }
 
 .word-card .card-inner.turn {
@@ -37,9 +37,8 @@
 }
 
 .word-card.disabled {
-  background: lightgray;
+  background: darkseagreen;
   cursor: default;
-  pointer-events: none;
 }
 
 .word-card .turn-card-btn {
@@ -54,4 +53,16 @@
   background-position: center bottom;
   cursor: pointer;
   background-image: url('../../assets/turn-card.png');
+}
+
+.word-card.disabled .card-inner:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #808080a3;
+  z-index: 1;
+  pointer-events: none;
 }
