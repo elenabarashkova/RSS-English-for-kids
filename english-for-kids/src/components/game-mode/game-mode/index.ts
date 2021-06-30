@@ -1,4 +1,4 @@
-import { startGameAction } from "../../../redux/actions";
+import { setCurrentWordAction, setWordsInPlayAction, startGameAction } from "../../../redux/actions";
 import { categoriesListConfig } from "../../main-page/categories-config";
 import { stopRepeatBtn, wordsShuffle } from "./helpers";
 import { gameCycle } from "./game-cycle";
@@ -9,7 +9,9 @@ const startGameHandler = () => {
   const currentCategoryWords = [...categoriesListConfig[currentCategory]?.wordsConfig];
   const randomizedWordsInPlay = wordsShuffle(currentCategoryWords);
 
-  startGameAction(randomizedWordsInPlay);
+  startGameAction();
+  setWordsInPlayAction(randomizedWordsInPlay);
+  setCurrentWordAction(randomizedWordsInPlay[0]);
   gameCycle();
 }
 

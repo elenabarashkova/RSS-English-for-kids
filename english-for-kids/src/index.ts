@@ -4,7 +4,8 @@ import { initCommonPageTemplate } from "./components";
 import { startRouter } from "./router";
 import { gameModeBehaviorToggle, gameStartTrack } from "./components/game-mode";
 import { startBehaviorTrain } from "./components/game-mode/train-mode";
-import { GameState } from "./redux/types";
+import { GAME_MODES } from "./shared/constants";
+import { mistakesCountAction, stopGameAction } from "./redux/actions";
 
 window.addEventListener('load', () => {
   initCommonPageTemplate();
@@ -14,10 +15,23 @@ window.addEventListener('load', () => {
   let prevState = store.getState();
 
   store.subscribe(():void => {
+
     const state = store.getState();
 
-    gameModeBehaviorToggle((state.game as GameState).gameMode);
-    gameStartTrack((state.game as GameState).isGameStarted);
+    gameModeBehaviorToggle(state.gameMode);
+    gameStartTrack(state.isGameStarted);
+
+    const isStateChanged = prevState.gameMode !== state.gameMode;
+
+    if(isStateChanged && state.gameMode === GAME_MODES.TRAIN) {
+      setTimeout(stopGameAction)
+    }
+
+    if(isStateChanged && !state.isGameStarted) {
+      setTimeout(() => {
+        mistakesCountAction(false);
+      })
+    }
 
     prevState = state;
   });

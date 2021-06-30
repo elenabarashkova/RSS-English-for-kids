@@ -1,9 +1,12 @@
 import store from "../../../redux/store";
-import { GameState } from "../../../redux/types";
 import { playAudioSound } from "../../../shared";
-import { changeCurrentWordAction, mistakesCountAction } from "../../../redux/actions";
+import {
+  changeWordsInPlayAction,
+  mistakesCountAction,
+  setCurrentWordAction
+} from "../../../redux/actions";
 
-export const wordsShuffle = (wordsConfig: WordsListConfig) => {
+export const wordsShuffle = (wordsConfig: WordsListConfig): WordsListConfig => {
   let currentWordI = wordsConfig.length;
   let randomWordI;
 
@@ -25,37 +28,46 @@ export const renderStars = (isCorrect: boolean): void => {
   starsWrap?.insertAdjacentHTML('beforeend', `${isCorrect ? '+' : '-'}`);
 }
 
-export const playCurrentAudio = () => {
+export const playCurrentAudio = (): void => {
   const state = store.getState();
-  const { currentWord } = state.game as GameState;
+  const { currentWord } = state;
 
-  playAudioSound(currentWord.sound);
+  playAudioSound((currentWord as Word).sound);
 }
 
-export const repeatWordHandler = () => {
+export const repeatWordHandler = (): void => {
   playCurrentAudio();
 }
 
-export const startRepeatBtn = () => {
+export const startRepeatBtn = (): void => {
   const repeatBtn = document.getElementById('repeatWordBtn');
   repeatBtn?.addEventListener('click', repeatWordHandler);
 }
 
-export const stopRepeatBtn = () => {
+export const stopRepeatBtn = (): void => {
   const repeatBtn = document.getElementById('repeatWordBtn');
   repeatBtn?.removeEventListener('click', repeatWordHandler);
 }
 
-export const correctWordBehavior = (targetCard: HTMLElement) => {
+export const correctWordBehavior = (targetCard: HTMLElement): void => {
+  const state = store.getState();
+  const { wordsInPlay } = state;
+
   playAudioSound('./assets/game-sounds/correct-sound.mp3');
   renderStars(true);
   targetCard.classList.add('disabled');
-  changeCurrentWordAction();
+
+  changeWordsInPlayAction();
+
+  if((wordsInPlay as WordsListConfig).length) {
+    setCurrentWordAction(wordsInPlay[0]);
+  }
+
   stopRepeatBtn();
 }
 
-export const incorrectWordBehavior = () => {
+export const incorrectWordBehavior = (): void => {
   playAudioSound('./assets/game-sounds/incorrect-sound.mp3');
   renderStars(false);
-  mistakesCountAction();
+  mistakesCountAction(true);
 }

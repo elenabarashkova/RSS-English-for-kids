@@ -1,5 +1,4 @@
 import store from "../../../redux/store";
-import { GameState } from "../../../redux/types";
 import { playAudioSound, redirectToDefaultPage } from "../../../shared";
 import {
   correctWordBehavior,
@@ -21,10 +20,9 @@ export const gameOver = (mistakesCount: number): void => {
   setTimeout(redirectToDefaultPage, AFTER_GAME_TIMEOUT)
 }
 
-export const gameCycle = () => {
+export const gameCycle = (): void => {
   const state = store.getState();
-  const { currentWord } = state.game as GameState;
-  const { wordsInPlay } = state.game as GameState;
+  const { currentWord, wordsInPlay } = state;
 
   setTimeout(playCurrentAudio, PLAY_WORD_DELAY)
 
@@ -35,14 +33,14 @@ export const gameCycle = () => {
   const cardsClickHandler = (event: Event) => {
     const targetCard =  event.currentTarget as HTMLElement;
 
-    if(currentWord.word === targetCard?.id) {
+    if((currentWord as Word).word === targetCard?.id) {
       correctWordBehavior(targetCard);
       [...cards].forEach(card => card.removeEventListener('click', cardsClickHandler));
 
-      if(wordsInPlay.length) {
+      if((wordsInPlay as WordsListConfig).length) {
         gameCycle();
       } else {
-        gameOver((state.game as GameState).mistakesCount);
+        gameOver(state.mistakesCount);
       }
     }
     else {

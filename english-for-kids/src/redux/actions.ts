@@ -1,8 +1,8 @@
 import store from "./store";
 import {
+  CHANGE_WORDS_IN_PLAY,
   MISTAKES_COUNT,
-  NEXT_CURRENT_WORD,
-  SET_CURRENT_PAGE,
+  SET_CURRENT_PAGE, SET_FIRST_WORD, SET_WORDS_IN_PLAY,
   START_GAME,
   STOP_GAME,
   TOGGLE_GAME_MODE
@@ -14,10 +14,9 @@ export const toggleGameModeAction = ():void => {
   });
 }
 
-export const startGameAction = (wordsInPlay:WordsListConfig):void => {
+export const startGameAction = ():void => {
   store.dispatch({
     type: START_GAME,
-    payload: wordsInPlay,
   });
 }
 
@@ -34,14 +33,29 @@ export const setCurrentPageAction = (page: string):void => {
   });
 }
 
-export const changeCurrentWordAction = ():void => {
+export const mistakesCountAction = (toAdd: boolean):void => {
   store.dispatch({
-    type: NEXT_CURRENT_WORD,
+    type: MISTAKES_COUNT,
+    payload: toAdd,
   });
 }
 
-export const mistakesCountAction = ():void => {
+export const setWordsInPlayAction = (wordsInPlay: WordsListConfig):void => {
   store.dispatch({
-    type: MISTAKES_COUNT,
+    type: SET_WORDS_IN_PLAY,
+    payload: wordsInPlay,
+  });
+}
+
+export const changeWordsInPlayAction = ():void => {
+  store.dispatch({
+    type: CHANGE_WORDS_IN_PLAY,
+  });
+}
+
+export const setCurrentWordAction = (word: Word):void => {
+  store.dispatch({
+    type: SET_FIRST_WORD,
+    payload: word,
   });
 }
