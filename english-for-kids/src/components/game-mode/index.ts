@@ -13,15 +13,14 @@ export const gameStartTrack = (isGameStarted: boolean): void => {
 }
 
 export const gameModeBehaviorToggle = (gameMode: string): void => {
-  console.log('behaviorChanged');
+  stopBehaviorGame();
+  stopBehaviorTrain();
   if(gameMode === GAME_MODES.GAME) {
-    console.log('game');
-    stopBehaviorTrain();
+    // stopBehaviorTrain();
     startBehaviorGame();
   }
   else if(gameMode === GAME_MODES.TRAIN) {
-    console.log('train');
-    stopBehaviorGame();
+    // stopBehaviorGame();
     startBehaviorTrain();
   }
 }

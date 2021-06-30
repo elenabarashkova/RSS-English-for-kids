@@ -1,7 +1,8 @@
 import { setCurrentWordAction, setWordsInPlayAction, startGameAction } from "../../../redux/actions";
 import { categoriesListConfig } from "../../main-page/categories-config";
-import { stopRepeatBtn, wordsShuffle } from "./helpers";
-import { gameCycle } from "./game-cycle";
+import { startRepeatBtn, wordsShuffle } from "./helpers";
+import { cardsClickHandler, gameCycle } from "./game-cycle";
+import { removeGameBtns, removeStars, renderGameBtns } from "../../category/render-game-attributes";
 
 
 const startGameHandler = () => {
@@ -12,26 +13,30 @@ const startGameHandler = () => {
   startGameAction();
   setWordsInPlayAction(randomizedWordsInPlay);
   setCurrentWordAction(randomizedWordsInPlay[0]);
+
+  const cards = document.getElementsByClassName('word-card');
+  [...cards].forEach(card => card.addEventListener('click', cardsClickHandler));
+
+  startRepeatBtn();
   gameCycle();
 }
 
 export const startBehaviorGame = (): void => {
-  // render game btns
-  const startGameBtn = document.getElementById('startGameBtn');
+  renderGameBtns();
 
+  const startGameBtn = document.getElementById('startGameBtn');
   startGameBtn?.addEventListener('click', startGameHandler);
+
 }
 
 export const stopBehaviorGame = (): void => {
-  // remove game btns
-  // remove stars
-  // remove event listener from cards container
-  // remove classes from cards
+  removeGameBtns();
+  removeStars();
 
-  // delete the rest
+  const cards = document.getElementsByClassName('word-card');
 
-  const startGameBtn = document.getElementById('startGameBtn');
-  startGameBtn?.removeEventListener('click', startGameHandler);
-
-  stopRepeatBtn();
+  [...cards].forEach(card => {
+    card.removeEventListener('click', cardsClickHandler);
+    card.classList.remove('disabled');
+  });
 }

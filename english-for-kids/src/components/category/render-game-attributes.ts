@@ -3,17 +3,19 @@ const getGameBtns = (): string => (`
   <button id="repeatWordBtn" class="game-btn repeat-word-btn"></button>
 `)
 
-export const renderGameBtns = (): void => {
-  const gameBtnsWrap = document.getElementById('gameBtnsWrap');
-  gameBtnsWrap?.insertAdjacentHTML('beforeend', getGameBtns());
-}
-
 export const removeGameBtns = (): void => {
   const gameBtnsWrap = document.getElementById('gameBtnsWrap');
 
   if(gameBtnsWrap) {
     gameBtnsWrap.innerHTML = '';
   }
+}
+
+export const renderGameBtns = (): void => {
+  removeGameBtns();
+
+  const gameBtnsWrap = document.getElementById('gameBtnsWrap');
+  gameBtnsWrap?.insertAdjacentHTML('beforeend', getGameBtns());
 }
 
 const correctStar = require('../../assets/correct-star.svg');

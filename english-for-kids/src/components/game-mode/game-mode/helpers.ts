@@ -6,6 +6,7 @@ import {
   setCurrentWordAction
 } from "../../../redux/actions";
 import { State } from "../../../redux/types";
+import { renderStar } from "../../category/render-game-attributes";
 
 export const wordsShuffle = (wordsConfig: WordsListConfig): WordsListConfig => {
   let currentWordI = wordsConfig.length;
@@ -21,12 +22,6 @@ export const wordsShuffle = (wordsConfig: WordsListConfig): WordsListConfig => {
   }
 
   return wordsConfig;
-}
-
-export const renderStars = (isCorrect: boolean): void => {
-  const starsWrap = document.getElementById('starsWrap');
-
-  starsWrap?.insertAdjacentHTML('beforeend', `${isCorrect ? '+' : '-'}`);
 }
 
 export const playCurrentAudio = (): void => {
@@ -47,17 +42,12 @@ export const startRepeatBtn = (): void => {
   repeatBtn?.addEventListener('click', repeatWordHandler);
 }
 
-export const stopRepeatBtn = (): void => {
-  const repeatBtn = document.getElementById('repeatWordBtn');
-  repeatBtn?.removeEventListener('click', repeatWordHandler);
-}
-
 export const correctWordBehavior = (targetCard: HTMLElement): void => {
   const state: State = store.getState();
   const { wordsInPlay } = state;
 
   playAudioSound('./assets/game-sounds/correct-sound.mp3');
-  renderStars(true);
+  renderStar(true);
   targetCard.classList.add('disabled');
 
   changeWordsInPlayAction();
@@ -65,12 +55,10 @@ export const correctWordBehavior = (targetCard: HTMLElement): void => {
   if(wordsInPlay.length) {
     setCurrentWordAction(wordsInPlay[0]);
   }
-
-  stopRepeatBtn();
 }
 
 export const incorrectWordBehavior = (): void => {
   playAudioSound('./assets/game-sounds/incorrect-sound.mp3');
-  renderStars(false);
+  renderStar(false);
   mistakesCountAction(true);
 }

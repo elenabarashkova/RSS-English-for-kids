@@ -8,9 +8,8 @@ const cardTrainHandler = (event: Event): void => {
 
     const mouseOutHandler = () => {
       card.classList.remove('turn');
-      card.removeEventListener('mouseleave', mouseOutHandler);
     }
-    card.addEventListener('mouseleave', mouseOutHandler);
+    card.addEventListener('mouseleave', mouseOutHandler, {once: true});
   } else {
     const audio = card.querySelector('audio');
 

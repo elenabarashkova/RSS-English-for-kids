@@ -30,8 +30,6 @@ window.addEventListener('load', () => {
     }
     gameStartTrack(state.isGameStarted);
 
-
-
     if(isGameModeChanged && state.gameMode === GAME_MODES.TRAIN) {
       setTimeout(stopGameAction)
     }

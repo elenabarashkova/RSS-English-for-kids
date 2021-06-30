@@ -4,7 +4,6 @@ import {
   correctWordBehavior,
   incorrectWordBehavior,
   playCurrentAudio,
-  startRepeatBtn,
 } from "./helpers";
 import { AFTER_GAME_TIMEOUT, PLAY_WORD_DELAY } from "../../../shared/constants";
 import { State } from "../../../redux/types";
@@ -22,32 +21,26 @@ export const gameOver = (mistakesCount: number): void => {
 }
 
 export const gameCycle = (): void => {
+  setTimeout(playCurrentAudio, PLAY_WORD_DELAY)
+
+}
+
+export const cardsClickHandler = (event: Event) => {
   const state: State = store.getState();
   const { currentWord, wordsInPlay } = state;
 
-  setTimeout(playCurrentAudio, PLAY_WORD_DELAY)
+  const targetCard =  event.currentTarget as HTMLElement;
 
-  startRepeatBtn();
+  if(currentWord?.word === targetCard?.id) {
+    correctWordBehavior(targetCard);
 
-  const cards = document.querySelectorAll('.word-card:not(.disabled)');
-
-  const cardsClickHandler = (event: Event) => {
-    const targetCard =  event.currentTarget as HTMLElement;
-
-    if(currentWord?.word === targetCard?.id) {
-      correctWordBehavior(targetCard);
-      [...cards].forEach(card => card.removeEventListener('click', cardsClickHandler));
-
-      if(wordsInPlay.length) {
-        gameCycle();
-      } else {
-        gameOver(state.mistakesCount);
-      }
-    }
-    else {
-      incorrectWordBehavior();
+    if(wordsInPlay.length) {
+      gameCycle();
+    } else {
+      gameOver(state.mistakesCount);
     }
   }
-
-  [...cards].forEach(card => card.addEventListener('click', cardsClickHandler));
+  else {
+    incorrectWordBehavior();
+  }
 }

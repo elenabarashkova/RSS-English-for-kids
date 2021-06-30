@@ -35,6 +35,7 @@
 .word-card.disabled {
   background: lightgray;
   cursor: default;
+  pointer-events: none;
 }
 
 .word-card .turn-card-btn {
