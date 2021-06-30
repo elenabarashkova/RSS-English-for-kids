@@ -4,4 +4,4 @@ export const GAME_MODES = {
 }
 
 export const AFTER_GAME_TIMEOUT = 3000;
-export const PLAY_WORD_DELAY = 2000;
+export const PLAY_WORD_DELAY = 1500;

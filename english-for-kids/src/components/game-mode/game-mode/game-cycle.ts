@@ -22,7 +22,6 @@ export const gameOver = (mistakesCount: number): void => {
 
 export const gameCycle = (): void => {
   setTimeout(playCurrentAudio, PLAY_WORD_DELAY)
-
 }
 
 export const cardsClickHandler = (event: Event): void => {
