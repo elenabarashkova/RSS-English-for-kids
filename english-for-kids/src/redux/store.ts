@@ -4,5 +4,4 @@ import { rootReducer } from "./reducers/root-reducer";
 
 const store = createStore(rootReducer, composeWithDevTools());
 
-
 export { store as default };

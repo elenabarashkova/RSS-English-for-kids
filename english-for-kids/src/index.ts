@@ -11,10 +11,14 @@ window.addEventListener('load', () => {
   startRouter();
   startBehaviorTrain();
 
+  let prevState = store.getState();
+
   store.subscribe(():void => {
     const state = store.getState();
 
     gameModeBehaviorToggle((state.game as GameState).gameMode);
     gameStartTrack((state.game as GameState).isGameStarted);
+
+    prevState = state;
   });
 })
