@@ -5,6 +5,7 @@ import {
   mistakesCountAction,
   setCurrentWordAction
 } from "../../../redux/actions";
+import { State } from "../../../redux/types";
 
 export const wordsShuffle = (wordsConfig: WordsListConfig): WordsListConfig => {
   let currentWordI = wordsConfig.length;
@@ -29,10 +30,12 @@ export const renderStars = (isCorrect: boolean): void => {
 }
 
 export const playCurrentAudio = (): void => {
-  const state = store.getState();
+  const state: State = store.getState();
   const { currentWord } = state;
 
-  playAudioSound((currentWord as Word).sound);
+  if (currentWord) {
+    playAudioSound(currentWord.sound);
+  }
 }
 
 export const repeatWordHandler = (): void => {
@@ -50,7 +53,7 @@ export const stopRepeatBtn = (): void => {
 }
 
 export const correctWordBehavior = (targetCard: HTMLElement): void => {
-  const state = store.getState();
+  const state: State = store.getState();
   const { wordsInPlay } = state;
 
   playAudioSound('./assets/game-sounds/correct-sound.mp3');
@@ -59,7 +62,7 @@ export const correctWordBehavior = (targetCard: HTMLElement): void => {
 
   changeWordsInPlayAction();
 
-  if((wordsInPlay as WordsListConfig).length) {
+  if(wordsInPlay.length) {
     setCurrentWordAction(wordsInPlay[0]);
   }
 

@@ -1,11 +1,22 @@
 import { Action } from "redux";
 
-export interface ActionWithPayload extends Action {payload?: string | WordsListConfig}
+export type Payload =
+  number
+  | string
+  | boolean
+  | WordsListConfig
+  | Word
+  | null;
 
-export interface GameState {
+export interface ActionWithPayload extends Action {
+  payload: Payload,
+}
+
+export interface State {
+  currentPage: string,
   gameMode: string,
   isGameStarted: boolean,
   wordsInPlay: WordsListConfig,
-  currentWord: Word,
-  mistakesCount: 0,
+  currentWord: Word | null,
+  mistakesCount: number,
 }

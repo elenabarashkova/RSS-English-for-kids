@@ -2,7 +2,6 @@ import { combineReducers } from "redux";
 import {
   currentWordReducer,
   gameModeReducer,
-  // gameReducer,
   isGameStartedReducer,
   mistakesCountReducer,
   wordsInPlayReducer
@@ -16,6 +15,4 @@ export const rootReducer = combineReducers({
   isGameStarted: isGameStartedReducer,
   wordsInPlay: wordsInPlayReducer,
   currentWord: currentWordReducer,
-  // game: gameReducer,
-
 });

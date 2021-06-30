@@ -7,6 +7,7 @@ import {
   startRepeatBtn,
 } from "./helpers";
 import { AFTER_GAME_TIMEOUT, PLAY_WORD_DELAY } from "../../../shared/constants";
+import { State } from "../../../redux/types";
 
 export const gameOver = (mistakesCount: number): void => {
   if(mistakesCount > 0) {
@@ -21,7 +22,7 @@ export const gameOver = (mistakesCount: number): void => {
 }
 
 export const gameCycle = (): void => {
-  const state = store.getState();
+  const state: State = store.getState();
   const { currentWord, wordsInPlay } = state;
 
   setTimeout(playCurrentAudio, PLAY_WORD_DELAY)
@@ -33,11 +34,11 @@ export const gameCycle = (): void => {
   const cardsClickHandler = (event: Event) => {
     const targetCard =  event.currentTarget as HTMLElement;
 
-    if((currentWord as Word).word === targetCard?.id) {
+    if(currentWord?.word === targetCard?.id) {
       correctWordBehavior(targetCard);
       [...cards].forEach(card => card.removeEventListener('click', cardsClickHandler));
 
-      if((wordsInPlay as WordsListConfig).length) {
+      if(wordsInPlay.length) {
         gameCycle();
       } else {
         gameOver(state.mistakesCount);
