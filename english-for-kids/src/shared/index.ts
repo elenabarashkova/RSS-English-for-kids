@@ -1,6 +1,6 @@
-import { ROUTES } from "../router/constants";
+import { MAIN_ROUTE } from "../router/constants";
 
-export const DEFAULT_PAGE = ROUTES.MAIN.url;
+export const DEFAULT_PAGE = MAIN_ROUTE;
 
 export const clearMain = (): void => {
   const mainWrap = document.getElementById('mainWrap');

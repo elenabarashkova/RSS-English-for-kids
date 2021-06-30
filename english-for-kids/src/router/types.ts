@@ -1,7 +1,8 @@
-interface Route {
-  url: string,
+interface MenuItem {
   name: string,
   subcategory?: CategoriesListConfig,
 }
 
-interface Routes extends Record<string, Route> {}
+interface MenuItems extends Record<string, MenuItem> {}
+
+type PagesConfig = Record<string, CallableFunction>;

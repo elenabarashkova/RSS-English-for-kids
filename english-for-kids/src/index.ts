@@ -6,7 +6,7 @@ import { gameModeBehaviorToggle, gameStartTrack } from "./components/game-mode";
 import { startBehaviorTrain } from "./components/game-mode/train-mode";
 import { GAME_MODES } from "./shared/constants";
 import { mistakesCountAction, stopGameAction } from "./redux/actions";
-import { ROUTES } from "./router/constants";
+import { CATEGORY_ROUTE } from "./router/constants";
 
 window.addEventListener('load', () => {
   initCommonPageTemplate();
@@ -20,7 +20,7 @@ window.addEventListener('load', () => {
 
     const isGameModeChanged = prevState.gameMode !== state.gameMode;
     const isPageChanged = prevState.currentPage !== state.currentPage;
-    const isCurrentPageCategory = state.currentPage === ROUTES.CATEGORY.url;
+    const isCurrentPageCategory = state.currentPage === CATEGORY_ROUTE;
     const isCategoryChanged = prevState.currentCategory !== state.currentCategory;
 
     const shouldSwitchGameBehavior = isGameModeChanged || (isPageChanged && isCurrentPageCategory) || isCategoryChanged;

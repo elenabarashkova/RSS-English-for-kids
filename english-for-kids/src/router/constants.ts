@@ -1,17 +1,18 @@
 import { categoriesListConfig } from "../components/main-page/categories-config";
 
-export const ROUTES: Routes = {
-  MAIN: {
-    url: 'main',
+export const MAIN_ROUTE = 'main';
+export const CATEGORY_ROUTE = 'category';
+export const STATISTICS_ROUTE = 'statistics';
+
+export const MENU_ITEMS: MenuItems  = {
+  [MAIN_ROUTE]: {
     name: 'Main'
   },
-  CATEGORY: {
-    url: 'category',
+  [CATEGORY_ROUTE]: {
     name: 'Category',
     subcategory: categoriesListConfig,
   },
-  STATISTICS: {
-    url: 'statistics',
+  [STATISTICS_ROUTE]: {
     name: 'Statistics',
   }
 }

@@ -1,7 +1,7 @@
-import { ROUTES } from "../../router/constants";
+import { CATEGORY_ROUTE } from "../../router/constants";
 
 const getCategoryCard = ({ name, url, imageUrl }: Category): string => (`
-  <a href="#${ROUTES.CATEGORY.url}/${url}" class="card category-card">
+  <a href="#${CATEGORY_ROUTE}/${url}" class="card category-card">
     <div class="card-inner">
       <div class="card-pic">
         <img src=${imageUrl} alt=${name}>

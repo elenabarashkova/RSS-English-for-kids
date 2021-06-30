@@ -1,6 +1,6 @@
 interface Category {
   name: string,
-  url: string
+  url: string,
   imageUrl: string,
   wordsConfig: WordsListConfig,
 }
