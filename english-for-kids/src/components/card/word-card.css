@@ -1,10 +1,14 @@
 .word-card {
-  transform-style: preserve-3d;
-  transition: transform .5s;
+
   border: 1px solid lightgrey;
 }
 
-.word-card.turn {
+.card-inner {
+  transform-style: preserve-3d;
+  transition: transform .5s;
+}
+
+.word-card .card-inner.turn {
   transform: rotateY(180deg);
 }
 
@@ -15,11 +19,11 @@
   height: 100%;
 }
 
-.word-card.turn .caption-normal {
+.word-card .card-inner.turn .caption-normal {
   display: none;
 }
 
-.word-card.turn .caption-turned {
+.word-card .card-inner.turn .caption-turned {
   display: flex;
   transform: rotateY(-180deg);
 }

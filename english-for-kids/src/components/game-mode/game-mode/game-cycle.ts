@@ -25,7 +25,7 @@ export const gameCycle = (): void => {
 
 }
 
-export const cardsClickHandler = (event: Event) => {
+export const cardsClickHandler = (event: Event): void => {
   const state: State = store.getState();
   const { currentWord, wordsInPlay } = state;
 

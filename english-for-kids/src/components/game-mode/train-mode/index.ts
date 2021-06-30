@@ -1,34 +1,36 @@
 import { playAudioTag } from "../../../shared";
 
 const cardTrainHandler = (event: Event): void => {
-  const card = event.currentTarget as HTMLElement;
+  const target = event.target as HTMLElement;
 
-  if((event.target as HTMLElement).classList.contains('turn-card-btn')) {
-    card.classList.add('turn');
+  const card = target.closest('.word-card');
+  const turnCardBtn = target.classList.contains('turn-card-btn');
+  const cardInner = card?.querySelector('.card-inner');
+
+  if(turnCardBtn) {
+    cardInner?.classList.add('turn');
 
     const mouseOutHandler = () => {
-      card.classList.remove('turn');
+      cardInner?.classList.remove('turn');
     }
-    card.addEventListener('mouseleave', mouseOutHandler, {once: true});
-  } else {
+    card?.addEventListener('mouseleave', mouseOutHandler, {once: true});
+  }
+
+  else if(card && !cardInner?.classList.contains('turn')) {
     const audio = card.querySelector('audio');
 
-    if(audio && !card.classList.contains('turn')) {
+    if(audio) {
       playAudioTag(audio);
     }
   }
 }
 
 export const startBehaviorTrain = (): void => {
-  // подписаться на родителя карточек вметро всего что ниже
-
-  const cards = document.getElementsByClassName('word-card');
-  [...cards].forEach(card => card.addEventListener('click', cardTrainHandler));
+  const cardsWrap = document.querySelector('.category-page.card-wrap')
+  cardsWrap?.addEventListener('click', cardTrainHandler);
 }
 
 export const stopBehaviorTrain = (): void => {
-  // отписаться от родителя карточек вместо всего что ниже
-
-  const cards = document.getElementsByClassName('word-card');
-  [...cards].forEach(card => card.removeEventListener('click', cardTrainHandler));
+  const cardsWrap = document.querySelector('.category-page.card-wrap')
+  cardsWrap?.removeEventListener('click', cardTrainHandler);
 }
