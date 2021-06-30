@@ -28,18 +28,19 @@ export const cardsClickHandler = (event: Event): void => {
   const state: State = store.getState();
   const { currentWord, wordsInPlay } = state;
 
-  const targetCard =  event.currentTarget as HTMLElement;
+  const target =  event.target as HTMLElement;
+  const card = target.closest('.word-card') as HTMLElement;
 
-  if(currentWord?.word === targetCard?.id) {
-    correctWordBehavior(targetCard);
-
-    if(wordsInPlay.length) {
-      gameCycle();
-    } else {
-      gameOver(state.mistakesCount);
-    }
-  }
-  else {
+  if(!card || currentWord?.word !== card?.id) {
     incorrectWordBehavior();
+    return;
+  }
+
+  correctWordBehavior(card);
+
+  if(wordsInPlay.length) {
+    gameCycle();
+  } else {
+    gameOver(state.mistakesCount);
   }
 }

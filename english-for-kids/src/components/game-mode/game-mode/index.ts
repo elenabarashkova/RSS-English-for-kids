@@ -14,8 +14,8 @@ const startGameHandler = () => {
   setWordsInPlayAction(randomizedWordsInPlay);
   setCurrentWordAction(randomizedWordsInPlay[0]);
 
-  const cards = document.getElementsByClassName('word-card');
-  [...cards].forEach(card => card.addEventListener('click', cardsClickHandler));
+  const cardsWrap = document.querySelector('.category-page.card-wrap')
+  cardsWrap?.addEventListener('click', cardsClickHandler);
 
   startRepeatBtn();
   gameCycle();
@@ -33,10 +33,9 @@ export const stopBehaviorGame = (): void => {
   removeGameBtns();
   removeStars();
 
-  const cards = document.getElementsByClassName('word-card');
+  const cardsWrap = document.querySelector('.category-page.card-wrap')
+  cardsWrap?.removeEventListener('click', cardsClickHandler);
 
-  [...cards].forEach(card => {
-    card.removeEventListener('click', cardsClickHandler);
-    card.classList.remove('disabled');
-  });
+  const cards = document.getElementsByClassName('word-card');
+  [...cards].forEach(card => {card.classList.remove('disabled')});
 }
