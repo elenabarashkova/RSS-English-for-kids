@@ -11,49 +11,49 @@ export const wordsListConfigTransport: WordsListConfig = [
   {
     word: 'bus',
     name: 'Bus',
-    translation: 'Кот',
+    translation: 'Автобус',
     imageUrl: getImagePath('transport','bus'),
     sound: getSoundPath('transport','bus')
   },
   {
     word: 'bicycle',
     name: 'Bicycle',
-    translation: 'Слон',
+    translation: 'Велосипед',
     imageUrl: getImagePath('transport','bicycle'),
     sound: getSoundPath('transport','bicycle')
   },
   {
     word: 'train',
     name: 'Train',
-    translation: 'Пума',
+    translation: 'Поезд',
     imageUrl: getImagePath('transport','train'),
     sound: getSoundPath('transport','train')
   },
   {
     word: 'plane',
     name: 'Plane',
-    translation: 'Лев',
+    translation: 'Самолет',
     imageUrl: getImagePath('transport','plane'),
     sound: getSoundPath('transport','plane')
   },
   {
     word: 'helicopter',
     name: 'Helicopter',
-    translation: 'Зебра',
+    translation: 'Вертолет',
     imageUrl: getImagePath('transport','helicopter'),
     sound: getSoundPath('transport','helicopter')
   },
   {
     word: 'ship',
     name: 'Ship',
-    translation: 'Черепаха',
+    translation: 'Корабль',
     imageUrl: getImagePath('transport','ship'),
     sound: getSoundPath('transport','ship')
   },
   {
     word: 'motorcycle',
     name: 'Motorcycle',
-    translation: 'Панда',
+    translation: 'Мотоцикл',
     imageUrl: getImagePath('transport','motorcycle'),
     sound: getSoundPath('transport','motorcycle')
   },
