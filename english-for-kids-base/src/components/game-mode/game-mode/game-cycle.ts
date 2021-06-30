@@ -7,17 +7,21 @@ import {
 } from "./helpers";
 import { AFTER_GAME_TIMEOUT, PLAY_WORD_DELAY } from "../../../shared/constants";
 import { State } from "../../../redux/types";
+import { removePopup, renderPopup } from "../popup/render";
 
 export const gameOver = (mistakesCount: number): void => {
   if(mistakesCount > 0) {
-    console.log(`You made ${mistakesCount} mistakes`);
+    renderPopup(false, mistakesCount);
     playAudioSound('./assets/game-sounds/end-game-lose.mp3');
   } else {
-    console.log(`You Won`);
+    renderPopup(true);
     playAudioSound('./assets/game-sounds/end-game-victory.mp3');
   }
 
-  setTimeout(redirectToDefaultPage, AFTER_GAME_TIMEOUT)
+  setTimeout(() => {
+    redirectToDefaultPage();
+    removePopup();
+  }, AFTER_GAME_TIMEOUT)
 }
 
 export const gameCycle = (): void => {

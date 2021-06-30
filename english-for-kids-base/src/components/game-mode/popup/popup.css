@@ -1,0 +1,41 @@
+.popup {
+  width: 350px;
+  max-width: 99%;
+  height: 400px;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 1px solid gray;
+  box-shadow: 2px 2px 2px lightgrey;
+  position: fixed;
+  z-index: 100;
+  padding: 20px;
+}
+
+.popup-inner {
+  height: 100%;
+  padding: 10px 15px;
+  text-align: center;
+}
+
+.popup-title {
+  font-size: 22px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.popup-title h2 {
+  margin: 0;
+}
+
+.popup-inner span {
+  display: inline-block;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.popup-inner > img {
+  width: 200px;
+  height: 200px;
+}

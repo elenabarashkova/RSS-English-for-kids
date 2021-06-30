@@ -7,6 +7,7 @@
 @import "components/card/category-card.css";
 @import "components/card/word-card.css";
 @import "components/category/category.css";
+@import "components/game-mode/popup/popup.css";
 
 :root {
   --padding-for-main-top-desctop: 20px;
