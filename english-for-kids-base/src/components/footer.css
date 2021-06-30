@@ -58,3 +58,31 @@ footer svg {
   font-weight: bold;
   transition: 0.3s;
 }
+
+@media (max-width: 599px){
+
+  .footer {
+    height: 116px;
+  }
+
+  footer .container {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .footer-item {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+
+  .footer-year {
+    text-align: left;
+  }
+
+  .footer-item:last-child {
+    justify-content: flex-start;
+    margin-bottom: 5px;
+  }
+}
