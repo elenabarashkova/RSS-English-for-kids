@@ -7,6 +7,7 @@ import {
   playCurrentAudio,
   startRepeatBtn,
 } from "./helpers";
+import { AFTER_GAME_TIMEOUT, PLAY_WORD_DELAY } from "../../../shared/constants";
 
 export const gameOver = (mistakesCount: number): void => {
   if(mistakesCount > 0) {
@@ -17,7 +18,7 @@ export const gameOver = (mistakesCount: number): void => {
     playAudioSound('./assets/game-sounds/end-game-victory.mp3');
   }
 
-  setTimeout(redirectToDefaultPage, 3000)
+  setTimeout(redirectToDefaultPage, AFTER_GAME_TIMEOUT)
 }
 
 export const gameCycle = () => {
@@ -25,7 +26,7 @@ export const gameCycle = () => {
   const { currentWord } = state.game as GameState;
   const { wordsInPlay } = state.game as GameState;
 
-  setTimeout(playCurrentAudio, 2000)
+  setTimeout(playCurrentAudio, PLAY_WORD_DELAY)
 
   startRepeatBtn();
 

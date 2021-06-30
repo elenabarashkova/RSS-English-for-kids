@@ -12,6 +12,11 @@ module.exports = {
     filename: 'bundle.js',
     assetModuleFilename: 'assets/[hash][ext]',
   },
+  devServer: {
+    open: true,
+    port: 8080,
+    contentBase: path.join(__dirname, 'dist'),
+  },
   mode: 'development',
   module: {
     rules: [
