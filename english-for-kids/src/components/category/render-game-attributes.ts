@@ -27,7 +27,7 @@ const getStar = (isCorrect: boolean): string => (`
 
 export const renderStar = (isCorrect: boolean): void => {
   const starsWrap = document.getElementById('starsWrap');
-  starsWrap?.insertAdjacentHTML('beforeend', getStar(isCorrect));
+  starsWrap?.insertAdjacentHTML('afterbegin', getStar(isCorrect));
 }
 
 export const removeStars = (): void => {

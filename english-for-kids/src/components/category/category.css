@@ -46,6 +46,21 @@
   background-color: #e3babf;
 }
 
+.stars-container {
+  overflow: hidden;
+  height: 40px;
+  width: 100%;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.stars-wrap {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 10000px;
+}
+
 .star-icon > svg {
   width: 40px;
   height: 40px;
