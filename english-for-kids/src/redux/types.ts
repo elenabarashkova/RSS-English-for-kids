@@ -14,6 +14,7 @@ export interface ActionWithPayload extends Action {
 
 export interface State {
   currentPage: string,
+  currentCategory: string | null,
   gameMode: string,
   isGameStarted: boolean,
   wordsInPlay: WordsListConfig,

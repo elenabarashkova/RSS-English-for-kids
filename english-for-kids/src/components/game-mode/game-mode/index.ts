@@ -16,12 +16,20 @@ const startGameHandler = () => {
 }
 
 export const startBehaviorGame = (): void => {
+  // render game btns
   const startGameBtn = document.getElementById('startGameBtn');
 
   startGameBtn?.addEventListener('click', startGameHandler);
 }
 
 export const stopBehaviorGame = (): void => {
+  // remove game btns
+  // remove stars
+  // remove event listener from cards container
+  // remove classes from cards
+
+  // delete the rest
+
   const startGameBtn = document.getElementById('startGameBtn');
   startGameBtn?.removeEventListener('click', startGameHandler);
 

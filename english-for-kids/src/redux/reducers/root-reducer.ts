@@ -6,7 +6,7 @@ import {
   mistakesCountReducer,
   wordsInPlayReducer
 } from "./game-reducer";
-import { currentPageReducer } from "./common-reducer";
+import { currentCategoryReducer, currentPageReducer } from "./common-reducer";
 
 export const rootReducer = combineReducers({
   currentPage: currentPageReducer,
@@ -15,4 +15,5 @@ export const rootReducer = combineReducers({
   isGameStarted: isGameStartedReducer,
   wordsInPlay: wordsInPlayReducer,
   currentWord: currentWordReducer,
+  currentCategory: currentCategoryReducer,
 });

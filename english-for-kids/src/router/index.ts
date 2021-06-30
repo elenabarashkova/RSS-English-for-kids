@@ -1,6 +1,6 @@
 import { PAGES_CONFIG } from "./pages-config";
 import { clearMain, redirectToDefaultPage } from "../shared";
-import { setCurrentPageAction, stopGameAction } from "../redux/actions";
+import { setCurrentCategoryAction, setCurrentPageAction, stopGameAction } from "../redux/actions";
 import { setActiveMenuItem } from "../components/menu";
 
 const onHashChange = (): void => {
@@ -17,13 +17,10 @@ const onHashChange = (): void => {
 
   PAGES_CONFIG[route]();
 
-  if(innerRoute) {
-    setActiveMenuItem(innerRoute);
-  } else {
-    setActiveMenuItem(route);
-  }
+  setActiveMenuItem(innerRoute || route);
 
   setCurrentPageAction(route);
+  setCurrentCategoryAction(innerRoute || null);
 }
 
 export const startRouter = (): void => {

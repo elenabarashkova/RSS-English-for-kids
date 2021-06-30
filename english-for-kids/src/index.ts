@@ -6,6 +6,7 @@ import { gameModeBehaviorToggle, gameStartTrack } from "./components/game-mode";
 import { startBehaviorTrain } from "./components/game-mode/train-mode";
 import { GAME_MODES } from "./shared/constants";
 import { mistakesCountAction, stopGameAction } from "./redux/actions";
+import { ROUTES } from "./router/constants";
 
 window.addEventListener('load', () => {
   initCommonPageTemplate();
@@ -15,19 +16,27 @@ window.addEventListener('load', () => {
   let prevState = store.getState();
 
   store.subscribe(():void => {
-
     const state = store.getState();
 
-    gameModeBehaviorToggle(state.gameMode);
+    const isGameModeChanged = prevState.gameMode !== state.gameMode;
+    const isPageChanged = prevState.currentPage !== state.currentPage;
+    const isCurrentPageCategory = state.currentPage === ROUTES.CATEGORY.url;
+    const isCategoryChanged = prevState.currentCategory !== state.currentCategory;
+
+    const shouldSwitchGameBehavior = isGameModeChanged || (isPageChanged && isCurrentPageCategory) || isCategoryChanged;
+
+    if (shouldSwitchGameBehavior) {
+      gameModeBehaviorToggle(state.gameMode);
+    }
     gameStartTrack(state.isGameStarted);
 
-    const isStateChanged = prevState.gameMode !== state.gameMode;
 
-    if(isStateChanged && state.gameMode === GAME_MODES.TRAIN) {
+
+    if(isGameModeChanged && state.gameMode === GAME_MODES.TRAIN) {
       setTimeout(stopGameAction)
     }
 
-    if(isStateChanged && !state.isGameStarted) {
+    if(isGameModeChanged && !state.isGameStarted) {
       setTimeout(() => {
         mistakesCountAction(false);
       })

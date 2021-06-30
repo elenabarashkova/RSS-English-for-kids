@@ -3,6 +3,7 @@ import {
   CHANGE_WORDS_IN_PLAY,
   MISTAKES_COUNT,
   SET_CURRENT_PAGE,
+  SET_CURRENT_CATEGORY,
   SET_CURRENT_WORD,
   SET_WORDS_IN_PLAY,
   START_GAME,
@@ -32,6 +33,13 @@ export const setCurrentPageAction = (page: string): void => {
   store.dispatch({
     type: SET_CURRENT_PAGE,
     payload: page,
+  });
+}
+
+export const setCurrentCategoryAction = (category: string | null): void => {
+  store.dispatch({
+    type: SET_CURRENT_CATEGORY,
+    payload: category,
   });
 }
 

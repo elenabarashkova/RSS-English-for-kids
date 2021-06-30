@@ -21,11 +21,15 @@ const cardTrainHandler = (event: Event): void => {
 }
 
 export const startBehaviorTrain = (): void => {
+  // подписаться на родителя карточек вметро всего что ниже
+
   const cards = document.getElementsByClassName('word-card');
   [...cards].forEach(card => card.addEventListener('click', cardTrainHandler));
 }
 
 export const stopBehaviorTrain = (): void => {
+  // отписаться от родителя карточек вместо всего что ниже
+
   const cards = document.getElementsByClassName('word-card');
   [...cards].forEach(card => card.removeEventListener('click', cardTrainHandler));
 }
