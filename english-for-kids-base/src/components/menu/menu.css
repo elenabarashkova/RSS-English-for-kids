@@ -5,10 +5,11 @@ aside {
 }
 
 .aside.opened {
-  position: absolute;
   width: 100%;
   height: 100%;
   left: 0;
+  position: fixed;
+  z-index: 100;
 }
 
 .aside.opened:before {
@@ -52,4 +53,11 @@ aside {
 
 .login:hover {
   background: #47aac9;
+}
+
+@media (max-width: 349px){
+
+  .menu-inner {
+    width: 95%;
+  }
 }
