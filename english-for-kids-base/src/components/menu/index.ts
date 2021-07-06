@@ -4,10 +4,14 @@ const closeMenu = (): void => {
   const toggleBtn = document.getElementById('menuToggler');
 
   const closeMenuHandler = (event: Event) => {
-    if (event.target !== menuInner) {
+    const target = event.target as HTMLElement;
+    const targetMenuInner = target.closest('#menuInner');
+
+    if (!targetMenuInner || target instanceof HTMLAnchorElement) {
       [toggleBtn, menuInner, aside].forEach(elem => elem?.classList.remove('opened'));
+
+      aside?.removeEventListener('click', closeMenuHandler);
     }
-    aside?.removeEventListener('click', closeMenuHandler);
   };
 
   if(aside?.classList.contains('opened')) {

@@ -55,6 +55,10 @@
   background-image: url('../../assets/turn-card.png');
 }
 
+.word-card .turn-card-btn:hover {
+  filter: invert(100%) sepia(100%) saturate(10000%) hue-rotate(162deg);
+}
+
 .word-card.disabled .card-inner:before {
   content: '';
   width: 100%;
