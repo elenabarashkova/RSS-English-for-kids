@@ -1,15 +1,6 @@
-import { Action } from "redux";
-
-export type Payload =
-  number
-  | string
-  | boolean
-  | WordsListConfig
-  | Word
-  | null;
-
-export interface ActionWithPayload extends Action {
-  payload?: Payload,
+export interface ActionWithPayload <PayloadType = string> {
+  type: string,
+  payload: PayloadType,
 }
 
 export interface State {

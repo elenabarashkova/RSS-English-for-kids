@@ -17,37 +17,45 @@ export const gameModeReducer = (state = GAME_MODES.TRAIN, action: Action): State
   return state
 }
 
-export const isGameStartedReducer = (state = false, {type, payload}: ActionWithPayload): State['isGameStarted'] => {
+export const isGameStartedReducer = (
+  state = false,
+  {type, payload}: ActionWithPayload<boolean>
+): State['isGameStarted'] => {
   if (type === IS_GAME_STARTED) {
-    return payload as boolean;
+    return payload;
   }
 
   return state
 }
 
-export const mistakesCountReducer = (state = 0, action: ActionWithPayload): State['mistakesCount'] => {
-  if (action.type === MISTAKES_COUNT) {
-    return action.payload ? (state + 1) : 0;
+export const mistakesCountReducer = (
+  state = 0,
+  {type, payload}: ActionWithPayload<boolean>
+): State['mistakesCount'] => {
+  if (type === MISTAKES_COUNT) {
+    return payload ? (state + 1) : 0;
   }
 
   return state
 }
 
-export const wordsInPlayReducer = (state = [], action: ActionWithPayload): State['wordsInPlay'] => {
-  if (action.type === SET_WORDS_IN_PLAY) {
-    return action.payload as WordsListConfig;
+export const wordsInPlayReducer = (
+  state = [],
+  {type, payload}: ActionWithPayload<WordsListConfig>
+): State['wordsInPlay'] => {
+  if (type === SET_WORDS_IN_PLAY) {
+    return payload;
   }
-  // if (action.type === CHANGE_WORDS_IN_PLAY) {
-  //   state?.shift();
-  //   return state;
-  // }
 
   return state
 }
 
-export const currentWordReducer = (state = null, action: ActionWithPayload): State['currentWord'] => {
-  if (action.type === SET_CURRENT_WORD) {
-    return action.payload as Word;
+export const currentWordReducer = (
+  state = null,
+  {type, payload}: ActionWithPayload<Word>
+): State['currentWord'] => {
+  if (type === SET_CURRENT_WORD) {
+    return payload;
   }
 
   return state
