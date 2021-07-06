@@ -1,5 +1,5 @@
 import { PAGES_CONFIG } from "./pages-config";
-import { clearMain, redirectToDefaultPage } from "../shared";
+import { clearMain, getHash, redirectToDefaultPage } from "../shared";
 import { setCurrentCategoryAction, setCurrentPageAction, stopGameAction } from "../redux/actions";
 import { setActiveMenuItem } from "../components/menu";
 
@@ -7,8 +7,7 @@ const onHashChange = (): void => {
   stopGameAction();
   clearMain();
 
-  const route = window.location.hash.slice(1).split('/')[0];
-  const innerRoute = window.location.hash.slice(1).split('/')[1];
+  const [route, innerRoute] = getHash();
 
   if (!PAGES_CONFIG[route]) {
     redirectToDefaultPage();

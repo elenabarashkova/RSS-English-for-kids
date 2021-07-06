@@ -1,11 +1,11 @@
 import { getCategoryInner } from "./render";
 import { categoriesListConfig } from "../main-page/categories-config";
-import { redirectToDefaultPage } from "../../shared";
+import { getHash, redirectToDefaultPage } from "../../shared";
 
 export const startCategoryPage = (): void => {
   const mainWrap = document.getElementById('mainWrap') as HTMLElement;
 
-  const currentCategory = window.location.hash.slice(1).split('/')[1];
+  const [, currentCategory] = getHash();
   const currentCategoryWords = categoriesListConfig[currentCategory]?.wordsConfig;
 
   if(currentCategoryWords) {

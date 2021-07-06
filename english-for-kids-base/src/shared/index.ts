@@ -23,3 +23,5 @@ export const playAudioSound = (path: string): void => {
   const audio = new Audio(path);
   audio.play();
 }
+
+export const getHash = (): Array<string> => window.location.hash.slice(1).split('/');
