@@ -8,7 +8,7 @@ export const gameModeBtnBehavior = (): void => {
     document.getElementById('mainWrap')?.classList.toggle('in-game');
 
     const state = store.getState();
-    const { gameMode } = state;
+    const { gameMode } = state.game;
 
     if(gameMode === GAME_MODES.TRAIN) {
       isGameStartedAction(false);

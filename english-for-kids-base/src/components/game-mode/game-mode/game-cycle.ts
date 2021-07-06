@@ -30,7 +30,7 @@ export const gameCycle = (): void => {
 
 export const cardsClickHandler = (event: Event): void => {
   let state: State = store.getState();
-  const { currentWord } = state;
+  const { currentWord } = state.game;
 
   const target =  event.target as HTMLElement;
   const card = target.closest('.word-card:not(.disabled)') as HTMLElement;
@@ -47,11 +47,11 @@ export const cardsClickHandler = (event: Event): void => {
   correctWordBehavior(card);
 
   state = store.getState();
-  const { wordsInPlay } = state;
+  const { wordsInPlay, mistakesCount } = state.game;
 
   if(wordsInPlay.length) {
     gameCycle();
   } else {
-    gameOver(state.mistakesCount);
+    gameOver(mistakesCount);
   }
 }

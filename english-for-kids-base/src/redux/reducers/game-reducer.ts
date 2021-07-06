@@ -6,59 +6,47 @@ import {
   SET_WORDS_IN_PLAY,
   TOGGLE_GAME_MODE
 } from "../action-types";
-import { Action, State } from "../types";
+import { Action, GameState, Payload } from "../types";
 
-export const gameModeReducer = (
-  state = GAME_MODES.TRAIN,
-  action: Action
-): State['gameMode'] => {
-  if (action.type === TOGGLE_GAME_MODE) {
-    return state === GAME_MODES.TRAIN ? GAME_MODES.GAME : GAME_MODES.TRAIN;
-  }
-
-  return state
+const gameInitialState: GameState = {
+  gameMode: GAME_MODES.TRAIN,
+  isGameStarted: false,
+  wordsInPlay: [],
+  currentWord: null,
+  mistakesCount: 0,
 }
 
-export const isGameStartedReducer = (
-  state = false,
-  {type, payload}: Action<boolean>
-): State['isGameStarted'] => {
-  if (type === IS_GAME_STARTED) {
-    return payload;
+export const gameReducer = (
+  state = gameInitialState,
+  {type, payload}: Action<Payload>
+): GameState => {
+  switch (type) {
+    case TOGGLE_GAME_MODE:
+      return {
+        ...state,
+        gameMode: state.gameMode === GAME_MODES.TRAIN ? GAME_MODES.GAME : GAME_MODES.TRAIN
+      }
+    case IS_GAME_STARTED:
+      return {
+        ...state,
+        isGameStarted: payload as boolean
+      }
+    case MISTAKES_COUNT:
+      return {
+        ...state,
+        mistakesCount: (payload ? (state.mistakesCount + 1) : 0) as number
+      }
+    case SET_WORDS_IN_PLAY:
+      return {
+        ...state,
+        wordsInPlay: payload as WordsListConfig
+      }
+    case SET_CURRENT_WORD:
+      return {
+        ...state,
+        currentWord: payload as Word
+      }
+
+    default: return state
   }
-
-  return state
-}
-
-export const mistakesCountReducer = (
-  state = 0,
-  {type, payload}: Action<boolean>
-): State['mistakesCount'] => {
-  if (type === MISTAKES_COUNT) {
-    return payload ? (state + 1) : 0;
-  }
-
-  return state
-}
-
-export const wordsInPlayReducer = (
-  state = [],
-  {type, payload}: Action<WordsListConfig>
-): State['wordsInPlay'] => {
-  if (type === SET_WORDS_IN_PLAY) {
-    return payload;
-  }
-
-  return state
-}
-
-export const currentWordReducer = (
-  state = null,
-  {type, payload}: Action<Word>
-): State['currentWord'] => {
-  if (type === SET_CURRENT_WORD) {
-    return payload;
-  }
-
-  return state
 }

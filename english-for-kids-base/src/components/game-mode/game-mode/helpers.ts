@@ -25,7 +25,7 @@ export const wordsShuffle = (wordsConfig: WordsListConfig): WordsListConfig => {
 
 export const playCurrentAudio = (): void => {
   const state: State = store.getState();
-  const { currentWord } = state;
+  const { currentWord } = state.game;
 
   if (currentWord) {
     playAudioSound(currentWord.sound);
@@ -43,7 +43,7 @@ export const startRepeatBtn = (): void => {
 
 export const correctWordBehavior = (targetCard: HTMLElement): void => {
   const state: State = store.getState();
-  const { wordsInPlay } = state;
+  const { wordsInPlay } = state.game;
 
   playAudioSound('./assets/game-sounds/correct-sound.mp3');
   renderStar(true);

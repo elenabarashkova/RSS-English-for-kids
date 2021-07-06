@@ -15,8 +15,10 @@ window.addEventListener('load', () => {
 
   store.subscribe(():void => {
     const state = store.getState();
+    const gameState = state.game;
+    const prevGameState = prevState.game;
 
-    const isGameModeChanged = prevState.gameMode !== state.gameMode;
+    const isGameModeChanged = prevGameState.gameMode !== gameState.gameMode;
     const isPageChanged = prevState.currentPage !== state.currentPage;
     const isCurrentPageCategory = state.currentPage === CATEGORY_ROUTE;
     const isCategoryChanged = prevState.currentCategory !== state.currentCategory;
@@ -24,9 +26,9 @@ window.addEventListener('load', () => {
     const shouldSwitchGameBehavior = isGameModeChanged || (isPageChanged && isCurrentPageCategory) || isCategoryChanged;
 
     if (shouldSwitchGameBehavior) {
-      gameModeBehaviorToggle(state.gameMode);
+      gameModeBehaviorToggle(gameState.gameMode);
     }
-    gameStartTrack(state.isGameStarted);
+    gameStartTrack(gameState.isGameStarted);
 
     prevState = state;
   });
