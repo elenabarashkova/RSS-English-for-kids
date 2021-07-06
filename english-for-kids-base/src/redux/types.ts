@@ -1,4 +1,4 @@
-export interface ActionWithPayload <PayloadType = string> {
+export interface Action <PayloadType = string> {
   type: string,
   payload: PayloadType,
 }

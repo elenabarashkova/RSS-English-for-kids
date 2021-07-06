@@ -1,10 +1,10 @@
 import { DEFAULT_PAGE } from "../../shared";
-import { ActionWithPayload, State } from "../types";
+import { Action, State } from "../types";
 import { SET_CURRENT_CATEGORY, SET_CURRENT_PAGE } from "../action-types";
 
 export const currentPageReducer = (
   state = DEFAULT_PAGE,
-  {type, payload}: ActionWithPayload
+  {type, payload}: Action
 ): State['currentPage'] => {
   if (type === SET_CURRENT_PAGE) {
     return payload
@@ -14,7 +14,7 @@ export const currentPageReducer = (
 
 export const currentCategoryReducer = (
   state = null,
-  {type, payload}: ActionWithPayload<string | null>
+  {type, payload}: Action<string | null>
 ): State['currentCategory'] => {
   if (type === SET_CURRENT_CATEGORY) {
     return payload
