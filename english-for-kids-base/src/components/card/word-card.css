@@ -66,3 +66,7 @@
   z-index: 1;
   pointer-events: none;
 }
+
+.word-card .card-caption {
+  width: 85%;
+}

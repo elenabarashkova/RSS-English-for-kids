@@ -71,4 +71,5 @@ body {
 
 main {
   padding-top: var(--padding-for-main-top-desctop);
+  margin-bottom: 30px;
 }
