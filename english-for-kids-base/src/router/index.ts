@@ -1,10 +1,15 @@
 import { PAGES_CONFIG } from "./pages-config";
 import { clearMain, getHash, redirectToDefaultPage } from "../shared";
-import { mistakesCountAction, setCurrentCategoryAction, setCurrentPageAction, stopGameAction } from "../redux/actions";
+import {
+  isGameStartedAction,
+  mistakesCountAction,
+  setCurrentCategoryAction,
+  setCurrentPageAction,
+} from "../redux/actions";
 import { setActiveMenuItem } from "../components/menu";
 
 const onHashChange = (): void => {
-  stopGameAction();
+  isGameStartedAction(false);
   mistakesCountAction(false);
 
   clearMain();

@@ -6,9 +6,7 @@ import {
   SET_CURRENT_CATEGORY,
   SET_CURRENT_WORD,
   SET_WORDS_IN_PLAY,
-  START_GAME,
-  STOP_GAME,
-  TOGGLE_GAME_MODE
+  TOGGLE_GAME_MODE, IS_GAME_STARTED
 } from "./action-types";
 
 export const toggleGameModeAction = (): void => {
@@ -17,15 +15,10 @@ export const toggleGameModeAction = (): void => {
   });
 }
 
-export const startGameAction = (): void => {
+export const isGameStartedAction = (isGameStarted: boolean): void => {
   store.dispatch({
-    type: START_GAME,
-  });
-}
-
-export const stopGameAction = (): void => {
-  store.dispatch({
-    type: STOP_GAME,
+    type: IS_GAME_STARTED,
+    payload: isGameStarted,
   });
 }
 

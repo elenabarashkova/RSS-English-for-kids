@@ -1,12 +1,10 @@
 import { Action } from "redux";
 import { GAME_MODES } from "../../shared/constants";
 import {
-  CHANGE_WORDS_IN_PLAY,
+  CHANGE_WORDS_IN_PLAY, IS_GAME_STARTED,
   MISTAKES_COUNT,
   SET_CURRENT_WORD,
   SET_WORDS_IN_PLAY,
-  START_GAME,
-  STOP_GAME,
   TOGGLE_GAME_MODE
 } from "../action-types";
 import { ActionWithPayload, State } from "../types";
@@ -19,12 +17,9 @@ export const gameModeReducer = (state = GAME_MODES.TRAIN, action: Action): State
   return state
 }
 
-export const isGameStartedReducer = (state = false, action: Action): State['isGameStarted'] => {
-  if (action.type === STOP_GAME) {
-    return false;
-  }
-  if (action.type === START_GAME) {
-    return true;
+export const isGameStartedReducer = (state = false, {type, payload}: ActionWithPayload): State['isGameStarted'] => {
+  if (type === IS_GAME_STARTED) {
+    return payload as boolean;
   }
 
   return state

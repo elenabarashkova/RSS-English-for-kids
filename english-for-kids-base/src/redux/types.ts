@@ -9,7 +9,7 @@ export type Payload =
   | null;
 
 export interface ActionWithPayload extends Action {
-  payload: Payload,
+  payload?: Payload,
 }
 
 export interface State {

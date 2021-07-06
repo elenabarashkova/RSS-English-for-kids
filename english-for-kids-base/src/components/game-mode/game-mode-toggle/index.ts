@@ -1,5 +1,5 @@
 import store from "../../../redux/store";
-import { mistakesCountAction, stopGameAction, toggleGameModeAction } from "../../../redux/actions";
+import { isGameStartedAction, mistakesCountAction, toggleGameModeAction } from "../../../redux/actions";
 import { GAME_MODES } from "../../../shared/constants";
 
 export const gameModeBtnBehavior = (): void => {
@@ -11,7 +11,7 @@ export const gameModeBtnBehavior = (): void => {
     const { gameMode } = state;
 
     if(gameMode === GAME_MODES.TRAIN) {
-      stopGameAction();
+      isGameStartedAction(false);
       mistakesCountAction(false);
     }
   })
