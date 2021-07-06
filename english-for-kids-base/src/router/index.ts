@@ -1,10 +1,12 @@
 import { PAGES_CONFIG } from "./pages-config";
 import { clearMain, getHash, redirectToDefaultPage } from "../shared";
-import { setCurrentCategoryAction, setCurrentPageAction, stopGameAction } from "../redux/actions";
+import { mistakesCountAction, setCurrentCategoryAction, setCurrentPageAction, stopGameAction } from "../redux/actions";
 import { setActiveMenuItem } from "../components/menu";
 
 const onHashChange = (): void => {
   stopGameAction();
+  mistakesCountAction(false);
+
   clearMain();
 
   const [route, innerRoute] = getHash();
