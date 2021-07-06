@@ -28,6 +28,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   position: relative;
+  padding-bottom: 50px;
 }
 
 @media (max-width: 599px) {
