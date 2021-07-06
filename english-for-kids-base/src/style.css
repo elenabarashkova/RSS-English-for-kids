@@ -8,6 +8,7 @@
 @import "components/card/word-card.css";
 @import "components/category/category.css";
 @import "components/game-mode/popup/popup.css";
+@import "components/statistics/statistics.css";
 
 :root {
   --padding-for-main-top-desctop: 20px;
@@ -40,6 +41,7 @@ body {
 
 .container {
   margin: 0 auto;
+  width: 100%;
 }
 
 @media (min-width: 1920px){

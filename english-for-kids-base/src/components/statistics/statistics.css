@@ -1,0 +1,139 @@
+.stat-table {
+  box-shadow: 2px 4px 15px rgba(6, 12, 70, .25);
+}
+
+.stat-word-wrap,
+.stat-table-header {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.stat-word-wrap {
+  padding: 10px 0;
+}
+
+.stat-word-item {
+  flex-shrink: 0;
+}
+
+.category-title,
+.word-title,
+.translation-title {
+  width: 22%;
+}
+
+.trained-stat,
+.guessed-stat,
+.mistakes-stat {
+  width: 10%;
+}
+
+.success-stat {
+  width: 4%;
+}
+
+.stat-table-header {
+  background: #e3babf;
+  font-size: 22px;
+  height: 50px;
+}
+
+.stat-table-inner {
+  font-size: 18px;
+}
+
+@media (max-width: 1024px){
+
+  .category-title,
+  .word-title,
+  .translation-title {
+    width: 20%;
+  }
+
+  .trained-stat,
+  .guessed-stat,
+  .mistakes-stat {
+    width: 12%;
+  }
+
+  .stat-table-header {
+    font-size: 18px;
+  }
+
+  .stat-table-inner {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 639px){
+
+  .category-title,
+  .word-title,
+  .translation-title {
+    width: 18%;
+  }
+
+  .trained-stat,
+  .guessed-stat,
+  .mistakes-stat {
+    width: 14%;
+  }
+
+  .stat-table-header {
+    font-size: 16px;
+  }
+
+  .stat-table-inner {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 499px){
+
+  .category-title {
+    width: 14%;
+  }
+
+  .word-title,
+  .translation-title {
+    width: 19%;
+  }
+
+  .trained-stat,
+  .guessed-stat,
+  .mistakes-stat {
+    width: 14%;
+  }
+
+  .stat-table-header {
+    font-size: 13px;
+  }
+
+  .stat-table-inner {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 399px){
+
+  .category-title {
+    width: 12%;
+  }
+
+  .trained-stat,
+  .guessed-stat,
+  .mistakes-stat {
+    width: 15%;
+  }
+
+  .stat-table-header {
+    font-size: 11px;
+  }
+
+  .stat-table-inner {
+    font-size: 8px;
+  }
+}
