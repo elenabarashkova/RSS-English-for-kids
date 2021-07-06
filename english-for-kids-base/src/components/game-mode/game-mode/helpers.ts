@@ -1,9 +1,8 @@
 import store from "../../../redux/store";
 import { playAudioSound } from "../../../shared";
 import {
-  changeWordsInPlayAction,
   mistakesCountAction,
-  setCurrentWordAction
+  setCurrentWordAction, setWordsInPlayAction
 } from "../../../redux/actions";
 import { State } from "../../../redux/types";
 import { renderStar } from "../../category/render-game-attributes";
@@ -50,10 +49,13 @@ export const correctWordBehavior = (targetCard: HTMLElement): void => {
   renderStar(true);
   targetCard.classList.add('disabled');
 
-  changeWordsInPlayAction();
+  const restWordsInPlay = [...wordsInPlay];
+  restWordsInPlay.shift();
 
-  if(wordsInPlay.length) {
-    setCurrentWordAction(wordsInPlay[0]);
+  setWordsInPlayAction(restWordsInPlay);
+
+  if(restWordsInPlay.length) {
+    setCurrentWordAction(restWordsInPlay[0]);
   }
 }
 

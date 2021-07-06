@@ -1,7 +1,7 @@
 import { Action } from "redux";
 import { GAME_MODES } from "../../shared/constants";
 import {
-  CHANGE_WORDS_IN_PLAY, IS_GAME_STARTED,
+  IS_GAME_STARTED,
   MISTAKES_COUNT,
   SET_CURRENT_WORD,
   SET_WORDS_IN_PLAY,
@@ -37,10 +37,10 @@ export const wordsInPlayReducer = (state = [], action: ActionWithPayload): State
   if (action.type === SET_WORDS_IN_PLAY) {
     return action.payload as WordsListConfig;
   }
-  if (action.type === CHANGE_WORDS_IN_PLAY) {
-    state?.shift();
-    return state;
-  }
+  // if (action.type === CHANGE_WORDS_IN_PLAY) {
+  //   state?.shift();
+  //   return state;
+  // }
 
   return state
 }

@@ -1,6 +1,5 @@
 import store from "./store";
 import {
-  CHANGE_WORDS_IN_PLAY,
   MISTAKES_COUNT,
   SET_CURRENT_PAGE,
   SET_CURRENT_CATEGORY,
@@ -47,12 +46,6 @@ export const setWordsInPlayAction = (wordsInPlay: WordsListConfig): void => {
   store.dispatch({
     type: SET_WORDS_IN_PLAY,
     payload: wordsInPlay,
-  });
-}
-
-export const changeWordsInPlayAction = (): void => {
-  store.dispatch({
-    type: CHANGE_WORDS_IN_PLAY,
   });
 }
 
