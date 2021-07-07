@@ -11,7 +11,7 @@ export const wordsListConfigEcology: WordsListConfig = [
   {
     word: 'habitat',
     name: 'Habitat',
-    translation: 'Cреда обитания',
+    translation: 'Среда обитания',
     imageUrl: getImagePath('ecology','habitat'),
     sound: getSoundPath('ecology','habitat')
   },

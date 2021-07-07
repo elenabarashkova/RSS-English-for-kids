@@ -1,9 +1,7 @@
-import { StatisticWord } from "./types";
+import { StatisticConfig, StatisticWord } from "./types";
 import { categoriesListConfig } from "../main-page/categories-config";
 
 let db: IDBDatabase;
-
-// let statConfig: StatisticConfig;
 
 let fillDefaultNeeded = false;
 
@@ -51,6 +49,20 @@ export const initializeDB = (callback: CallableFunction): void => {
 
     callback();
   }
+}
+
+export const getStatistics = async (): Promise<StatisticConfig> => {
+  const transaction = db.transaction(['statistics'],'readonly');
+  const objectStore = transaction.objectStore('statistics');
+
+  return new Promise((resolve, reject) => {
+    const request = objectStore.getAll();
+
+    request.onsuccess = () => {
+      resolve(request.result);
+    }
+    request.onerror = reject;
+  });
 }
 //
 // export const addScores = (score: number, callback: CallableFunction, triesCount = 0): void => {
