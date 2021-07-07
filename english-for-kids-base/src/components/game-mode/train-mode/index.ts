@@ -7,7 +7,7 @@ const cardTrainHandler = (event: Event): void => {
   const card = target.closest('.word-card');
 
   if(card) {
-    updateWord(card!.id, 'trainedNum');
+    updateWord(card.id, 'trainedNum');
   }
 
   const turnCardBtn = target.classList.contains('turn-card-btn');

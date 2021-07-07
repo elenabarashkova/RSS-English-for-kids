@@ -1,5 +1,6 @@
 import { StatisticConfig, StatisticWord } from "./types";
 import { categoriesListConfig } from "../main-page/categories-config";
+import { STAT_PROPS } from "./constants";
 
 let db: IDBDatabase;
 
@@ -65,7 +66,7 @@ export const getStatistics = async (): Promise<StatisticConfig> => {
   });
 }
 
-export const updateWord = (id: string, wordProperty: string) => {
+export const updateWord = (id: string, wordProperty: string): void => {
   const transaction = db.transaction(['statistics'], 'readwrite');
   const store = transaction.objectStore('statistics');
   const request = store.get(id);
@@ -73,8 +74,8 @@ export const updateWord = (id: string, wordProperty: string) => {
   request.onsuccess = () => {
     const word = request.result;
 
-    const guessed = wordProperty === 'guestedNum' ? word.guestedNum + 1 : word.guestedNum;
-    const mistakened = wordProperty === 'mistakesNum' ? word.mistakesNum + 1 : word.mistakesNum;
+    const guessed = wordProperty === STAT_PROPS.GUESTED_NUM ? word.guestedNum + 1 : word.guestedNum;
+    const mistakened = wordProperty === STAT_PROPS.MISTAKES_NUM ? word.mistakesNum + 1 : word.mistakesNum;
     const totalPlayed = guessed + mistakened;
     let successCount = Math.round(guessed * 100 / totalPlayed);
 
@@ -85,9 +86,5 @@ export const updateWord = (id: string, wordProperty: string) => {
     const updatedWord = {...word, [wordProperty]: word[wordProperty] + 1, successRate: successCount};
 
     store.put(updatedWord);
-  }
-
-  request.onerror = () => {
-    console.log("Error");
   }
 }

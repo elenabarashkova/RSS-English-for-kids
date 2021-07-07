@@ -1,4 +1,5 @@
 import { StatisticConfig, StatisticWord } from "./types";
+import { STAT_PROPS } from "./constants";
 
 const getWordBlock = (
   {category,
@@ -28,13 +29,13 @@ export const getStatisticsPageInner = (): string => (`
   <div id="statisticsPage" class="statistics-page">
     <div id="statTable" class="stat-table">
       <div id="statHeader" class="stat-table-header">
-        <div data-sort="category" class="category-title stat-word-item">Category</div>
-        <div data-sort="name" class="word-title stat-word-item">Name</div>
-        <div data-sort="translation" class="translation-title stat-word-item">Translation</div>
-        <div data-sort="trainedNum" class="trained-stat stat-word-item">Trained</div>
-        <div data-sort="guestedNum" class="guessed-stat stat-word-item">Guessed</div>
-        <div data-sort="mistakesNum" class="mistakes-stat stat-word-item">Wrong</div>
-        <div data-sort="successRate" class="success-stat stat-word-item">%</div>
+        <div data-sort=${STAT_PROPS.CATEGORY} class="category-title stat-word-item">Category</div>
+        <div data-sort=${STAT_PROPS.NAME} class="word-title stat-word-item">Name</div>
+        <div data-sort=${STAT_PROPS.TRANSLATION} class="translation-title stat-word-item">Translation</div>
+        <div data-sort=${STAT_PROPS.TRAINED_NUM} class="trained-stat stat-word-item">Trained</div>
+        <div data-sort=${STAT_PROPS.GUESTED_NUM} class="guessed-stat stat-word-item">Guessed</div>
+        <div data-sort=${STAT_PROPS.MISTAKES_NUM} class="mistakes-stat stat-word-item">Wrong</div>
+        <div data-sort=${STAT_PROPS.SUCCESS_RATE} class="success-stat stat-word-item">%</div>
       </div>
       <div id="statTableInner" class="stat-table-inner"></div>
     </div>
