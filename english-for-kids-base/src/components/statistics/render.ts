@@ -1,13 +1,16 @@
+import { StatisticConfig, StatisticWord } from "./types";
+
 const getWordBlock = (
-  categoryName:string,
-  {word, name, translation}: Word,
-  trainedNum = 0,
-  guestedNum = 0,
-  mistakesNum = 0,
-  successRate = 0,
-): string => (`
-  <div id=${word} class="stat-word-wrap">
-    <div class="category-title stat-word-item">${categoryName}</div>
+  {category,
+    id,
+    name,
+    translation,
+    trainedNum,
+    guestedNum,
+    mistakesNum,
+    successRate}: StatisticWord,): string => (`
+  <div id=${id} class="stat-word-wrap">
+    <div class="category-title stat-word-item">${category}</div>
     <div class="word-title stat-word-item">${name}</div>
     <div class="translation-title stat-word-item">${translation}</div>
     <div class="trained-stat stat-word-item">${trainedNum}</div>
@@ -17,7 +20,7 @@ const getWordBlock = (
   </div>
 `)
 
-export const getStatisticsPageInner = (categoriesConfig: CategoriesListConfig): string => (`
+export const getStatisticsPageInner = (statisticConfig: StatisticConfig): string => (`
   <div id="statisticsPage" class="statistics-page">
     <div id="statTable" class="stat-table">
       <div class="stat-table-header">
@@ -30,11 +33,7 @@ export const getStatisticsPageInner = (categoriesConfig: CategoriesListConfig): 
         <div class="success-stat stat-word-item">%</div>
       </div>
       <div class="stat-table-inner">
-    ${(Object.keys(categoriesConfig))
-    .map((category: string) => (categoriesConfig[category].wordsConfig
-      .map(word => getWordBlock(category, word))
-      .join('')))
-    .join('')}
+        ${statisticConfig.map((word: StatisticWord) => getWordBlock(word)).join('')}
       </div>
     </div>
   </div>
