@@ -34,7 +34,7 @@ export const initializeDB = (callback: CallableFunction): void => {
     const thisDB = openRequest.result;
 
     if (!thisDB.objectStoreNames.contains('statistics')) {
-      thisDB.createObjectStore('statistics', {autoIncrement: true});
+      thisDB.createObjectStore('statistics', {keyPath: "id"});
 
       fillDefaultNeeded = true;
     }
@@ -64,26 +64,30 @@ export const getStatistics = async (): Promise<StatisticConfig> => {
     request.onerror = reject;
   });
 }
-//
-// export const addScores = (score: number, callback: CallableFunction, triesCount = 0): void => {
-//   const transaction = db.transaction(['scores'], 'readwrite');
-//   const store = transaction.objectStore('scores');
-//   const {email, firstName, lastName, userPhoto} = currentUser;
-//
-//   const request = store.add({
-//     email,
-//     firstName,
-//     lastName,
-//     userPhoto,
-//     score,
-//   });
-//
-//   request.onerror = () => {
-//     if (triesCount < 5) {
-//       addScores(score, callback, triesCount + 1);
-//     }
-//   }
-//   request.onsuccess = () => {
-//     callback();
-//   }
-// }
+
+export const updateWord = (id: string, wordProperty: string) => {
+  const transaction = db.transaction(['statistics'], 'readwrite');
+  const store = transaction.objectStore('statistics');
+  const request = store.get(id);
+
+  request.onsuccess = () => {
+    const word = request.result;
+
+    const guessed = wordProperty === 'guestedNum' ? word.guestedNum + 1 : word.guestedNum;
+    const mistakened = wordProperty === 'mistakesNum' ? word.mistakesNum + 1 : word.mistakesNum;
+    const totalPlayed = guessed + mistakened;
+    let successCount = Math.round(guessed * 100 / totalPlayed);
+
+    if(totalPlayed === 0 || successCount <= 0) {
+      successCount = 0;
+    }
+
+    const updatedWord = {...word, [wordProperty]: word[wordProperty] + 1, successRate: successCount};
+
+    store.put(updatedWord);
+  }
+
+  request.onerror = () => {
+    console.log("Error");
+  }
+}

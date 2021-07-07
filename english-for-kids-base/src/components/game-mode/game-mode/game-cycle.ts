@@ -40,7 +40,7 @@ export const cardsClickHandler = (event: Event): void => {
   }
 
   if(currentWord?.word !== card?.id) {
-    incorrectWordBehavior();
+    incorrectWordBehavior(card);
     return;
   }
 
