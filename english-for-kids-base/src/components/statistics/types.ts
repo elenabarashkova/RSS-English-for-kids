@@ -1,4 +1,4 @@
-export interface StatisticWord {
+export interface StatisticWord extends Record<string, string | number> {
   category: string,
   id: string,
   name: string,

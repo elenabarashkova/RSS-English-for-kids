@@ -19,6 +19,22 @@
   flex-shrink: 0;
 }
 
+.stat-table-header .stat-word-item {
+  cursor: pointer;
+}
+
+.stat-table-header .stat-word-item:hover {
+  color: #47aac9;
+}
+
+.stat-table-header .stat-word-item.up:after {
+  content: '↑';
+}
+
+.stat-table-header .stat-word-item.down:after {
+  content: '↓';
+}
+
 .category-title,
 .word-title,
 .translation-title {
