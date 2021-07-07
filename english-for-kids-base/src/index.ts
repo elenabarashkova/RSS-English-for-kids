@@ -5,11 +5,14 @@ import { startRouter } from "./router";
 import { gameModeBehaviorToggle, gameStartTrack } from "./components/game-mode";
 import { startBehaviorTrain } from "./components/game-mode/train-mode";
 import { CATEGORY_ROUTE } from "./router/constants";
+import { initializeDB } from "./components/statistics/indexedDB";
 
 window.addEventListener('load', () => {
-  initCommonPageTemplate();
-  startRouter();
-  startBehaviorTrain();
+  initializeDB(() => {
+    initCommonPageTemplate();
+    startRouter();
+    startBehaviorTrain();
+  });
 
   let prevState = store.getState();
 

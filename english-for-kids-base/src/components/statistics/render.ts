@@ -36,9 +36,7 @@ export const getStatisticsPageInner = (): string => (`
         <div data-sort="mistakesNum" class="mistakes-stat stat-word-item">Wrong</div>
         <div data-sort="successRate" class="success-stat stat-word-item">%</div>
       </div>
-      <div id="statTableInner" class="stat-table-inner">
-        
-      </div>
+      <div id="statTableInner" class="stat-table-inner"></div>
     </div>
   </div>
 `)
