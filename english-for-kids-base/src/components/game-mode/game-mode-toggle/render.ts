@@ -1,5 +1,5 @@
 export const getGameModeBtn = (): string => (`
-  <div class="game-mode-wrap">
+  <div id="gameModeTogglBtn" class="game-mode-wrap">
     <label class="game-mode-btn">
       <input type="checkbox" id="gameModeCheckbox" class="game-mode-toggler">
       <span class="game-mode-toggler-inner">

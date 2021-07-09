@@ -1,6 +1,6 @@
 import "./style.css";
 import store from "./redux/store";
-import { initCommonPageTemplate } from "./components";
+import { initCommonPageTemplate, initPublicPageTemplate } from "./components";
 import { startRouter } from "./router";
 import { gameModeBehaviorToggle, gameStartTrack } from "./components/game-mode";
 import { startBehaviorTrain } from "./components/game-mode/train-mode";
@@ -10,6 +10,7 @@ import { initializeDB } from "./components/statistics/indexedDB";
 window.addEventListener('load', () => {
   initializeDB(() => {
     initCommonPageTemplate();
+    initPublicPageTemplate();
     startRouter();
     startBehaviorTrain();
   });

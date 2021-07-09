@@ -3,47 +3,32 @@ import { openMenu } from "./menu";
 import { getGameModeBtn } from "./game-mode/game-mode-toggle/render";
 import { gameModeBtnBehavior } from "./game-mode/game-mode-toggle";
 import { initLogin } from "./login";
-
-const getMain = (): string => (`
-  <main id="main">
-    ${getGameModeBtn()}
-    <div id="mainWrap"></div>
-  </main>
-`)
-
-const githubIcon = require('../assets/github.svg');
-const rssIcon = require('../assets/rss.svg');
-
-const getFooter = (): string => (`
-  <footer id="footer" class="footer">
-    <div class="container">
-      <div class="footer-item">
-        ${githubIcon}
-        <a class="github" href="https://github.com/elenabarashkova" target="_blank">elenabarashkova</a>
-      </div>
-      <div class="footer-item">
-        <span class="footer-year">2021</span>
-      </div>
-      <div class="footer-item">
-        ${rssIcon}
-        <a class="rss" href="https://rs.school/js/" target="_blank">
-          <span class="rss-year">'21</span>
-        </a>
-      </div>
-    </div>
-  </footer>
-`)
+import { getFooter, getMain } from "./render";
 
 export const initCommonPageTemplate = (): void => {
   const container = document.createElement('div');
   container.classList.add('container');
+  container.id = ('container');
 
   document.body.appendChild(container);
-  container.insertAdjacentHTML('beforeend', getMenu());
+
   container.insertAdjacentHTML('beforeend', getMain());
   document.body.insertAdjacentHTML('beforeend', getFooter());
+}
+
+export const initPublicPageTemplate = (): void => {
+  const container = document.getElementById('container');
+  container?.insertAdjacentHTML('afterbegin', getMenu());
+
+  const main = document.getElementById('main');
+  main?.insertAdjacentHTML('afterbegin', getGameModeBtn());
 
   openMenu();
   initLogin();
   gameModeBtnBehavior();
+}
+
+export const stopPublicPageTemplate = (): void => {
+  document.getElementById('menu')?.remove();
+  document.getElementById('gameModeTogglBtn')?.remove();
 }
