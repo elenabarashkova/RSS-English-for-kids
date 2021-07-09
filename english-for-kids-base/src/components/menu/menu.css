@@ -43,7 +43,7 @@ aside {
   transform: translateX(0);
 }
 
-.login {
+.login-btn {
   height: 40px;
   text-transform: uppercase;
   background: lightblue;
@@ -51,7 +51,7 @@ aside {
   cursor: pointer;
 }
 
-.login:hover {
+.login-btn:hover {
   background: #47aac9;
 }
 

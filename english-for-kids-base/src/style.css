@@ -9,6 +9,7 @@
 @import "components/category/category.css";
 @import "components/game-mode/popup/popup.css";
 @import "components/statistics/statistics.css";
+@import "components/login/login.css";
 
 :root {
   --padding-for-main-top-desctop: 20px;

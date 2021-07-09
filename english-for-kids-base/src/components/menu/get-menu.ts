@@ -40,7 +40,7 @@ export const getMenu = (): string => (`
           ${(Object.keys(MENU_ITEMS)).map((route: string) => getMenuItem(route, MENU_ITEMS[route])).join('')}
         </ul>
       </nav>
-      <button id="login" class="login">Login</button>
+      <button id="loginBtn" class="login-btn">Login</button>
     </div>
   </aside>
 `)

@@ -2,6 +2,7 @@ import { getMenu } from "./menu/get-menu";
 import { openMenu } from "./menu";
 import { getGameModeBtn } from "./game-mode/game-mode-toggle/render";
 import { gameModeBtnBehavior } from "./game-mode/game-mode-toggle";
+import { initLogin } from "./login";
 
 const getMain = (): string => (`
   <main id="main">
@@ -43,5 +44,6 @@ export const initCommonPageTemplate = (): void => {
   document.body.insertAdjacentHTML('beforeend', getFooter());
 
   openMenu();
+  initLogin();
   gameModeBtnBehavior();
 }
