@@ -71,6 +71,7 @@ export const deleteCategory = (id: string): Promise<void> => {
   return Promise.resolve();
 }
 
+// todo: createCategory - add id
 export const createCategory = (newCategory: Category): Promise<Category> => {
   const isExisting = typeof categories
     .find((cat) => cat.name.toLowerCase() === newCategory.name.toLowerCase()) !== 'undefined';
@@ -81,6 +82,16 @@ export const createCategory = (newCategory: Category): Promise<Category> => {
 
   // const id = categories.length + 1;
   const model = { ...newCategory};
+  categories.push(model);
+
+  return Promise.resolve(model);
+}
+
+export const updateCategory = async (updatedCategory: Category): Promise<Category> => {
+
+  deleteCategory(updatedCategory.id);
+
+  const model = { ...updatedCategory};
   categories.push(model);
 
   return Promise.resolve(model);
