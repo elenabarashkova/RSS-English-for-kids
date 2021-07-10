@@ -1,6 +1,6 @@
 import { ServerCategory, ServerCategoryList } from "../types";
 
-export const getCategoryCard = ({ name, id }: ServerCategory): string => (`
+const getCategoryCard = ({ name, id }: ServerCategory): string => (`
   <div id=${id} class="admin-category-card admin-card">
     <div class="admin-card-inner">
       <div class="close-btn">X</div>
@@ -26,8 +26,18 @@ export const getCategoryCard = ({ name, id }: ServerCategory): string => (`
   </div>
 `)
 
+const getCreateCategoryCard = (): string => (`
+  <div id='createCategoryCard' class="admin-category-card admin-card create-cat-card">
+    <div class="admin-card-inner">
+      <div class="admin-card-title">Create new category</div>
+      <div class="addNewCatBtn"></div>
+    </div>
+  </div>
+`)
+
 export const renderCateroryCards = (ServerCatList: ServerCategoryList): string => (`
   <div id="adminCardWrap" class="admin-categiries-wrap">
     ${ServerCatList.map(cat => getCategoryCard(cat)).join('')}
+    ${getCreateCategoryCard()}
   </div>
 `);
