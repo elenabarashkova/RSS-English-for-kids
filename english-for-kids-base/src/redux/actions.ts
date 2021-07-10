@@ -5,9 +5,10 @@ import {
   SET_CURRENT_CATEGORY,
   SET_CURRENT_WORD,
   SET_WORDS_IN_PLAY,
-  TOGGLE_GAME_MODE, IS_GAME_STARTED
+  TOGGLE_GAME_MODE, IS_GAME_STARTED, SET_CATEGORIES_LIST
 } from "./action-types";
 import { Action } from "./types";
+import { ServerCategoryList } from "../components/admin-panel/types";
 
 const getToggleGameMode = (): Action<null> => ({
   type: TOGGLE_GAME_MODE,
@@ -70,4 +71,13 @@ const getCurrentWord = (payload: Word): Action<Word> => ({
 
 export const setCurrentWordAction = (word: Word): void => {
   store.dispatch(getCurrentWord(word));
+}
+
+const getCategoriesList = (payload: ServerCategoryList): Action<ServerCategoryList> => ({
+  type: SET_CATEGORIES_LIST,
+  payload,
+});
+
+export const setCategoriesListAction = (categiriesList: ServerCategoryList): void => {
+  store.dispatch(getCategoriesList(categiriesList));
 }

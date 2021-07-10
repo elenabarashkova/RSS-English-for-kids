@@ -3,4 +3,4 @@ export interface ServerCategory {
   id: string,
 }
 
-export interface ServerCategoryList extends Array<ServerCategory> {}
+export type ServerCategoryList = Array<ServerCategory>
