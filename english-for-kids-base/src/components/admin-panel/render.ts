@@ -15,6 +15,6 @@ export const getAdminPanelInner = (): string => (`
         <button id="logoutBtn" class="login-btn">Logout</button>
       </div>
     </nav>
-    <h2>AdminPanel</h2>
+    <div id="adminPanelPageInner" class="admin-panel-page-inner"></div>
   </div>
 `)
