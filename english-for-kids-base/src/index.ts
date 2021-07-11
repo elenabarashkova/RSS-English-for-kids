@@ -36,7 +36,6 @@ window.addEventListener('load', () => {
     gameStartTrack(gameState.isGameStarted);
 
     if(prevState.categoriesList !== state.categoriesList) {
-      console.log('subscriber');
       startAdminCards(state.categoriesList);
     }
 

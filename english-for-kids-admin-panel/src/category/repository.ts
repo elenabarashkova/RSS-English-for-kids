@@ -3,7 +3,7 @@ import { Category } from "./interface";
 // FILE for methods to CRUD categories
 
 // config could be replacedby import of json file
-const categories: Array<Category> = [
+let categories: Array<Category> = [
   {
     name: 'Animals',
     id: 'animals',
@@ -86,11 +86,15 @@ export const createCategory = (newCategory: Category): Promise<Category> => {
 }
 
 export const updateCategory = async (updatedCategory: Category): Promise<Category> => {
+  const categoryId = updatedCategory.id;
 
-  deleteCategory(updatedCategory.id);
+  categories = categories.map(category => {
+    if(category.id === categoryId) {
+      return updatedCategory;
+    }
 
-  const model = { ...updatedCategory};
-  categories.push(model);
+    return category;
+  })
 
-  return Promise.resolve(model);
+  return Promise.resolve(updatedCategory);
 }

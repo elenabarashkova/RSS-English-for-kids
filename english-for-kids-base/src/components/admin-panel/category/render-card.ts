@@ -11,15 +11,15 @@ const getCategoryCard = ({ name = '', id = '' }: ServerCategory): string => (`
            <span class="words-num">8</span>
         </div>
         <div class="login-btns-wrap">
-          <button class="login-btn login-btn-submit">Update</button>
+          <button class="login-btn login-btn-submit update-cat-btn">Update</button>
           <button class="login-btn login-btn-cancel">Add word</button>
         </div>
       </div>
       <div class="admin-card-inner-edit">
         <label class="edit-cat-name"><input type="text"></label>
         <div class="login-btns-wrap">
-          <button class="login-btn login-btn-submit">Cancel</button>
-          <button class="login-btn login-btn-cancel">Update</button>
+          <button class="login-btn login-btn-submit new-cat-cancel">Cancel</button>
+          <button class="login-btn login-btn-cancel new-cat-create">Update</button>
         </div>
       </div>
     </div>

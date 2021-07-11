@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createCategory, deleteCategory, getCategories, getCategoryById } from "./repository";
+import { createCategory, deleteCategory, getCategories, getCategoryById, updateCategory } from "./repository";
 import { Category } from "./interface";
 
 const router = Router();
@@ -49,12 +49,13 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/', async (req, res) => {
+router.put('/:id', async (req, res) => {
   const data = req.body as Category;
+
 
   if (!data.name) return res.sendStatus(400);
   try {
-    const updatedCategory = await createCategory(data);
+    const updatedCategory = await updateCategory(data);
     return res.json(updatedCategory);
   } catch (error) {
     return res.status(400).send(error);

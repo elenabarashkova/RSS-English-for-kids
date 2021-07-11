@@ -15,7 +15,7 @@ export const getCategory = async (id: string): Promise<ServerCategory> => {
   return result;
 }
 
-export const postNewCategory = async (newCategory: ServerCategory):Promise<void> => {
+export const postNewCategory = async (newCategory: ServerCategory): Promise<void> => {
   try {
     await fetch(`${SERVER_PATH}categories`, {
       method: 'POST',
@@ -32,37 +32,33 @@ export const postNewCategory = async (newCategory: ServerCategory):Promise<void>
   }
 };
 
-// export const deleteCar = async (id:number):Promise<void> => {
-//   try {
-//     await fetch(`${SERVER_ADDRESS_GARAGE}/${id}`, {
-//       method: 'DELETE',
-//     });
-//     await fetch(`${SERVER_ADDRESS_WINNERS}/${id}`, {
-//       method: 'DELETE',
-//     });
-//
-//     getCars();
-//
-//   } catch(error) {
-//     alert('Error deleting the car. Please, try again');
-//   }
-// };
-//
-// export const updateCar = async (car: Car):Promise<void> => {
-//   const {selectedCarId} = store.getState();
-//
-//   try {
-//     await (await fetch(`${SERVER_ADDRESS_GARAGE}/${selectedCarId}`, {
-//       method: 'PUT',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify(car),
-//     })).json();
-//
-//     getCars();
-//
-//   } catch(error) {
-//     alert('Error updating the car. Please, try again');
-//   }
-// }
+export const deleteCategory = async (id: string): Promise<void> => {
+  try {
+    await fetch(`${SERVER_PATH}categories/${id}`, {
+      method: 'DELETE',
+    });
+
+    getCategories();
+
+  } catch(error) {
+    alert('Error deleting the category. Please, try again');
+  }
+};
+
+export const updateCategory = async (updatedCategory: ServerCategory):Promise<void> => {
+  const categoryId = updatedCategory.id;
+  try {
+    await (await fetch(`${SERVER_PATH}categories/${categoryId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updatedCategory),
+    })).json();
+
+    getCategories();
+
+  } catch(error) {
+    alert('Error updating the category. Please, try again');
+  }
+}

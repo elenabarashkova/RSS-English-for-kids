@@ -2,8 +2,8 @@ import { initPublicPageTemplate, stopPublicPageTemplate } from "../index";
 import { getAdminPanelInner } from "./render";
 import { redirectToDefaultPage } from "../../shared";
 import { renderCateroryCards } from "./category/render-card";
-import { getCategories, postNewCategory } from "../../server";
-import { ServerCategoryList } from "./types";
+import { deleteCategory, getCategories, getCategory, postNewCategory, updateCategory } from "../../server";
+import { ServerCategory, ServerCategoryList } from "./types";
 import { setCreateCatFormAction } from "../../redux/actions";
 
 export const renderAllCatCards = (cats: ServerCategoryList): void => {
@@ -48,14 +48,45 @@ export const createCategoryBehavior = (): void => {
   }, {once: true})
 }
 
-// export const deleteCategoryBehavior = (): void => {
-//   const adminCategoryCards = document.getElementsByClassName('admin-category-card');
-//
-//   createCategoryCard?.addEventListener('click', () => {
-//
-//     addNewCategory('lena lena');
-//   }, {once: true})
-// }
+export const editCategoryBehavior = (): void => {
+  const adminCategoryCards = document.getElementsByClassName('admin-category-card');
+
+  [...adminCategoryCards].forEach(card => card.addEventListener('click', (event: Event) => {
+    const { target } = event;
+    const cardId = card.id;
+
+    const deleteBtn = card.querySelector('.delete-btn');
+    const updateBtn = card.querySelector('.update-cat-btn');
+
+    if(target === deleteBtn) {
+      deleteCategory(cardId);
+    }
+
+    if(target === updateBtn) {
+      card.classList.add('updating');
+
+      const input = card.querySelector('input') as HTMLInputElement;
+      const createBtn = card.querySelector('.new-cat-create');
+      const cancelBtn = card.querySelector('.new-cat-cancel');
+
+      card.addEventListener('click', async(innerEvent: Event) => {
+
+        const thisTarget = innerEvent.target as HTMLElement;
+
+        if(thisTarget === createBtn) {
+          const thisCategory: ServerCategory = await getCategory(cardId);
+          const updatedCategory: ServerCategory = {... thisCategory, name: input?.value};
+          updateCategory(updatedCategory);
+
+          card.classList.remove('updating');
+        }
+        if(thisTarget === cancelBtn) {
+          card.classList.remove('updating');
+        }
+      });
+    }
+  }, {once: true}))
+}
 
 export const startAdminPanel = async (): Promise<void> => {
   stopPublicPageTemplate();
@@ -77,4 +108,5 @@ export const startAdminPanel = async (): Promise<void> => {
 export const startAdminCards = (allCats: ServerCategoryList, ): void => {
   renderAllCatCards(allCats);
   createCategoryBehavior();
+  editCategoryBehavior();
 }

@@ -80,3 +80,11 @@
 .new-cat-card .admin-card-inner-edit {
   display: block;
 }
+
+.updating .admin-card-inner-edit {
+  display: block;
+}
+
+.updating .admin-card-inner-regular {
+  display: none;
+}
