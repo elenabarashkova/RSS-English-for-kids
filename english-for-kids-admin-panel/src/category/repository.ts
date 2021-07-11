@@ -71,7 +71,6 @@ export const deleteCategory = (id: string): Promise<void> => {
   return Promise.resolve();
 }
 
-// todo: createCategory - add id
 export const createCategory = (newCategory: Category): Promise<Category> => {
   const isExisting = typeof categories
     .find((cat) => cat.name.toLowerCase() === newCategory.name.toLowerCase()) !== 'undefined';
@@ -80,7 +79,6 @@ export const createCategory = (newCategory: Category): Promise<Category> => {
     return Promise.reject(new Error(`Category with name ${newCategory.name} is already exists`));
   }
 
-  // const id = categories.length + 1;
   const model = { ...newCategory};
   categories.push(model);
 

@@ -15,22 +15,22 @@ export const getCategory = async (id: string): Promise<ServerCategory> => {
   return result;
 }
 
-// export const postNewCar = async (car: Car):Promise<void> => {
-//   try {
-//     await fetch(`${SERVER_ADDRESS_GARAGE}`, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify(car),
-//     });
-//
-//     getCars();
-//
-//   } catch(error) {
-//     alert('Error creating the car. Please, try again');
-//   }
-// };
+export const postNewCategory = async (newCategory: ServerCategory):Promise<void> => {
+  try {
+    await fetch(`${SERVER_PATH}categories`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newCategory),
+    });
+
+    getCategories();
+
+  } catch(error) {
+    alert('Error creating the Category. Please, try again');
+  }
+};
 
 // export const deleteCar = async (id:number):Promise<void> => {
 //   try {

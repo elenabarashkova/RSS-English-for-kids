@@ -6,7 +6,7 @@ import { gameModeBehaviorToggle, gameStartTrack } from "./components/game-mode";
 import { startBehaviorTrain } from "./components/game-mode/train-mode";
 import { CATEGORY_ROUTE } from "./router/constants";
 import { initializeDB } from "./components/statistics/indexedDB";
-import { renderAllCatCards } from "./components/admin-panel";
+import { renderAllCatCards, startAdminCards } from "./components/admin-panel";
 
 window.addEventListener('load', () => {
   initializeDB(() => {
@@ -36,7 +36,7 @@ window.addEventListener('load', () => {
     gameStartTrack(gameState.isGameStarted);
 
     if(prevState.categoriesList !== state.categoriesList) {
-      renderAllCatCards(state.categoriesList);
+      startAdminCards(state.categoriesList);
     }
 
     prevState = state;

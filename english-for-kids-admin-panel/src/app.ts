@@ -23,7 +23,7 @@ app.use(/^(?!\/api\/)/, express.static(publicPath));
 // });
 
 app.use('/api/categories', categories);
-app.use('/api/categories/:id', category);
+
 // app.use('/api/items', items);
 
 app.listen('3000', () => console.log('Started server Hello'));
