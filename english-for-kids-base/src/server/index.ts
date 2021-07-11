@@ -11,8 +11,7 @@ export const getCategories = async (): Promise<void> => {
 
 export const getCategory = async (id: string): Promise<ServerCategory> => {
   const response = await fetch(`${SERVER_PATH}categories/${id}`);
-  const result = await response.json();
-  return result;
+  return response.json();
 }
 
 export const postNewCategory = async (newCategory: ServerCategory): Promise<void> => {
@@ -47,6 +46,7 @@ export const deleteCategory = async (id: string): Promise<void> => {
 
 export const updateCategory = async (updatedCategory: ServerCategory):Promise<void> => {
   const categoryId = updatedCategory.id;
+
   try {
     await (await fetch(`${SERVER_PATH}categories/${categoryId}`, {
       method: 'PUT',

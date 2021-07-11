@@ -50,37 +50,6 @@
   margin-bottom: 30px;
 }
 
-.create-cat-card {
-  background: lightgray;
-}
-
-.addNewCatBtn {
-  width: 80px;
-  height: 80px;
-  border: 1px solid gray;
-  border-radius: 50%;
-  position: relative;
-  cursor: pointer;
-}
-
-.addNewCatBtn:before {
-  content: '+';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 46px;
-}
-
-.addNewCatBtn:hover {
-  color: #47aac9;
-  border-color: #47aac9;
-}
-
-.new-cat-card .admin-card-inner-edit {
-  display: block;
-}
-
 .updating .admin-card-inner-edit {
   display: block;
 }

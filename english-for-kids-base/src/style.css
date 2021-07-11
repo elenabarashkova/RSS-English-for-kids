@@ -11,7 +11,9 @@
 @import "components/statistics/statistics.css";
 @import "components/login/login.css";
 @import "components/admin-panel/admin-panel.css";
-@import "components/admin-panel/category/category-card.css";
+@import "components/admin-panel/category/get-cards/category/style.css";
+@import "components/admin-panel/category/get-cards/create-category/style.css";
+@import "components/admin-panel/category/get-cards/new-category/style.css";
 
 :root {
   --padding-for-main-top-desctop: 20px;

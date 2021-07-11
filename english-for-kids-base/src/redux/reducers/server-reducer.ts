@@ -17,13 +17,13 @@ export const categoriesListReducer = (
 
     if(payload as boolean) {
       newState.push(newCategoryItem);
-
       return newState;
     }
 
     newState.pop();
     return newState;
   }
+
   return state
 }
 
