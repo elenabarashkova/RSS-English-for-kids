@@ -1,6 +1,5 @@
 import { Router } from 'express';
-import { STATUS_CODES } from "http";
-import { createCategory, deleteCategory, getCategories, getCategoryById, updateCategory } from "./repository";
+import { createCategory, deleteCategory, getCategories, getCategoryById } from "./repository";
 import { Category } from "./interface";
 
 const router = Router();

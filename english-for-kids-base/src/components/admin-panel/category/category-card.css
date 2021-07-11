@@ -22,7 +22,7 @@
   justify-content: center;
 }
 
-.close-btn {
+.delete-btn {
   position: absolute;
   right: -5px;
   top: -5px;
@@ -30,7 +30,7 @@
   cursor: pointer;
 }
 
-.close-btn:hover {
+.delete-btn:hover {
   color: #47aac9;
 }
 

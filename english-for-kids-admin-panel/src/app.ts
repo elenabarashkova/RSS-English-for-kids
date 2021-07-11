@@ -3,6 +3,7 @@ import * as express from 'express';
 import * as cors from 'cors';
 import * as bodyParser from 'body-parser';
 import categories from "./category/router";
+import category from "./category/router";
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -22,6 +23,7 @@ app.use(/^(?!\/api\/)/, express.static(publicPath));
 // });
 
 app.use('/api/categories', categories);
+app.use('/api/categories/:id', category);
 // app.use('/api/items', items);
 
 app.listen('3000', () => console.log('Started server Hello'));

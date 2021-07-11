@@ -2,7 +2,7 @@ import { initPublicPageTemplate, stopPublicPageTemplate } from "../index";
 import { getAdminPanelInner } from "./render";
 import { redirectToDefaultPage } from "../../shared";
 import { renderCateroryCards } from "./category/render-card";
-import { getCategories } from "../../server";
+import { getCategories, getCategory } from "../../server";
 import { ServerCategoryList } from "./types";
 
 export const startAdminPanel = async (): Promise<void> => {
@@ -20,6 +20,8 @@ export const startAdminPanel = async (): Promise<void> => {
     initPublicPageTemplate();
   });
 
+
+  getCategory('camping');
 }
 
 export const renderAllCatCards = (cats: ServerCategoryList): void => {

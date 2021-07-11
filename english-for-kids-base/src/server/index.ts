@@ -1,11 +1,18 @@
 import { setCategoriesListAction } from "../redux/actions";
 import { SERVER_PATH } from "./constants";
+import { ServerCategory } from "../components/admin-panel/types";
 
 export const getCategories = async (): Promise<void> => {
   const response = await fetch(`${SERVER_PATH}categories`);
   const result = await response.json();
 
   setCategoriesListAction(result);
+}
+
+export const getCategory = async (id: string): Promise<ServerCategory> => {
+  const response = await fetch(`${SERVER_PATH}categories/${id}`);
+  const result = await response.json();
+  return result;
 }
 
 // export const postNewCar = async (car: Car):Promise<void> => {

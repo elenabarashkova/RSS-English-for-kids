@@ -3,7 +3,7 @@ import { ServerCategory, ServerCategoryList } from "../types";
 const getCategoryCard = ({ name, id }: ServerCategory): string => (`
   <div id=${id} class="admin-category-card admin-card">
     <div class="admin-card-inner">
-      <div class="close-btn">X</div>
+      <div class="delete-btn">X</div>
       <div class="admin-card-inner-regular">
         <div class="admin-card-title">${name}</div>
         <div class="admin-card-word-num">
