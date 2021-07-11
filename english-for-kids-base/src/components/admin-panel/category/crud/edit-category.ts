@@ -18,25 +18,7 @@ export const editCategoryBehavior = (): void => {
     if(target === updateBtn) {
       card.classList.add('updating');
 
-      // const input = card.querySelector('input') as HTMLInputElement;
-      // const createBtn = card.querySelector('.new-cat-create');
-      // const cancelBtn = card.querySelector('.new-cat-cancel');
-
-      card.addEventListener('click', async(innerEvent: Event) => {
-        editModeCardHandler(false, innerEvent, card)
-        // const thisTarget = innerEvent.target as HTMLElement;
-        //
-        // if(thisTarget === createBtn) {
-        //   const thisCategory: ServerCategory = await getCategory(cardId);
-        //   const updatedCategory: ServerCategory = {... thisCategory, name: input?.value};
-        //   updateCategory(updatedCategory);
-        //
-        //   card.classList.remove('updating');
-        // }
-        // if(thisTarget === cancelBtn) {
-        //   card.classList.remove('updating');
-        // }
-      });
+      card.addEventListener('click', async(innerEvent: Event) => editModeCardHandler(false, innerEvent, card));
     }
-  }, {once: true}))
+  }))
 }
