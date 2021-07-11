@@ -1,6 +1,6 @@
 import { ServerCategory, ServerCategoryList } from "../types";
 
-const getCategoryCard = ({ name, id }: ServerCategory): string => (`
+const getCategoryCard = ({ name = '', id = '' }: ServerCategory): string => (`
   <div id=${id} class="admin-category-card admin-card">
     <div class="admin-card-inner">
       <div class="delete-btn">X</div>
@@ -35,9 +35,28 @@ const getCreateCategoryCard = (): string => (`
   </div>
 `)
 
-export const renderCateroryCards = (ServerCatList: ServerCategoryList): string => (`
+const getNewCategoryCard = (): string => (`
+  <div class="admin-category-card admin-card new-cat-card">
+    <div class="admin-card-inner">
+      <div class="admin-card-inner-edit">
+        <label class="edit-cat-name">Category Name<input type="text"></label>
+        <div class="login-btns-wrap">
+          <button class="login-btn login-btn-submit new-cat-cancel">Cancel</button>
+          <button class="login-btn login-btn-cancel new-cat-create">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+`)
+
+export const renderCateroryCards = (serverCatList: ServerCategoryList): string => (`
   <div id="adminCardWrap" class="admin-categiries-wrap">
-    ${ServerCatList.map(cat => getCategoryCard(cat)).join('')}
+    ${serverCatList.map((cat: ServerCategory) => {
+    if(cat.isNewCategory) {
+      return getNewCategoryCard();
+    }
+    return getCategoryCard(cat);
+  }).join('')}
     ${getCreateCategoryCard()}
   </div>
 `);

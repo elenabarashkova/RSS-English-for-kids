@@ -76,3 +76,7 @@
   color: #47aac9;
   border-color: #47aac9;
 }
+
+.new-cat-card .admin-card-inner-edit {
+  display: block;
+}

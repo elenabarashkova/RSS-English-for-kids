@@ -5,7 +5,7 @@ import {
   SET_CURRENT_CATEGORY,
   SET_CURRENT_WORD,
   SET_WORDS_IN_PLAY,
-  TOGGLE_GAME_MODE, IS_GAME_STARTED, SET_CATEGORIES_LIST
+  TOGGLE_GAME_MODE, IS_GAME_STARTED, SET_CATEGORIES_LIST, CREATE_CATEGORY_FORM
 } from "./action-types";
 import { Action } from "./types";
 import { ServerCategoryList } from "../components/admin-panel/types";
@@ -80,4 +80,13 @@ const getCategoriesList = (payload: ServerCategoryList): Action<ServerCategoryLi
 
 export const setCategoriesListAction = (categiriesList: ServerCategoryList): void => {
   store.dispatch(getCategoriesList(categiriesList));
+}
+
+const getCreateCatForm = (payload: boolean): Action<boolean> => ({
+  type: CREATE_CATEGORY_FORM,
+  payload,
+});
+
+export const setCreateCatFormAction = (toAdd: boolean): void => {
+  store.dispatch(getCreateCatForm(toAdd));
 }
