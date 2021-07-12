@@ -48,13 +48,13 @@ export const updateCategory = async (updatedCategory: ServerCategory):Promise<vo
   const categoryId = updatedCategory.id;
 
   try {
-    await (await fetch(`${SERVER_PATH}categories/${categoryId}`, {
+    await fetch(`${SERVER_PATH}categories/${categoryId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(updatedCategory),
-    })).json();
+    });
 
     getCategories();
 

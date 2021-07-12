@@ -101,8 +101,7 @@ export const updateCategory = async ({id, name}: Category): Promise<void> => {
   const client = await pool.connect();
   const result = await client.query(`
     UPDATE categories
-      SET id = '${id}',
-      name = '${name}',
+      SET name = '${name}'
       WHERE id = '${id}';
   `);
 
