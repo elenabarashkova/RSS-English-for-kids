@@ -1,9 +1,6 @@
 import { Category } from "./interface";
 import { pool } from "../init-db";
 
-// FILE for methods to CRUD categories
-
-// config could be replacedby import of json file
 let categories: Array<Category> = [
   {
     name: 'Animals',
@@ -62,53 +59,66 @@ export const getCategories = async (): Promise<Category[]> => {
     client.release();
 
     return result.rows;
-
-  // return Promise.resolve<Category[]>(categories);
 }
 
+export const getCategoryById = async (categoryId: string): Promise<Category | undefined> => {
+  const client = await pool.connect();
+  const result = await client.query(`
+    SELECT * FROM categories
+      WHERE id = '${categoryId}';
+  `);
 
+  client.release();
 
-
-
-export const getCategoryById = (categoryId: string): Promise<Category | undefined> => (
-  Promise.resolve(categories.find((cat) => cat.id === categoryId))
-);
-
-export const deleteCategory = (id: string): Promise<void> => {
-  const index = categories.findIndex((cat) => cat.id === id);
-
-  if (index === -1) {
-    Promise.reject(new Error('Category not found'));
-  }
-
-  categories.splice(index, 1);
-  return Promise.resolve();
+  return result.rows[0];
 }
 
-export const createCategory = (newCategory: Category): Promise<Category> => {
-  const isExisting = typeof categories
-    .find((cat) => cat.name.toLowerCase() === newCategory.name.toLowerCase()) !== 'undefined';
+export const deleteCategory = async (categoryId: string): Promise<void> => {
+  const client = await pool.connect();
+  const result = await client.query(`
+    DELETE FROM categories
+      WHERE id = '${categoryId}';
+  `);
 
-  if (isExisting) {
-    return Promise.reject(new Error(`Category with name ${newCategory.name} is already exists`));
-  }
+  client.release();
 
-  const model = { ...newCategory};
-  categories.push(model);
-
-  return Promise.resolve(model);
+  return;
 }
 
-export const updateCategory = async (updatedCategory: Category): Promise<Category> => {
-  const categoryId = updatedCategory.id;
+export const createCategory = async ({id, name}: Category): Promise<void> => {
+  const client = await pool.connect();
+  const result = await client.query(`
+    INSERT INTO categories(id, name)
+      VALUES ('${id}', '${name}');
+  `);
 
-  categories = categories.map(category => {
-    if(category.id === categoryId) {
-      return updatedCategory;
-    }
+  client.release();
 
-    return category;
-  })
+  return;
+}
 
-  return Promise.resolve(updatedCategory);
+export const updateCategory = async ({id, name}: Category): Promise<void> => {
+  const client = await pool.connect();
+  const result = await client.query(`
+    UPDATE categories
+      SET id = '${id}',
+      name = '${name}',
+      WHERE id = '${id}';
+  `);
+
+  client.release();
+
+  return;
+
+  // const categoryId = updatedCategory.id;
+  //
+  // categories = categories.map(category => {
+  //   if(category.id === categoryId) {
+  //     return updatedCategory;
+  //   }
+  //
+  //   return category;
+  // })
+  //
+  // return Promise.resolve(updatedCategory);
 }

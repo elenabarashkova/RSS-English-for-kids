@@ -1,5 +1,5 @@
 import { setCreateCatFormAction } from "../../../../redux/actions";
-import { editModeCardHandler } from "./index";
+import { addNewCategory } from "./index";
 
 export const createCategoryBehavior = (): void => {
   const createCategoryBtn = document.getElementById('createCategoryCard');
@@ -11,7 +11,19 @@ export const createCategoryBehavior = (): void => {
 
     [...newCatCards].forEach((card) => card.addEventListener('click', (event: Event) => {
 
-      editModeCardHandler(true, event, card);
+      const input = card.querySelector('input') as HTMLInputElement;
+      const createBtn = card.querySelector('.new-cat-create');
+      const cancelBtn = card.querySelector('.new-cat-cancel');
+
+      const target = event.target as HTMLElement;
+
+      if(target === createBtn) {
+        addNewCategory(input?.value);
+      }
+
+      if(target === cancelBtn) {
+        setCreateCatFormAction(false);
+      }
     }))
   }, {once: true})
 }
