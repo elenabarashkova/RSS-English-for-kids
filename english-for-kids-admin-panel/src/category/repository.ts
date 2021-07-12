@@ -1,4 +1,5 @@
 import { Category } from "./interface";
+import { pool } from "../init-db";
 
 // FILE for methods to CRUD categories
 
@@ -54,7 +55,20 @@ let categories: Array<Category> = [
   },
 ];
 
-export const getCategories = (): Promise<Category[]> => Promise.resolve<Category[]>(categories);
+export const getCategories = async (): Promise<Category[]> => {
+    const client = await pool.connect();
+    const result = await client.query(`SELECT * FROM categories`);
+
+    client.release();
+
+    return result.rows;
+
+  // return Promise.resolve<Category[]>(categories);
+}
+
+
+
+
 
 export const getCategoryById = (categoryId: string): Promise<Category | undefined> => (
   Promise.resolve(categories.find((cat) => cat.id === categoryId))

@@ -5,8 +5,13 @@ import { Category } from "./interface";
 const router = Router();
 
 router.get('/', async (req, res) => {
-  const categories = await getCategories();
-  return res.json(categories);
+  try {
+    const categories = await getCategories();
+    return res.json(categories);
+  }
+  catch (error) {
+    return res.status(500).send(error);
+  }
 });
 
 router.get('/:id', async (req, res) => {
@@ -32,7 +37,8 @@ router.delete('/:id', async (req, res) => {
   try {
     await deleteCategory(categoryId);
     return res.sendStatus(200);
-  } catch (error) {
+  }
+  catch (error) {
     return res.status(404).send(error);
   }
 });
@@ -44,7 +50,8 @@ router.post('/', async (req, res) => {
   try {
     const newCategory = await createCategory(data);
     return res.json(newCategory);
-  } catch (error) {
+  }
+  catch (error) {
     return res.status(400).send(error);
   }
 });
@@ -57,7 +64,8 @@ router.put('/:id', async (req, res) => {
   try {
     const updatedCategory = await updateCategory(data);
     return res.json(updatedCategory);
-  } catch (error) {
+  }
+  catch (error) {
     return res.status(400).send(error);
   }
 });

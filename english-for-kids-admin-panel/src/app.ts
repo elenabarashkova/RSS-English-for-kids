@@ -3,7 +3,7 @@ import * as express from 'express';
 import * as cors from 'cors';
 import * as bodyParser from 'body-parser';
 import categories from "./category/router";
-import category from "./category/router";
+import { pool } from "./init-db";
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -25,7 +25,28 @@ const PORT = process.env.PORT || 3000
 // });
 
 app.use('/api/categories', categories);
-
+//
+// app.get('/', async (req, res) => {
+//   try {
+//     const client = await pool.connect();
+//
+//     const result = await client.query(`
+//     SELECT * FROM words
+//       WHERE category_id = '${req.params.category}';
+//     `);
+//
+//     const results = {
+//       'results': (result) ? result.rows : null
+//     };
+//
+//     res.json(results);
+//
+//     client.release();
+//   } catch (err) {
+//     console.error(err);
+//     res.send("Error " + err);
+//   }
+// })
 // app.use('/api/items', items);
 
 app.listen(PORT, () => console.log('Started server Hello'));
