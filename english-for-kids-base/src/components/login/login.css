@@ -76,6 +76,8 @@
 .login-btns-wrap .login-btn {
   width: 100px;
   margin: 0 5px;
+  font-size: 14px;
+  text-align: center;
 }
 
 .login-btn-cancel {

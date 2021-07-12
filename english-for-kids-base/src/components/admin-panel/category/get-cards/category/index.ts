@@ -1,4 +1,5 @@
 import { ServerCategory } from "../../../types";
+import { ADMIN_ROUTE } from "../../../../../router/constants";
 
 export const getCategoryCard = ({ name = '', id = '' }: ServerCategory): string => (`
   <div id="${id}" class="admin-category-card admin-card">
@@ -12,7 +13,7 @@ export const getCategoryCard = ({ name = '', id = '' }: ServerCategory): string 
         </div>
         <div class="login-btns-wrap">
           <button class="login-btn login-btn-submit update-cat-btn">Update</button>
-          <button class="login-btn login-btn-cancel">Add word</button>
+          <a href="#${ADMIN_ROUTE}/${id}" class="login-btn login-btn-cancel">Add word</a>
         </div>
       </div>
       <div class="admin-card-inner-edit">

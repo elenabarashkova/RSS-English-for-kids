@@ -12,6 +12,7 @@ export const startAdminPanel = async (): Promise<void> => {
   getCategories();
 
   const logoutBtn = document.getElementById('logoutBtn');
+
   logoutBtn?.addEventListener('click', () => {
     redirectToDefaultPage();
     initPublicPageTemplate();

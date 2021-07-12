@@ -50,6 +50,13 @@
   margin-bottom: 30px;
 }
 
+a.login-btn {
+  color: #000;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 38px;
+}
+
 .updating .admin-card-inner-edit {
   display: block;
 }
