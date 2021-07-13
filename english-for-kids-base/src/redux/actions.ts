@@ -5,10 +5,10 @@ import {
   SET_CURRENT_CATEGORY,
   SET_CURRENT_WORD,
   SET_WORDS_IN_PLAY,
-  TOGGLE_GAME_MODE, IS_GAME_STARTED, SET_CATEGORIES_LIST, CREATE_CATEGORY_FORM
+  TOGGLE_GAME_MODE, IS_GAME_STARTED, SET_CATEGORIES_LIST, CREATE_CATEGORY_FORM, SET_WORDS_LIST, CREATE_WORD_FORM
 } from "./action-types";
 import { Action } from "./types";
-import { ServerCategoryList } from "../components/admin-panel/types";
+import { ServerCategoryList, ServerWordList } from "../components/admin-panel/types";
 
 const getToggleGameMode = (): Action<null> => ({
   type: TOGGLE_GAME_MODE,
@@ -90,3 +90,21 @@ const getCreateCatForm = (payload: boolean): Action<boolean> => ({
 export const setCreateCatFormAction = (toAdd: boolean): void => {
   store.dispatch(getCreateCatForm(toAdd));
 }
+
+const getWordsList = (payload: ServerWordList): Action<ServerWordList> => ({
+  type: SET_WORDS_LIST,
+  payload,
+});
+
+export const setWordsListAction = (wordsList: ServerWordList): void => {
+  store.dispatch(getWordsList(wordsList));
+}
+
+// const getCreateWordForm = (payload: boolean): Action<boolean> => ({
+//   type: CREATE_WORD_FORM,
+//   payload,
+// });
+//
+// export const setCreateWordFormAction = (toAdd: boolean): void => {
+//   store.dispatch(getCreateWordForm(toAdd));
+// }

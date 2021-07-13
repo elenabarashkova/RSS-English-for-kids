@@ -1,4 +1,4 @@
-import { deleteCategory, getCategory, updateCategory } from "../../../../server";
+import { deleteCategory, getCategory, updateCategory } from "../../../../server/categories";
 import { ServerCategory } from "../../types";
 
 export const editModeCardHandler = async (event: Event, card: Element): Promise<void> => {

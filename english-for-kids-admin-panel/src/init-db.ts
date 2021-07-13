@@ -7,6 +7,8 @@ export const pool = new Pool({
   }
 });
 
+const defaultImgUrl = `https://res.cloudinary.com/dum5vvgxg/image/upload/v1626173490/npwmu1voatuqxbccbkwt.jpg`;
+
 const setupDB = async () => {
   const client = await pool.connect();
 
@@ -33,20 +35,27 @@ const setupDB = async () => {
       ('fruits', 'Fruits');
   
   CREATE TABLE words(
-      word varchar(50),
+      id varchar(50),
       name varchar(50),
       translation varchar(50),
       imageUrl varchar(255),
-      sound varchar(255),
+      soundUrl varchar(255),
       category_id varchar(50),
-      PRIMARY KEY(word),
+      PRIMARY KEY(id),
       CONSTRAINT fk_category
         FOREIGN KEY(category_id)
         REFERENCES categories(id)
   );
   
-  INSERT INTO words(word, name, category_id)
-    VALUES ('kitten', 'Kitten', 'animals');
+  INSERT INTO words(id, name, translation, imageurl, soundurl, category_id)
+    VALUES ('dog', 'Dog', 'Собака', '${defaultImgUrl}', '${defaultImgUrl}', 'animals'),
+      ('panda', 'Panda', 'Панда', '${defaultImgUrl}', '${defaultImgUrl}', 'animals'),
+      ('cat', 'Cat', 'Кот', '${defaultImgUrl}', '${defaultImgUrl}', 'animals'),
+      ('elephant', 'Elephant', 'Слон', '${defaultImgUrl}', '${defaultImgUrl}', 'animals'),
+      ('puma', 'Puma', 'Пума', '${defaultImgUrl}', '${defaultImgUrl}', 'animals'),
+      ('lion', 'Lion', 'Лев', '${defaultImgUrl}', '${defaultImgUrl}', 'animals'),
+      ('zebra', 'Zebra', 'Зебра', '${defaultImgUrl}', '${defaultImgUrl}', 'animals'),
+      ('turtle', 'Turtle', 'Черепаха', '${defaultImgUrl}', '${defaultImgUrl}', 'animals');
   `);
   client.release();
 }

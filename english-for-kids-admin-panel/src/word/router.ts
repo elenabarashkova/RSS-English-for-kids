@@ -1,13 +1,13 @@
 import { Router } from 'express';
-import { createCategory, deleteCategory, getCategories, getCategoryById, updateCategory } from "./repository";
-import { Category } from "./interface";
+import { createWord, deleteWord, getWords, getWordById, updateWord } from "./repository";
+import { Word } from "./interface";
 
 const router = Router();
 
 router.get('/', async (req, res) => {
   try {
-    const categories = await getCategories();
-    return res.json(categories);
+    const words = await getWords();
+    return res.json(words);
   }
   catch (error) {
     return res.status(500).send(error);
@@ -15,30 +15,30 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  const categoryId = String(req.params.id);
+  const wordId = String(req.params.id);
 
-  if (!categoryId) {
+  if (!wordId) {
     return res.sendStatus(400);
   }
 
-  const category = await getCategoryById(categoryId);
+  const word = await getWordById(wordId);
 
-  if (!category) {
+  if (!word) {
     return res.sendStatus(404);
   }
 
-  return res.json(category);
+  return res.json(word);
 });
 
 router.delete('/:id', async (req, res) => {
-  const categoryId = String(req.params.id);
+  const wordId = String(req.params.id);
 
-  if (!categoryId) {
+  if (!wordId) {
     return res.sendStatus(400);
   }
 
   try {
-    await deleteCategory(categoryId);
+    await deleteWord(wordId);
     return res.sendStatus(200);
   }
   catch (error) {
@@ -47,13 +47,12 @@ router.delete('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const data = req.body as Category;
+  const data = req.body as Word;
 
   if (!data.name) return res.sendStatus(400);
-
   try {
-    const newCategory = await createCategory(data);
-    return res.json(newCategory);
+    const newWord = await createWord(data);
+    return res.json(newWord);
   }
   catch (error) {
     return res.status(400).send(error);
@@ -61,13 +60,13 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-  const data = req.body as Category;
+  const data = req.body as Word;
+
 
   if (!data.name) return res.sendStatus(400);
-
   try {
-    const updatedCategory = await updateCategory(data);
-    return res.json(updatedCategory);
+    const updatedWord = await updateWord(data);
+    return res.json(updatedWord);
   }
   catch (error) {
     return res.status(400).send(error);

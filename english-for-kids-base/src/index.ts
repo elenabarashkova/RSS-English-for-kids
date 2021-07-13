@@ -40,9 +40,9 @@ window.addEventListener('load', () => {
       startAdminCategories(state.categoriesList);
     }
 
-    // if(prevState.wordsList !== state.wordsList) {
-    //   startAdminWords(state.wordsList);
-    // }
+    if(prevState.wordsList !== state.wordsList) {
+      startAdminWords(state.wordsList);
+    }
 
     prevState = state;
   });

@@ -1,4 +1,4 @@
-import { ServerCategoryList } from "../components/admin-panel/types";
+import { ServerCategoryList, ServerWordList } from "../components/admin-panel/types";
 
 export interface Action <PayloadType = string> {
   type: string,
@@ -26,4 +26,5 @@ export interface State {
   currentCategory: string | null,
   game: GameState,
   categoriesList: ServerCategoryList,
+  wordsList: ServerWordList,
 }
