@@ -13,7 +13,7 @@ export const getCategoryCard = ({ name = '', id = '' }: ServerCategory): string 
         </div>
         <div class="login-btns-wrap">
           <button class="login-btn login-btn-submit update-cat-btn">Update</button>
-          <a href="#${ADMIN_ROUTE}/${id}" class="login-btn login-btn-cancel">Add word</a>
+          <a href="#${ADMIN_ROUTE}/${id}/words" class="login-btn login-btn-cancel">Add word</a>
         </div>
       </div>
       <div class="admin-card-inner-edit">

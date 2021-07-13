@@ -7,6 +7,7 @@ import { startBehaviorTrain } from "./components/game-mode/train-mode";
 import { CATEGORY_ROUTE } from "./router/constants";
 import { initializeDB } from "./components/statistics/indexedDB";
 import { startAdminCategories } from "./components/admin-panel/category";
+import { startAdminWords } from "./components/admin-panel/word";
 
 window.addEventListener('load', () => {
   initializeDB(() => {
@@ -38,6 +39,10 @@ window.addEventListener('load', () => {
     if(prevState.categoriesList !== state.categoriesList) {
       startAdminCategories(state.categoriesList);
     }
+
+    // if(prevState.wordsList !== state.wordsList) {
+    //   startAdminWords(state.wordsList);
+    // }
 
     prevState = state;
   });

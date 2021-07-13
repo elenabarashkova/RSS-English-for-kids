@@ -7,6 +7,7 @@ import {
   setCurrentPageAction,
 } from "../redux/actions";
 import { setActiveMenuItem } from "../components/menu";
+import { ADMIN_ROUTE_WORDS } from "./constants";
 
 const onHashChange = (): void => {
   isGameStartedAction(false);
@@ -14,10 +15,15 @@ const onHashChange = (): void => {
 
   clearMain();
 
-  const [route, innerRoute] = getHash();
+  const [route, innerRoute, adminWordRoute] = getHash();
 
   if (!PAGES_CONFIG[route]) {
     redirectToDefaultPage();
+    return;
+  }
+
+  if(adminWordRoute) {
+    PAGES_CONFIG[ADMIN_ROUTE_WORDS](innerRoute);
     return;
   }
 

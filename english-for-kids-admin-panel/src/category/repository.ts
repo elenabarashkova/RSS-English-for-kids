@@ -108,16 +108,4 @@ export const updateCategory = async ({id, name}: Category): Promise<void> => {
   client.release();
 
   return;
-
-  // const categoryId = updatedCategory.id;
-  //
-  // categories = categories.map(category => {
-  //   if(category.id === categoryId) {
-  //     return updatedCategory;
-  //   }
-  //
-  //   return category;
-  // })
-  //
-  // return Promise.resolve(updatedCategory);
 }

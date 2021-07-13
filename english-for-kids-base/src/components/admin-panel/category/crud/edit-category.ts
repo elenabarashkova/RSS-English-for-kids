@@ -41,7 +41,7 @@ export const editCategoryBehavior = (): void => {
     if(target === updateBtn) {
       card.classList.add('updating');
 
-      card.addEventListener('click', async(innerEvent: Event) => {
+      card.addEventListener('click', (innerEvent: Event) => {
         editModeCardHandler(innerEvent, card);
       });
     }
