@@ -56,17 +56,12 @@ const multer  = require('multer');
 const loader: Multer = multer({dest: path.join(__dirname, 'tmp')});
 
 router.post('/', loader.fields([{ name: 'imageurl', maxCount: 1 }, { name: 'soundurl', maxCount: 1 }]), async (req, res) => {
-
   try {
     const pictureFiles = req.files as { [imageurl: string]: Express.Multer.File[] };
     const audioFiles = req.files as { [soundurl: string]: Express.Multer.File[] };
 
     const pictureResponse = await cloudinary.uploader.upload(pictureFiles.imageurl[0].path);
     const pictureUrl = pictureResponse.secure_url;
-    console.log('pictureResponse');
-    console.log(pictureResponse);
-    console.log('pictureUrl');
-    console.log(pictureUrl);
 
     const audioResponse = await cloudinary.uploader.upload(audioFiles.soundurl[0].path, {resource_type: 'auto'});
     const audioUrl = audioResponse.secure_url;
@@ -85,16 +80,35 @@ router.post('/', loader.fields([{ name: 'imageurl', maxCount: 1 }, { name: 'soun
   }
 });
 
-router.put('/:id', async (req, res) => {
-  const data = req.body as Word;
-
-
-  if (!data.name) return res.sendStatus(400);
+router.put('/:id', loader.fields([{ name: 'imageurl', maxCount: 1 }, { name: 'soundurl', maxCount: 1 }]), async (req, res) => {
   try {
+    const pictureFiles = req.files as { [imageurl: string]: Express.Multer.File[] };
+    const audioFiles = req.files as { [soundurl: string]: Express.Multer.File[] };
+
+    let pictureUrl = null;
+    if(pictureFiles.imageurl) {
+      const pictureResponse = await cloudinary.uploader.upload(pictureFiles.imageurl[0].path);
+      pictureUrl = pictureResponse.secure_url;
+    }
+
+    let audioUrl = null;
+    if (audioFiles.soundurl) {
+      const audioResponse = await cloudinary.uploader.upload(audioFiles.soundurl[0].path, {resource_type: 'auto'});
+      audioUrl = audioResponse.secure_url;
+    }
+
+    const data = req.body as Word;
+    data.imageurl = pictureUrl;
+    data.soundurl = audioUrl;
+    data.id = String(req.params.id);
+
+    if (!data.name) return res.sendStatus(400);
+
     const updatedWord = await updateWord(data);
     return res.json(updatedWord);
   }
   catch (error) {
+    console.error(error);
     return res.status(400).send(error);
   }
 });

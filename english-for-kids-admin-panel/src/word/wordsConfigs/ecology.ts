@@ -1,30 +1,3 @@
-export const ecologyConfig = [
-  (`('rainforest', 'Rainforest', 'Тропический лес', 
-  'https://res.cloudinary.com/dum5vvgxg/image/upload/v1626206382/ecology/rainforest_l6q1pj.jpg', 
-  'https://res.cloudinary.com/dum5vvgxg/video/upload/v1626206382/ecology/rainforest_syzzct.mp3', 'ecology')`),
-  (`('habitat', 'Habitat', 'Среда обитания', 
-  'https://res.cloudinary.com/dum5vvgxg/image/upload/v1626206383/ecology/habitat_ioen3e.jpg', 
-  'https://res.cloudinary.com/dum5vvgxg/video/upload/v1626206382/ecology/habitat_smuz1w.mp3', 'ecology')`),
-  (`('pollution', 'Pollution', 'Загрязнение', 
-  'https://res.cloudinary.com/dum5vvgxg/image/upload/v1626206382/ecology/pollution_bhbb8c.jpg', 
-  'https://res.cloudinary.com/dum5vvgxg/video/upload/v1626206382/ecology/pollution_clwulx.mp3', 'ecology')`),
-  (`('climate', 'Climate', 'Климат', 
-  'https://res.cloudinary.com/dum5vvgxg/image/upload/v1626206383/ecology/climate_p7emaq.jpg', 
-  'https://res.cloudinary.com/dum5vvgxg/video/upload/v1626206383/ecology/climate_iz80fb.mp3', 'ecology')`),
-  (`('desert', 'Desert', 'Пустыня', 
-  'https://res.cloudinary.com/dum5vvgxg/image/upload/v1626206383/ecology/desert_x6jr3l.jpg', 
-  'https://res.cloudinary.com/dum5vvgxg/video/upload/v1626206383/ecology/desert_anr6bv.mp3', 'ecology')`),
-  (`('extinction', 'Extinction', 'Вымирание', 
-  'https://res.cloudinary.com/dum5vvgxg/image/upload/v1626206383/ecology/extinction_aaxzrz.jpg', 
-  'https://res.cloudinary.com/dum5vvgxg/video/upload/v1626206382/ecology/extinction_qbshqi.mp3', 'ecology')`),
-  (`('savanna', 'Savanna', 'Саванна', 
-  'https://res.cloudinary.com/dum5vvgxg/image/upload/v1626206382/ecology/savanna_ujrcb9.jpg', 
-  'https://res.cloudinary.com/dum5vvgxg/video/upload/v1626206381/ecology/savanna_ocvmeb.mp3', 'ecology')`),
-  (`('tundra', 'Tundra', 'Тундра', 
-  'https://res.cloudinary.com/dum5vvgxg/image/upload/v1626206382/ecology/tundra_klqi6b.jpg', 
-  'https://res.cloudinary.com/dum5vvgxg/video/upload/v1626206382/ecology/tundra_i7cm9p.mp3', 'ecology')`)
-];
-
 const rainfImg = 'https://res.cloudinary.com/dum5vvgxg/image/upload/v1626206382/ecology/rainforest_l6q1pj.jpg';
 const rainfAudio = 'https://res.cloudinary.com/dum5vvgxg/video/upload/v1626206382/ecology/rainforest_syzzct.mp3';
 export const rainforest = `('rainforest', 'Rainforest', 'Тропический лес', '${rainfImg}', '${rainfAudio}', 'ecology')`;

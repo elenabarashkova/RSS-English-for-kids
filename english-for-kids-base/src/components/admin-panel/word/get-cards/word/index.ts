@@ -25,11 +25,11 @@ export const getWordCard = ({ id, name, translation, imageurl, soundurl }: Serve
       <div class="admin-card-inner-edit">
         <label class="edit-word">
           <span>Name</span>
-          <input type="text" class="edit-word-name">
+          <input type="text" class="edit-word-name" value='${name}' required>
         </label>
         <label class="edit-word">
           <span>Translation</span>
-          <input type="text"  class="edit-word-translation">
+          <input type="text"  class="edit-word-translation" value='${translation}' required>
         </label>
         <label class="edit-word">
           <span>Image</span>

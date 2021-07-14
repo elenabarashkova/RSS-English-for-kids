@@ -1,6 +1,5 @@
 import { deleteWord, getWord, updateWord } from "../../../../server/words";
 import { ServerWord } from "../../types";
-import store from "../../../../redux/store";
 
 export const editModeCardHandler = async (event: Event, card: Element): Promise<void> => {
   const inputName = card.querySelector('input.edit-word-name') as HTMLInputElement;
@@ -19,17 +18,23 @@ export const editModeCardHandler = async (event: Event, card: Element): Promise<
 
     const inputNameValue = inputName.value;
     const inputTranslationValue = inputTranslation.value;
-    const inputImageValue = inputImage.value;
-    const inputAudioValue = inputAudio.value;
+    let inputImageValue = null;
+    if (inputImage.files) {
+      [inputImageValue] = inputImage.files;
+    }
+    let inputAudioValue = null;
+    if (inputAudio.files) {
+      [inputAudioValue] = inputAudio.files;
+    }
 
     const updatedWord: ServerWord = {
-      ... thisWord,
+      ...thisWord,
       name: inputNameValue,
       translation: inputTranslationValue,
       imageurl: inputImageValue,
       soundurl: inputAudioValue};
 
-    updateWord(updatedWord);
+    updateWord(updatedWord, cardId);
 
     card.classList.remove('updating');
   }

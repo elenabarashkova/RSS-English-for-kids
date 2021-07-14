@@ -29,9 +29,6 @@ export const postNewWord = async (newWord: ServerWord): Promise<void> => {
   try {
     await fetch(`${SERVER_PATH}words`, {
       method: 'POST',
-      // headers: {
-      //   'Content-Type': 'multipart/form-data'
-      // },
       body: formData,
     });
 
@@ -57,17 +54,24 @@ export const deleteWord = async (id: string): Promise<void> => {
   }
 };
 
-export const updateWord = async (updatedWord: ServerWord):Promise<void> => {
-  const wordId = updatedWord.id;
+export const updateWord = async (updatedWord: ServerWord, id: string):Promise<void> => {
   const categoryId = store.getState().currentCategory;
 
+  const formData = new FormData();
+
+  formData.append('name', updatedWord.name);
+  formData.append('translation', updatedWord.translation);
+  if (updatedWord.imageurl) {
+    formData.append('imageurl', updatedWord.imageurl as Blob);
+  }
+  if (updatedWord.soundurl) {
+    formData.append('soundurl', updatedWord.soundurl as Blob);
+  }
+
   try {
-    await fetch(`${SERVER_PATH}words/${wordId}`, {
+    await fetch(`${SERVER_PATH}words/${id}`, {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(updatedWord),
+      body: formData,
     });
 
     getWords(categoryId);

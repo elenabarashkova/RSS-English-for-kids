@@ -37,7 +37,13 @@ export const wordsListReducer = (
   }
 
   if (type === CREATE_WORD_FORM) {
-    const newWordItem: ServerWord = {id: '', name: '', translation: '', imageurl: '', soundurl: '', category_id: '', isNewWord: true};
+    const newWordItem: ServerWord = {
+      id: '', name: '',
+      translation: '',
+      imageurl: '',
+      soundurl: '',
+      category_id: '',
+      isNewWord: true};
     const newState: ServerWordList  = [...state];
 
     if(payload as boolean) {

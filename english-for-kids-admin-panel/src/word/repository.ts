@@ -51,12 +51,15 @@ export const createWord = async ({id, name, translation, imageurl, soundurl, cat
 
 export const updateWord = async ({id, name, translation, imageurl, soundurl}: Word): Promise<void> => {
   const client = await pool.connect();
+  const changeImage = imageurl ? `,imageurl = '${imageurl}'` : '';
+  const changeSound = soundurl ? `,soundurl = '${soundurl}'` : '';
+
   const result = await client.query(`
     UPDATE words
       SET name = '${name}', 
-        translation = '${translation}', 
-        imageUrl = '${imageurl}', 
-        soundUrl = '${soundurl}', 
+        translation = '${translation}'
+        ${changeImage}
+        ${changeSound}
       WHERE id = '${id}';
   `);
 

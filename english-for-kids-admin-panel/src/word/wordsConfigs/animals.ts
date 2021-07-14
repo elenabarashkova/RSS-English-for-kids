@@ -1,29 +1,3 @@
-// export const animalsConfig = [
-//   (`('dog', 'Dog', 'Собака',
-//   'https://res.cloudinary.com/dum5vvgxg/image/upload/v1626206121/animals/dog_eca0hn.jpg',
-//   'https://res.cloudinary.com/dum5vvgxg/video/upload/v1626206121/animals/dog_xcgks6.mp3', 'animals')`),
-//   (`('panda', 'Panda', 'Панда',
-//   'https://res.cloudinary.com/dum5vvgxg/image/upload/v1626206089/animals/panda_hrcfnq.jpg',
-//   'https://res.cloudinary.com/dum5vvgxg/video/upload/v1626206089/animals/puma_ozopva.mp3', 'animals')`),
-//   (`('cat', 'Cat', 'Кот',
-//   'https://res.cloudinary.com/dum5vvgxg/image/upload/v1626206089/animals/cat_hrdr58.jpg',
-//   'https://res.cloudinary.com/dum5vvgxg/video/upload/v1626206089/animals/cat_jq8307.mp3', 'animals')`),
-//   (`('elephant', 'Elephant', 'Слон',
-//   'https://res.cloudinary.com/dum5vvgxg/image/upload/v1626206089/animals/elephant_chgg0a.jpg',
-//   'https://res.cloudinary.com/dum5vvgxg/video/upload/v1626206089/animals/elephant_zjf1nl.mp3', 'animals')`),
-//   (`('puma', 'Puma', 'Пума',
-//   'https://res.cloudinary.com/dum5vvgxg/image/upload/v1626206090/animals/puma_fvcoj0.jpg',
-//   'https://res.cloudinary.com/dum5vvgxg/video/upload/v1626206089/animals/puma_ozopva.mp3', 'animals')`),
-//   (`('lion', 'Lion', 'Лев',
-//   'https://res.cloudinary.com/dum5vvgxg/image/upload/v1626206089/animals/lion_kfiyna.jpg',
-//   'https://res.cloudinary.com/dum5vvgxg/video/upload/v1626206089/animals/lion_ggzhqo.mp3', 'animals')`),
-//   (`('zebra', 'Zebra', 'Зебра',
-//   'https://res.cloudinary.com/dum5vvgxg/image/upload/v1626206090/animals/zebra_qpxihc.jpg',
-//   'https://res.cloudinary.com/dum5vvgxg/video/upload/v1626206090/animals/zebra_isphdy.mp3', 'animals')`),
-//   (`('turtle', 'Turtle', 'Черепаха',
-//   'https://res.cloudinary.com/dum5vvgxg/image/upload/v1626206090/animals/turtle_becnuv.jpg',
-//   'https://res.cloudinary.com/dum5vvgxg/video/upload/v1626206089/animals/turtle_utyrax.mp3', 'animals')`)
-// ];
 const dogImg = 'https://res.cloudinary.com/dum5vvgxg/image/upload/v1626206121/animals/dog_eca0hn.jpg';
 const dogAudio = 'https://res.cloudinary.com/dum5vvgxg/video/upload/v1626206121/animals/dog_xcgks6.mp3';
 export const dog = `('dog', 'Dog', 'Собака', '${dogImg}', '${dogAudio}', 'animals')`;
