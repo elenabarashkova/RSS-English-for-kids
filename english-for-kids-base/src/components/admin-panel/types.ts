@@ -10,8 +10,8 @@ export interface ServerWord {
   id: string,
   name: string,
   translation: string,
-  imageurl: string,
-  soundurl: string,
+  imageurl: string | Blob | null,
+  soundurl: string | Blob | null,
   category_id: string,
   isNewWord?: boolean
 }

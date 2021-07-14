@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import { createWord, deleteWord, getWords, getWordById, updateWord } from "./repository";
 import { Word } from "./interface";
+import { Multer } from "multer";
+import * as path from 'path';
 
 const router = Router();
 
@@ -48,11 +50,33 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
-  const data = req.body as Word;
+require('dotenv').config();
+const cloudinary = require('cloudinary').v2;
+const multer  = require('multer');
+const loader: Multer = multer({dest: path.join(__dirname, 'tmp')});
 
-  if (!data.name) return res.sendStatus(400);
+router.post('/', loader.fields([{ name: 'imageurl', maxCount: 1 }, { name: 'soundurl', maxCount: 1 }]), async (req, res) => {
+
   try {
+    const pictureFiles = req.files as { [imageurl: string]: Express.Multer.File[] };
+    const audioFiles = req.files as { [soundurl: string]: Express.Multer.File[] };
+
+    const pictureResponse = await cloudinary.uploader.upload(pictureFiles.imageurl[0].path);
+    const pictureUrl = pictureResponse.secure_url;
+    console.log('pictureResponse');
+    console.log(pictureResponse);
+    console.log('pictureUrl');
+    console.log(pictureUrl);
+
+    const audioResponse = await cloudinary.uploader.upload(audioFiles.soundurl[0].path, {resource_type: 'auto'});
+    const audioUrl = audioResponse.secure_url;
+
+    const data = req.body as Word;
+    data.imageurl = pictureUrl;
+    data.soundurl = audioUrl;
+
+    if (!data.name) return res.sendStatus(400);
+
     const newWord = await createWord(data);
     return res.json(newWord);
   }

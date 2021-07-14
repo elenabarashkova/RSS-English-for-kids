@@ -17,14 +17,22 @@ export const getWord = async (id: string): Promise<ServerWord> => {
 
 export const postNewWord = async (newWord: ServerWord): Promise<void> => {
   const categoryId = store.getState().currentCategory;
+  const formData = new FormData();
+
+  formData.append('id', newWord.id);
+  formData.append('name', newWord.name);
+  formData.append('translation', newWord.translation);
+  formData.append('imageurl', newWord.imageurl as Blob);
+  formData.append('soundurl', newWord.soundurl as Blob);
+  formData.append('category_id', categoryId);
 
   try {
     await fetch(`${SERVER_PATH}words`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newWord),
+      // headers: {
+      //   'Content-Type': 'multipart/form-data'
+      // },
+      body: formData,
     });
 
     getWords(categoryId);

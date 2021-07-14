@@ -40,8 +40,8 @@ export const deleteWord = async (wordId: string): Promise<void> => {
 export const createWord = async ({id, name, translation, imageurl, soundurl, category_id}: Word): Promise<void> => {
   const client = await pool.connect();
   const result = await client.query(`
-    INSERT INTO words(id, name, translation, imageUrl, soundUrl, category_id)
-      VALUES ('${id}', '${name}', ${translation}', '${imageurl}', ${soundurl}', '${category_id}');
+    INSERT INTO words(id, name, translation, imageurl, soundurl, category_id)
+      VALUES ('${id}', '${name}', '${translation}', '${imageurl}', '${soundurl}', '${category_id}');
   `);
 
   client.release();

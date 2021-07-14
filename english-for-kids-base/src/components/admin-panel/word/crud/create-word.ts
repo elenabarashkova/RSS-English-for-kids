@@ -25,8 +25,14 @@ export const createWordBehavior = (): void => {
 
         const inputNameValue = inputName.value;
         const inputTranslationValue = inputTranslation.value;
-        const inputImageValue = inputImage.value;
-        const inputAudioValue = inputAudio.value;
+        let inputImageValue = null;
+        if (inputImage.files) {
+          [inputImageValue] = inputImage.files;
+        }
+        let inputAudioValue = null;
+        if (inputAudio.files) {
+          [inputAudioValue] = inputAudio.files;
+        }
         const thisCategory = store.getState().currentCategory;
 
         addNewWord(inputNameValue, inputTranslationValue, inputImageValue, inputAudioValue, thisCategory);

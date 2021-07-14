@@ -26,3 +26,10 @@ export const getNewWordCard = (): string => (`
     </div>
   </div>
 `)
+
+//   <form action="https://vast-atoll-90391.herokuapp.com/send-img" method="post" enctype="multipart/form-data">
+// <input type="file" name="picture" />
+// <button type="submit">
+//   Submit
+//   </button>
+//   </form>

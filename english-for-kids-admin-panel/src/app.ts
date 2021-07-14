@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3000;
 app.use('/api/categories', categories);
 app.use('/api/words', words);
 
-require('dotenv').config()
+require('dotenv').config();
 const cloudinary = require('cloudinary').v2;
 const multer  = require('multer');
 const fs = require('fs/promises');

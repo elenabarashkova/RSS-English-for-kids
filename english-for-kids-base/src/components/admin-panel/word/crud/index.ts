@@ -1,6 +1,6 @@
-import { postNewCategory } from "../../../../server/categories";
+import { postNewWord } from "../../../../server/words";
 
-export const addNewWord = (name: string, translation: string, imageurl: string, soundurl: string, category_id: string): void => {
+export const addNewWord = (name: string, translation: string, imageurl: Blob | null, soundurl: Blob | null, category_id: string): void => {
   const newId = name.toLowerCase().trim().split(' ').join('');
 
   const newWord = {
@@ -12,5 +12,5 @@ export const addNewWord = (name: string, translation: string, imageurl: string, 
     category_id
   }
 
-  postNewCategory(newWord);
+  postNewWord(newWord);
 }
