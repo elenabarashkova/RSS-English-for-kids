@@ -1,6 +1,6 @@
 interface MenuItem {
   name: string,
-  subcategory?: CategoriesListConfig,
+  subcategory?: boolean,
 }
 
 interface MenuItems extends Record<string, MenuItem> {}

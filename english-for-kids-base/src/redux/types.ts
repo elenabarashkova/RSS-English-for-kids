@@ -1,4 +1,4 @@
-import { ServerCategoryList, ServerWordList } from "../components/admin-panel/types";
+import { ServerCategoryList, ServerWord, ServerWordList } from "../components/admin-panel/types";
 
 export interface Action <PayloadType = string> {
   type: string,
@@ -8,16 +8,16 @@ export type Payload =
   number
   | string
   | boolean
-  | WordsListConfig
-  | Word
+  | ServerWordList
+  | ServerWord
   | null
   | ServerCategoryList;
 
 export interface GameState {
   gameMode: string,
   isGameStarted: boolean,
-  wordsInPlay: WordsListConfig,
-  currentWord: Word | null,
+  wordsInPlay: ServerWordList,
+  currentWord: ServerWord | null,
   mistakesCount: number,
 }
 

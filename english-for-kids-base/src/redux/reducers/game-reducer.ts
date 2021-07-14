@@ -7,6 +7,7 @@ import {
   TOGGLE_GAME_MODE
 } from "../action-types";
 import { Action, GameState, Payload } from "../types";
+import { ServerWord, ServerWordList } from "../../components/admin-panel/types";
 
 const gameInitialState: GameState = {
   gameMode: GAME_MODES.TRAIN,
@@ -39,12 +40,12 @@ export const gameReducer = (
     case SET_WORDS_IN_PLAY:
       return {
         ...state,
-        wordsInPlay: payload as WordsListConfig
+        wordsInPlay: payload as ServerWordList
       }
     case SET_CURRENT_WORD:
       return {
         ...state,
-        currentWord: payload as Word
+        currentWord: payload as ServerWord
       }
 
     default: return state

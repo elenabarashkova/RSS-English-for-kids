@@ -1,16 +1,20 @@
 import { getCategoryInner } from "./render";
-import { categoriesListConfig } from "../main-page/categories-config";
 import { getHash, redirectToDefaultPage } from "../../shared";
+import { getWords } from "../../server/words";
+import { ServerWordList } from "../admin-panel/types";
 
-export const startCategoryPage = (): void => {
+export const renderCategoryPage = (wordsList: ServerWordList): void => {
   const mainWrap = document.getElementById('mainWrap') as HTMLElement;
 
-  const [, currentCategory] = getHash();
-  const currentCategoryWords = categoriesListConfig[currentCategory]?.wordsConfig;
+  mainWrap?.insertAdjacentHTML('beforeend', getCategoryInner(wordsList));
+}
 
-  if(currentCategoryWords) {
-    mainWrap?.insertAdjacentHTML('beforeend', getCategoryInner(currentCategoryWords));
-  } else {
+export const startCategoryPage = (): void => {
+  const [, currentCategory] = getHash();
+
+  if(!currentCategory) {
     redirectToDefaultPage();
   }
+
+  getWords(currentCategory);
 }

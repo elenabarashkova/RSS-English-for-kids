@@ -10,13 +10,14 @@ import { startAdminCategories } from "./components/admin-panel/category";
 import { startAdminWords } from "./components/admin-panel/word";
 import { renderMainPage } from "./components/main-page";
 import { renderSubMenuItems } from "./components/menu/get-menu";
+import { renderCategoryPage } from "./components/category";
 
 window.addEventListener('load', () => {
   initializeDB(() => {
     initCommonPageTemplate();
     initPublicPageTemplate();
     startRouter();
-    startBehaviorTrain();
+    // startBehaviorTrain();
   });
 
   let prevState = store.getState();
@@ -36,7 +37,6 @@ window.addEventListener('load', () => {
     if (shouldSwitchGameBehavior) {
       gameModeBehaviorToggle(gameState.gameMode);
     }
-    gameStartTrack(gameState.isGameStarted);
 
     if(prevState.categoriesList !== state.categoriesList) {
       startAdminCategories(state.categoriesList);
@@ -46,7 +46,10 @@ window.addEventListener('load', () => {
 
     if(prevState.wordsList !== state.wordsList) {
       startAdminWords(state.wordsList);
+      renderCategoryPage(state.wordsList);
+      startBehaviorTrain();
     }
+    gameStartTrack(gameState.isGameStarted);
 
     prevState = state;
   });

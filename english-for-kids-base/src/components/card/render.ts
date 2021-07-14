@@ -1,8 +1,10 @@
-export const getWordCard = ({ word, name, imageUrl, translation, sound }: Word): string => (`
-  <div id=${word} class="word-card card">
+import { ServerWord } from "../admin-panel/types";
+
+export const getWordCard = ({ id, name, imageurl, translation, soundurl }: ServerWord): string => (`
+  <div id=${id} class="word-card card">
     <div class="card-inner">
       <div class="card-pic">
-        <img src=${imageUrl} alt=${name}>
+        <img src=${imageurl || '../../assets/default.jpeg'} alt=${name}>
       </div>
       <div class="card-caption">
         <div class="caption-normal">
@@ -14,7 +16,7 @@ export const getWordCard = ({ word, name, imageUrl, translation, sound }: Word):
         </div>        
       </div>
       <div class="audio">
-        <audio src=${sound}></audio>
+        <audio src=${soundurl}></audio>
       </div>
     </div>
   </div>

@@ -13,7 +13,7 @@ import {
   CREATE_WORD_FORM,
 } from "./action-types";
 import { Action } from "./types";
-import { ServerCategoryList, ServerWordList } from "../components/admin-panel/types";
+import { ServerCategoryList, ServerWord, ServerWordList } from "../components/admin-panel/types";
 
 const getToggleGameMode = (): Action<null> => ({
   type: TOGGLE_GAME_MODE,
@@ -60,21 +60,21 @@ export const mistakesCountAction = (toAdd: boolean): void => {
   store.dispatch(getMistakesCount(toAdd));
 }
 
-const getWordsInPlay = (payload: WordsListConfig): Action<WordsListConfig> => ({
+const getWordsInPlay = (payload: ServerWordList): Action<ServerWordList> => ({
   type: SET_WORDS_IN_PLAY,
   payload,
 });
 
-export const setWordsInPlayAction = (wordsInPlay: WordsListConfig): void => {
+export const setWordsInPlayAction = (wordsInPlay: ServerWordList): void => {
   store.dispatch(getWordsInPlay(wordsInPlay));
 }
 
-const getCurrentWord = (payload: Word): Action<Word> => ({
+const getCurrentWord = (payload: ServerWord): Action<ServerWord> => ({
   type: SET_CURRENT_WORD,
   payload,
 });
 
-export const setCurrentWordAction = (word: Word): void => {
+export const setCurrentWordAction = (word: ServerWord): void => {
   store.dispatch(getCurrentWord(word));
 }
 

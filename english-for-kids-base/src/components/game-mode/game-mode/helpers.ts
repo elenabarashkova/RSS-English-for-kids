@@ -7,8 +7,9 @@ import {
 import { State } from "../../../redux/types";
 import { renderStar } from "../../category/render-game-attributes";
 import { updateWord } from "../../statistics/indexedDB";
+import { ServerWordList } from "../../admin-panel/types";
 
-export const wordsShuffle = (wordsConfig: WordsListConfig): WordsListConfig => {
+export const wordsShuffle = (wordsConfig: ServerWordList): ServerWordList => {
   let currentWordI = wordsConfig.length;
   let randomWordI;
 
@@ -29,7 +30,7 @@ export const playCurrentAudio = (): void => {
   const { currentWord } = state.game;
 
   if (currentWord) {
-    playAudioSound(currentWord.sound);
+    playAudioSound(currentWord.soundurl as string);
   }
 }
 

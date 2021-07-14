@@ -1,18 +1,16 @@
+import store from "../../../redux/store";
 import {
   isGameStartedAction,
   setCurrentWordAction,
   setWordsInPlayAction,
 } from "../../../redux/actions";
-import { categoriesListConfig } from "../../main-page/categories-config";
 import { startRepeatBtn, wordsShuffle } from "./helpers";
 import { cardsClickHandler, gameCycle } from "./game-cycle";
 import { removeGameBtns, removeStars, renderGameBtns } from "../../category/render-game-attributes";
-import { getHash } from "../../../shared";
 
 
 const startGameHandler = () => {
-  const [, currentCategory] = getHash();
-  const currentCategoryWords = [...categoriesListConfig[currentCategory]?.wordsConfig];
+  const currentCategoryWords = [...store.getState().wordsList];
   const randomizedWordsInPlay = wordsShuffle(currentCategoryWords);
 
   isGameStartedAction(true);
