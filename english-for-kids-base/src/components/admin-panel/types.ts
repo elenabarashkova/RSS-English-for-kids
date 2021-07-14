@@ -13,6 +13,7 @@ export interface ServerWord {
   imageurl: string,
   soundurl: string,
   category_id: string,
+  isNewWord?: boolean
 }
 
 export type ServerWordList = Array<ServerWord>

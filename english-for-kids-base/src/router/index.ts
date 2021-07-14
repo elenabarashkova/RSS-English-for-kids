@@ -17,6 +17,10 @@ const onHashChange = (): void => {
 
   const [route, innerRoute, adminWordRoute] = getHash();
 
+  setCurrentPageAction(route);
+  setCurrentCategoryAction(innerRoute || null);
+  setActiveMenuItem(innerRoute || route);
+
   if (!PAGES_CONFIG[route]) {
     redirectToDefaultPage();
     return;
@@ -29,10 +33,7 @@ const onHashChange = (): void => {
 
   PAGES_CONFIG[route]();
 
-  setActiveMenuItem(innerRoute || route);
 
-  setCurrentPageAction(route);
-  setCurrentCategoryAction(innerRoute || null);
 }
 
 export const startRouter = (): void => {

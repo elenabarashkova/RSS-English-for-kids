@@ -1,6 +1,6 @@
 import { Action, State } from "../types";
-import { CREATE_CATEGORY_FORM, SET_CATEGORIES_LIST, SET_WORDS_LIST } from "../action-types";
-import { ServerCategory, ServerCategoryList, ServerWordList } from "../../components/admin-panel/types";
+import { CREATE_CATEGORY_FORM, CREATE_WORD_FORM, SET_CATEGORIES_LIST, SET_WORDS_LIST } from "../action-types";
+import { ServerCategory, ServerCategoryList, ServerWordList, ServerWord } from "../../components/admin-panel/types";
 
 export const categoriesListReducer = (
   state = [],
@@ -12,8 +12,8 @@ export const categoriesListReducer = (
   }
 
   if (type === CREATE_CATEGORY_FORM) {
-    const newCategoryItem:ServerCategory = {id: '', name: '', isNewCategory: true};
-    const newState:ServerCategoryList  = [...state];
+    const newCategoryItem: ServerCategory = {id: '', name: '', isNewCategory: true};
+    const newState: ServerCategoryList  = [...state];
 
     if(payload as boolean) {
       newState.push(newCategoryItem);
@@ -36,18 +36,18 @@ export const wordsListReducer = (
     return payload as ServerWordList
   }
 
-  // if (type === CREATE_CATEGORY_FORM) {
-  //   const newCategoryItem:ServerCategory = {id: '', name: '', isNewCategory: true};
-  //   const newState:ServerCategoryList  = [...state];
-  //
-  //   if(payload as boolean) {
-  //     newState.push(newCategoryItem);
-  //     return newState;
-  //   }
-  //
-  //   newState.pop();
-  //   return newState;
-  // }
+  if (type === CREATE_WORD_FORM) {
+    const newWordItem: ServerWord = {id: '', name: '', translation: '', imageurl: '', soundurl: '', category_id: '', isNewWord: true};
+    const newState: ServerWordList  = [...state];
+
+    if(payload as boolean) {
+      newState.push(newWordItem);
+      return newState;
+    }
+
+    newState.pop();
+    return newState;
+  }
 
   return state
 }

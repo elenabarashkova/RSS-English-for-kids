@@ -100,11 +100,11 @@ export const setWordsListAction = (wordsList: ServerWordList): void => {
   store.dispatch(getWordsList(wordsList));
 }
 
-// const getCreateWordForm = (payload: boolean): Action<boolean> => ({
-//   type: CREATE_WORD_FORM,
-//   payload,
-// });
-//
-// export const setCreateWordFormAction = (toAdd: boolean): void => {
-//   store.dispatch(getCreateWordForm(toAdd));
-// }
+const getCreateWordForm = (payload: boolean): Action<boolean> => ({
+  type: CREATE_WORD_FORM,
+  payload,
+});
+
+export const setCreateWordFormAction = (toAdd: boolean): void => {
+  store.dispatch(getCreateWordForm(toAdd));
+}

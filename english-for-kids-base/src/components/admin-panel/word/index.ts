@@ -2,11 +2,13 @@ import { initAdminPage } from "../index";
 import { renderAllWordsCards } from "./render";
 import { ServerWordList } from "../types";
 import { getWords } from "../../../server/words";
+import { createWordBehavior } from "./crud/create-word";
+import { editWordBehavior } from "./crud/edit-word";
 
 export const startAdminWords = (allWords: ServerWordList, ): void => {
   renderAllWordsCards(allWords);
-  // createCategoryBehavior();
-  // editCategoryBehavior();
+  createWordBehavior();
+  editWordBehavior();
 }
 
 export const startAdminWordsPage = (category: string): void => {

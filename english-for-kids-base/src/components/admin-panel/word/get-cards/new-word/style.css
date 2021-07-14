@@ -1,0 +1,40 @@
+.new-word-card .admin-card-inner-edit {
+  display: flex;
+}
+
+.admin-card-inner-edit {
+  flex-direction: column;
+}
+
+.admin-card-inner-edit .edit-word {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.admin-card-inner-edit .edit-word > span {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.admin-card-inner-edit .edit-word > input {
+  width: 100%;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+.admin-card-inner-edit .edit-word > input:focus {
+  outline: none;
+  border-color: #47aac9;
+}
+
+.admin-card-inner-edit .login-btns-wrap {
+  margin-top: 20px;
+}

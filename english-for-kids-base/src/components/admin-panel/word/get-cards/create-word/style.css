@@ -1,0 +1,28 @@
+.create-word-card {
+  background: lightgray;
+}
+
+
+
+.addNewWordBtn {
+  width: 80px;
+  height: 80px;
+  border: 1px solid gray;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+.addNewWordBtn:before {
+  content: '+';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 46px;
+}
+
+.addNewWordBtn:hover {
+  color: #47aac9;
+  border-color: #47aac9;
+}
