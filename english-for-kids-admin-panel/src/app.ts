@@ -26,7 +26,7 @@ const loader: Multer = multer({dest: path.join(__dirname, 'tmp')});
 
 app.post('/send-img', loader.single('picture'), async function (req, res) {
   try {
-    const result = await cloudinary.uploader.upload((req.file as Express.Multer.File).path);
+    const result = await cloudinary.uploader.upload((req.file as Express.Multer.File).path, {resource_type: 'auto'});
     res.send(result);
   }
   catch (error) {

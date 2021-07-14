@@ -1,0 +1,34 @@
+.admin-word-card.admin-card {
+  height: 500px;
+}
+
+.admin-card-word-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.word-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.admin-card-inner {
+  width: 100%;
+}
+
+.admin-card-inner-regular {
+  width: 100%;
+}
+
+.pic {
+  width: 100%;
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pic > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

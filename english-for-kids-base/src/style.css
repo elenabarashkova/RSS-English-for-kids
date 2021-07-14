@@ -14,6 +14,7 @@
 @import "components/admin-panel/category/get-cards/category/style.css";
 @import "components/admin-panel/category/get-cards/create-category/style.css";
 @import "components/admin-panel/category/get-cards/new-category/style.css";
+@import "components/admin-panel/word/get-cards/word/style.css";
 
 :root {
   --padding-for-main-top-desctop: 20px;

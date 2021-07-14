@@ -15,5 +15,5 @@ export const startAdminWordsPage = (category: string): void => {
   const AdminPanelPage = document.getElementById('AdminPanelPage');
   AdminPanelPage?.classList.add('admin-word-page');
 
-  getWords();
+  getWords(category);
 }

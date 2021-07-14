@@ -4,9 +4,11 @@ import { Word } from "./interface";
 
 const router = Router();
 
-router.get('/', async (req, res) => {
+router.get('/:category', async (req, res) => {
+  const categoryId = String(req.params.category);
+
   try {
-    const words = await getWords();
+    const words = await getWords(categoryId);
     return res.json(words);
   }
   catch (error) {

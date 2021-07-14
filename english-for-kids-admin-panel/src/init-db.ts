@@ -1,3 +1,16 @@
+import { cat, dog, elephant, lion, panda, puma, turtle, zebra } from "./word/wordsConfigs/animals";
+import { backpack, campfire, flashlight, kayak, map, sleepingbag, tent, woods } from "./word/wordsConfigs/camping";
+import {
+  climate,
+  desert,
+  extinction,
+  habitat,
+  pollution,
+  rainforest,
+  savanna,
+  tundra
+} from "./word/wordsConfigs/ecology";
+
 const { Pool } = require('pg');
 
 export const pool = new Pool({
@@ -6,8 +19,6 @@ export const pool = new Pool({
     rejectUnauthorized: false
   }
 });
-
-const defaultImgUrl = `https://res.cloudinary.com/dum5vvgxg/image/upload/v1626173490/npwmu1voatuqxbccbkwt.jpg`;
 
 const setupDB = async () => {
   const client = await pool.connect();
@@ -48,14 +59,9 @@ const setupDB = async () => {
   );
   
   INSERT INTO words(id, name, translation, imageurl, soundurl, category_id)
-    VALUES ('dog', 'Dog', 'Собака', '${defaultImgUrl}', '${defaultImgUrl}', 'animals'),
-      ('panda', 'Panda', 'Панда', '${defaultImgUrl}', '${defaultImgUrl}', 'animals'),
-      ('cat', 'Cat', 'Кот', '${defaultImgUrl}', '${defaultImgUrl}', 'animals'),
-      ('elephant', 'Elephant', 'Слон', '${defaultImgUrl}', '${defaultImgUrl}', 'animals'),
-      ('puma', 'Puma', 'Пума', '${defaultImgUrl}', '${defaultImgUrl}', 'animals'),
-      ('lion', 'Lion', 'Лев', '${defaultImgUrl}', '${defaultImgUrl}', 'animals'),
-      ('zebra', 'Zebra', 'Зебра', '${defaultImgUrl}', '${defaultImgUrl}', 'animals'),
-      ('turtle', 'Turtle', 'Черепаха', '${defaultImgUrl}', '${defaultImgUrl}', 'animals');
+    VALUES ${dog}, ${panda}, ${elephant}, ${cat}, ${puma}, ${lion}, ${zebra}, ${turtle},
+    ${tent}, ${backpack}, ${kayak}, ${map}, ${sleepingbag}, ${woods}, ${campfire}, ${flashlight},
+    ${rainforest}, ${habitat}, ${pollution}, ${climate}, ${desert}, ${extinction}, ${savanna}, ${tundra};
   `);
   client.release();
 }

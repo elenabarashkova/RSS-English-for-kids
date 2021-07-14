@@ -2,8 +2,8 @@ import { setWordsListAction } from "../redux/actions";
 import { SERVER_PATH } from "./constants";
 import { ServerWord } from "../components/admin-panel/types";
 
-export const getWords = async (): Promise<void> => {
-  const response = await fetch(`${SERVER_PATH}words`);
+export const getWords = async (category: string): Promise<void> => {
+  const response = await fetch(`${SERVER_PATH}words/${category}`);
   const result = await response.json();
 
   setWordsListAction(result);
@@ -15,6 +15,7 @@ export const getWord = async (id: string): Promise<ServerWord> => {
 }
 
 export const postNewWord = async (newWord: ServerWord): Promise<void> => {
+  const categoryId = newWord.category_id;
   try {
     await fetch(`${SERVER_PATH}words`, {
       method: 'POST',
@@ -24,7 +25,7 @@ export const postNewWord = async (newWord: ServerWord): Promise<void> => {
       body: JSON.stringify(newWord),
     });
 
-    getWords();
+    getWords(categoryId);
 
   } catch(error) {
     alert('Error creating the Word. Please, try again');
@@ -32,12 +33,13 @@ export const postNewWord = async (newWord: ServerWord): Promise<void> => {
 };
 
 export const deleteWord = async (id: string): Promise<void> => {
+
   try {
     await fetch(`${SERVER_PATH}words/${id}`, {
       method: 'DELETE',
     });
 
-    getWords();
+    // getWords();
 
   } catch(error) {
     alert('Error deleting the word. Please, try again');
@@ -56,7 +58,7 @@ export const updateWord = async (updatedWord: ServerWord):Promise<void> => {
       body: JSON.stringify(updatedWord),
     });
 
-    getWords();
+    // getWords();
 
   } catch(error) {
     alert('Error updating the word. Please, try again');
