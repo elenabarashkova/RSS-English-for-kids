@@ -32,3 +32,12 @@
   height: 100%;
   object-fit: cover;
 }
+
+.word-sound {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.word-sound:hover {
+  color: #47aac9;
+}

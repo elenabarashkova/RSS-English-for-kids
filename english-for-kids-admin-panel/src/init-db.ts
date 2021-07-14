@@ -55,7 +55,7 @@ const setupDB = async () => {
       PRIMARY KEY(id),
       CONSTRAINT fk_category
         FOREIGN KEY(category_id)
-        REFERENCES categories(id)
+        REFERENCES categories(id) ON DELETE CASCADE
   );
   
   INSERT INTO words(id, name, translation, imageurl, soundurl, category_id)
