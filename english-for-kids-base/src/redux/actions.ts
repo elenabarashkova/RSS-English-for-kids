@@ -11,10 +11,9 @@ import {
   CREATE_CATEGORY_FORM,
   SET_WORDS_LIST,
   CREATE_WORD_FORM,
-  SET_CATEGORIES_PICTURES
 } from "./action-types";
 import { Action } from "./types";
-import { ServerCategory, ServerCategoryList, ServerWordList } from "../components/admin-panel/types";
+import { ServerCategoryList, ServerWordList } from "../components/admin-panel/types";
 
 const getToggleGameMode = (): Action<null> => ({
   type: TOGGLE_GAME_MODE,
@@ -113,15 +112,4 @@ const getCreateWordForm = (payload: boolean): Action<boolean> => ({
 
 export const setCreateWordFormAction = (toAdd: boolean): void => {
   store.dispatch(getCreateWordForm(toAdd));
-}
-
-const setCategoryPicture = (
-  payload: Array<ServerCategory | string>
-): Action<Array<ServerCategory | string>> => ({
-  type: SET_CATEGORIES_PICTURES,
-  payload,
-});
-
-export const setCategoryPictureAction = (pictureForCategory: Array<ServerCategory | string>): void => {
-  store.dispatch(setCategoryPicture(pictureForCategory));
 }

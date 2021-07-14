@@ -1,7 +1,6 @@
 import { getMainPageInner } from "./render";
 import { getCategories } from "../../server/categories";
-import { ServerCategory, ServerCategoryList } from "../admin-panel/types";
-import { setCategoryPictureAction } from "../../redux/actions";
+import { ServerCategoryList } from "../admin-panel/types";
 
 
 export const renderMainPage = (categoriesList: ServerCategoryList): void => {
