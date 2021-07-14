@@ -1,6 +1,7 @@
 export interface ServerCategory {
   name: string,
   id: string,
+  count?: string,
   isNewCategory?: boolean
 }
 

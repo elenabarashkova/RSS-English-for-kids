@@ -3,7 +3,12 @@ import { pool } from "../init-db";
 
 export const getCategories = async (): Promise<Category[]> => {
     const client = await pool.connect();
-    const result = await client.query(`SELECT * FROM categories`);
+    const result = await client.query(`
+      SELECT c.id, c.name, count(w.category_id) 
+        FROM categories as c
+        LEFT JOIN words AS w ON (c.id = w.category_id)
+        GROUP BY c.id;
+    `);
 
     client.release();
 

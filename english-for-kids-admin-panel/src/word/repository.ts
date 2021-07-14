@@ -41,7 +41,7 @@ export const createWord = async ({id, name, translation, imageurl, soundurl, cat
   const client = await pool.connect();
   const result = await client.query(`
     INSERT INTO words(id, name, translation, imageurl, soundurl, category_id)
-      VALUES ('${id}', '${name}', '${translation}', '${imageurl}', '${soundurl}', '${category_id}');
+      VALUES ('${id}', '${name}', '${translation}', '${imageurl || ""}', '${soundurl}', '${category_id}');
   `);
 
   client.release();

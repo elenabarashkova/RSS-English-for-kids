@@ -1,5 +1,7 @@
 import { ServerWord } from "../../../types";
 
+const imgDefaultUrl = '../../../../../assets/default.jpeg';
+
 export const getWordCard = ({ id, name, translation, imageurl, soundurl }: ServerWord): string => (`
   <div id="${id}" class="admin-word-card admin-card">
     <div class="admin-card-inner">
@@ -15,7 +17,7 @@ export const getWordCard = ({ id, name, translation, imageurl, soundurl }: Serve
         <div class="admin-card-word-title">
           <span class="word-title">Image: </span>
           <div class="pic">
-            <img src="${imageurl}" alt="">
+            <img src="${imageurl || imgDefaultUrl}" alt="">
           </div>
         </div>
         <div class="login-btns-wrap">
@@ -46,4 +48,4 @@ export const getWordCard = ({ id, name, translation, imageurl, soundurl }: Serve
       </div>
     </div>
   </div>
-`)
+`);

@@ -64,3 +64,7 @@ a.login-btn {
 .updating .admin-card-inner-regular {
   display: none;
 }
+
+.admin-categiries-wrap {
+  width: 100%;
+}

@@ -60,8 +60,11 @@ router.post('/', loader.fields([{ name: 'imageurl', maxCount: 1 }, { name: 'soun
     const pictureFiles = req.files as { [imageurl: string]: Express.Multer.File[] };
     const audioFiles = req.files as { [soundurl: string]: Express.Multer.File[] };
 
-    const pictureResponse = await cloudinary.uploader.upload(pictureFiles.imageurl[0].path);
-    const pictureUrl = pictureResponse.secure_url;
+    let pictureUrl = null;
+    if(pictureFiles.imageurl) {
+      const pictureResponse = await cloudinary.uploader.upload(pictureFiles.imageurl[0].path);
+      pictureUrl = pictureResponse.secure_url;
+    }
 
     const audioResponse = await cloudinary.uploader.upload(audioFiles.soundurl[0].path, {resource_type: 'auto'});
     const audioUrl = audioResponse.secure_url;
