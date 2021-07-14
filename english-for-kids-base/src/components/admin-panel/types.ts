@@ -2,7 +2,8 @@ export interface ServerCategory {
   name: string,
   id: string,
   count?: string,
-  isNewCategory?: boolean
+  isNewCategory?: boolean,
+  imageurl?: string,
 }
 
 export type ServerCategoryList = Array<ServerCategory>

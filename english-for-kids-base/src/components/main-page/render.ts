@@ -1,10 +1,11 @@
 import { CATEGORY_ROUTE } from "../../router/constants";
+import { ServerCategory, ServerCategoryList } from "../admin-panel/types";
 
-const getCategoryCard = ({ name, url, imageUrl }: Category): string => (`
-  <a href="#${CATEGORY_ROUTE}/${url}" class="card category-card">
+const getCategoryCard = ({ name, id, imageurl }: ServerCategory): string => (`
+  <a href="#${CATEGORY_ROUTE}/${id}" class="card category-card">
     <div class="card-inner">
       <div class="card-pic">
-        <img src=${imageUrl} alt=${name}>
+        <img src='${imageurl || '../../assets/default.jpeg'}' alt=${name}>
       </div>
       <div class="card-caption">
         <div class="caption-normal">
@@ -15,10 +16,10 @@ const getCategoryCard = ({ name, url, imageUrl }: Category): string => (`
   </a>
 `)
 
-export const getMainPageInner = (categoriesConfig: CategoriesListConfig): string => (`
+export const getMainPageInner = (categoriesList: ServerCategoryList): string => (`
   <div id="mainPage" class="main-page">
     <div class="card-wrap">
-      ${(Object.keys(categoriesConfig)).map((category: string) => getCategoryCard(categoriesConfig[category])).join('')}
+      ${categoriesList.map((category: ServerCategory) => getCategoryCard(category)).join('')}
     </div>
   </div>
 `)

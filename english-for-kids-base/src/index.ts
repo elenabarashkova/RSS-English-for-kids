@@ -8,6 +8,7 @@ import { CATEGORY_ROUTE } from "./router/constants";
 import { initializeDB } from "./components/statistics/indexedDB";
 import { startAdminCategories } from "./components/admin-panel/category";
 import { startAdminWords } from "./components/admin-panel/word";
+import { renderMainPage } from "./components/main-page";
 
 window.addEventListener('load', () => {
   initializeDB(() => {
@@ -38,6 +39,7 @@ window.addEventListener('load', () => {
 
     if(prevState.categoriesList !== state.categoriesList) {
       startAdminCategories(state.categoriesList);
+      renderMainPage(state.categoriesList);
     }
 
     if(prevState.wordsList !== state.wordsList) {

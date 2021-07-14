@@ -1,10 +1,16 @@
 import { Action, State } from "../types";
-import { CREATE_CATEGORY_FORM, CREATE_WORD_FORM, SET_CATEGORIES_LIST, SET_WORDS_LIST } from "../action-types";
+import {
+  CREATE_CATEGORY_FORM,
+  CREATE_WORD_FORM,
+  SET_CATEGORIES_LIST,
+  SET_CATEGORIES_PICTURES,
+  SET_WORDS_LIST
+} from "../action-types";
 import { ServerCategory, ServerCategoryList, ServerWordList, ServerWord } from "../../components/admin-panel/types";
 
 export const categoriesListReducer = (
-  state = [],
-  {type, payload}: Action<ServerCategoryList | boolean>
+  state: ServerCategoryList = [],
+  {type, payload}: Action<ServerCategoryList | boolean | Array<ServerCategory | string>>
 ): State['categoriesList'] => {
 
   if (type === SET_CATEGORIES_LIST) {
@@ -22,6 +28,14 @@ export const categoriesListReducer = (
 
     newState.pop();
     return newState;
+  }
+
+  if (type === SET_CATEGORIES_PICTURES) {
+    const thisCategory =  (payload as Array<ServerCategory | string>)[0] as ServerCategory;
+    const thisPicture =  (payload as Array<ServerCategory | string>)[1] as string;
+
+    const categoryId = thisCategory.id;
+    return state.map((item) => item.id === categoryId ? ({...item, imgUrl: thisPicture}) : item);
   }
 
   return state
