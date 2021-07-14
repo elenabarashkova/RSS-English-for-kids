@@ -17,5 +17,11 @@ export const startAdminCategoriesPage = (): void => {
   const AdminPanelPage = document.getElementById('AdminPanelPage');
   AdminPanelPage?.classList.remove('admin-word-page');
 
+  const adminMenuWord = document.getElementById('adminMenuWord');
+  adminMenuWord?.classList.remove('active');
+
+  const adminMenuCategory = document.getElementById('adminMenuCategory');
+  adminMenuCategory?.classList.add('active');
+
   getCategories();
 }

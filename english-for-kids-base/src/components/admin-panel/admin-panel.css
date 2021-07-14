@@ -45,7 +45,8 @@
   color: #47aac9;
 }
 
-.admin-menu-item.active a {
+.admin-menu-item.active a,
+.admin-menu-item.active span {
   border-bottom: 1px solid;
   cursor: default;
   color: #3c8297;

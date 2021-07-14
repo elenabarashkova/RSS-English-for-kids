@@ -5,10 +5,10 @@ export const getAdminPanelInner = (): string => (`
     <nav class="admin-navigation">
       <div class="container">
         <ul class="admin-menu">
-          <li class="admin-menu-item active">
+          <li id="adminMenuCategory" class="admin-menu-item active">
             <a href="#${ADMIN_ROUTE}">Categories</a>
           </li>
-          <li class="admin-menu-item">
+          <li id="adminMenuWord" class="admin-menu-item">
             <span>Words</span>
           </li>
         </ul>

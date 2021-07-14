@@ -34,5 +34,11 @@ export const startAdminWordsPage = (category: string): void => {
   const AdminPanelPage = document.getElementById('AdminPanelPage');
   AdminPanelPage?.classList.add('admin-word-page');
 
+  const adminMenuCategory = document.getElementById('adminMenuCategory');
+  adminMenuCategory?.classList.remove('active');
+
+  const adminMenuWord = document.getElementById('adminMenuWord');
+  adminMenuWord?.classList.add('active');
+
   getWords(category);
 }
