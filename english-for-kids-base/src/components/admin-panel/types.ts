@@ -2,7 +2,6 @@ export interface ServerCategory {
   name: string,
   id: string,
   count?: string,
-  isNewCategory?: boolean,
   imageurl?: string,
 }
 
@@ -15,7 +14,6 @@ export interface ServerWord {
   imageurl: string | Blob | null,
   soundurl: string | Blob | null,
   category_id: string,
-  isNewWord?: boolean
 }
 
 export type ServerWordList = Array<ServerWord>

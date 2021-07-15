@@ -11,6 +11,7 @@ import { renderMainPage } from "./components/main-page";
 import { renderSubMenuItems } from "./components/menu/get-menu";
 import { renderCategoryPage } from "./components/category";
 import { removeNewCategoryCard, renderNewCategoryCard } from "./components/admin-panel/category/render";
+import { removeNewWordCard, renderNewWordCard } from "./components/admin-panel/word/render";
 
 window.addEventListener('load', () => {
   initializeDB(() => {
@@ -71,6 +72,14 @@ window.addEventListener('load', () => {
 
     if(prevState.creatingCategory !== state.creatingCategory && !state.creatingCategory) {
       removeNewCategoryCard();
+    }
+
+    if(prevState.creatingWord !== state.creatingWord && state.creatingWord) {
+      renderNewWordCard();
+    }
+
+    if(prevState.creatingWord !== state.creatingWord && !state.creatingWord) {
+      removeNewWordCard();
     }
 
     gameStartTrack(gameState.isGameStarted);

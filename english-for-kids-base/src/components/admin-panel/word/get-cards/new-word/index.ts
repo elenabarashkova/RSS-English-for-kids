@@ -1,5 +1,5 @@
 export const getNewWordCard = (): string => (`
-  <div class="admin-word-card admin-card new-word-card">
+  <div id="newWordForm" class="admin-word-card admin-card new-word-card">
     <div class="admin-card-inner">
       <div class="admin-card-inner-edit">
         <label class="edit-word">

@@ -6,16 +6,21 @@ import { getCreateWordCard } from "./get-cards/create-word";
 export const renderWordsCards = (serverWordsList: ServerWordList): string => (`
   <div id="adminCardWrap" class="admin-categiries-wrap">
     <div id="adminCardWrap" class="admin-categiries-wrap">
-    ${serverWordsList.map((word: ServerWord) => {
-    if(word.isNewWord) {
-      return getNewWordCard();
-    }
-    return getWordCard(word);
-  }).join('')}
+    ${serverWordsList.map((word: ServerWord) => getWordCard(word)).join('')}
     ${getCreateWordCard()}
   </div>
   </div>
 `);
+
+export const renderNewWordCard = (): void => {
+  const createWordCard = document.getElementById('createWordCard');
+  createWordCard?.insertAdjacentHTML('beforebegin', getNewWordCard());
+}
+
+export const removeNewWordCard = (): void => {
+  const newWordForm = document.getElementById('newWordForm');
+  newWordForm?.remove();
+}
 
 export const renderAllWordsCards = (words: ServerWordList): void => {
   const adminPanelPageInner = document.getElementById('adminPanelPageInner');

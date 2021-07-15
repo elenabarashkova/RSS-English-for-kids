@@ -36,11 +36,12 @@ export const createWordBehavior = (): void => {
         const thisCategory = store.getState().currentCategory;
 
         addNewWord(inputNameValue, inputTranslationValue, inputImageValue, inputAudioValue, thisCategory);
+        setCreateWordFormAction(false);
       }
 
       if(target === cancelBtn) {
         setCreateWordFormAction(false);
       }
     }))
-  }, {once: true})
+  })
 }
