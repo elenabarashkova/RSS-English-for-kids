@@ -1,4 +1,5 @@
-import { Action, State } from "../types";
+import { AnyAction } from "redux";
+import { State } from "../types";
 import {
   CREATE_CATEGORY_FORM,
   CREATE_WORD_FORM, SET_ALL_WORDS_LIST,
@@ -9,7 +10,7 @@ import { ServerCategory, ServerCategoryList, ServerWordList, ServerWord } from "
 
 export const categoriesListReducer = (
   state: ServerCategoryList = [],
-  {type, payload}: Action<ServerCategoryList | boolean>
+  {type, payload}: AnyAction
 ): State['categoriesList'] => {
 
   if (type === SET_CATEGORIES_LIST) {
@@ -34,7 +35,7 @@ export const categoriesListReducer = (
 
 export const wordsListReducer = (
   state = [],
-  {type, payload}: Action<ServerWordList | boolean>
+  {type, payload}: AnyAction
 ): State['wordsList'] => {
 
   if (type === SET_WORDS_LIST) {
@@ -65,7 +66,7 @@ export const wordsListReducer = (
 
 export const allWordsListReducer = (
   state = [],
-  {type, payload}: Action<ServerWordList>
+  {type, payload}: AnyAction
 ): State['allWordsList'] => {
 
   if (type === SET_ALL_WORDS_LIST) {

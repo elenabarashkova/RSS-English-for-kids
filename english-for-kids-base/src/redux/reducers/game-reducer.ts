@@ -1,3 +1,4 @@
+import { AnyAction } from "redux";
 import { GAME_MODES } from "../../shared/constants";
 import {
   IS_GAME_STARTED,
@@ -6,7 +7,7 @@ import {
   SET_WORDS_IN_PLAY,
   TOGGLE_GAME_MODE
 } from "../action-types";
-import { Action, GameState, Payload } from "../types";
+import { GameState } from "../types";
 import { ServerWord, ServerWordList } from "../../components/admin-panel/types";
 
 const gameInitialState: GameState = {
@@ -19,7 +20,7 @@ const gameInitialState: GameState = {
 
 export const gameReducer = (
   state = gameInitialState,
-  {type, payload}: Action<Payload>
+  {type, payload}: AnyAction
 ): GameState => {
   switch (type) {
     case TOGGLE_GAME_MODE:
