@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { createCategory, deleteCategory, getCategories, getCategoryById, updateCategory } from "./repository";
 import { Category } from "./interface";
+import { isLoggedIn } from "../login";
 
 const router = Router();
 
@@ -31,6 +32,10 @@ router.get('/:id', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
+  if(!isLoggedIn(Number(req.headers.token))) {
+    return res.sendStatus(400);
+  }
+
   const categoryId = String(req.params.id);
 
   if (!categoryId) {
@@ -48,6 +53,10 @@ router.delete('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+  if(!isLoggedIn(Number(req.headers.token))) {
+    return res.sendStatus(400);
+  }
+
   const data = req.body as Category;
 
   if (!data.name) return res.sendStatus(400);
@@ -62,6 +71,10 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
+  if(!isLoggedIn(Number(req.headers.token))) {
+    return res.sendStatus(400);
+  }
+
   const data = req.body as Category;
 
   if (!data.name) return res.sendStatus(400);

@@ -2,6 +2,7 @@ import { setCategoriesListAction } from "../redux/actions";
 import { SERVER_PATH } from "./constants";
 import { ServerCategory } from "../components/admin-panel/types";
 import { getLogin } from "../components/indexedDB";
+import { redirectToDefaultPage } from "../shared";
 
 export const getCategories = async (): Promise<void> => {
   const currentToken = await getLogin();
@@ -31,7 +32,7 @@ export const postNewCategory = async (newCategory: ServerCategory): Promise<void
   const currentToken = await getLogin();
 
   try {
-    await fetch(`${SERVER_PATH}categories`, {
+    const response = await fetch(`${SERVER_PATH}categories`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -39,6 +40,10 @@ export const postNewCategory = async (newCategory: ServerCategory): Promise<void
       },
       body: JSON.stringify(newCategory),
     });
+
+    if (!response.ok) {
+      redirectToDefaultPage();
+    }
 
     getCategories();
 
@@ -51,12 +56,16 @@ export const deleteCategory = async (id: string): Promise<void> => {
   const currentToken = await getLogin();
 
   try {
-    await fetch(`${SERVER_PATH}categories/${id}`, {
+    const response = await fetch(`${SERVER_PATH}categories/${id}`, {
       method: 'DELETE',
       headers: {
         'token': `${currentToken}`
       }
     });
+
+    if (!response.ok) {
+      redirectToDefaultPage();
+    }
 
     getCategories();
 
@@ -70,7 +79,7 @@ export const updateCategory = async (updatedCategory: ServerCategory):Promise<vo
   const currentToken = await getLogin();
 
   try {
-    await fetch(`${SERVER_PATH}categories/${categoryId}`, {
+    const response = await fetch(`${SERVER_PATH}categories/${categoryId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -78,6 +87,10 @@ export const updateCategory = async (updatedCategory: ServerCategory):Promise<vo
       },
       body: JSON.stringify(updatedCategory),
     });
+
+    if (!response.ok) {
+      redirectToDefaultPage();
+    }
 
     getCategories();
 

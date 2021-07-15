@@ -3,6 +3,7 @@ import { setWordsListAction } from "../redux/actions";
 import { SERVER_PATH } from "./constants";
 import { ServerWord } from "../components/admin-panel/types";
 import { getLogin } from "../components/indexedDB";
+import { redirectToDefaultPage } from "../shared";
 
 export const getWords = async (category: string): Promise<void> => {
   const currentToken = await getLogin();
@@ -41,13 +42,17 @@ export const postNewWord = async (newWord: ServerWord): Promise<void> => {
   formData.append('category_id', categoryId);
 
   try {
-    await fetch(`${SERVER_PATH}words`, {
+    const response = await fetch(`${SERVER_PATH}words`, {
       method: 'POST',
       headers: {
         'token': `${currentToken}`
       },
       body: formData,
     });
+
+    if (!response.ok) {
+      redirectToDefaultPage();
+    }
 
     getWords(categoryId);
 
@@ -61,12 +66,16 @@ export const deleteWord = async (id: string): Promise<void> => {
   const currentToken = await getLogin();
 
   try {
-    await fetch(`${SERVER_PATH}words/${id}`, {
+    const response = await fetch(`${SERVER_PATH}words/${id}`, {
       method: 'DELETE',
       headers: {
         'token': `${currentToken}`
       }
     });
+
+    if (!response.ok) {
+      redirectToDefaultPage();
+    }
 
     getWords(categoryId);
 
@@ -91,13 +100,17 @@ export const updateWord = async (updatedWord: ServerWord, id: string):Promise<vo
   }
 
   try {
-    await fetch(`${SERVER_PATH}words/${id}`, {
+    const response = await fetch(`${SERVER_PATH}words/${id}`, {
       method: 'PUT',
       headers: {
         'token': `${currentToken}`
       },
       body: formData,
     });
+
+    if (!response.ok) {
+      redirectToDefaultPage();
+    }
 
     getWords(categoryId);
 

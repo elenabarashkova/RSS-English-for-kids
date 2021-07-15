@@ -3,6 +3,7 @@ import { createWord, deleteWord, getWords, getWordById, updateWord, getAllWords 
 import { Word } from "./interface";
 import { Multer } from "multer";
 import * as path from 'path';
+import { isLoggedIn } from "../login";
 
 const router = Router();
 
@@ -45,6 +46,10 @@ router.get('/:id', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
+  if(!isLoggedIn(Number(req.headers.token))) {
+    return res.sendStatus(400);
+  }
+
   const wordId = String(req.params.id);
 
   if (!wordId) {
@@ -66,6 +71,10 @@ const multer  = require('multer');
 const loader: Multer = multer({dest: path.join(__dirname, 'tmp')});
 
 router.post('/', loader.fields([{ name: 'imageurl', maxCount: 1 }, { name: 'soundurl', maxCount: 1 }]), async (req, res) => {
+  if(!isLoggedIn(Number(req.headers.token))) {
+    return res.sendStatus(400);
+  }
+
   try {
     const pictureFiles = req.files as { [imageurl: string]: Express.Multer.File[] };
     const audioFiles = req.files as { [soundurl: string]: Express.Multer.File[] };
@@ -94,6 +103,10 @@ router.post('/', loader.fields([{ name: 'imageurl', maxCount: 1 }, { name: 'soun
 });
 
 router.put('/:id', loader.fields([{ name: 'imageurl', maxCount: 1 }, { name: 'soundurl', maxCount: 1 }]), async (req, res) => {
+  if(!isLoggedIn(Number(req.headers.token))) {
+    return res.sendStatus(400);
+  }
+
   try {
     const pictureFiles = req.files as { [imageurl: string]: Express.Multer.File[] };
     const audioFiles = req.files as { [soundurl: string]: Express.Multer.File[] };
