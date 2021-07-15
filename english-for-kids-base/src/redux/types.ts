@@ -17,4 +17,5 @@ export interface State {
   allWordsList: ServerWordList,
   creatingCategory: boolean,
   creatingWord: boolean,
+  isPending: boolean,
 }

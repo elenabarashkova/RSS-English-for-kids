@@ -12,7 +12,7 @@ import {
   CREATE_CATEGORY_FORM,
   SET_WORDS_LIST,
   SET_ALL_WORDS_LIST,
-  CREATE_WORD_FORM,
+  CREATE_WORD_FORM, IS_PENDING
 } from "./action-types";
 import { ServerCategoryList, ServerWord, ServerWordList } from "../components/admin-panel/types";
 
@@ -122,4 +122,13 @@ const getCreateWordForm = (payload: boolean): AnyAction => ({
 
 export const setCreateWordFormAction = (toAdd: boolean): void => {
   store.dispatch(getCreateWordForm(toAdd));
+}
+
+const getIsPending = (payload: boolean): AnyAction => ({
+  type: IS_PENDING,
+  payload,
+});
+
+export const setIsPending = (isPending: boolean): void => {
+  store.dispatch(getIsPending(isPending));
 }

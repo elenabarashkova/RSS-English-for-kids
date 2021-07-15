@@ -1,11 +1,12 @@
 import store from "../redux/store";
-import { setWordsListAction } from "../redux/actions";
+import { setIsPending, setWordsListAction } from "../redux/actions";
 import { SERVER_PATH } from "./constants";
 import { ServerWord } from "../components/admin-panel/types";
 import { getLogin } from "../components/indexedDB";
 import { redirectToDefaultPage } from "../shared";
 
 export const getWords = async (category: string): Promise<void> => {
+  setIsPending(true);
   const currentToken = await getLogin();
 
   const response = await fetch(`${SERVER_PATH}words/${category}`, {
@@ -15,6 +16,7 @@ export const getWords = async (category: string): Promise<void> => {
   });
   const result = await response.json();
 
+  setIsPending(false);
   setWordsListAction(result);
 }
 

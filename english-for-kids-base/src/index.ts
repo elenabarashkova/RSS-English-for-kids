@@ -12,6 +12,7 @@ import { renderSubMenuItems } from "./components/menu/get-menu";
 import { renderCategoryPage } from "./components/category";
 import { removeNewCategoryCard, renderNewCategoryCard } from "./components/admin-panel/category/render";
 import { removeNewWordCard, renderNewWordCard } from "./components/admin-panel/word/render";
+import { removeSpinner, renderSpinner } from "./components/spinner";
 
 window.addEventListener('load', () => {
   initializeDB(() => {
@@ -37,8 +38,16 @@ window.addEventListener('load', () => {
 
     const shouldSwitchGameBehavior = isGameModeChanged || (isPageChanged && isCurrentPageCategory) || isCategoryChanged;
 
-    if(isPageChanged && prevPageIsAdmin && currentPageIsNotAdmin) {
-      initPublicPageTemplate();
+    // if(isPageChanged && prevPageIsAdmin && currentPageIsNotAdmin) {
+    //   initPublicPageTemplate();
+    // }
+
+    if(prevState.isPending !== state.isPending && state.isPending) {
+      renderSpinner();
+    }
+
+    if(prevState.isPending !== state.isPending && !state.isPending) {
+      removeSpinner();
     }
 
     if(prevState.categoriesList !== state.categoriesList && !state.currentCategory) {

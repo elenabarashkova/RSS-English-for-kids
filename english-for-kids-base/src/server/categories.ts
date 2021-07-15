@@ -1,10 +1,11 @@
-import { setCategoriesListAction } from "../redux/actions";
+import { setCategoriesListAction, setIsPending } from "../redux/actions";
 import { SERVER_PATH } from "./constants";
 import { ServerCategory } from "../components/admin-panel/types";
 import { getLogin } from "../components/indexedDB";
 import { redirectToDefaultPage } from "../shared";
 
 export const getCategories = async (): Promise<void> => {
+  setIsPending(true);
   const currentToken = await getLogin();
 
   const response = await fetch(`${SERVER_PATH}categories`, {
@@ -14,6 +15,7 @@ export const getCategories = async (): Promise<void> => {
   });
   const result = await response.json();
 
+  setIsPending(false);
   setCategoriesListAction(result);
 }
 

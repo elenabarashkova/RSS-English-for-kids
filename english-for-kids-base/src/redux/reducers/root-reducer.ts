@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import { gameReducer } from "./game-reducer";
-import { currentCategoryReducer, currentPageReducer } from "./common-reducer";
+import { currentCategoryReducer, currentPageReducer, isPendingReducer } from "./common-reducer";
 import {
   allWordsListReducer,
   categoriesListReducer,
@@ -17,4 +17,5 @@ export const rootReducer = combineReducers({
   allWordsList: allWordsListReducer,
   creatingCategory: creatingCategoryReducer,
   creatingWord: creatingWordReducer,
+  isPending: isPendingReducer,
 });

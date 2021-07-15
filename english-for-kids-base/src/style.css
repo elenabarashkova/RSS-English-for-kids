@@ -17,6 +17,7 @@
 @import "components/admin-panel/word/get-cards/word/style.css";
 @import "components/admin-panel/word/get-cards/create-word/style.css";
 @import "components/admin-panel/word/get-cards/new-word/style.css";
+@import "components/spinner/style.css";
 
 :root {
   --padding-for-main-top-desctop: 20px;
