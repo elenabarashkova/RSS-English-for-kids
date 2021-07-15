@@ -16,4 +16,9 @@ app.use('/api/categories', categories);
 app.use('/api/words', words);
 app.use('/api', login);
 
+// const swaggerUi = require('swagger-ui-express');
+// const swaggerDocument = require('./swagger.json');
+//
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 app.listen(PORT, () => console.log('Started server Hello'));

@@ -6,7 +6,6 @@ export const startStatisticsPage = (): void => {
   const mainWrap = document.getElementById('mainWrap') as HTMLElement;
 
   mainWrap?.insertAdjacentHTML('beforeend', getStatisticsPageInner());
-  // debugger;
   renderStatisticTable();
   sortStat();
 }

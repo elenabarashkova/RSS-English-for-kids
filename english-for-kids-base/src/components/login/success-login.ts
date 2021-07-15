@@ -2,6 +2,7 @@ import { removeLogin } from "./render";
 import { ADMIN_ROUTE } from "../../router/constants";
 import { setLogin } from "../indexedDB";
 import { login } from "../../server/login";
+import { redirectToDefaultPage } from "../../shared";
 
 export const successLogin = async (loginData: Record<string, string>): Promise<void> => {
 
@@ -12,6 +13,6 @@ export const successLogin = async (loginData: Record<string, string>): Promise<v
     window.location.hash = ADMIN_ROUTE;
   }
   catch (error) {
-    console.log(error);
+    redirectToDefaultPage();
   }
 }

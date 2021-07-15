@@ -16,7 +16,6 @@ window.addEventListener('load', () => {
     initCommonPageTemplate();
     initPublicPageTemplate();
     startRouter();
-    // startBehaviorTrain();
   });
 
   let prevState = store.getState();
