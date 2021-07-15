@@ -25,12 +25,20 @@ const handleSubmit = (event: Event) => {
 
   const registerFields = document.getElementsByClassName('register-input');
 
+  const loginData: Record<string, string> = {
+    username: '',
+    password: '',
+  }
+
   const isValid = [...registerFields]
-    .map(item => inputValidation(item as HTMLInputElement))
+    .map((item, index) => {
+      loginData[Object.keys(loginData)[index]] = (item as HTMLInputElement).value;
+      return inputValidation(item as HTMLInputElement);
+    })
     .every((isItemValid) => isItemValid);
 
   if (isValid) {
-    successLogin();
+    successLogin(loginData);
   }
 }
 

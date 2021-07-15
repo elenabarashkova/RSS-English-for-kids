@@ -1,11 +1,13 @@
 import { removeLogin } from "./render";
 import { ADMIN_ROUTE } from "../../router/constants";
-import { setIsLogin } from "../indexedDB";
+import { setLogin } from "../indexedDB";
+import { login } from "../../server/login";
 
-export const successLogin = async (): Promise<void> => {
+export const successLogin = async (loginData: Record<string, string>): Promise<void> => {
 
   try {
-    await setIsLogin(true);
+    const token = await login(loginData);
+    await setLogin(token);
     removeLogin();
     window.location.hash = ADMIN_ROUTE;
   }

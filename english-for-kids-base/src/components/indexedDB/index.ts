@@ -37,7 +37,7 @@ const fillDefaultLogin = () => {
   const transaction = db.transaction(['authorization'], 'readwrite');
   const dbStore = transaction.objectStore('authorization');
 
-  dbStore.add({key: 'login', value: false});
+  dbStore.add({key: 'login', value: 0});
 }
 
 export const initializeDB = (callback: CallableFunction): void => {
@@ -74,7 +74,7 @@ export const initializeDB = (callback: CallableFunction): void => {
   }
 }
 
-export const getIsLogin = async (): Promise<boolean> => {
+export const getLogin = async (): Promise<number> => {
   const transaction = db.transaction(['authorization'],'readonly');
   const dbStore = transaction.objectStore('authorization');
 
@@ -88,7 +88,7 @@ export const getIsLogin = async (): Promise<boolean> => {
   });
 }
 
-export const setIsLogin = async (value: boolean): Promise<void> => {
+export const setLogin = async (value: number): Promise<void> => {
   const transaction = db.transaction(['authorization'],'readwrite');
   const dbStore = transaction.objectStore('authorization');
 

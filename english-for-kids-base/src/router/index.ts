@@ -8,7 +8,7 @@ import {
 } from "../redux/actions";
 import { setActiveMenuItem } from "../components/menu";
 import { ADMIN_ROUTE, ADMIN_ROUTE_WORDS } from "./constants";
-import { getIsLogin } from "../components/indexedDB";
+import { getLogin } from "../components/indexedDB";
 
 const onHashChange = async (): Promise<void> => {
   isGameStartedAction(false);
@@ -28,7 +28,7 @@ const onHashChange = async (): Promise<void> => {
   }
 
   if(route === ADMIN_ROUTE) {
-    const isLogin = await getIsLogin();
+    const isLogin = await getLogin();
 
     if(!isLogin) {
       redirectToDefaultPage();
