@@ -53,18 +53,27 @@
   margin-bottom: 10px;
 }
 
-.login-field input {
+.register-input {
   border: none;
   border-bottom: 1px solid #333;
   height: 40px;
   font-size: 18px;
-  padding: 0 10px;
+  padding: 0 15px;
   line-height: 40px;
+  position: relative;
 }
 
-.login-field input:focus {
+.register-input:focus {
   outline: none;
   border-color: #3c8297;
+}
+
+.register-input.invalid {
+  border-color: #f36262;
+}
+
+.register-input.valid {
+  border-color: #a6f1a6;
 }
 
 .login-btns-wrap {
