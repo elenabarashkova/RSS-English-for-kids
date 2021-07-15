@@ -19,11 +19,12 @@ export const createCategoryBehavior = (): void => {
 
       if(target === createBtn) {
         addNewCategory(input?.value);
+        setCreateCatFormAction(false);
       }
 
       if(target === cancelBtn) {
         setCreateCatFormAction(false);
       }
     }))
-  }, {once: true})
+  })
 }

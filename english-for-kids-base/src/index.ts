@@ -10,6 +10,7 @@ import { startAdminWords } from "./components/admin-panel/word";
 import { renderMainPage } from "./components/main-page";
 import { renderSubMenuItems } from "./components/menu/get-menu";
 import { renderCategoryPage } from "./components/category";
+import { removeNewCategoryCard, renderNewCategoryCard } from "./components/admin-panel/category/render";
 
 window.addEventListener('load', () => {
   initializeDB(() => {
@@ -62,6 +63,14 @@ window.addEventListener('load', () => {
 
     if (shouldSwitchGameBehavior) {
       gameModeBehaviorToggle(gameState.gameMode);
+    }
+
+    if(prevState.creatingCategory !== state.creatingCategory && state.creatingCategory) {
+      renderNewCategoryCard();
+    }
+
+    if(prevState.creatingCategory !== state.creatingCategory && !state.creatingCategory) {
+      removeNewCategoryCard();
     }
 
     gameStartTrack(gameState.isGameStarted);

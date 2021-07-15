@@ -1,5 +1,5 @@
 export const getNewCategoryCard = (): string => (`
-  <div class="admin-category-card admin-card new-cat-card">
+  <div  id="newCategoryForm" class="admin-category-card admin-card new-cat-card">
     <div class="admin-card-inner">
       <div class="admin-card-inner-edit">
         <label class="edit-cat-name">

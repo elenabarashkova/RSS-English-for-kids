@@ -15,4 +15,6 @@ export interface State {
   categoriesList: ServerCategoryList,
   wordsList: ServerWordList,
   allWordsList: ServerWordList,
+  creatingCategory: boolean,
+  creatingWord: boolean,
 }

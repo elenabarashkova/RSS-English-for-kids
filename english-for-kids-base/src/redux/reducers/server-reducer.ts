@@ -6,7 +6,7 @@ import {
   SET_CATEGORIES_LIST,
   SET_WORDS_LIST
 } from "../action-types";
-import { ServerCategory, ServerCategoryList, ServerWordList, ServerWord } from "../../components/admin-panel/types";
+import { ServerCategoryList, ServerWordList, ServerWord } from "../../components/admin-panel/types";
 
 export const categoriesListReducer = (
   state: ServerCategoryList = [],
@@ -17,17 +17,15 @@ export const categoriesListReducer = (
     return payload as ServerCategoryList
   }
 
+  return state
+}
+
+export const creatingCategoryReducer = (
+  state = false,
+  {type, payload}: AnyAction
+): State['creatingCategory'] => {
   if (type === CREATE_CATEGORY_FORM) {
-    const newCategoryItem: ServerCategory = {id: '', name: '', isNewCategory: true};
-    const newState: ServerCategoryList  = [...state];
-
-    if(payload as boolean) {
-      newState.push(newCategoryItem);
-      return newState;
-    }
-
-    newState.pop();
-    return newState;
+    return payload;
   }
 
   return state
@@ -59,6 +57,18 @@ export const wordsListReducer = (
 
     newState.pop();
     return newState;
+  }
+
+  return state
+}
+
+
+export const creatingWordReducer = (
+  state = false,
+  {type, payload}: AnyAction
+): State['creatingWord'] => {
+  if (type === CREATE_CATEGORY_FORM) {
+    return payload;
   }
 
   return state
