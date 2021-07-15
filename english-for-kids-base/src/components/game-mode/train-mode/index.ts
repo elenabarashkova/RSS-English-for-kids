@@ -1,5 +1,5 @@
 import { playAudioTag } from "../../../shared";
-import { updateWord } from "../../statistics/indexedDB";
+import { updateWord } from "../../indexedDB";
 
 const cardTrainHandler = (event: Event): void => {
   const target = event.target as HTMLElement;

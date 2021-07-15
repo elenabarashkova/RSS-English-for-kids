@@ -6,7 +6,7 @@ import {
 } from "../../../redux/actions";
 import { State } from "../../../redux/types";
 import { renderStar } from "../../category/render-game-attributes";
-import { updateWord } from "../../statistics/indexedDB";
+import { updateWord } from "../../indexedDB";
 import { ServerWordList } from "../../admin-panel/types";
 
 export const wordsShuffle = (wordsConfig: ServerWordList): ServerWordList => {

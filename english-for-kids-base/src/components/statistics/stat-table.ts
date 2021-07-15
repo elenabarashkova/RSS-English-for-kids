@@ -1,5 +1,5 @@
 import { getStatWords } from "./render";
-import { getStatistics } from "./indexedDB";
+import { getStatistics } from "../indexedDB";
 
 export const renderStatisticTable = async (sortDirection = 'down', sortType = ''): Promise<void> => {
   const statTableInner = document.getElementById('statTableInner');

@@ -1,20 +1,14 @@
 import { removeLogin, renderLogin } from "./render";
-import { ADMIN_ROUTE } from "../../router/constants";
+import { startValidation } from "./validation";
 
 const startLogin = (): void => {
   renderLogin();
 
   const cancelLogin = document.getElementById('cancelLogin');
-  const submitLogin = document.getElementById('submitLogin');
 
   cancelLogin?.addEventListener('click', removeLogin);
 
-  submitLogin?.addEventListener('click', (event: Event) => {
-    event.preventDefault();
-    removeLogin();
-    // todo: check if user is admin on server
-    window.location.hash = ADMIN_ROUTE;
-  });
+  startValidation();
 }
 
 export const initLogin = (): void => {

@@ -1,6 +1,6 @@
 import store from "../../redux/store";
-import { StatisticConfig, StatisticWord } from "./types";
-import { STAT_PROPS } from "./constants";
+import { StatisticConfig, StatisticWord } from "../statistics/types";
+import { STAT_PROPS } from "../statistics/constants";
 import { getAllWords } from "../../server/words";
 import { ServerWordList } from "../admin-panel/types";
 
@@ -12,7 +12,7 @@ const fillDefaultConfig = async () => {
   await getAllWords();
 
   const transaction = db.transaction(['statistics'], 'readwrite');
-  const bdStore = transaction.objectStore('statistics');
+  const dbStore = transaction.objectStore('statistics');
 
   const {allWordsList} = store.getState();
 
@@ -27,7 +27,7 @@ const fillDefaultConfig = async () => {
       mistakesNum: 0,
       successRate: 0,
     }
-    bdStore.add(wordObj);
+    dbStore.add(wordObj);
   });
 }
 
@@ -42,6 +42,10 @@ export const initializeDB = (callback: CallableFunction): void => {
 
       fillDefaultNeeded = true;
     }
+
+    if (!thisDB.objectStoreNames.contains('authorization')) {
+      thisDB.createObjectStore('authorization', {keyPath: "key"});
+    }
   }
 
   openRequest.onsuccess = () => {
@@ -55,12 +59,43 @@ export const initializeDB = (callback: CallableFunction): void => {
   }
 }
 
-export const getStatistics = async (): Promise<StatisticConfig> => {
-  const transaction = db.transaction(['statistics'],'readonly');
-  const objectStore = transaction.objectStore('statistics');
+export const getIsLogin = async (): Promise<boolean> => {
+  const transaction = db.transaction(['authorization'],'readonly');
+  const dbStore = transaction.objectStore('authorization');
 
   return new Promise((resolve, reject) => {
-    const request = objectStore.getAll();
+    const request = dbStore.get('login');
+
+    request.onsuccess = () => {
+      resolve(request.result.value);
+    }
+    request.onerror = reject;
+  });
+}
+
+export const setIsLogin = async (value: boolean): Promise<void> => {
+  const transaction = db.transaction(['authorization'],'readwrite');
+  const dbStore = transaction.objectStore('authorization');
+
+  return new Promise((resolve, reject) => {
+    const request = dbStore.put({
+      key: 'login',
+      value,
+    });
+
+    request.onsuccess = () => {
+      resolve();
+    }
+    request.onerror = reject;
+  });
+}
+
+export const getStatistics = async (): Promise<StatisticConfig> => {
+  const transaction = db.transaction(['statistics'],'readonly');
+  const dbStore = transaction.objectStore('statistics');
+
+  return new Promise((resolve, reject) => {
+    const request = dbStore.getAll();
 
     request.onsuccess = () => {
       resolve(request.result);
@@ -71,8 +106,8 @@ export const getStatistics = async (): Promise<StatisticConfig> => {
 
 export const updateWord = (id: string, wordProperty: string): void => {
   const transaction = db.transaction(['statistics'], 'readwrite');
-  const bdStore = transaction.objectStore('statistics');
-  const request = bdStore.get(id);
+  const dbStore = transaction.objectStore('statistics');
+  const request = dbStore.get(id);
 
   request.onsuccess = () => {
     const word = request.result;
@@ -92,6 +127,6 @@ export const updateWord = (id: string, wordProperty: string): void => {
 
     const updatedWord = {...word, [wordProperty]: word[wordProperty] + 1, successRate: successCount};
 
-    bdStore.put(updatedWord);
+    dbStore.put(updatedWord);
   }
 }

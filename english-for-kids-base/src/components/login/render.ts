@@ -5,11 +5,11 @@ const getLogin = (): string => (`
       <form action="#" id="loginForm" class="login-form">
         <label class="login-field">
           <span class="login-text">Username</span>
-          <input type="text" placeholder="admin" required>
+          <input class="register-input" type="text" placeholder="admin" pattern="admin" required>
         </label>
         <label class="login-field">
           <span class="login-text">Password</span>
-          <input type="text" placeholder="admin" required>
+          <input class="register-input" type="text" placeholder="admin" pattern="admin" required>
         </label>
         <div class="login-btns-wrap">
           <button id="submitLogin" class="login-btn login-btn-submit">Login</button>
