@@ -1,7 +1,7 @@
 import { initAdminPage } from "../index";
 import { renderAllWordsCards } from "./render";
 import { ServerWordList } from "../types";
-import { getWords } from "../../../server/words";
+import { getAllWords, getWords } from "../../../server/words";
 import { createWordBehavior } from "./crud/create-word";
 import { editWordBehavior } from "./crud/edit-word";
 import { playAudioTag } from "../../../shared";
@@ -41,4 +41,5 @@ export const startAdminWordsPage = (category: string): void => {
   adminMenuWord?.classList.add('active');
 
   getWords(category);
+  getAllWords();
 }

@@ -5,6 +5,8 @@ import { gameModeBtnBehavior } from "./game-mode/game-mode-toggle";
 import { initLogin } from "./login";
 import { getFooter, getMain } from "./render";
 import { getCategories } from "../server/categories";
+import store from "../redux/store";
+import { GAME_MODES } from "../shared/constants";
 
 export const initCommonPageTemplate = (): void => {
   const container = document.createElement('div');
@@ -22,7 +24,9 @@ export const initPublicPageTemplate = (): void => {
   container?.insertAdjacentHTML('afterbegin', getMenu());
 
   const main = document.getElementById('main');
-  main?.insertAdjacentHTML('afterbegin', getGameModeBtn());
+
+  const isTrainMode = store.getState().game.gameMode === GAME_MODES.TRAIN;
+  main?.insertAdjacentHTML('afterbegin', getGameModeBtn(isTrainMode));
 
   openMenu();
   initLogin();

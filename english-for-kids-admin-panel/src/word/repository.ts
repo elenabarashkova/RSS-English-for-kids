@@ -1,6 +1,15 @@
 import { pool } from "../init-db";
 import { Word } from "./interface";
 
+export const getAllWords = async (): Promise<Word[]> => {
+  const client = await pool.connect();
+  const result = await client.query(`SELECT * FROM words`);
+
+  client.release();
+
+  return result.rows;
+}
+
 export const getWords = async (category: string): Promise<Word[]> => {
     const client = await pool.connect();
     const result = await client.query(`

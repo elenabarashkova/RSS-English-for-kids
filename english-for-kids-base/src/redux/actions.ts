@@ -10,6 +10,7 @@ import {
   SET_CATEGORIES_LIST,
   CREATE_CATEGORY_FORM,
   SET_WORDS_LIST,
+  SET_ALL_WORDS_LIST,
   CREATE_WORD_FORM,
 } from "./action-types";
 import { Action } from "./types";
@@ -103,6 +104,15 @@ const getWordsList = (payload: ServerWordList): Action<ServerWordList> => ({
 
 export const setWordsListAction = (wordsList: ServerWordList): void => {
   store.dispatch(getWordsList(wordsList));
+}
+
+const getAllWordsList = (payload: ServerWordList): Action<ServerWordList> => ({
+  type: SET_ALL_WORDS_LIST,
+  payload,
+});
+
+export const setAllWordsListAction = (wordsList: ServerWordList): void => {
+  store.dispatch(getAllWordsList(wordsList));
 }
 
 const getCreateWordForm = (payload: boolean): Action<boolean> => ({

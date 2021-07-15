@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createWord, deleteWord, getWords, getWordById, updateWord } from "./repository";
+import { createWord, deleteWord, getWords, getWordById, updateWord, getAllWords } from "./repository";
 import { Word } from "./interface";
 import { Multer } from "multer";
 import * as path from 'path';
@@ -11,6 +11,16 @@ router.get('/:category', async (req, res) => {
 
   try {
     const words = await getWords(categoryId);
+    return res.json(words);
+  }
+  catch (error) {
+    return res.status(500).send(error);
+  }
+});
+
+router.get('/', async (req, res) => {
+  try {
+    const words = await getAllWords();
     return res.json(words);
   }
   catch (error) {

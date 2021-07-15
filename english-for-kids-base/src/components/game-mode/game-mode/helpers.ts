@@ -6,7 +6,7 @@ import {
 } from "../../../redux/actions";
 import { State } from "../../../redux/types";
 import { renderStar } from "../../category/render-game-attributes";
-// import { updateWord } from "../../statistics/indexedDB";
+import { updateWord } from "../../statistics/indexedDB";
 import { ServerWordList } from "../../admin-panel/types";
 
 export const wordsShuffle = (wordsConfig: ServerWordList): ServerWordList => {
@@ -51,7 +51,7 @@ export const correctWordBehavior = (targetCard: HTMLElement): void => {
   renderStar(true);
   targetCard.classList.add('disabled');
 
-  // updateWord(targetCard.id, 'guestedNum');
+  updateWord(targetCard.id, 'guestedNum');
 
   const restWordsInPlay = [...wordsInPlay];
   restWordsInPlay.shift();
@@ -67,5 +67,5 @@ export const incorrectWordBehavior = (targetCard: HTMLElement): void => {
   playAudioSound('./assets/game-sounds/incorrect-sound.mp3');
   renderStar(false);
   mistakesCountAction(true);
-  // updateWord(targetCard.id, 'mistakesNum');
+  updateWord(targetCard.id, 'mistakesNum');
 }

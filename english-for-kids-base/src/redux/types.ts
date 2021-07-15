@@ -27,4 +27,5 @@ export interface State {
   game: GameState,
   categoriesList: ServerCategoryList,
   wordsList: ServerWordList,
+  allWordsList: ServerWordList,
 }

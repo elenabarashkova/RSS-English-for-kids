@@ -1,7 +1,7 @@
 import { Action, State } from "../types";
 import {
   CREATE_CATEGORY_FORM,
-  CREATE_WORD_FORM,
+  CREATE_WORD_FORM, SET_ALL_WORDS_LIST,
   SET_CATEGORIES_LIST,
   SET_WORDS_LIST
 } from "../action-types";
@@ -58,6 +58,18 @@ export const wordsListReducer = (
 
     newState.pop();
     return newState;
+  }
+
+  return state
+}
+
+export const allWordsListReducer = (
+  state = [],
+  {type, payload}: Action<ServerWordList>
+): State['allWordsList'] => {
+
+  if (type === SET_ALL_WORDS_LIST) {
+    return payload as ServerWordList
   }
 
   return state

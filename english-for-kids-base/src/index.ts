@@ -4,7 +4,7 @@ import { initCommonPageTemplate, initPublicPageTemplate } from "./components";
 import { startRouter } from "./router";
 import { gameModeBehaviorToggle, gameStartTrack } from "./components/game-mode";
 import { CATEGORY_ROUTE, MAIN_ROUTE } from "./router/constants";
-// import { initializeDB } from "./components/statistics/indexedDB";
+import { initializeDB } from "./components/statistics/indexedDB";
 import { startAdminCategories } from "./components/admin-panel/category";
 import { startAdminWords } from "./components/admin-panel/word";
 import { renderMainPage } from "./components/main-page";
@@ -12,13 +12,12 @@ import { renderSubMenuItems } from "./components/menu/get-menu";
 import { renderCategoryPage } from "./components/category";
 
 window.addEventListener('load', () => {
-  // initializeDB(() => {
-  //
-  //   // startBehaviorTrain();
-  // });
-  initCommonPageTemplate();
-  initPublicPageTemplate();
-  startRouter();
+  initializeDB(() => {
+    initCommonPageTemplate();
+    initPublicPageTemplate();
+    startRouter();
+    // startBehaviorTrain();
+  });
 
   let prevState = store.getState();
 

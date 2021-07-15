@@ -1,5 +1,5 @@
 export interface StatisticWord extends Record<string, string | number> {
-  category: string,
+  category_id: string,
   id: string,
   name: string,
   translation: string,

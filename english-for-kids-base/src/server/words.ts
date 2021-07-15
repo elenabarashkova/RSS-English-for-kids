@@ -1,7 +1,14 @@
 import store from "../redux/store";
-import { setWordsListAction } from "../redux/actions";
+import { setAllWordsListAction, setWordsListAction } from "../redux/actions";
 import { SERVER_PATH } from "./constants";
 import { ServerWord } from "../components/admin-panel/types";
+
+export const getAllWords = async (): Promise<void> => {
+  const response = await fetch(`${SERVER_PATH}words`);
+  const result = await response.json();
+
+  setAllWordsListAction(result);
+}
 
 export const getWords = async (category: string): Promise<void> => {
   const response = await fetch(`${SERVER_PATH}words/${category}`);
@@ -33,6 +40,7 @@ export const postNewWord = async (newWord: ServerWord): Promise<void> => {
     });
 
     getWords(categoryId);
+    getAllWords();
 
   } catch(error) {
     alert('Error creating the Word. Please, try again');
@@ -48,6 +56,7 @@ export const deleteWord = async (id: string): Promise<void> => {
     });
 
     getWords(categoryId);
+    getAllWords();
 
   } catch(error) {
     alert('Error deleting the word. Please, try again');
@@ -75,6 +84,7 @@ export const updateWord = async (updatedWord: ServerWord, id: string):Promise<vo
     });
 
     getWords(categoryId);
+    getAllWords();
 
   } catch(error) {
     alert('Error updating the word. Please, try again');
