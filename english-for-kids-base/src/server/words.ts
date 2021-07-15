@@ -1,30 +1,37 @@
 import store from "../redux/store";
-import { setAllWordsListAction, setWordsListAction } from "../redux/actions";
+import { setWordsListAction } from "../redux/actions";
 import { SERVER_PATH } from "./constants";
 import { ServerWord } from "../components/admin-panel/types";
-
-export const getAllWords = async (): Promise<void> => {
-  const response = await fetch(`${SERVER_PATH}words`);
-  const result = await response.json();
-
-  setAllWordsListAction(result);
-}
+import { getLogin } from "../components/indexedDB";
 
 export const getWords = async (category: string): Promise<void> => {
-  const response = await fetch(`${SERVER_PATH}words/${category}`);
+  const currentToken = await getLogin();
+
+  const response = await fetch(`${SERVER_PATH}words/${category}`, {
+    headers: {
+      'token': `${currentToken}`
+    }
+  });
   const result = await response.json();
 
   setWordsListAction(result);
 }
 
 export const getWord = async (id: string): Promise<ServerWord> => {
-  const response = await fetch(`${SERVER_PATH}words/${id}`);
+  const currentToken = await getLogin();
+
+  const response = await fetch(`${SERVER_PATH}words/${id}`, {
+    headers: {
+      'token': `${currentToken}`
+    }
+  });
   return response.json();
 }
 
 export const postNewWord = async (newWord: ServerWord): Promise<void> => {
   const categoryId = store.getState().currentCategory;
   const formData = new FormData();
+  const currentToken = await getLogin();
 
   formData.append('id', newWord.id);
   formData.append('name', newWord.name);
@@ -36,11 +43,13 @@ export const postNewWord = async (newWord: ServerWord): Promise<void> => {
   try {
     await fetch(`${SERVER_PATH}words`, {
       method: 'POST',
+      headers: {
+        'token': `${currentToken}`
+      },
       body: formData,
     });
 
     getWords(categoryId);
-    getAllWords();
 
   } catch(error) {
     alert('Error creating the Word. Please, try again');
@@ -49,14 +58,17 @@ export const postNewWord = async (newWord: ServerWord): Promise<void> => {
 
 export const deleteWord = async (id: string): Promise<void> => {
   const categoryId = store.getState().currentCategory;
+  const currentToken = await getLogin();
 
   try {
     await fetch(`${SERVER_PATH}words/${id}`, {
       method: 'DELETE',
+      headers: {
+        'token': `${currentToken}`
+      }
     });
 
     getWords(categoryId);
-    getAllWords();
 
   } catch(error) {
     alert('Error deleting the word. Please, try again');
@@ -65,6 +77,7 @@ export const deleteWord = async (id: string): Promise<void> => {
 
 export const updateWord = async (updatedWord: ServerWord, id: string):Promise<void> => {
   const categoryId = store.getState().currentCategory;
+  const currentToken = await getLogin();
 
   const formData = new FormData();
 
@@ -80,11 +93,13 @@ export const updateWord = async (updatedWord: ServerWord, id: string):Promise<vo
   try {
     await fetch(`${SERVER_PATH}words/${id}`, {
       method: 'PUT',
+      headers: {
+        'token': `${currentToken}`
+      },
       body: formData,
     });
 
     getWords(categoryId);
-    getAllWords();
 
   } catch(error) {
     alert('Error updating the word. Please, try again');

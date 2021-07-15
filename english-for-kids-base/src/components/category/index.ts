@@ -1,6 +1,6 @@
 import { getCategoryInner } from "./render";
 import { getHash, redirectToDefaultPage } from "../../shared";
-import { getAllWords, getWords } from "../../server/words";
+import { getWords } from "../../server/words";
 import { ServerWordList } from "../admin-panel/types";
 
 export const renderCategoryPage = (wordsList: ServerWordList): void => {
@@ -17,5 +17,4 @@ export const startCategoryPage = (): void => {
   }
 
   getWords(currentCategory);
-  getAllWords();
 }

@@ -1,25 +1,41 @@
 import { setCategoriesListAction } from "../redux/actions";
 import { SERVER_PATH } from "./constants";
 import { ServerCategory } from "../components/admin-panel/types";
+import { getLogin } from "../components/indexedDB";
 
 export const getCategories = async (): Promise<void> => {
-  const response = await fetch(`${SERVER_PATH}categories`);
+  const currentToken = await getLogin();
+
+  const response = await fetch(`${SERVER_PATH}categories`, {
+    headers: {
+      'token': `${currentToken}`
+    }
+  });
   const result = await response.json();
 
   setCategoriesListAction(result);
 }
 
 export const getCategory = async (id: string): Promise<ServerCategory> => {
-  const response = await fetch(`${SERVER_PATH}categories/${id}`);
+  const currentToken = await getLogin();
+
+  const response = await fetch(`${SERVER_PATH}categories/${id}`, {
+    headers: {
+      'token': `${currentToken}`
+    }
+  });
   return response.json();
 }
 
 export const postNewCategory = async (newCategory: ServerCategory): Promise<void> => {
+  const currentToken = await getLogin();
+
   try {
     await fetch(`${SERVER_PATH}categories`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'token': `${currentToken}`
       },
       body: JSON.stringify(newCategory),
     });
@@ -32,9 +48,14 @@ export const postNewCategory = async (newCategory: ServerCategory): Promise<void
 };
 
 export const deleteCategory = async (id: string): Promise<void> => {
+  const currentToken = await getLogin();
+
   try {
     await fetch(`${SERVER_PATH}categories/${id}`, {
       method: 'DELETE',
+      headers: {
+        'token': `${currentToken}`
+      }
     });
 
     getCategories();
@@ -46,12 +67,14 @@ export const deleteCategory = async (id: string): Promise<void> => {
 
 export const updateCategory = async (updatedCategory: ServerCategory):Promise<void> => {
   const categoryId = updatedCategory.id;
+  const currentToken = await getLogin();
 
   try {
     await fetch(`${SERVER_PATH}categories/${categoryId}`, {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'token': `${currentToken}`
       },
       body: JSON.stringify(updatedCategory),
     });

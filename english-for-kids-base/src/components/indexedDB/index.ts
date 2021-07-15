@@ -1,7 +1,7 @@
 import store from "../../redux/store";
 import { StatisticConfig, StatisticWord } from "../statistics/types";
 import { STAT_PROPS } from "../statistics/constants";
-import { getAllWords } from "../../server/words";
+import { getAllWords } from "../../server/statistic-data";
 import { ServerWordList } from "../admin-panel/types";
 
 let db: IDBDatabase;
