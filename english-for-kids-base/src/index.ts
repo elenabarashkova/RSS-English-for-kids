@@ -3,7 +3,7 @@ import store from "./redux/store";
 import { initCommonPageTemplate, initPublicPageTemplate } from "./components";
 import { startRouter } from "./router";
 import { gameModeBehaviorToggle, gameStartTrack } from "./components/game-mode";
-import { ADMIN_ROUTE, ADMIN_ROUTE_WORDS, CATEGORY_ROUTE, MAIN_ROUTE } from "./router/constants";
+import { CATEGORY_ROUTE, MAIN_ROUTE } from "./router/constants";
 import { initializeDB } from "./components/indexedDB";
 import { startAdminCategories } from "./components/admin-panel/category";
 import { startAdminWords } from "./components/admin-panel/word";
@@ -33,14 +33,7 @@ window.addEventListener('load', () => {
     const isCurrentPageCategory = state.currentPage === CATEGORY_ROUTE;
     const isCategoryChanged = prevState.currentCategory !== state.currentCategory;
 
-    const prevPageIsAdmin = prevState.currentPage === ADMIN_ROUTE || prevState.currentPage === ADMIN_ROUTE_WORDS;
-    const currentPageIsNotAdmin = state.currentPage !== ADMIN_ROUTE && prevState.currentPage !== ADMIN_ROUTE_WORDS;
-
     const shouldSwitchGameBehavior = isGameModeChanged || (isPageChanged && isCurrentPageCategory) || isCategoryChanged;
-
-    // if(isPageChanged && prevPageIsAdmin && currentPageIsNotAdmin) {
-    //   initPublicPageTemplate();
-    // }
 
     if(prevState.isPending !== state.isPending && state.isPending) {
       renderSpinner();
