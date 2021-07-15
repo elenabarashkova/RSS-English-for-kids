@@ -32,8 +32,6 @@ const onHashChange = (): void => {
   }
 
   PAGES_CONFIG[route]();
-
-
 }
 
 export const startRouter = (): void => {

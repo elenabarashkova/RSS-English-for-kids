@@ -4,6 +4,7 @@ import { getGameModeBtn } from "./game-mode/game-mode-toggle/render";
 import { gameModeBtnBehavior } from "./game-mode/game-mode-toggle";
 import { initLogin } from "./login";
 import { getFooter, getMain } from "./render";
+import { getCategories } from "../server/categories";
 
 export const initCommonPageTemplate = (): void => {
   const container = document.createElement('div');
@@ -26,6 +27,8 @@ export const initPublicPageTemplate = (): void => {
   openMenu();
   initLogin();
   gameModeBtnBehavior();
+
+  getCategories();
 }
 
 export const stopPublicPageTemplate = (): void => {

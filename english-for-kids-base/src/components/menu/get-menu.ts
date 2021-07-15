@@ -11,6 +11,10 @@ export const renderSubMenuItems = (categoriesList: ServerCategoryList): void => 
   const subMenuList = document.getElementById('subMenuList');
   const subMenuItems = categoriesList.map((category) => getSubMenuItem(category)).join('');
 
+  if(subMenuList) {
+    subMenuList.innerHTML = '';
+  }
+
   subMenuList?.insertAdjacentHTML('afterbegin', subMenuItems);
 }
 

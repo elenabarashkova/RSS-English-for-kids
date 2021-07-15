@@ -4,8 +4,8 @@ import { initCommonPageTemplate, initPublicPageTemplate } from "./components";
 import { startRouter } from "./router";
 import { gameModeBehaviorToggle, gameStartTrack } from "./components/game-mode";
 import { startBehaviorTrain } from "./components/game-mode/train-mode";
-import { CATEGORY_ROUTE } from "./router/constants";
-import { initializeDB } from "./components/statistics/indexedDB";
+import { CATEGORY_ROUTE, MAIN_ROUTE } from "./router/constants";
+// import { initializeDB } from "./components/statistics/indexedDB";
 import { startAdminCategories } from "./components/admin-panel/category";
 import { startAdminWords } from "./components/admin-panel/word";
 import { renderMainPage } from "./components/main-page";
@@ -13,12 +13,13 @@ import { renderSubMenuItems } from "./components/menu/get-menu";
 import { renderCategoryPage } from "./components/category";
 
 window.addEventListener('load', () => {
-  initializeDB(() => {
-    initCommonPageTemplate();
-    initPublicPageTemplate();
-    startRouter();
-    // startBehaviorTrain();
-  });
+  // initializeDB(() => {
+  //
+  //   // startBehaviorTrain();
+  // });
+  initCommonPageTemplate();
+  initPublicPageTemplate();
+  startRouter();
 
   let prevState = store.getState();
 
@@ -34,21 +35,28 @@ window.addEventListener('load', () => {
 
     const shouldSwitchGameBehavior = isGameModeChanged || (isPageChanged && isCurrentPageCategory) || isCategoryChanged;
 
-    if (shouldSwitchGameBehavior) {
-      gameModeBehaviorToggle(gameState.gameMode);
-    }
-
     if(prevState.categoriesList !== state.categoriesList) {
       startAdminCategories(state.categoriesList);
-      renderMainPage(state.categoriesList);
       renderSubMenuItems(state.categoriesList);
+    }
+
+    if((prevState.categoriesList !== state.categoriesList || isPageChanged) && state.currentPage === MAIN_ROUTE) {
+      renderMainPage(state.categoriesList);
     }
 
     if(prevState.wordsList !== state.wordsList) {
       startAdminWords(state.wordsList);
-      renderCategoryPage(state.wordsList);
-      startBehaviorTrain();
     }
+
+    if(prevState.wordsList !== state.wordsList && state.currentPage === CATEGORY_ROUTE) {
+      renderCategoryPage(state.wordsList);
+      gameModeBehaviorToggle(gameState.gameMode);
+    }
+
+    if (shouldSwitchGameBehavior) {
+      gameModeBehaviorToggle(gameState.gameMode);
+    }
+
     gameStartTrack(gameState.isGameStarted);
 
     prevState = state;

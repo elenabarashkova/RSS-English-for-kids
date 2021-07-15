@@ -1,14 +1,14 @@
 import { playAudioTag } from "../../../shared";
-import { updateWord } from "../../statistics/indexedDB";
+// import { updateWord } from "../../statistics/indexedDB";
 
 const cardTrainHandler = (event: Event): void => {
   const target = event.target as HTMLElement;
 
   const card = target.closest('.word-card');
 
-  if(card) {
-    updateWord(card.id, 'trainedNum');
-  }
+  // if(card) {
+  //   updateWord(card.id, 'trainedNum');
+  // }
 
   const turnCardBtn = target.classList.contains('turn-card-btn');
   const cardInner = card?.querySelector('.card-inner');
