@@ -7,9 +7,10 @@ import {
   setCurrentPageAction,
 } from "../redux/actions";
 import { setActiveMenuItem } from "../components/menu";
-import { ADMIN_ROUTE_WORDS } from "./constants";
+import { ADMIN_ROUTE, ADMIN_ROUTE_WORDS } from "./constants";
+import { getIsLogin } from "../components/indexedDB";
 
-const onHashChange = (): void => {
+const onHashChange = async (): Promise<void> => {
   isGameStartedAction(false);
   mistakesCountAction(false);
 
@@ -24,6 +25,15 @@ const onHashChange = (): void => {
   if (!PAGES_CONFIG[route]) {
     redirectToDefaultPage();
     return;
+  }
+
+  if(route === ADMIN_ROUTE) {
+    const isLogin = await getIsLogin();
+
+    if(!isLogin) {
+      redirectToDefaultPage();
+      return;
+    }
   }
 
   if(adminWordRoute) {

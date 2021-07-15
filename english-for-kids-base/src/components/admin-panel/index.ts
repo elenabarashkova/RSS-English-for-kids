@@ -1,6 +1,7 @@
 import { initPublicPageTemplate, stopPublicPageTemplate } from "../index";
 import { getAdminPanelInner } from "./render";
 import { redirectToDefaultPage } from "../../shared";
+import { setIsLogin } from "../indexedDB";
 
 export const initAdminPage = (): void => {
   stopPublicPageTemplate();
@@ -11,7 +12,8 @@ export const initAdminPage = (): void => {
 
   const logoutBtn = document.getElementById('logoutBtn');
 
-  logoutBtn?.addEventListener('click', () => {
+  logoutBtn?.addEventListener('click', async () => {
+    await setIsLogin(false);
     redirectToDefaultPage();
     initPublicPageTemplate();
   });

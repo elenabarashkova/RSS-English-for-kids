@@ -31,6 +31,15 @@ const fillDefaultConfig = async () => {
   });
 }
 
+let fillDefaultLoginNeeded = false;
+
+const fillDefaultLogin = () => {
+  const transaction = db.transaction(['authorization'], 'readwrite');
+  const dbStore = transaction.objectStore('authorization');
+
+  dbStore.add({key: 'login', value: false});
+}
+
 export const initializeDB = (callback: CallableFunction): void => {
   const openRequest = indexedDB.open('elenabarashkova', 1);
 
@@ -45,6 +54,8 @@ export const initializeDB = (callback: CallableFunction): void => {
 
     if (!thisDB.objectStoreNames.contains('authorization')) {
       thisDB.createObjectStore('authorization', {keyPath: "key"});
+
+      fillDefaultLoginNeeded = true;
     }
   }
 
@@ -53,6 +64,10 @@ export const initializeDB = (callback: CallableFunction): void => {
 
     if (fillDefaultNeeded) {
       fillDefaultConfig();
+    }
+
+    if (fillDefaultLoginNeeded) {
+      fillDefaultLogin();
     }
 
     callback();
