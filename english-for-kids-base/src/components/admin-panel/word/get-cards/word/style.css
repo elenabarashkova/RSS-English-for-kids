@@ -41,3 +41,22 @@
 .word-sound:hover {
   color: #47aac9;
 }
+
+@media (max-width: 1024px){
+
+  .admin-word-card.admin-card {
+    width: 48%;
+  }
+}
+
+@media (max-width: 639px){
+
+  .admin-categiries-wrap {
+    gap: 0;
+    justify-content: space-between;
+  }
+
+  .admin-word-card.admin-card {
+    width: 98%;
+  }
+}

@@ -51,3 +51,12 @@
   cursor: default;
   color: #3c8297;
 }
+
+@media (max-width: 639px){
+
+  .admin-menu-item {
+    list-style: none;
+    width: auto;
+    margin-right: 15px;
+  }
+}

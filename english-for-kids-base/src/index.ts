@@ -3,7 +3,6 @@ import store from "./redux/store";
 import { initCommonPageTemplate, initPublicPageTemplate } from "./components";
 import { startRouter } from "./router";
 import { gameModeBehaviorToggle, gameStartTrack } from "./components/game-mode";
-import { startBehaviorTrain } from "./components/game-mode/train-mode";
 import { CATEGORY_ROUTE, MAIN_ROUTE } from "./router/constants";
 // import { initializeDB } from "./components/statistics/indexedDB";
 import { startAdminCategories } from "./components/admin-panel/category";
@@ -35,8 +34,11 @@ window.addEventListener('load', () => {
 
     const shouldSwitchGameBehavior = isGameModeChanged || (isPageChanged && isCurrentPageCategory) || isCategoryChanged;
 
-    if(prevState.categoriesList !== state.categoriesList) {
+    if(prevState.categoriesList !== state.categoriesList && !state.currentCategory) {
       startAdminCategories(state.categoriesList);
+    }
+
+    if(prevState.categoriesList !== state.categoriesList) {
       renderSubMenuItems(state.categoriesList);
     }
 
