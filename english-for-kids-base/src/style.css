@@ -1,0 +1,87 @@
+@import "components/footer.css";
+@import "components/game-mode/game-mode-toggle/game-mode-toggle.css";
+@import "components/menu/menu-button.css";
+@import "components/menu/menu.css";
+@import "components/menu/menu-items.css";
+@import "components/card/card.css";
+@import "components/card/category-card.css";
+@import "components/card/word-card.css";
+@import "components/category/category.css";
+@import "components/game-mode/popup/popup.css";
+@import "components/statistics/statistics.css";
+@import "components/login/login.css";
+@import "components/admin-panel/admin-panel.css";
+@import "components/admin-panel/category/get-cards/category/style.css";
+@import "components/admin-panel/category/get-cards/create-category/style.css";
+@import "components/admin-panel/category/get-cards/new-category/style.css";
+@import "components/admin-panel/word/get-cards/word/style.css";
+@import "components/admin-panel/word/get-cards/create-word/style.css";
+@import "components/admin-panel/word/get-cards/new-word/style.css";
+@import "components/spinner/style.css";
+
+:root {
+  --padding-for-main-top-desctop: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  position: relative;
+}
+
+body {
+  display: flex;
+  min-height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  position: relative;
+  padding-bottom: 50px;
+}
+
+@media (max-width: 599px) {
+
+  body {
+    padding-bottom: 116px;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (min-width: 1920px){
+
+  .container {
+    max-width: 1620px;
+  }
+}
+
+@media (max-width: 1919px){
+
+  .container {
+    padding: 0 100px;
+  }
+}
+
+@media (max-width: 1199px){
+
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 639px){
+
+  .container {
+    padding: 0 10px;
+  }
+}
+
+main {
+  padding-top: var(--padding-for-main-top-desctop);
+  margin-bottom: 30px;
+}

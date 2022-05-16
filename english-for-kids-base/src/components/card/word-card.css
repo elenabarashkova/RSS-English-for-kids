@@ -1,0 +1,76 @@
+.word-card {
+  border: 1px solid lightgrey;
+}
+
+.card-inner {
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  position: relative;
+}
+
+.word-card .card-inner.turn {
+  transform: rotateY(180deg);
+}
+
+.caption-turned {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.word-card .card-inner.turn .caption-normal {
+  display: none;
+}
+
+.word-card .card-inner.turn .caption-turned {
+  display: flex;
+  transform: rotateY(-180deg);
+}
+
+.in-game .word-card .card-caption {
+  display: none;
+}
+
+.in-game .word-card .card-pic {
+  height: 100%;
+}
+
+.word-card.disabled {
+  background: darkseagreen;
+  cursor: default;
+}
+
+.word-card .turn-card-btn {
+  height: 100%;
+  width: 34px;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  cursor: pointer;
+  background-image: url('../../assets/turn-card.png');
+}
+
+.word-card .turn-card-btn:hover {
+  filter: invert(100%) sepia(100%) saturate(10000%) hue-rotate(162deg);
+}
+
+.word-card.disabled .card-inner:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #808080a3;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.word-card .card-caption {
+  width: 85%;
+}

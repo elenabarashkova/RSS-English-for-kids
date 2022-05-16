@@ -1,0 +1,88 @@
+.footer {
+  border-top: 1px solid #a2abb3;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: lightblue;
+  width: 100%;
+}
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+footer svg {
+  max-height: 40px;
+  width: auto;
+}
+
+.footer-item {
+  display: flex;
+  width: 33%;
+  flex-basis: 33%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  height: 100%;
+  align-items: center;
+}
+
+.github {
+  display: block;
+  color: #333;
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+.footer-year {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.footer-item:last-child {
+  justify-content: flex-end;
+}
+
+.rss {
+  display: block;
+  position: relative;
+  text-decoration: none;
+}
+
+.rss-year {
+  font-size: 21px;
+  color: #333;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+@media (max-width: 599px){
+
+  .footer {
+    height: 116px;
+  }
+
+  footer .container {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .footer-item {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+
+  .footer-year {
+    text-align: left;
+  }
+
+  .footer-item:last-child {
+    justify-content: flex-start;
+    margin-bottom: 5px;
+  }
+}

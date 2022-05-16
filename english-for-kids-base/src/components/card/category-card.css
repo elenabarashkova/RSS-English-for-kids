@@ -1,0 +1,22 @@
+.category-card {
+  text-decoration: none;
+  color: #333333;
+}
+
+.category-card .card-pic {
+  border-radius: 50%;
+  border: 2px solid lightblue;
+  overflow: hidden;
+}
+
+.category-card .caption-normal {
+  justify-content: center;
+}
+
+.category-card:hover .card-pic {
+  border-color: #47aac9;
+}
+
+.category-card:hover .caption-text {
+  color: #47aac9;
+}

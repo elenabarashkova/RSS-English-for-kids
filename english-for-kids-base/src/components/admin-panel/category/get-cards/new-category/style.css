@@ -1,0 +1,33 @@
+.new-cat-card .admin-card-inner-edit {
+  display: block;
+}
+
+.edit-cat-name {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-cat-name span,
+.edit-cat-name input {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.edit-cat-name span {
+  text-align: center;
+  font-size: 24px;
+}
+
+.edit-cat-name input {
+  height: 30px;
+  line-height: 30px;
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+.edit-cat-name input:focus {
+  outline: none;
+  border-color: #47aac9;
+}

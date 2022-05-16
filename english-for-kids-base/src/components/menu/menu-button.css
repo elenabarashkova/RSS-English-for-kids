@@ -1,0 +1,49 @@
+.menu-toggler {
+  position: relative;
+  width: 40px;
+  height: 39px;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.menu-toggler span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 3px;
+  border-radius: 1px;
+  background: lightblue;
+  margin-bottom: 10px;
+  transition: transform .5s ease;
+}
+
+.menu-toggler span:last-child {
+  margin-bottom: 0;
+}
+
+.menu-toggler.opened {
+  transform: translateX(250px);
+}
+
+.menu-toggler.opened span {
+  margin: 0;
+  transform: rotate(45deg);
+}
+
+.menu-toggler.opened span:nth-child(2) {
+  transform: translateX(-150px);
+}
+
+.menu-toggler.opened span:last-child {
+  transform: rotate(-45deg);
+  top: -5px;
+}
+
+.menu-toggler:hover span {
+  background: #47aac9;
+}

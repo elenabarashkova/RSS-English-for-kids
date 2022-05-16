@@ -1,0 +1,67 @@
+.game-btn,
+.stars-wrap {
+  display: none;
+}
+
+.in-game .game-btn.start-game-btn {
+  display: block;
+  margin: 0 auto;
+  height: 40px;
+  padding: 0 60px;
+  font-size: 18px;
+  text-transform: uppercase;
+  outline: none;
+  border: 1px solid lightgray;
+  background: #e3babf;
+  cursor: pointer;
+  color: #333;
+}
+
+.in-game .game-btn.start-game-btn:hover,
+.in-game .game-btn.repeat-word-btn:hover {
+  background: #e08c99;
+}
+
+.in-game.game-started .game-btn.start-game-btn {
+  display: none;
+}
+
+.in-game.game-started .game-btn.repeat-word-btn,
+.in-game.game-started .stars-wrap{
+  display: block;
+}
+
+.in-game.game-started .game-btn.repeat-word-btn {
+  background-image: url('../../assets/repeat.png');
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  outline: none;
+  border: 1px solid lightgray;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #e3babf;
+}
+
+.stars-container {
+  overflow: hidden;
+  height: 40px;
+  width: 100%;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.stars-wrap {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 10000px;
+}
+
+.star-icon > svg {
+  width: 40px;
+  height: 40px;
+}
